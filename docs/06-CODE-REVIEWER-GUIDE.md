@@ -7,9 +7,9 @@
 | 要回答的问题 | 源码（相对仓库根目录） | 验证入口 |
 |---|---|---|
 | 用户改名后如何识别设备？ | `glass-playground/Domain/DeviceProfiles.cs`、`DiscoveryCandidates.cs` | `tests/DesktopReadOnly/Program.cs` |
-| 配对成功是否等于可访问？ | `Application/PairingNegotiation.cs`、`ProtectedGatt.cs`、`Infrastructure/WindowsBleTransport.cs`（均在 glass-playground 下） | Program 中认证、通知订阅门控检查；docs/14 |
-| 文件能否安装？ | `Domain/FirmwareContainer.cs`、`FirmwareCatalog.cs`、`Application/FirmwareImport.cs` | `FirmwareChecks.cs`；docs/19 |
-| 断线后从哪里续传？ | `Application/ResumableUpgrade.cs` 的 RunAsync/Transfer、`Domain/UpgradeContext.cs` | `ResumableUpgradeChecks.cs`、`UpgradeRecoveryChecks.cs`；docs/17 |
+| 配对成功是否等于可访问？ | `Application/PairingNegotiation.cs`、`ProtectedGatt.cs`、`Infrastructure/WindowsBleTransport.cs`（均在 glass-playground 下） | Program 中认证、通知订阅门控检查；docs/03-BLUETOOTH-AND-WINDOWS.md |
+| 文件能否安装？ | `Domain/FirmwareContainer.cs`、`FirmwareCatalog.cs`、`Application/FirmwareImport.cs` | `FirmwareChecks.cs`；docs/05-THIRD-PARTY-FIRMWARE-GUIDE.md |
+| 断线后从哪里续传？ | `Application/ResumableUpgrade.cs` 的 RunAsync/Transfer、`Domain/UpgradeContext.cs` | `ResumableUpgradeChecks.cs`、`UpgradeRecoveryChecks.cs`；docs/02-UPGRADE-AND-VALIDATION.md |
 | ACK、通知、写入响应有什么区别？ | `Domain/UpgradeWire.cs`、`Application/UpgradeMailbox.cs` | `UpgradeChecks.cs`、`UpgradeRecoveryChecks.cs` |
 | 如何防止两个进程同时刷入？ | `Infrastructure/UpgradeJournalStore.cs`、`UpgradeWorker.cs` | `JournalStoreChecks.cs`；实机进程/GATT 仍须验收 |
 | 连续点击会覆盖另一条 EQ 吗？ | `Application/SoundWriteQueue.cs`、`SoundControl.cs`、`SoundStepperState.cs` | `SoundQueueChecks.cs`、`SoundStepperChecks.cs` |
@@ -42,10 +42,12 @@
 - 不带固件也能构建与运行部分离线测试；使用 WithoutFirmwareMaterials 时明确跳过真实文件依赖检查，不计为完整验证。固件导入仍按安装规范检查。
 - 项目自有代码采用 GPL-3.0-only；第三方依赖 notices 随发布包保留，官方固件再分发权尚待决定。
 - tools/export_public_source.ps1 使用明确文件清单创建独立快照，不修改本地 Git 历史；本地历史含个人路径，暂不建议直接全部推送。
-- 部分历史协议证据文档不包含在精简公开快照中；文中的 docs/14、docs/17、docs/21 是本地研究审阅参考，不是运行依赖。公开快照应以源码、测试和随附规范复核可复现行为。
+- 公开技术文档按固件修改、升级校验、蓝牙实现排列；未公开的原始固件与本机日志不是构建依赖。请结合源码和随附测试复核结论。
 ## 公开资料边界
 
 DeviceLog 当前只写本地，不自动上传；日志可能包含串号、蓝牙地址、本机路径和异常堆栈。公开 issue 前应脱敏；ETL、升级记录、截图、固件和研究归档应单独审核。当前规则性凭据检查只覆盖指定源码文本与若干常见凭据格式，未审计全部历史、二进制或日志，不能证明仓库无秘密。
 
 2026-11-17 已完成 Codex Security Standard 静态扫描：112 个文本/源码文件未发现可确认漏洞；二进制图像、许可证法律文本、外部运行库内部及动态实机攻击测试不在完整审阅覆盖内。此前扫描未启动成功的历史工具错误记录保留在未公开的本地审阅材料中。用户已确认早期单文件版本在另一台干净 Windows 上功能正常；最新自动下载版未重复完整跨机验收。
+
+
 

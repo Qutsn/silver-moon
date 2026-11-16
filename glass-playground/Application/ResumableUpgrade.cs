@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Middleton.Desktop;
 
 // Persistent evidence, not a trusted device checkpoint. Every reconnect rechecks
-// serial/model, image ID and PS4 before using these fields (see docs/17).
+// serial/model, image ID and PS4 before using these fields (see docs/02-UPGRADE-AND-VALIDATION.md).
 // ConfirmedFrontier is a high-water mark; AcknowledgedBytes includes retransmits.
 public sealed class UpgradeJournal
 {
@@ -32,7 +32,7 @@ public sealed record UpgradeProgress(InstallationState State,string Message,long
 /// Serial upgrade coordinator for the hash-pinned images and admitted fixed-layout MCU packages.
 /// Transport loss permits reconnect; protocol/identity failures stop without guessing.
 /// Completion requires COMPLETE_IND, observed disconnect and fresh version/idle reads.
-/// This does not prove that the startup sound has finished (docs/17).
+/// This does not prove that the startup sound has finished (docs/02-UPGRADE-AND-VALIDATION.md).
 /// </summary>
 public sealed class ResumableUpgrade
 {
@@ -308,3 +308,4 @@ public sealed class ResumableUpgrade
   if(ack.Status!=0)throw new UpgradeProtocolException(AppText.Format("Upgrade.CommandRejected",ack.Command,ack.Status));
  }
 }
+

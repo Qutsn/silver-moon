@@ -1,6 +1,6 @@
 # Silvered Moon
 
-Unofficial Windows utility for Marshall Middleton. Control your speaker, install firmware, and remove AUX amplifier sleep and the ten-minute auto-off behavior.
+Unofficial Marshall Middleton management and firmware utility. Install modified firmware to disable AUX sleep and ten-minute auto-off.
 
 [简体中文](README.zh-CN.md) · [Download](https://github.com/Qutsn/silvered-moon/releases)
 
@@ -10,7 +10,7 @@ Unofficial Windows utility for Marshall Middleton. Control your speaker, install
 - Volume, bass, and treble controls with device-state updates.
 - Official firmware download, SHA-256 verification, local patching, and cached rollback files.
 - Firmware installation with reconnection and resume support.
-- Import of third-party firmware matching the [supported format](docs/19-THIRD-PARTY-FIRMWARE-GUIDE.md).
+- Import of third-party firmware matching the [supported format](docs/05-THIRD-PARTY-FIRMWARE-GUIDE.md).
 - Portable EXE with automatic English/Chinese language selection.
 
 ## Usage
@@ -21,16 +21,16 @@ Turn on the speaker, scan and select its LE device, then open controls or choose
 
 **Pre-release · unsigned EXE.** Windows may display a SmartScreen warning. Release assets include SHA-256 checksums.
 
-## Technical Notes
+## Technical Documentation
 
 The linked research documents are currently in Chinese.
 
 | Topic | Documentation |
 |---|---|
-| Sleep conditions, MCU patches, and the 18-byte r2 change | [Firmware modifications](docs/28-FIRMWARE-PATCHES.md) |
-| Upgrade recovery states, verification, and resume behavior | [Installation and validation](docs/29-UPGRADE-AND-VALIDATION.md) |
-| Audio vs. BLE, GATT services, Windows pairing, and sound controls | [Bluetooth and Windows](docs/30-BLUETOOTH-AND-WINDOWS.md) |
-| Supported-version checks, downloads, caching, and local patching | [Firmware preparation](docs/27-OFFICIAL-FIRMWARE-PREPARATION.md) |
+| Sleep conditions, MCU patches, and the 18-byte r2 change | [Firmware modifications](docs/01-FIRMWARE-PATCHES.md) |
+| Upgrade recovery states, verification, and resume behavior | [Installation and validation](docs/02-UPGRADE-AND-VALIDATION.md) |
+| Audio vs. BLE, GATT services, Windows pairing, and sound controls | [Bluetooth and Windows](docs/03-BLUETOOTH-AND-WINDOWS.md) |
+| Supported-version checks, downloads, caching, and local patching | [Firmware preparation](docs/04-OFFICIAL-FIRMWARE-PREPARATION.md) |
 
 Currently supports Middleton with official 17.0.37 and project r2 (display version 25.2.52). The patch suppresses the identified AUX sleep call and ten-minute shutdown request—not all power-management or protection mechanisms. The installation path avoids the normal full-package signature-verification entry point; it neither creates a valid vendor signature nor removes all subsequent checks.
 
@@ -47,6 +47,8 @@ Windows, PowerShell 7, and .NET SDK 10:
 
 Tests requiring proprietary firmware are skipped in this mode.
 
-[Build guide](glass-playground/RELEASE.md) · [Code guide](docs/22-CODE-REVIEWER-GUIDE.md) · [Localization](docs/20-UI-LOCALIZATION.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+[Build guide](glass-playground/RELEASE.md) · [Code guide](docs/06-CODE-REVIEWER-GUIDE.md) · [Localization](docs/07-UI-LOCALIZATION.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
 [GPL-3.0-only](LICENSE) for project-owned code. Not affiliated with or endorsed by Marshall. Firmware and dependencies retain their respective rights; API availability does not establish permission for third-party use.
+
+

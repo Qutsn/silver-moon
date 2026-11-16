@@ -3,7 +3,7 @@ using System.Buffers.Binary;
 
 namespace Middleton.Desktop;
 // Middleton-specific PS4 layout established by captured readbacks, not a generic
-// CSR/Marshall schema. See docs/17 and UpgradeRecoveryChecks for preservation tests.
+// CSR/Marshall schema. See docs/02-UPGRADE-AND-VALIDATION.md and UpgradeRecoveryChecks for preservation tests.
 // Word() is big-endian; image ID word order is intentionally reversed (12, then 11).
 public sealed class UpgradeContext
 {
@@ -31,3 +31,4 @@ public sealed class UpgradeContext
   var payload=new byte[78];payload[1]=4;raw.CopyTo(payload,2);payload[28]=0;payload[29]=1;return payload;
  }
 }
+

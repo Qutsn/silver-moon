@@ -8,7 +8,7 @@ namespace Middleton.Desktop;
 /// The two adjacent MCU payloads may change; all other bytes must match the
 /// reviewed r2 base. Hashes enforce metadata, filesystem and QCC preservation.
 /// Admission proves this rule only, not that arbitrary MCU instructions can boot.
-/// See docs/19 for offsets, provenance and the device-side completion boundary.
+/// See docs/05-THIRD-PARTY-FIRMWARE-GUIDE.md for offsets, provenance and the device-side completion boundary.
 /// </summary>
 public static class ThirdPartyFirmware
 {
@@ -29,3 +29,4 @@ public static class ThirdPartyFirmware
  }
  static bool Matches(ReadOnlySpan<byte> bytes,string expected)=>Convert.ToHexString(SHA256.HashData(bytes)).Equals(expected,StringComparison.OrdinalIgnoreCase);
 }
+
