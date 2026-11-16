@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework><RollForward>LatestMajor</RollForward><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup>
+  <ItemGroup><Compile Include="../../glass-playground/Domain/*.cs" Link="Domain/%(Filename)%(Extension)"/><Compile Include="../../glass-playground/Application/*.cs" Link="Application/%(Filename)%(Extension)"/></ItemGroup>
+<ItemGroup><Compile Include="../../glass-playground/Infrastructure/UpgradeJournalStore.cs" Link="Infrastructure/UpgradeJournalStore.cs" /></ItemGroup><ItemGroup><EmbeddedResource Include="../../glass-playground/Localization/zh.json;../../glass-playground/Localization/en.json" LogicalName="GlassPlayground.Localization.%(Filename)%(Extension)" /></ItemGroup></Project>

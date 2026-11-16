@@ -1,0 +1,9 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:GlassPlayground" x:Class="GlassPlayground.MainWindow" Title="Glass Playground · In-App" Width="1220" Height="850" MinWidth="1000" MinHeight="720" Background="#202724">
+<Grid RowDefinitions="Auto,*,Auto" Margin="24" RowSpacing="16">
+ <StackPanel Spacing="8"><TextBlock Text="Glass Playground" FontSize="30"/><TextBlock Text="应用内部玻璃 / 此窗口不透明，背景来自实时绘制的测试网格"/><WrapPanel><Button x:Name="NativeButton" Content="打开独立 Native Backdrop 窗口"/><Button x:Name="RefractionPreset" Content="折射验证预设" Margin="12,0"/><Button x:Name="SmokedPreset" Content="烟灰玻璃预设"/><Button x:Name="ThemeButton" Content="浅色 / 深色" Margin="12,0"/></WrapPanel></StackPanel>
+ <Grid Grid.Row="1" ColumnDefinitions="300,*" ColumnSpacing="24">
+  <ScrollViewer><StackPanel x:Name="Parameters" Spacing="10"/></ScrollViewer>
+  <Grid Grid.Column="1" RowDefinitions="*,Auto" RowSpacing="12"><Grid x:Name="Scene" ClipToBounds="True"><local:TestPattern x:Name="Pattern"/><Canvas x:Name="Surfaces"/></Grid><TextBlock Grid.Row="1" x:Name="SceneNote" Text="观察卡片边缘的网格线位移；模糊、透明度和折射分别控制。"/></Grid>
+ </Grid>
+ <TextBlock x:Name="Telemetry" Grid.Row="2" FontSize="12"/>
+</Grid></Window>

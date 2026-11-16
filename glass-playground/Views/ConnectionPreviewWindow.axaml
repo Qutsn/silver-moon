@@ -1,0 +1,187 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:GlassPlayground"
+ x:Class="GlassPlayground.ConnectionPreviewWindow" Title="{local:Tr ConnectionPreviewWindow.Title.189}"
+ Width="1080" Height="675" MinWidth="800" MinHeight="500" Background="Transparent"
+ TransparencyLevelHint="AcrylicBlur" TransparencyBackgroundFallback="#20252B" WindowDecorations="None" FontFamily="Microsoft YaHei UI, Microsoft YaHei, Segoe UI">
+ <Window.Styles>
+  <Style Selector="Button.deviceCandidate.selected /template/ Border#SecondarySurface"><Setter Property="Background" Value="#38E5EBDD"/><Setter Property="BorderBrush" Value="#B0D9DED6"/></Style>
+  <Style Selector="Button.caption">
+   <Setter Property="Background" Value="Transparent"/>
+   <Setter Property="BorderThickness" Value="0"/>
+   <Setter Property="Padding" Value="0"/>
+   <Setter Property="CornerRadius" Value="0"/>
+   <Setter Property="HorizontalAlignment" Value="Stretch"/>
+   <Setter Property="VerticalAlignment" Value="Stretch"/>
+   <Setter Property="Template">
+    <ControlTemplate><Border x:Name="CaptionBackground" Background="{TemplateBinding Background}" CornerRadius="0" BorderThickness="0"><ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/></Border></ControlTemplate>
+   </Setter>
+  </Style>
+  <Style Selector="Button.caption:pointerover /template/ Border#CaptionBackground"><Setter Property="Background" Value="#42E1E7EB"/></Style>
+  <Style Selector="Button.caption:pressed /template/ Border#CaptionBackground"><Setter Property="Background" Value="#52D2DBE1"/></Style>
+  <Style Selector="Button.caption.close:pointerover /template/ Border#CaptionBackground"><Setter Property="Background" Value="#D0B94A40"/></Style>
+  <Style Selector="Button.caption.close:pressed /template/ Border#CaptionBackground"><Setter Property="Background" Value="#DE9F3E36"/></Style>
+  <Style Selector="Button.connect">
+   <Setter Property="Template">
+    <ControlTemplate>
+     <Border x:Name="ConnectSurface" Background="#C4EFF0E9" BorderBrush="#48FFFFFF" BorderThickness="1" CornerRadius="32" RenderTransformOrigin="50%,50%" RenderTransform="scale(1)">
+      <Border.Transitions>
+       <Transitions>
+        <BrushTransition Property="Background" Duration="0:0:0.18"/>
+        <BrushTransition Property="BorderBrush" Duration="0:0:0.18"/>
+        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.14"/>
+       </Transitions>
+      </Border.Transitions>
+      <ContentPresenter Content="{TemplateBinding Content}" TextElement.Foreground="#343A33" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+     </Border>
+    </ControlTemplate>
+   </Setter>
+  </Style>
+  <Style Selector="Button.connect:pointerover /template/ Border#ConnectSurface"><Setter Property="Background" Value="#FFF8F9F3"/><Setter Property="BorderBrush" Value="#E6FFFFFF"/></Style>
+  <Style Selector="Button.connect:pressed /template/ Border#ConnectSurface">
+   <Setter Property="Background" Value="#F2DBDED4"/>
+   <Setter Property="RenderTransform" Value="scale(0.99)"/>
+  </Style>
+  <Style Selector="Button.connect:focus-visible /template/ Border#ConnectSurface"><Setter Property="BorderBrush" Value="#90FFFFFF"/><Setter Property="BorderThickness" Value="2"/></Style>
+  <Style Selector="Button.secondary">
+   <Setter Property="Foreground" Value="#F4F3EC"/>
+   <Setter Property="Template"><ControlTemplate>
+    <Border x:Name="SecondarySurface" Background="Transparent" BorderBrush="#70D9DED6" BorderThickness="1" CornerRadius="26" Padding="10,0">
+     <Border.Transitions><Transitions><BrushTransition Property="Background" Duration="0:0:0.18"/></Transitions></Border.Transitions>
+     <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Border>
+   </ControlTemplate></Setter>
+  </Style>
+  <Style Selector="Button.secondary:pointerover /template/ Border#SecondarySurface"><Setter Property="Background" Value="#20FFFFFF"/></Style>
+  <Style Selector="Button.secondary:pressed /template/ Border#SecondarySurface"><Setter Property="Background" Value="#30FFFFFF"/></Style>
+  <Style Selector="Button.secondary.retry /template/ Border#SecondarySurface"><Setter Property="CornerRadius" Value="32"/></Style>
+  <Style Selector="Button.secondary.link /template/ Border#SecondarySurface"><Setter Property="BorderThickness" Value="0"/><Setter Property="CornerRadius" Value="8"/></Style>
+  <Style Selector="Button.movingAction">
+   <Setter Property="Template"><ControlTemplate><Border x:Name="ActionHover" CornerRadius="32" Background="Transparent"><Border.Transitions><Transitions><BrushTransition Property="Background" Duration="0:0:0.18"/></Transitions></Border.Transitions><ContentPresenter Content="{TemplateBinding Content}" TextElement.Foreground="#343A33" HorizontalAlignment="Center" VerticalAlignment="Center"/></Border></ControlTemplate></Setter>
+  </Style>
+  <Style Selector="Button.movingAction:pointerover /template/ Border#ActionHover"><Setter Property="Background" Value="#50FFFFFF"/></Style>
+  <Style Selector="Button.movingAction:pressed /template/ Border#ActionHover"><Setter Property="Background" Value="#18000000"/></Style>
+  <Style Selector="Button.caption:pointerover Border.minimizeGlyph"><Setter Property="Background" Value="#FF344049"/></Style>
+  <Style Selector="Button.caption.close:pointerover Path.closeGlyph"><Setter Property="Stroke" Value="#FFFFFFFF"/></Style>
+ </Window.Styles>
+ <Grid>
+    <Grid x:Name="StaticMaterial" Opacity="0.9087078651685393" IsHitTestVisible="False">
+      <Border><Border.Background><LinearGradientBrush StartPoint="10%,0%" EndPoint="75%,100%">
+        <GradientStop Color="#B447505A" Offset="0"/><GradientStop Color="#B43F4852" Offset="0.28"/>
+        <GradientStop Color="#B436404A" Offset="0.58"/><GradientStop Color="#B42F3943" Offset="0.82"/><GradientStop Color="#B42D3741" Offset="1"/>
+      </LinearGradientBrush></Border.Background></Border>
+      <Border x:Name="SoftLight"><Border.Background><RadialGradientBrush Center="20%,-35%" GradientOrigin="20%,-35%" RadiusX="125%" RadiusY="135%">
+        <GradientStop Color="#20E8EDF3" Offset="0"/><GradientStop Color="#13E8EDF3" Offset="0.35"/><GradientStop Color="#06E8EDF3" Offset="0.7"/><GradientStop Color="#00E8EDF3" Offset="1"/>
+      </RadialGradientBrush></Border.Background></Border>
+      <Border><Border.Background><RadialGradientBrush Center="115%,110%" GradientOrigin="115%,110%" RadiusX="95%" RadiusY="110%">
+        <GradientStop Color="#125F788F" Offset="0"/><GradientStop Color="#055F788F" Offset="0.55"/><GradientStop Color="#005F788F" Offset="1"/>
+      </RadialGradientBrush></Border.Background></Border>
+    </Grid>
+    <Border x:Name="BrightnessLayer" Background="Black" Opacity="0.25" IsHitTestVisible="False"/>
+    <Image x:Name="DitherLayer" Source="/Assets/fine-dither.png" Stretch="Fill" Opacity="0.40" IsHitTestVisible="False"/>
+
+  <Viewbox x:Name="ConnectionPage" Stretch="Uniform">
+   <Canvas Width="1440" Height="900">
+
+    <Border x:Name="DiscoveryPanel" Canvas.Left="900" Canvas.Top="172" Width="392" Height="566" IsVisible="False">
+     <ScrollViewer x:Name="DiscoveryScroll" VerticalAlignment="Center" MaxHeight="450" UseLayoutRounding="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" AllowAutoHide="False">
+      <ScrollViewer.Styles>
+       <Style Selector="ScrollBar:vertical"><Setter Property="Width" Value="14"/><Setter Property="MinWidth" Value="14"/><Setter Property="Background" Value="Transparent"/></Style>
+       <Style Selector="ScrollBar:vertical /template/ Grid#Root"><Setter Property="Background" Value="Transparent"/></Style>
+       <Style Selector="ScrollBar:vertical /template/ Border#VerticalRoot"><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/></Style>
+       <Style Selector="ScrollBar:vertical /template/ Rectangle#TrackRect"><Setter Property="IsVisible" Value="False"/></Style>
+       <Style Selector="ScrollBar:vertical /template/ RepeatButton#PART_LineUpButton"><Setter Property="IsVisible" Value="False"/></Style>
+       <Style Selector="ScrollBar:vertical /template/ RepeatButton#PART_LineDownButton"><Setter Property="IsVisible" Value="False"/></Style>
+       <Style Selector="ScrollBar:vertical /template/ RepeatButton"><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/></Style>
+       <Style Selector="ScrollBar:vertical /template/ Thumb /template/ Border"><Setter Property="Width" Value="8"/><Setter Property="MinWidth" Value="8"/><Setter Property="CornerRadius" Value="4"/></Style>
+      </ScrollViewer.Styles>
+      <StackPanel x:Name="DiscoveryItems" Spacing="10" Margin="0,2,8,2"/>
+     </ScrollViewer>
+    </Border>
+    <StackPanel Canvas.Left="112" Canvas.Top="172" Spacing="0">
+     <StackPanel x:Name="WelcomeTitle" Spacing="0">
+      <TextBlock Text="{local:Tr ConnectionPreviewWindow.Text.9067}" FontFamily="Segoe UI" FontSize="64" Foreground="#F4F3EC"/>
+      <TextBlock Text="Middleton" FontSize="124" FontFamily="Georgia" Foreground="#F4F3EC"/>
+     </StackPanel>
+     <TextBlock x:Name="ConnectingTitle" IsVisible="False" Height="230" Text="{local:Tr ConnectionPreviewWindow.Text.9325}" FontSize="64" Foreground="#F4F3EC"/>
+     <TextBlock x:Name="ConnectionInstruction" Margin="0,97.08,0,60" Text="{local:Tr ConnectionPreviewWindow.Text.9445}" FontSize="19" FontWeight="Normal" Foreground="#F4F3EC"/>
+     <Button Classes="connect" x:Name="ConnectButton" HorizontalAlignment="Left" Width="290" Height="64" CornerRadius="32" FontSize="20" Foreground="#343A33" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{local:Tr ConnectionPreviewWindow.Content.9785}"/>
+    </StackPanel>
+   </Canvas>
+  </Viewbox>
+  <Viewbox x:Name="SelectionPage" Stretch="Uniform" IsVisible="False">
+   <Canvas Width="1440" Height="900">
+    <TextBlock Canvas.Left="100" Canvas.Top="154" Text="{local:Tr ConnectionPreviewWindow.Text.10015}" FontSize="46" Foreground="#F4F3EC"/>
+    <TextBlock Canvas.Left="104" Canvas.Top="220" Text="{local:Tr ConnectionPreviewWindow.Text.10119}" FontSize="17" Foreground="#CCCEC8"/>
+    <Button x:Name="SelectionDetailsButton" Classes="secondary" Canvas.Left="1126" Canvas.Top="208" Width="182" Height="52" FontSize="16" Content="{local:Tr ConnectionPreviewWindow.Content.10320}"/>
+    <Border x:Name="SelectionDivider" Canvas.Left="28" Canvas.Top="278" Width="1384" Height="1" Background="#858982"/>
+    <local:FirmwareChooser x:Name="FirmwareChooser" Canvas.Left="86" Canvas.Top="314" Width="1268" Height="490"/>
+    <Button x:Name="BackButton" Classes="secondary link" Canvas.Left="1200" Canvas.Top="815" Width="150" Height="40" FontSize="14" Content="{local:Tr ConnectionPreviewWindow.Content.10706}"/>
+   </Canvas>
+  </Viewbox>
+  <Viewbox x:Name="TransferPage" Stretch="Uniform" IsVisible="False">
+   <Canvas Width="1440" Height="900">
+    <TextBlock x:Name="TransferTitle" Canvas.Left="100" Canvas.Top="154" Text="{local:Tr ConnectionPreviewWindow.Text.10938}" FontSize="46" Foreground="#F4F3EC"/>
+    <TextBlock x:Name="TransferFirmware" Canvas.Left="104" Canvas.Top="220" FontSize="17" Foreground="#CCCEC8" MaxWidth="1100" TextTrimming="CharacterEllipsis"/>
+    <Border Canvas.Left="28" Canvas.Top="278" Width="1384" Height="1" Background="#858982"/>
+    <TextBlock x:Name="TransferPercent" Canvas.Left="100" Canvas.Top="322" Text="0" FontFamily="Georgia" FontSize="160" Foreground="#F4F3EC"/>
+    <TextBlock x:Name="TransferPercentSign" Canvas.Left="400" Canvas.Top="430" Text="%" FontSize="40" Foreground="#F4F3EC"/>
+    <StackPanel x:Name="TransferRemainingPanel" Canvas.Left="698" Canvas.Top="410" Spacing="20">
+     <TextBlock Text="{local:Tr ConnectionPreviewWindow.Text.11631}" FontSize="16" Foreground="#CCCEC8"/>
+     <TextBlock x:Name="TransferRemaining" Text="—" FontSize="32" FontWeight="Light" Foreground="#F4F3EC"/>
+    </StackPanel>
+    <StackPanel x:Name="TransferSpeedPanel" Canvas.Left="925" Canvas.Top="410" Spacing="20">
+     <TextBlock Text="{local:Tr ConnectionPreviewWindow.Text.11921}" FontSize="16" Foreground="#CCCEC8"/>
+     <TextBlock x:Name="TransferSpeed" Text="—" FontSize="32" FontWeight="Light" Foreground="#F4F3EC"/>
+    </StackPanel>
+    <StackPanel Canvas.Left="1180" Canvas.Top="410" Spacing="20">
+     <TextBlock x:Name="TransferElapsedLabel" Text="{local:Tr ConnectionPreviewWindow.Text.12208}" FontSize="16" Foreground="#CCCEC8"/>
+     <TextBlock x:Name="TransferElapsed" Text="00:00" FontSize="32" FontWeight="Light" Foreground="#F4F3EC"/>
+    </StackPanel>
+    <StackPanel x:Name="PhaseInformation" Canvas.Left="110" Canvas.Top="352" Width="940" Spacing="24" IsVisible="False">
+     <TextBlock x:Name="PhaseHeadline" FontSize="48" Foreground="#F4F3EC"/>
+     <TextBlock x:Name="PhaseExplanation" FontSize="20" LineHeight="32" TextWrapping="Wrap" Foreground="#CCCEC8"/>
+    </StackPanel>
+    <StackPanel x:Name="PhaseEvidence" Canvas.Left="110" Canvas.Top="585" Width="980" Spacing="12" IsVisible="False">
+     <Border Height="1" Background="#70858C82"/>
+     <TextBlock x:Name="PhaseNext" FontSize="18" Foreground="#CCCEC8"/>
+    </StackPanel>
+    <TextBlock x:Name="TransferStatus" Canvas.Left="110" Canvas.Top="542" Text="{local:Tr ConnectionPreviewWindow.Text.13057}" FontSize="20" Foreground="#F4F3EC"/>
+    <Border x:Name="TransferTrack" Canvas.Left="110" Canvas.Top="598" Width="1220" Height="10" CornerRadius="5" Background="#44858C82"/>
+    <Border x:Name="TransferFill" Canvas.Left="110" Canvas.Top="598" Width="0" Height="10" CornerRadius="5" Background="#DFE5D9"/>
+    <Ellipse x:Name="TransferTip" Canvas.Left="99" Canvas.Top="592" Width="22" Height="22" Fill="#F4F3EC"/>
+    <local:ConnectionFocus x:Name="PhaseSpinner" Width="1440" Height="900" IsHitTestVisible="False" IsVisible="False"/>
+    <Button x:Name="SpeakerDetailsButton" Canvas.Left="1073.5" Canvas.Top="578" Width="253" Height="64" Classes="connect" IsVisible="False" ToolTip.Tip="{local:Tr ConnectionPreviewWindow.ToolTip.Tip.13754}">
+     <TextBlock x:Name="SpeakerDetailsLabel" Text="{local:Tr ConnectionPreviewWindow.Text.13822}" FontSize="19" Foreground="#343A33"/>
+    </Button>
+    <Button x:Name="RetryTransferButton" Canvas.Left="900" Canvas.Top="553.5" Width="144" Height="64" Classes="secondary retry" FontSize="19" Content="{local:Tr ConnectionPreviewWindow.Content.14029}" IsVisible="False"/>
+    <StackPanel x:Name="TransferStage0" Canvas.Left="110" Canvas.Top="715" Width="364" Spacing="14">
+     <Border Height="1" Background="#CFD5CA"/><TextBlock x:Name="TransferStageLabel0" Text="{local:Tr ConnectionPreviewWindow.Text.14251}" FontSize="24" Foreground="#F4F3EC"/>
+    </StackPanel>
+    <StackPanel x:Name="TransferStage1" Canvas.Left="534" Canvas.Top="715" Width="364" Spacing="14" Opacity="0.4">
+     <Border Height="1" Background="#CFD5CA"/><TextBlock x:Name="TransferStageLabel1" Text="{local:Tr ConnectionPreviewWindow.Text.14527}" FontSize="24" Foreground="#F4F3EC"/>
+    </StackPanel>
+    <StackPanel x:Name="TransferStage2" Canvas.Left="958" Canvas.Top="715" Width="364" Spacing="14" Opacity="0.4">
+     <Border Height="1" Background="#CFD5CA"/><TextBlock Text="{local:Tr ConnectionPreviewWindow.Text.14774}" FontSize="24" Foreground="#F4F3EC"/>
+    </StackPanel>
+    <Button x:Name="TransferBack" Classes="secondary link" Canvas.Left="1160" Canvas.Top="815" Width="200" Height="40" FontSize="14" Content="{local:Tr ConnectionPreviewWindow.Content.14982}"/>
+   </Canvas>
+  </Viewbox>
+  <Viewbox x:Name="DevicePage" Stretch="Uniform" IsVisible="False">
+   <local:DeviceDetailsView x:Name="DeviceDetails" Width="1440" Height="900"/>
+  </Viewbox>
+  <Canvas x:Name="ConnectionMotionLayer" IsVisible="False" IsHitTestVisible="False"/>
+  <!-- Transparent hit area only; no separate title-strip material. -->
+  <Grid x:Name="TopDragArea" VerticalAlignment="Top" Height="38" Background="Transparent" ColumnDefinitions="*,52,57">
+   <Button x:Name="MinimizeButton" Classes="caption" Grid.Column="1" AutomationProperties.Name="{local:Tr ConnectionPreviewWindow.AutomationProperties.Name.15543}" ToolTip.Tip="{local:Tr ConnectionPreviewWindow.ToolTip.Tip.15575}">
+    <Border Classes="minimizeGlyph" Width="12" Height="1.6" Background="#FF89969F" IsHitTestVisible="False"/>
+   </Button>
+   <Button x:Name="CloseButton" Classes="caption close" Grid.Column="2" AutomationProperties.Name="{local:Tr ConnectionPreviewWindow.AutomationProperties.Name.15792}" ToolTip.Tip="{local:Tr ConnectionPreviewWindow.ToolTip.Tip.15823}">
+    <Path Classes="closeGlyph" Data="M 0,0 L 12,12 M 0,12 L 12,0" Stroke="#FF89969F" StrokeThickness="1.6" Width="12" Height="12" IsHitTestVisible="False"/>
+   </Button>
+  </Grid>
+  <Border x:Name="WindowOutline" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1" BorderBrush="#64E0E5DC" IsHitTestVisible="False"/>
+  <Grid x:Name="ModalHost" IsVisible="False"/>
+ </Grid>
+</Window>
+
+
+

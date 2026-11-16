@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="GlassPlayground.GlassPreviewWindow" Title="Middleton · Glass Preview"
+        Width="960" Height="680" MinWidth="760" MinHeight="560"
+        Background="Transparent" TransparencyLevelHint="AcrylicBlur,None"
+        TransparencyBackgroundFallback="#20252B" WindowDecorations="None">
+  <Grid>
+    <!-- Always-present material: translucent, so supported native blur remains visible.
+         Also renders a designed surface when Windows substitutes black for the backdrop. -->
+    <Grid x:Name="StaticMaterial" IsHitTestVisible="False">
+      <Border><Border.Background><LinearGradientBrush StartPoint="10%,0%" EndPoint="75%,100%">
+        <GradientStop Color="#B447505A" Offset="0"/><GradientStop Color="#B43F4852" Offset="0.28"/>
+        <GradientStop Color="#B436404A" Offset="0.58"/><GradientStop Color="#B42F3943" Offset="0.82"/><GradientStop Color="#B42D3741" Offset="1"/>
+      </LinearGradientBrush></Border.Background></Border>
+      <Border x:Name="SoftLight"><Border.Background><RadialGradientBrush Center="20%,-35%" GradientOrigin="20%,-35%" RadiusX="125%" RadiusY="135%">
+        <GradientStop Color="#20E8EDF3" Offset="0"/><GradientStop Color="#13E8EDF3" Offset="0.35"/><GradientStop Color="#06E8EDF3" Offset="0.7"/><GradientStop Color="#00E8EDF3" Offset="1"/>
+      </RadialGradientBrush></Border.Background></Border>
+      <Border><Border.Background><RadialGradientBrush Center="115%,110%" GradientOrigin="115%,110%" RadiusX="95%" RadiusY="110%">
+        <GradientStop Color="#125F788F" Offset="0"/><GradientStop Color="#055F788F" Offset="0.55"/><GradientStop Color="#005F788F" Offset="1"/>
+      </RadialGradientBrush></Border.Background></Border>
+    </Grid>
+    <Border x:Name="BrightnessLayer" Background="White" Opacity="0" IsHitTestVisible="False"/>
+    <Image x:Name="DitherLayer" Source="/Assets/fine-dither.png" Stretch="Fill" Opacity="0.35" IsHitTestVisible="False"/>
+    <Border BorderThickness="1" IsHitTestVisible="False">
+      <Border.BorderBrush>
+        <LinearGradientBrush StartPoint="0%,0%" EndPoint="15%,100%">
+          <GradientStop Color="#36F0F5FA" Offset="0"/>
+          <GradientStop Color="#12F0F5FA" Offset="0.18"/>
+          <GradientStop Color="#08F0F5FA" Offset="1"/>
+        </LinearGradientBrush>
+      </Border.BorderBrush>
+    </Border>
+    <Grid Margin="38,24,38,32" RowDefinitions="Auto,*,Auto">
+      <Grid x:Name="DragArea" Background="Transparent" ColumnDefinitions="*,Auto" Height="40">
+        <TextBlock Text="MIDDLETON" FontSize="13" LetterSpacing="3" Foreground="#CCD9E1E8" VerticalAlignment="Center"/>
+        <Button x:Name="CloseButton" Grid.Column="1" Content="关闭" Background="#0CFFFFFF" BorderBrush="#1CFFFFFF" BorderThickness="1"/>
+      </Grid>
+      <StackPanel Grid.Row="1" VerticalAlignment="Center" Spacing="26" Margin="22,0">
+        <TextBlock Text="连接您的 Middleton" FontSize="42" FontWeight="SemiBold" Foreground="#F5F7FA"/>
+        <TextBlock Text="将音箱切换至蓝牙配对模式" FontSize="17" Foreground="#CFD9E2"/>
+        <Border x:Name="GlassCard" Width="400" HorizontalAlignment="Left" CornerRadius="20" Padding="26"
+                BorderThickness="1" BoxShadow="0 16 48 -8 #20000000">
+          <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0%,0%" EndPoint="25%,100%">
+              <GradientStop Color="#45FFFFFF" Offset="0"/>
+              <GradientStop Color="#1DFFFFFF" Offset="0.16"/>
+              <GradientStop Color="#0CFFFFFF" Offset="0.65"/>
+              <GradientStop Color="#16FFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+          </Border.BorderBrush>
+          <Border.Background>
+            <LinearGradientBrush StartPoint="0%,0%" EndPoint="15%,100%"><GradientStop Color="#16F2F5F9" Offset="0"/><GradientStop Color="#0DF2F5F9" Offset="0.45"/><GradientStop Color="#07F2F5F9" Offset="1"/></LinearGradientBrush>
+          </Border.Background>
+          <StackPanel Spacing="12">
+            <TextBlock Text="玻璃材质预览" FontSize="20" Foreground="#F5F7FA"/>
+            <TextBlock Text="当前仅展示外观，不会连接音箱。" FontSize="14" Foreground="#CFD9E2"/>
+          </StackPanel>
+        </Border>
+      </StackPanel>
+      <Grid Grid.Row="2" RowDefinitions="1,Auto" RowSpacing="18">
+        <Border Background="#1AFFFFFF"/>
+        <TextBlock Grid.Row="1" Text="静态材质与系统模糊叠加 · 无电源状态读取 · 无持续背景动画" FontSize="12" Foreground="#C1CEDA"/>
+      </Grid>
+    </Grid>
+  </Grid>
+</Window>

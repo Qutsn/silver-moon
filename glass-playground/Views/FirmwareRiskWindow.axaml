@@ -1,0 +1,67 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:GlassPlayground" xmlns:acrylic="using:Fluid.Avalonia.Acrylic" x:Class="GlassPlayground.FirmwareRiskWindow" acrylic:AcrylicBackdrop.IsExcludedFromCapture="True" FontFamily="Microsoft YaHei UI, Microsoft YaHei, Segoe UI">
+ <UserControl.Styles>
+  <Style Selector="Button.detailToggle">
+   <Setter Property="Width" Value="48"/><Setter Property="Height" Value="44"/>
+   <Setter Property="Padding" Value="0"/><Setter Property="FontSize" Value="20"/>
+   <Setter Property="Foreground" Value="#D5DDE0"/><Setter Property="Background" Value="Transparent"/>
+   <Setter Property="BorderThickness" Value="0"/>
+   <Setter Property="Template"><ControlTemplate><Border x:Name="DetailSurface" Background="{TemplateBinding Background}" BorderThickness="0"><ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/></Border></ControlTemplate></Setter>
+  </Style>
+  <Style Selector="Button.detailToggle:pointerover Path"><Setter Property="Stroke" Value="#EFF4F7F8"/></Style>
+  <Style Selector="Button.dialogAction">
+   <Setter Property="Width" Value="104"/><Setter Property="Height" Value="42"/>
+   <Setter Property="FontSize" Value="15"/><Setter Property="Foreground" Value="#E9ECEE"/>
+   <Setter Property="Background" Value="#14FFFFFF"/>
+   <Setter Property="Template"><ControlTemplate>
+    <Border x:Name="Surface" Background="{TemplateBinding Background}" BorderBrush="#50FFFFFF" BorderThickness="1" CornerRadius="21">
+     <Border.Transitions><Transitions><BrushTransition Property="Background" Duration="0:0:0.16"/></Transitions></Border.Transitions>
+     <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Border>
+   </ControlTemplate></Setter>
+  </Style>
+  <Style Selector="Button.dialogAction.primary"><Setter Property="Background" Value="#DFEFF0E9"/><Setter Property="Foreground" Value="#343A33"/></Style>
+  <Style Selector="Button.dialogAction:pointerover /template/ Border#Surface"><Setter Property="Background" Value="#38FFFFFF"/></Style>
+  <Style Selector="Button.dialogAction.primary:pointerover /template/ Border#Surface"><Setter Property="Background" Value="#FFF8F9F3"/></Style>
+  <Style Selector="Button.dialogAction:pressed /template/ Border#Surface"><Setter Property="Opacity" Value="0.8"/></Style>
+  <Style Selector="Button.dialogAction:focus-visible /template/ Border#Surface"><Setter Property="BorderBrush" Value="White"/><Setter Property="BorderThickness" Value="2"/></Style>
+ </UserControl.Styles>
+ <Grid x:Name="DismissArea" Background="Transparent">
+ <Border x:Name="Shade" Opacity="0" Background="#42000000" IsHitTestVisible="False"/>
+ <Border x:Name="DialogCard" Opacity="0" Width="680" MaxHeight="760" Margin="24" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="18" ClipToBounds="True" BorderBrush="#40E0E5DC" BorderThickness="1" RenderTransformOrigin="50%,50%">
+ <Grid>
+ <acrylic:AcrylicSurface x:Name="DialogGlass" CornerRadius="18" BlurRadius="24" BackdropOpacity="0" Vibrancy="1" RefractionAmount="0" TintColor="Transparent" SurfaceColor="Transparent" HighlightEnabled="False" ShadowEnabled="False" IsHitTestVisible="False"/>
+ <Border Background="#38323C45" Padding="40">
+
+  <Grid RowDefinitions="Auto,Auto,*,Auto" RowSpacing="28">
+   <TextBlock Text="{local:Tr FirmwareRiskWindow.Text.3425}" FontSize="34" FontWeight="Medium" Foreground="#E9ECEE"/>
+   <TextBlock x:Name="FirmwareName" Grid.Row="1" FontSize="20" FontWeight="Medium" Foreground="#E9ECEE" TextTrimming="CharacterEllipsis"/>
+   <ScrollViewer x:Name="DetailsScroll" Grid.Row="2" MaxHeight="500"><StackPanel Spacing="16">
+    <Grid ColumnDefinitions="*,48" ColumnSpacing="24" Margin="0,12,0,0">
+     <TextBlock Text="{local:Tr FirmwareRiskWindow.Text.3824}" FontSize="25" FontWeight="Medium" Foreground="#E9ECEE"/>
+     <Button x:Name="RiskDetailsButton" Grid.Column="1" Classes="detailToggle" VerticalAlignment="Center" ToolTip.Tip="{local:Tr FirmwareRiskWindow.ToolTip.Tip.4007}" AutomationProperties.Name="{local:Tr FirmwareRiskWindow.AutomationProperties.Name.4026}">
+      <Path x:Name="RiskChevron" Width="16" Height="10" Data="M 1,2 L 8,8 L 15,2" StrokeThickness="3.2" Stroke="#BFE4EBEE" StrokeLineCap="Round" StrokeJoin="Round" RenderTransformOrigin="50%,50%">
+      </Path>
+     </Button>
+    </Grid>
+    <Border x:Name="RiskDetailsFrame" Height="0" ClipToBounds="True"><TextBlock x:Name="RiskDetails" IsVisible="True" Text="{local:Tr FirmwareRiskWindow.Text.4427}" FontSize="14" LineHeight="24" TextWrapping="Wrap" Foreground="#B9C2C8"/></Border>
+    <Grid ColumnDefinitions="*,48" ColumnSpacing="24" Margin="0,20,0,0">
+     <TextBlock Text="{local:Tr FirmwareRiskWindow.Text.4645}" FontSize="25" FontWeight="Medium" Foreground="#E9ECEE"/>
+     <Button x:Name="TimeDetailsButton" Grid.Column="1" Classes="detailToggle" VerticalAlignment="Center" ToolTip.Tip="{local:Tr FirmwareRiskWindow.ToolTip.Tip.4828}" AutomationProperties.Name="{local:Tr FirmwareRiskWindow.AutomationProperties.Name.4847}">
+      <Path x:Name="TimeChevron" Width="16" Height="10" Data="M 1,2 L 8,8 L 15,2" StrokeThickness="3.2" Stroke="#BFE4EBEE" StrokeLineCap="Round" StrokeJoin="Round" RenderTransformOrigin="50%,50%">
+      </Path>
+     </Button>
+    </Grid>
+    <Border x:Name="TimeDetailsFrame" Height="0" ClipToBounds="True"><TextBlock x:Name="TimeDetails" IsVisible="True" Text="{local:Tr Firmware.TimeDetails}" FontSize="13" LineHeight="23" TextWrapping="Wrap" Foreground="#AEB9C0"/></Border>
+    <TextBlock x:Name="CustomWarning" Text="{local:Tr FirmwareRiskWindow.Text.5582}" FontSize="13" TextWrapping="Wrap" Foreground="#D5BE9C" IsVisible="False"/>
+   </StackPanel></ScrollViewer>
+   <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="12">
+    <Button x:Name="CancelButton" Classes="dialogAction" Content="{local:Tr FirmwareRiskWindow.Content.5876}"/>
+    <Button x:Name="ConfirmButton" Classes="dialogAction primary" Content="{local:Tr FirmwareRiskWindow.Content.5958}"/>
+   </StackPanel>
+  </Grid>
+ </Border>
+ </Grid>
+ </Border>
+ <Canvas x:Name="ButtonFlight" IsHitTestVisible="False"/>
+ </Grid>
+</UserControl>

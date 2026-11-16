@@ -1,0 +1,474 @@
+[
+  {
+    "path": ".gitignore",
+    "sha256": "1A30BD236DFD60728BA701594D5FC9151B60AA77B1DCC8FB51594788645E2285"
+  },
+  {
+    "path": "CONTRIBUTING.md",
+    "sha256": "A84D40C15B098319C521FE0B1E8C13629D4BBCEE607E29FB35D9C368E0CFC251"
+  },
+  {
+    "path": "LICENSE",
+    "sha256": "3972DC9744F6499F0F9B2DBF76696F2AE7AD8AF9B23DDE66D6AF86C9DFB36986"
+  },
+  {
+    "path": "README.md",
+    "sha256": "40B2CEC7E160C519F9D79695BF10157A05DCC1DCBE12E2E1F745569ECC805623"
+  },
+  {
+    "path": "SECURITY.md",
+    "sha256": "DF44A2A9A52108C14CC87032AEC66A0B51533535A88095FF94D2C52210E76338"
+  },
+  {
+    "path": ".github/workflows/windows.yml",
+    "sha256": "EFE492FA07C04A70FBD86960CC3FCC1DC76938AC0B216B2024D9F7E6B7CD7993"
+  },
+  {
+    "path": "docs/19-THIRD-PARTY-FIRMWARE-GUIDE.md",
+    "sha256": "687505F73F7A5FB23990771AAFD518F5E1E8BEE9BEAE49D8743D6E6098C91369"
+  },
+  {
+    "path": "docs/20-UI-LOCALIZATION.md",
+    "sha256": "825EBB7FD6243D70E2E52A6C74765F47BED4ACE9305E80DB77F3F3487E714142"
+  },
+  {
+    "path": "docs/22-CODE-REVIEWER-GUIDE.md",
+    "sha256": "0E09D74599F27CDA7DDD7598B857F8583DE40700EB8A48C24DF513F693C0C95A"
+  },
+  {
+    "path": "docs/27-OFFICIAL-FIRMWARE-PREPARATION.md",
+    "sha256": "4FF02A92E9CB07F2098483203C1B5421B7B9712F30935DAE44F61E2A4143BA1A"
+  },
+  {
+    "path": "docs/PUBLIC-README.md",
+    "sha256": "40B2CEC7E160C519F9D79695BF10157A05DCC1DCBE12E2E1F745569ECC805623"
+  },
+  {
+    "path": "glass-playground/App.axaml",
+    "sha256": "F42E1A1088A54282600AF0A278F182F4D00886490F66C8042D7491A944FB3AE3"
+  },
+  {
+    "path": "glass-playground/app.manifest",
+    "sha256": "77949A6272D1754E61A50F21FA5C549A428459A5AEF6E16F41E79742DD4AB979"
+  },
+  {
+    "path": "glass-playground/build.ps1",
+    "sha256": "2C7C8179A6836C789AC08132AB3C4CE1A9A4963EE55AEA09F9108E7F443EDD63"
+  },
+  {
+    "path": "glass-playground/check-localization.ps1",
+    "sha256": "EF139EAE761940CD2866A2D966B10D615455DB0334535DCA107CFD74DBA415E4"
+  },
+  {
+    "path": "glass-playground/collect-notices.ps1",
+    "sha256": "9C35EB359F67F7EE5B8C363355DD5EE9E254D3332C07F6E642E630430803580D"
+  },
+  {
+    "path": "glass-playground/Directory.Build.targets",
+    "sha256": "C5C844D825B771766BC52F304DB6BB381AD98DF7AF87C3BB31A2276B39637D83"
+  },
+  {
+    "path": "glass-playground/GlassPlayground.csproj",
+    "sha256": "58E97644A07AF6C1030F593C2CC296AF00990DD5F5924500085B288ADAE7FA7D"
+  },
+  {
+    "path": "glass-playground/NativeDiagnostics.cs",
+    "sha256": "78D1283F88F0302409DBA38F855C3E1028DE32D67EB77E3C6B1FA65C0DBEC816"
+  },
+  {
+    "path": "glass-playground/NuGet.Config",
+    "sha256": "410513ECCD05220A58DEBF3F726DCD101529F2C344BEC15CCD492A430E482232"
+  },
+  {
+    "path": "glass-playground/Program.cs",
+    "sha256": "AD3F15F0EA6369E602AC983EF6C1180B13194E725A7F39E1BE23351CF564AE37"
+  },
+  {
+    "path": "glass-playground/release-integrity.ps1",
+    "sha256": "EE72068CE1E2199CFFD5AFE4DFFA12070C29B8FC544B32E47A900A3A61B67293"
+  },
+  {
+    "path": "glass-playground/RELEASE.md",
+    "sha256": "5A33A5E24CD787BE0AB5B833296E0254EC3D9DCF0033C777623944E36D359AC0"
+  },
+  {
+    "path": "glass-playground/sdk-environment.ps1",
+    "sha256": "B744BA8FA2E74BE0573F68B9B6D5E2DDD14B1F2612CAFB44850D6F16E05FE01C"
+  },
+  {
+    "path": "glass-playground/stage-release.ps1",
+    "sha256": "AE0FBBF6021D4E8496A89C8FF1DDEACD9099C147AAED5F04EC068BD958B60F83"
+  },
+  {
+    "path": "glass-playground/TestPattern.cs",
+    "sha256": "598D1C5BBB0C5AB913AEA4357C9E2BBB3ADA24C7331C91B8E3D41CE95CCA92E5"
+  },
+  {
+    "path": "glass-playground/UiText.cs",
+    "sha256": "92CA213EA86814BAC9DE754A3014E6EF59103BFAA5726BFF9108601864554194"
+  },
+  {
+    "path": "glass-playground/verify-portable.ps1",
+    "sha256": "2F8EBAFCABA77D4C679E155A68F32679124B1B40A2E4527379AF95F94C0BB478"
+  },
+  {
+    "path": "glass-playground/WindowsBackdropProbe.cs",
+    "sha256": "893929BD843812B928EE5C073E960292B0FF583ED105634685818D30F4A051FD"
+  },
+  {
+    "path": "glass-playground/Application/DeviceConnection.cs",
+    "sha256": "5CD97DCF4758D9BCEDC3736C4C118F5AF1F4F65760977D6BA95355A796E68150"
+  },
+  {
+    "path": "glass-playground/Application/FirmwareImport.cs",
+    "sha256": "52F000917A5DCCBA10E51771D97F42590C810A9EC1A6EEC7994BD5C15DBEF8A9"
+  },
+  {
+    "path": "glass-playground/Application/FirmwarePreparation.cs",
+    "sha256": "2D50F97F03E7B46701C16893379129E52F93D85A1DFF3C915F2AD396CA253020"
+  },
+  {
+    "path": "glass-playground/Application/OfficialUpgradeCoordinator.cs",
+    "sha256": "9F52769EC92DDF2A370713D65292C93C644FC413287D5312796461A0836F7BFD"
+  },
+  {
+    "path": "glass-playground/Application/PairingNegotiation.cs",
+    "sha256": "ADA44E4341DEE3344A7B1B3871F01B4982FFA963710609DF76D41DE5E7AC99C3"
+  },
+  {
+    "path": "glass-playground/Application/ProtectedGatt.cs",
+    "sha256": "0DDF8601C9F228604CE61FBC27715A9F150258496D33738566350CFE8C87571E"
+  },
+  {
+    "path": "glass-playground/Application/ResumableUpgrade.cs",
+    "sha256": "D55C2B61AE7D692E4D53C751212D0B0127716A599D59864F86BC7E04E369D80F"
+  },
+  {
+    "path": "glass-playground/Application/SoundControl.cs",
+    "sha256": "4E2D751EA7D0090A57F7F5F2E216A598F339CC562BB08EF788B1995221C82D15"
+  },
+  {
+    "path": "glass-playground/Application/SoundStepperState.cs",
+    "sha256": "9EC8F0353F4DCAEA168FF56C1FB3268794996486E253B0AE44A2EB9D7758CB9E"
+  },
+  {
+    "path": "glass-playground/Application/SoundWriteQueue.cs",
+    "sha256": "69DB736A9AF0F053634D64226D92E89616CDB46338413498814F2D32DDA70C6B"
+  },
+  {
+    "path": "glass-playground/Application/TransferRate.cs",
+    "sha256": "11C77855C57DFD9941F3AE6B1F6AE58B1B40D5A7E309BA19B7EC6699052FB86C"
+  },
+  {
+    "path": "glass-playground/Application/UpgradeDataTransfer.cs",
+    "sha256": "F524AF8626F98A85E8C8B60033AD637DB6661ECBE30AFB9E37E9613B8F2B847C"
+  },
+  {
+    "path": "glass-playground/Application/UpgradeLink.cs",
+    "sha256": "817F8ED7A8E84E685E17050A8D027D242C18449116AA5F80EC062F521C479A13"
+  },
+  {
+    "path": "glass-playground/Application/UpgradeMailbox.cs",
+    "sha256": "558F77425271F3C36F0EC76E201E372AE13B2429D2FF1CD1AA6CC62B5A38F2A7"
+  },
+  {
+    "path": "glass-playground/Assets/concept-background.png",
+    "sha256": "D40DC31883974CDC616D591588C7DA02F7D344C13F418B937D93A7F4FD0C95AE"
+  },
+  {
+    "path": "glass-playground/Assets/fine-dither.png",
+    "sha256": "035A3C5E8FB5B6612F2C4EB3F66D09FBFF8AAF35943F68BC2BCCB832279F5BA9"
+  },
+  {
+    "path": "glass-playground/Assets/glass-material.png",
+    "sha256": "0246DE4FCC06AD2D27DACCA8318F336A43D40AEFACDD8C735F75ECD9DBBBAA7D"
+  },
+  {
+    "path": "glass-playground/Assets/glass-surface.png",
+    "sha256": "6853C2353BB30DEB739EB9BB780998DDE8A5B84E0A29D274A651542996B7921D"
+  },
+  {
+    "path": "glass-playground/Assets/ICON.md",
+    "sha256": "2B5D4DB5AF3A5FA555070564A08085EB75F93FD302A907A732774BEC3DA17AEE"
+  },
+  {
+    "path": "glass-playground/Assets/silvered-moon.ico",
+    "sha256": "3F65ABA9408C3E636CCE38F76BCE111D1E8C4FF1E7984A47EFE387628D92AE92"
+  },
+  {
+    "path": "glass-playground/Domain/AppText.cs",
+    "sha256": "8AE0345E99D97430DF9A145EED0FF552C06C3DD446DC4B5EF21CC96547A933AD"
+  },
+  {
+    "path": "glass-playground/Domain/DeviceModels.cs",
+    "sha256": "1B21060BEFD2B2D5FB31529685E09D8CC2B83FF685F3BB16157224B667A33A50"
+  },
+  {
+    "path": "glass-playground/Domain/DeviceProfiles.cs",
+    "sha256": "3D4456103CA2A1C52A8C611ABBEB553F293E3318B41B90AC9EA1F9682C4FF33C"
+  },
+  {
+    "path": "glass-playground/Domain/DiscoveryCandidates.cs",
+    "sha256": "4151D6FAEBE62DC10A56612F1EECE025F0C678092618FA0F9C208220C34BF18C"
+  },
+  {
+    "path": "glass-playground/Domain/FirmwareCatalog.cs",
+    "sha256": "F5E573976D5C7A10348083242FEADCA1EEC43C781FA5807372116B703B49289B"
+  },
+  {
+    "path": "glass-playground/Domain/FirmwareContainer.cs",
+    "sha256": "004E101D46D919DD79DA574FB457184B4D715EC39140FC12FC0E13385F1D8CFB"
+  },
+  {
+    "path": "glass-playground/Domain/SoundCommands.cs",
+    "sha256": "CCE1501FA7DDCE32E4BA09AF553713988B450911EC2E6B93A73E0BC7EE5CB77F"
+  },
+  {
+    "path": "glass-playground/Domain/ThirdPartyFirmware.cs",
+    "sha256": "91DE5FAE560DC5C228736AE804BACBA3AF86C485D692B09C61544C8084798DFE"
+  },
+  {
+    "path": "glass-playground/Domain/UiLanguage.cs",
+    "sha256": "FF5DEFC66A8842311AA50957B51E28C9FC385C46B7082453F9C827B9EF5CBBEF"
+  },
+  {
+    "path": "glass-playground/Domain/UpgradeContext.cs",
+    "sha256": "4B30B9CC3BDB90DDDF2D446F28B0ABDFF146FD233F5BD6F338BD8D0DD9075789"
+  },
+  {
+    "path": "glass-playground/Domain/UpgradeWire.cs",
+    "sha256": "5830B1681DFC91F44B8828FE93070F7CDD94CB2D612CF4D2750CDD014B00567A"
+  },
+  {
+    "path": "glass-playground/Infrastructure/DeviceLog.cs",
+    "sha256": "2B4EEC27C27B84E31959C4F383B427194BC1BB5D44968A8E3A8FD29F60A4C4E5"
+  },
+  {
+    "path": "glass-playground/Infrastructure/PortableValidation.cs",
+    "sha256": "B015B8C6193FDD439EE6062FD4A59210B61EDFF65759C31231384D7FE8970FD6"
+  },
+  {
+    "path": "glass-playground/Infrastructure/ReadOnlyProbe.cs",
+    "sha256": "B3FDAD103457B3CE3378921125B672EE4B9E2DE5376D015F3877CB12345DDD40"
+  },
+  {
+    "path": "glass-playground/Infrastructure/SoundControlProbe.cs",
+    "sha256": "42962049A5FEE92A4C3E65995A9DBB1049B0B49BF9B3C3673DE98689DE345CE0"
+  },
+  {
+    "path": "glass-playground/Infrastructure/UpgradeJournalStore.cs",
+    "sha256": "69884EB968404BF1C7B5E5683394596E468855C7DEB3DAAC17BAF3A04926F32A"
+  },
+  {
+    "path": "glass-playground/Infrastructure/UpgradeReadOnlyProbe.cs",
+    "sha256": "513E696795BCBB11FD87DD426BC3D8A01B1A2F68C19B03DBD25950126A1DB3A3"
+  },
+  {
+    "path": "glass-playground/Infrastructure/UpgradeResumeProbe.cs",
+    "sha256": "7F5FAA99742CB8DF2CA15E635E35571866DBFB02CF8A698F1321187349065D51"
+  },
+  {
+    "path": "glass-playground/Infrastructure/UpgradeWorker.cs",
+    "sha256": "2F5FA391F68997E6891E76EECD7385304EDBAE31079B131AA0798152A17B4DF0"
+  },
+  {
+    "path": "glass-playground/Infrastructure/WindowsBleTransport.cs",
+    "sha256": "DD9F25A6D66FB53C456D4504F775FD71739473C36EB91348FC4A1478E132196F"
+  },
+  {
+    "path": "glass-playground/Infrastructure/WindowsUpgradeLink.cs",
+    "sha256": "AA08184DF8FA877CF79D8C380D339088853FB630A2F180911CA199145CB74205"
+  },
+  {
+    "path": "glass-playground/Localization/en.json",
+    "sha256": "C881648B9EF8509D557237D46A4726D554DB3C158FCDFF0D08FEA33B1D4F04F9"
+  },
+  {
+    "path": "glass-playground/Localization/source-map.json",
+    "sha256": "271AA1C572742E65C52883D77BA5574A3FDFC439416B99EBE7D2FFD4628D8F85"
+  },
+  {
+    "path": "glass-playground/Localization/zh.json",
+    "sha256": "41F5EBBF112B16B22E5B1E5AD51B36BB562D511A879351C0B037B3E59C5D7464"
+  },
+  {
+    "path": "glass-playground/Views/ConceptWindow.cs",
+    "sha256": "EB4A61ED89E978FBF4E13F234CD8A8BD072946C6F67F6B8AE51BED03048634AA"
+  },
+  {
+    "path": "glass-playground/Views/ConnectionMotion.cs",
+    "sha256": "4331726338996B9793C2FBFF841AA7BFF47B03409E9AF602FE68D872B6B30815"
+  },
+  {
+    "path": "glass-playground/Views/ConnectionPreviewWindow.axaml",
+    "sha256": "2A6F130B6F443FC591A57552C52E8B4433EEF1B6E66580AFF113488630064109"
+  },
+  {
+    "path": "glass-playground/Views/ConnectionPreviewWindow.axaml.cs",
+    "sha256": "5287BB2587E0AC0DEF5E896D8C55FC741B91009ABF6965AE3EA3740A7D6713AE"
+  },
+  {
+    "path": "glass-playground/Views/DeviceDetailsSound.cs",
+    "sha256": "471CDECB6AFAA869A32AAC94BEC1CDEECEDE3ABCDA534BA45208F869AC0C05E1"
+  },
+  {
+    "path": "glass-playground/Views/DeviceDetailsSoundSmoke.cs",
+    "sha256": "1C07768D140EDAD518BBF4E9D420876F71E01E10A576F928CD7EE380E5D4C5EF"
+  },
+  {
+    "path": "glass-playground/Views/DeviceDetailsView.cs",
+    "sha256": "BDD6AC04FCB5538B782342A11E0D3D6FADD9FCDAA1D72B594E8AFA00862EEB76"
+  },
+  {
+    "path": "glass-playground/Views/DeviceDiscovery.cs",
+    "sha256": "F1B378E97FD5A72002EE929397C7053F4D27094BAFC7D204CD43345FA225605D"
+  },
+  {
+    "path": "glass-playground/Views/DiscoveryScrolling.cs",
+    "sha256": "34F9FFBFF4B008765A530979FCA411AFA4E96924CEA8D94EE1C3375C4C28C578"
+  },
+  {
+    "path": "glass-playground/Views/FirmwareChooser.cs",
+    "sha256": "AA7DDD3B1AAD233CF051DE56999C3C5D2F4C6F4F84DEE3D39D5547191F4DD40B"
+  },
+  {
+    "path": "glass-playground/Views/FirmwareRiskWindow.axaml",
+    "sha256": "3E7C40CBFF9F2B6590C94A85B27597ECF893573F9D8539FCFD665B28D4F8E3A5"
+  },
+  {
+    "path": "glass-playground/Views/FirmwareRiskWindow.axaml.cs",
+    "sha256": "7EFDAE622EFEC35AFD08F392E7F0DF7F5D8D67FB23D751132F6F50A99913E9F8"
+  },
+  {
+    "path": "glass-playground/Views/GlassPreviewWindow.axaml",
+    "sha256": "53F34DE6ECE4D4BCBC545F7FABC411855130FA5AE1D1EF49E5012BE0C64A2127"
+  },
+  {
+    "path": "glass-playground/Views/GlassPreviewWindow.axaml.cs",
+    "sha256": "BF91BCE842DA88A5BC55357CC97011D108B90F2314253063D4567D72B05C2796"
+  },
+  {
+    "path": "glass-playground/Views/LiveConnection.cs",
+    "sha256": "C3A78F0F4761820CA9E79D425D908D7B731A9AE7A678DF9036637AC6C1074785"
+  },
+  {
+    "path": "glass-playground/Views/LiveSoundObservation.cs",
+    "sha256": "57CAB1049BA0B63DDED64B30B137BAA2A50F24D1A4F09E00516CDBFDA6B1A444"
+  },
+  {
+    "path": "glass-playground/Views/LiveUpgrade.cs",
+    "sha256": "1CE496AEECE55D02481FCB56D5A7D2BD48DEA0B06707DF52388053CB8FA982BB"
+  },
+  {
+    "path": "glass-playground/Views/MainWindow.axaml",
+    "sha256": "15B72C7B5B2253874216862AC3EB5D0C649A5C522B26D2DDCCA33488882C111A"
+  },
+  {
+    "path": "glass-playground/Views/MainWindow.axaml.cs",
+    "sha256": "0C331D051CED992C41893AE392D068395AE6E87A2CE6A1DD6BC6B3E2FBB5BBB0"
+  },
+  {
+    "path": "glass-playground/Views/MaterialTunerWindow.cs",
+    "sha256": "1C2EEC942AF3F7FA5E19F254F9FE2F65B98E8DF9E21D766C6A04FBCAFCAAAF10"
+  },
+  {
+    "path": "glass-playground/Views/MetricTransition.cs",
+    "sha256": "13ADB3132DA18F1172C34F99DB5476B13A23B07D8CB7C280F69E37345FB1CAF3"
+  },
+  {
+    "path": "glass-playground/Views/NativeWindow.axaml",
+    "sha256": "BDD55A9285ACF9F2C8AB9056AB1F8A95CF5326CE28F1ECADB69161C02BF25595"
+  },
+  {
+    "path": "glass-playground/Views/NativeWindow.axaml.cs",
+    "sha256": "745B83F08111287FB8A987C5E07AAE190797C863F275193249B02FAFFB4A5BAB"
+  },
+  {
+    "path": "glass-playground/Views/PixelDither.cs",
+    "sha256": "52667EC796032D7FAD460B391595F05072BC6F8C0CA027C7296B10144FD4EC04"
+  },
+  {
+    "path": "glass-playground/Views/ReturnConnectionMotion.cs",
+    "sha256": "341E2B7ABC19F64F0599F0D60DB5F1454AD2D81D45F3DE176DDBADF6703DFA90"
+  },
+  {
+    "path": "glass-playground/Views/TextMotion.cs",
+    "sha256": "AB5CBF9683BCF783FA853142300D0BB16F7BE4757FA0DCA3A58B27099CF1876E"
+  },
+  {
+    "path": "glass-playground/Views/TransferInterruption.cs",
+    "sha256": "3AC37342EA79B93EF120F6E0FE24D9DF83015F440416A4CA0A27CFB6036CE610"
+  },
+  {
+    "path": "glass-playground/Views/TransferPreview.cs",
+    "sha256": "D15FEA1D8955313EF40DE21617AF4C33AC6A4BC90E32E51E54D76BA2595A2E62"
+  },
+  {
+    "path": "tests/DesktopReadOnly/DesktopReadOnly.csproj",
+    "sha256": "5717EEA62CF6C370D773F0DF6B18039369B2D3941AF89E90F56CEAE9B5063672"
+  },
+  {
+    "path": "tests/DesktopReadOnly/FirmwareChecks.cs",
+    "sha256": "88681AB5D2A1CA7D4C1CCA21752DC07717A4A5CB0F71ED2F90AF030531B4D1E0"
+  },
+  {
+    "path": "tests/DesktopReadOnly/FirmwarePreparationChecks.cs",
+    "sha256": "027BAEE6836BB54BF31B94CB01E800F2BAD6820D6B21A6733A46CE69E4CF9CBF"
+  },
+  {
+    "path": "tests/DesktopReadOnly/JournalStoreChecks.cs",
+    "sha256": "D9C9CA0EDD7C2FA7390F06D38BAA10AB329B5AC63DBDB75E3DC780E1ED33EB11"
+  },
+  {
+    "path": "tests/DesktopReadOnly/LocalizationChecks.cs",
+    "sha256": "972B79605CB37E2C61668B61BCC2C6C0F3CFAB5F5C4674A5A9D8F50C936BA2E9"
+  },
+  {
+    "path": "tests/DesktopReadOnly/OfficialUpgradeChecks.cs",
+    "sha256": "6E6CC7470D153D9B23E5EB9113E2A562152AE2EF9CC4F8EDF5F5C97111BD516C"
+  },
+  {
+    "path": "tests/DesktopReadOnly/Program.cs",
+    "sha256": "FB81D759D13F8872D13B612F64E10FE6ADE23EC7D978785AC99F54E29D7E7486"
+  },
+  {
+    "path": "tests/DesktopReadOnly/ResumableUpgradeChecks.cs",
+    "sha256": "7550B626E482D7057C9690CE4F563943736CE491C9E2FCD9D59EB0C2CCBD096A"
+  },
+  {
+    "path": "tests/DesktopReadOnly/SoundQueueChecks.cs",
+    "sha256": "E96A425D0C7FB903C4D377129CF11051C7CD80E0D8813B845B8F7FCA27A46B65"
+  },
+  {
+    "path": "tests/DesktopReadOnly/SoundStepperChecks.cs",
+    "sha256": "DA2ECD7E53F372E020DFB55932B79C0579CCCD92DC9EDE4C74CE28771EB025E0"
+  },
+  {
+    "path": "tests/DesktopReadOnly/test.ps1",
+    "sha256": "9944DDDAB26441920C277865407E5FA951613FDD5D4CDA384AD3237C038C8C9B"
+  },
+  {
+    "path": "tests/DesktopReadOnly/TestFirmware.cs",
+    "sha256": "F1EC027BA3D3FD9227B5168E5862118C680E4F04A060FF56CF8DBA1C46269FF3"
+  },
+  {
+    "path": "tests/DesktopReadOnly/ThirdPartyFirmwareChecks.cs",
+    "sha256": "5D42F71ACD0FB9781EA220971A42515773FF772554E02FE4E9D7C29234EF1EE8"
+  },
+  {
+    "path": "tests/DesktopReadOnly/UpgradeChecks.cs",
+    "sha256": "3AD580C8F636E0CCD6E7BE4710B9E5103B839D116DCD18CA654432EF0ABB66A1"
+  },
+  {
+    "path": "tests/DesktopReadOnly/UpgradeRecoveryChecks.cs",
+    "sha256": "77B34B65E99839732C77EAE22C1523991FCC44835AFEB6EC127F8F944FB99BED"
+  },
+  {
+    "path": "tools/export_public_source.ps1",
+    "sha256": "7B18DBBC9C68FCB30A61558634FB62944129F6BE549A6038A63D3DAE1921443D"
+  },
+  {
+    "sha256": "2FC4283890830B2D10ACE0CA7938D8D31F8A55A3E735F6161481B1A50CFA1065",
+    "path": ".gitattributes"
+  }
+]

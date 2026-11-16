@@ -1,0 +1,807 @@
+[
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Title.189",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.9067",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.9325",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.9445",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Content.9785",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.10015",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.10119",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Content.10320",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Content.10706",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.10938",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.11631",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.11921",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.12208",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.13057",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.ToolTip.Tip.13754",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.13822",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Content.14029",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.14251",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.14527",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Text.14774",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.Content.14982",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.AutomationProperties.Name.15543",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.ToolTip.Tip.15575",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.AutomationProperties.Name.15792",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml",
+    "key": "ConnectionPreviewWindow.ToolTip.Tip.15823",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.Text.3425",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.Text.3824",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.ToolTip.Tip.4007",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.AutomationProperties.Name.4026",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.Text.4427",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.Text.4645",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.ToolTip.Tip.4828",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.AutomationProperties.Name.4847",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.Text.5582",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.Content.5876",
+    "kind": "xaml"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml",
+    "key": "FirmwareRiskWindow.Content.5958",
+    "kind": "xaml"
+  },
+  {
+    "file": "ConnectionMotion.cs",
+    "key": "ConnectionMotion.Text.3292",
+    "kind": "csharp"
+  },
+  {
+    "file": "ConnectionMotion.cs",
+    "key": "ConnectionMotion.Text.5098",
+    "kind": "csharp"
+  },
+  {
+    "file": "ConnectionMotion.cs",
+    "key": "ConnectionMotion.Text.6765",
+    "kind": "csharp"
+  },
+  {
+    "file": "ConnectionMotion.cs",
+    "key": "ConnectionMotion.Text.6776",
+    "kind": "csharp"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml.cs",
+    "key": "ConnectionPreviewWindow.axaml.Text.7884",
+    "kind": "csharp"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml.cs",
+    "key": "ConnectionPreviewWindow.axaml.Text.7910",
+    "kind": "csharp"
+  },
+  {
+    "file": "ConnectionPreviewWindow.axaml.cs",
+    "key": "ConnectionPreviewWindow.axaml.Text.8042",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.772",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.887",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.1008",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.1015",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.1020",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.1026",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.1546",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.1593",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.1628",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.1662",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.2576",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.2593",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.2626",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.2643",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.6611",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.6643",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.10743",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.10751",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDetailsView.cs",
+    "key": "DeviceDetailsView.Text.10761",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDiscovery.cs",
+    "key": "DeviceDiscovery.Text.923",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDiscovery.cs",
+    "key": "DeviceDiscovery.Text.1561",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDiscovery.cs",
+    "key": "DeviceDiscovery.Text.2292",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDiscovery.cs",
+    "key": "DeviceDiscovery.Text.2319",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDiscovery.cs",
+    "key": "DeviceDiscovery.Text.2535",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDiscovery.cs",
+    "key": "DeviceDiscovery.Text.4869",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDiscovery.cs",
+    "key": "DeviceDiscovery.Text.6095",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDiscovery.cs",
+    "key": "DeviceDiscovery.Text.6103",
+    "kind": "csharp"
+  },
+  {
+    "file": "DeviceDiscovery.cs",
+    "key": "DeviceDiscovery.Text.6151",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.961",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2069",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2080",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2089",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2478",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2509",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2525",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2567",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2589",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2606",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2669",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2683",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.2692",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.3612",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.3645",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.3672",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.3842",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.4178",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.4392",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.4513",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.7261",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.7349",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareChooser.cs",
+    "key": "FirmwareChooser.Text.8273",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml.cs",
+    "key": "FirmwareRiskWindow.axaml.Text.6410",
+    "kind": "csharp"
+  },
+  {
+    "file": "FirmwareRiskWindow.axaml.cs",
+    "key": "FirmwareRiskWindow.axaml.Text.6418",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveConnection.cs",
+    "key": "LiveConnection.Text.884",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveConnection.cs",
+    "key": "LiveConnection.Text.1269",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveConnection.cs",
+    "key": "LiveConnection.Text.1354",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveConnection.cs",
+    "key": "LiveConnection.Text.2504",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveConnection.cs",
+    "key": "LiveConnection.Text.2790",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveConnection.cs",
+    "key": "LiveConnection.Text.3663",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveConnection.cs",
+    "key": "LiveConnection.Text.3786",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveConnection.cs",
+    "key": "LiveConnection.Text.4642",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.1688",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.1797",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.2748",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.3589",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.4475",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.9078",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.9125",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.9172",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.9181",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.9450",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.9472",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.9481",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.9815",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.10545",
+    "kind": "csharp"
+  },
+  {
+    "file": "LiveUpgrade.cs",
+    "key": "LiveUpgrade.Text.11322",
+    "kind": "csharp"
+  },
+  {
+    "file": "ReturnConnectionMotion.cs",
+    "key": "ReturnConnectionMotion.Text.1082",
+    "kind": "csharp"
+  },
+  {
+    "file": "ReturnConnectionMotion.cs",
+    "key": "ReturnConnectionMotion.Text.1515",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.1049",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.3897",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.8209",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.8218",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.8385",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.8402",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.8413",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.8494",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.8523",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.8547",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferInterruption.cs",
+    "key": "TransferInterruption.Text.10655",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.1673",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7067",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7234",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7432",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7451",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7469",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7515",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7558",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7591",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7644",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7663",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7709",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7752",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7778",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7889",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7924",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7959",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.7996",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.8014",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.8112",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.8661",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.8677",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.10586",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.11479",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.11757",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.11935",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.12097",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.13195",
+    "kind": "csharp"
+  },
+  {
+    "file": "TransferPreview.cs",
+    "key": "TransferPreview.Text.13897",
+    "kind": "csharp"
+  }
+]

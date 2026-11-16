@@ -1,0 +1,23 @@
+name: Windows source checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Localization catalog validation
+        shell: pwsh
+        run: ./glass-playground/check-localization.ps1
+      - name: Offline checks without proprietary firmware materials
+        shell: pwsh
+        run: ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
+      - name: Build source without bundled firmware
+        shell: pwsh
+        run: ./glass-playground/build.ps1 -WithoutBundledFirmware -OutputDirectory publish-ci

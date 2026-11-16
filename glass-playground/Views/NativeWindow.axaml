@@ -1,0 +1,7 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="GlassPlayground.NativeWindow" Title="Glass Playground · Native" Width="920" Height="650" MinWidth="700" MinHeight="480" Background="Transparent" TransparencyBackgroundFallback="#252A27" TransparencyLevelHint="AcrylicBlur" WindowDecorations="None">
+ <Grid RowDefinitions="Auto,*,Auto" Margin="20" RowSpacing="16">
+  <Border x:Name="DragArea" Background="#EE222824" Padding="16" CornerRadius="12"><Grid ColumnDefinitions="*,Auto"><StackPanel><TextBlock Text="Native Backdrop / 独立桌面材质测试" FontSize="22"/><TextBlock Text="拖动此标题区域，把窗口放到壁纸或其他窗口上方" FontSize="13"/></StackPanel><Button Grid.Column="1" x:Name="CloseButton" Content="关闭"/></Grid></Border>
+  <Border Grid.Row="1" BorderBrush="#709AA794" BorderThickness="1" CornerRadius="20" Background="Transparent"><TextBlock Text="此区域没有背景图片，也没有 Fluid 控件。" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20" Background="#DD222824" Padding="12"/></Border>
+  <Border Grid.Row="2" Background="#EE222824" CornerRadius="12" Padding="16"><StackPanel Spacing="10"><ComboBox x:Name="Material" SelectedIndex="0"><ComboBoxItem>AcrylicBlur</ComboBoxItem><ComboBoxItem>Mica</ComboBoxItem><ComboBoxItem>Transparent</ComboBoxItem><ComboBoxItem>SolidFallback</ComboBoxItem><ComboBoxItem>DWM Desktop Acrylic (实验)</ComboBoxItem></ComboBox><TextBlock x:Name="NativeStatus"/><TextBlock Text="Mica 是壁纸取色的系统底材，不等于透明地显示后方窗口。实际透明级别只证明 API 接受，视觉效果需单独观察。" FontSize="12"/></StackPanel></Border>
+ </Grid>
+</Window>
