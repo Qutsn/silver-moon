@@ -1,29 +1,31 @@
 # Silver Moon
 
-Unofficial Marshall Middleton management and firmware utility. Automatically install modified firmware with AUX sleep and ten-minute auto-off disabled.
+Flash modified firmware onto Middleton to eliminate the frustrating frequent AUX sleep and automatic shutdown imposed by the stock firmware.
 
 [Download](https://github.com/Qutsn/silver-moon/releases) · [中文](#中文)
 
 ## Why Silver Moon
 
-Why can't a speaker's owner choose when AUX goes to sleep or when the speaker turns itself off? Middleton's stock firmware makes those choices for you, with no way to change them. Silver Moon began with that frustration: people who own a device should have a say in how it works.
+This project began with a very specific frustration: why can't users set the AUX sleep timer and the speaker's automatic shutdown timer to suit their own preferences? The manufacturer has already made these decisions and does not let users change them. Whether or not those settings suit you, you have no choice. My goal is to put those choices back in the hands of the people who own the device.
 
-The current patch disables AUX sleep and ten-minute auto-off. Custom timeout settings are not yet supported.
+The patch currently available for automatic installation only disables AUX sleep and ten-minute auto-off; custom sleep durations are not yet implemented.
+
+You can read the [third-party installation specification](docs/en/05-THIRD-PARTY-FIRMWARE-GUIDE.md), create firmware that meets the specification and your needs, and install it through the app's third-party firmware option.
 
 ## Features
 
-- **Automated firmware preparation:** download the supported official firmware, verify its SHA-256, and generate the modified firmware locally.
-- **Guided installation:** select a speaker and firmware, confirm installation, then let the app handle transfer, reconnection, resume, and completion checks.
-- **Official firmware rollback:** restore the original sleep and auto-off behavior.
-- **Everyday controls:** device information, volume, and EQ over Bluetooth LE.
-- **Portable Windows app:** a single EXE; the UI currently supports only Chinese and English. Import of third-party firmware that meets the supported format is also available.
+- Automated firmware preparation: download the supported official firmware, verify its SHA-256, and generate the modified firmware locally.
+- Guided installation: select a speaker and firmware, confirm installation, then let the app handle transfer, reconnection, resume, and completion checks.
+- Official firmware rollback: restore the original sleep and auto-off behavior.
+- Everyday controls: device information, volume, and EQ over Bluetooth LE.
+- Portable Windows app: a single EXE; the UI currently supports only Chinese and English. Import of third-party firmware that meets the supported format is also available.
 
 ## How it works
 
-1. **Connect.** Open `SilverMoon.exe`, turn on the speaker, and select its LE device. The app handles pairing and checks device compatibility.
-2. **Choose.** Select modified firmware with AUX sleep and ten-minute auto-off disabled, or official firmware with the original behavior. The app downloads and verifies the supported base firmware and prepares the selected image automatically.
-3. **Install.** Confirm installation. The app transfers the firmware, attempts reconnection after interruptions, and resumes according to the speaker's reported state.
-4. **Finish.** After the upgrade and restart, the app reconnects and checks the device state before reporting completion.
+1. Connect. Open `SilverMoon.exe`, turn on the speaker, and select its LE device. The app handles pairing and checks device compatibility.
+2. Choose. Select modified firmware with AUX sleep and ten-minute auto-off disabled, or official firmware with the original behavior. The app downloads and verifies the supported base firmware and prepares the selected image automatically.
+3. Install. Confirm installation. The app transfers the firmware, attempts reconnection after interruptions, and resumes according to the speaker's reported state.
+4. Finish. After the upgrade and restart, the app reconnects and checks the device state before reporting completion.
 
 No manual firmware patching or command-line flashing is needed for the built-in choices. Initial firmware preparation requires internet access; verified cached files can be reused offline.
 
@@ -61,30 +63,32 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 
 # 中文
 
-非官方 Marshall Middleton 管理与固件工具。自动安装已禁用 AUX 休眠和十分钟自动关机的修改版固件。
+为 Middleton 刷入修改版固件，以去除官方固件中恼人的 AUX 频繁休眠和自动关机功能。
 
 [下载](https://github.com/Qutsn/silver-moon/releases) · [English](#silver-moon)
 
 ## 项目初衷
 
-音箱为什么不能让用户自行设置 AUX 的休眠时间和自动关机时间？Middleton 的官方固件替用户做出了这些选择，却没有留下修改的入口，无论这些设置是否符合个人习惯。Silver Moon 最初就来自这份不满：我们希望把选择权交还给拥有设备的人。
+项目最初来自一个很具体的不满：音箱为什么不能按照用户自己的喜好去设置 AUX 的休眠时间，去设置音箱的自动关机时间？所有这些都是厂商帮你设置好的，且不允许你去修改，不管你喜不喜欢这些设置，用户没有选择。我做的是把这些选择交还给拥有设备的人。
 
-当前补丁实现了关闭 AUX 休眠和十分钟自动关机，尚不支持自定义时间。
+当前可自动刷入的补丁仅去除了 AUX 休眠和十分钟自动关机功能，暂未实现自定义休眠时间。
 
-## 功能亮点
+您可阅读[第三方安装规范](docs/zh-CN/05-THIRD-PARTY-FIRMWARE-GUIDE.md)，按照规范制作符合自己需求的固件，再通过软件的第三方固件通道刷入。
 
-- **自动准备固件：**下载支持的官方固件、校验 SHA-256，并在本地生成修改版。
-- **引导式安装：**选择音箱与固件、确认安装后，由软件处理传输、断线重连、续传与完成检查。
-- **回刷官方固件：**恢复原有的休眠与自动关机行为。
-- **日常控制：**通过蓝牙 LE 查看设备信息、调节音量与 EQ。
-- **便携桌面程序：**Windows 单文件 EXE，UI 当前仅支持中文和英文，也可导入符合规范的第三方固件。
+## 功能
+
+- 自动准备固件：下载支持的官方固件、校验 SHA-256，并在本地生成修改版。
+- 引导式安装：选择音箱与固件、确认安装后，由软件处理传输、断线重连、续传与完成检查。
+- 回刷官方固件：恢复原有的休眠与自动关机行为。
+- 日常控制：通过蓝牙 LE 查看设备信息、调节音量与 EQ。
+- 便携桌面程序：Windows 单文件 EXE，UI 当前仅支持中文和英文，也可导入符合规范的第三方固件。
 
 ## 使用流程
 
-1. **连接音箱。**打开 `SilverMoon.exe`，开启音箱并选择其 LE 设备，软件处理配对并检查设备兼容性。
-2. **选择固件。**选择已禁用 AUX 休眠和十分钟自动关机的修改版固件，或选择保留原有行为的官方固件。软件自动下载、校验支持的基础固件，并准备所选固件。
-3. **确认安装。**软件开始传输；连接中断时尝试重连，根据音箱报告的状态恢复传输。
-4. **等待完成。**升级与重启后，软件重新连接并检查设备状态，再报告安装完成。
+1. 连接音箱。打开 `SilverMoon.exe`，开启音箱并选择其 LE 设备，软件处理配对并检查设备兼容性。
+2. 选择固件。选择已禁用 AUX 休眠和十分钟自动关机的修改版固件，或选择保留原有行为的官方固件。软件自动下载、校验支持的基础固件，并准备所选固件。
+3. 确认安装。软件开始传输；连接中断时尝试重连，根据音箱报告的状态恢复传输。
+4. 等待完成。升级与重启后，软件重新连接并检查设备状态，再报告安装完成。
 
 使用内置选项时，不需要手动修改固件或通过命令行刷入。首次准备固件需要联网，已验证的缓存可离线复用。
 
