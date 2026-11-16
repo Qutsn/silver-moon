@@ -16,7 +16,7 @@ foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo 'glass-playground') -F
  if($f.Extension -in @('.cs','.axaml','.csproj','.targets','.Config','.manifest','.ps1')){$files.Add("glass-playground/$($f.Name)")}
 }
 foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo 'tests/DesktopReadOnly') -File){if($f.Extension -in @('.cs','.csproj','.ps1')){$files.Add("tests/DesktopReadOnly/$($f.Name)")}}
-foreach($name in @('19-THIRD-PARTY-FIRMWARE-GUIDE.md','20-UI-LOCALIZATION.md','22-CODE-REVIEWER-GUIDE.md','27-OFFICIAL-FIRMWARE-PREPARATION.md')){$files.Add("docs/$name")}
+foreach($name in @('19-THIRD-PARTY-FIRMWARE-GUIDE.md','20-UI-LOCALIZATION.md','22-CODE-REVIEWER-GUIDE.md','27-OFFICIAL-FIRMWARE-PREPARATION.md','28-FIRMWARE-PATCHES.md','29-UPGRADE-AND-VALIDATION.md','30-BLUETOOTH-AND-WINDOWS.md')){$files.Add("docs/$name")}
 $files.Add('glass-playground/RELEASE.md')
 New-Item -ItemType Directory -Path $target | Out-Null
 $manifest=@()
@@ -35,4 +35,5 @@ Copy-Item -LiteralPath (Join-Path $repo 'docs/PUBLIC-README.md') -Destination (J
 foreach($relative in @('README.md','.gitignore')){$manifest+=@{path=$relative;sha256=(Get-FileHash -LiteralPath (Join-Path $target $relative) -Algorithm SHA256).Hash}}
 $manifest | ConvertTo-Json -Depth 3 | Set-Content -LiteralPath (Join-Path $target 'source-manifest.json') -Encoding utf8
 Write-Output "Exported $($files.Count) verified source files to $target"
+
 
