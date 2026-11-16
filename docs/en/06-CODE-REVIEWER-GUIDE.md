@@ -44,8 +44,8 @@ Paths in this table are relative to `src/SilverMoon/` and `tests/DesktopReadOnly
 Run the repository's test and build scripts in separate PowerShell processes because they can exit their calling process:
 
 ```powershell
-./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
-./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
+pwsh -NoProfile -File ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
+pwsh -NoProfile -File ./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
 ```
 
 The source-only mode explicitly skips real-firmware-dependent checks; it is not full material-backed verification. With matching firmware inputs, use the documented full-test options in the [build guide](../../src/SilverMoon/RELEASE.md).

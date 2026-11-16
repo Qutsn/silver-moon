@@ -24,8 +24,8 @@ Run source-only checks and build from repository root:
 
 ```powershell
 ./src/SilverMoon/check-localization.ps1
-./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
-./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-review
+pwsh -NoProfile -File ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
+pwsh -NoProfile -File ./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-review
 ```
 
 Use separate PowerShell processes for test/build scripts that exit their process. A portable smoke run (`SilverMoon.exe --portable-smoke <report-path>`) checks packaging, resources and worker startup without BLE. It is not a pairing or installation test.

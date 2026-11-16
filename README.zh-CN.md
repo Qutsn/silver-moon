@@ -29,7 +29,7 @@
 
 使用内置选项时，不需要手动修改固件或通过命令行刷入。公开发布的 EXE 不内置固件，因此首次准备官方版或修改版固件时需要联网，从 Marshall 官方服务器下载支持的官方固件并校验 SHA-256；修改版随后在本地生成。已有有效缓存时可离线复用。
 
-支持 Windows 10 2004 / build 19041 及以上的 x64 系统。当前为未签名的预发布版本，Windows 可能显示 SmartScreen 提示。`SHA256SUMS.txt` 用于检查 EXE 下载是否完整。
+支持 Windows 10 2004 / build 19041 及以上的 x64 系统。EXE 未签名，Windows 可能显示 SmartScreen 提示。`SHA256SUMS.txt` 用于检查 EXE 下载是否完整。
 
 ## 技术文档
 

@@ -56,8 +56,8 @@ DeviceLog 当前只写本地，不自动上传；日志可能包含串号、蓝�
 ## 可复现命令与文档维护
 
 ```powershell
-./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
-./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
+pwsh -NoProfile -File ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
+pwsh -NoProfile -File ./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
 ```
 
 构建参数和完整素材测试见[构建说明](../../src/SilverMoon/RELEASE.md)。便携包自检使用 `SilverMoon.exe --portable-smoke <report-path>`，只检查资源、许可证和 worker 启动，不执行 BLE。各 UI 检查都须保留 `--preview --connection` 前缀。同编号中英文文档应同时更新，包括哈希、偏移、版本门控与不支持情形；详见[证据与验证](08-EVIDENCE-AND-VERIFICATION.md)。

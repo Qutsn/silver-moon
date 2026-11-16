@@ -1,6 +1,6 @@
 # Silver Moon
 
-Flash modified firmware onto Middleton to eliminate the frustrating frequent AUX sleep and automatic shutdown imposed by the stock firmware.
+Flash modified Middleton firmware to disable AUX sleep and auto-off.
 
 [Download](https://github.com/Qutsn/silver-moon/releases) · [中文](#中文)
 
@@ -29,7 +29,7 @@ You can read the [third-party installation specification](docs/en/05-THIRD-PARTY
 
 No manual firmware patching or command-line flashing is needed for the built-in choices. The public EXE does not bundle firmware. When first preparing official or modified firmware, the app needs internet access to download the supported official firmware from the Marshall server and verify its SHA-256; modified firmware is then generated locally. A valid cached copy can be reused offline.
 
-Windows 10 2004 / build 19041 or later, x64. This is an unsigned pre-release; Windows may display SmartScreen warnings. `SHA256SUMS.txt` lets you verify the EXE download's integrity.
+Windows 10 2004 / build 19041 or later, x64. The EXE is unsigned; Windows may display SmartScreen warnings. `SHA256SUMS.txt` lets you verify the EXE download's integrity.
 
 ## Technical Documentation
 
@@ -51,8 +51,8 @@ For modified firmware, the app uses a guarded staged-recovery path that avoids t
 Windows, PowerShell 7, and .NET SDK 10:
 
 ```powershell
-./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
-./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
+pwsh -NoProfile -File ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
+pwsh -NoProfile -File ./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
 ```
 
 Tests requiring firmware materials are skipped in this mode. [Build guide](src/SilverMoon/RELEASE.md) · [Code guide](docs/en/06-CODE-REVIEWER-GUIDE.md) · [Localization](docs/en/07-UI-LOCALIZATION.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
@@ -94,7 +94,7 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 
 使用内置选项时，不需要手动修改固件或通过命令行刷入。公开发布的 EXE 不内置固件，因此首次准备官方版或修改版固件时需要联网，从 Marshall 官方服务器下载支持的官方固件并校验 SHA-256；修改版随后在本地生成。已有有效缓存时可离线复用。
 
-支持 Windows 10 2004 / build 19041 及以上的 x64 系统。当前为未签名的预发布版本，Windows 可能显示 SmartScreen 提示。`SHA256SUMS.txt` 用于检查 EXE 下载是否完整。
+支持 Windows 10 2004 / build 19041 及以上的 x64 系统。EXE 未签名，Windows 可能显示 SmartScreen 提示。`SHA256SUMS.txt` 用于检查 EXE 下载是否完整。
 
 ## 技术文档
 

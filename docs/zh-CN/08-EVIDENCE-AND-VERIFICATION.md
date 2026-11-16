@@ -24,8 +24,8 @@
 
 ```powershell
 ./src/SilverMoon/check-localization.ps1
-./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
-./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-review
+pwsh -NoProfile -File ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
+pwsh -NoProfile -File ./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-review
 ```
 
 测试/构建脚本可能退出调用进程，应分别启动 PowerShell。`SilverMoon.exe --portable-smoke <report-path>` 检查便携包、资源和子进程启动，不执行 BLE 操作，不能当作配对或安装测试。
