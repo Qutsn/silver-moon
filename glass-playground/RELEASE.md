@@ -1,6 +1,5 @@
 # Desktop portable release
 
-Current device acceptance: official rollback, reboot waiting and the official sleep behavior have been accepted by the user. Historical device evidence remains in docs/02-UPGRADE-AND-VALIDATION.md; the user has also accepted the earlier single-file portable build on a clean computer. The new on-demand download path still requires user acceptance.
 
 The release is a Windows x64, self-contained single EXE (`SilveredMoon.exe`). A compressed single-file candidate can be built with `-CompressSingleFile`; this reduces the tested 133.73 MiB package to about 61.95 MiB while increasing first-launch extraction CPU/time. It requires Windows 10 2004 / build 19041 or newer. The receiving computer does not need a .NET installation. .NET extracts the bundled runtime, native libraries, assets and firmware into its per-user cache on first launch; single-file delivery does not mean execution without extraction. Do not launch from a directory carrying a Low integrity label.
 
@@ -30,7 +29,7 @@ The firmware path arguments are optional in the existing research checkout, wher
 | Official 17.0.37 | `db74c3468bd08d61f3a4e4e4e9e6eea9b19d95d6e852b9fd5e9cbac3e91c9472` |
 | Project r2 | `80ed2088247976f10968f5d4aefb3cabf367ff0b0a1f774ac6e62a292c459024` |
 
-Materials are not downloaded automatically or committed by this workflow. Obtain them from the project owner's approved local archive; matching names alone are insufficient. Rebuilding r2 independently from source is outside this packaging procedure. Permission to redistribute firmware must be considered separately from the source-code license.
+Materials are not downloaded automatically or committed by this workflow. Supply the exact hash-matching input files; matching names alone are insufficient. Rebuilding r2 independently from source is outside this packaging procedure. Permission to redistribute firmware must be considered separately from the source-code license.
 
 ## Source-only public CI
 
@@ -50,7 +49,3 @@ This mode prints explicit skips for tests that require genuine package bytes. Sk
 Run UI checks from that externally staged EXE using `--preview --connection --discovery-smoke`, `--preview --connection --connection-smoke` and `--preview --connection --sound-ui-smoke`. These are simulated UI checks, not a real device upgrade or proof of clean-machine compatibility. Final acceptance on another Windows computer without .NET must still cover startup, Chinese/English display, discovery, and a protected uncached read after first pairing. Actual flashing is a separate acceptance step.
 
 The fixed working release remains `desktop-release/current/SilveredMoon.exe`. Building and verifying a new portable EXE do not replace it. To replace it later, close the app and explicitly run `stage-release.ps1 -PublishedDirectory <new publish directory>`. That existing deployment flow stages outside the checkout, checks labels/hashes, preserves `previous`, and recycles an older previous copy. Do not run it merely to validate a candidate.
-
-
-
-

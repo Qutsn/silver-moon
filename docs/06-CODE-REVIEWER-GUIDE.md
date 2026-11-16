@@ -34,20 +34,17 @@
 
 ## 当前复现方法与缺口
 
-现有本机环境使用 `./tests/DesktopReadOnly/test.ps1` 和 `./glass-playground/build.ps1`，两个脚本会退出当前 PowerShell 进程，应在独立进程运行。界面离线检查使用发布 DLL 的 `--preview --connection --discovery-smoke` / `--connection-smoke` / `--sound-ui-smoke` 参数，不连接真实音箱。
+使用 `./tests/DesktopReadOnly/test.ps1` 和 `./glass-playground/build.ps1`，两个脚本会退出当前 PowerShell 进程，应在独立进程运行。界面离线检查使用发布 DLL 的 `--preview --connection --discovery-smoke` / `--connection-smoke` / `--sound-ui-smoke` 参数，不连接真实音箱。
 
 当前公开构建与交付约束：
 
 - build.ps1 / test.ps1 优先使用安装的 SDK，支持显式指定固件路径；本地研究工具链仅作为开发回退。NuGet.Config 使用 nuget.org。
 - 不带固件也能构建与运行部分离线测试；使用 WithoutFirmwareMaterials 时明确跳过真实文件依赖检查，不计为完整验证。固件导入仍按安装规范检查。
-- 项目自有代码采用 GPL-3.0-only；第三方依赖 notices 随发布包保留，官方固件再分发权尚待决定。
-- tools/export_public_source.ps1 使用明确文件清单创建独立快照，不修改本地 Git 历史；本地历史含个人路径，暂不建议直接全部推送。
+- 项目自有代码采用 GPL-3.0-only；第三方依赖 notices 随发布包保留，固件与依赖保留各自许可证。
+- tools/export_public_source.ps1 按明确清单导出源码，不包含 Git 历史、固件或诊断日志。
 - 公开技术文档按固件修改、升级校验、蓝牙实现排列；未公开的原始固件与本机日志不是构建依赖。请结合源码和随附测试复核结论。
 ## 公开资料边界
 
 DeviceLog 当前只写本地，不自动上传；日志可能包含串号、蓝牙地址、本机路径和异常堆栈。公开 issue 前应脱敏；ETL、升级记录、截图、固件和研究归档应单独审核。当前规则性凭据检查只覆盖指定源码文本与若干常见凭据格式，未审计全部历史、二进制或日志，不能证明仓库无秘密。
 
-2026-11-17 已完成 Codex Security Standard 静态扫描：112 个文本/源码文件未发现可确认漏洞；二进制图像、许可证法律文本、外部运行库内部及动态实机攻击测试不在完整审阅覆盖内。此前扫描未启动成功的历史工具错误记录保留在未公开的本地审阅材料中。用户已确认早期单文件版本在另一台干净 Windows 上功能正常；最新自动下载版未重复完整跨机验收。
-
-
-
+静态审阅不能替代动态测试、依赖审计与实机验证，也不构成无漏洞保证。

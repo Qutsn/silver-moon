@@ -23,11 +23,4 @@
  dotnet run --project tests/DesktopReadOnly -- --firmware-download-check C:/your-test-cache
 ```
 
-本次真实生产下载成功，生成 r2 哈希与已验收文件一致。开发目录启动的进程受现有 Low 完整性标签影响时可能无法写 LocalAppData；应通过 stage-release.ps1 的正式固定入口运行，不修改系统蓝牙权限。
-
-## 公开发行与其他项目
-
-- [NikonFirmwarePatch](https://github.com/XinmiaoZhao/NikonFirmwarePatch)：原厂固件由用户从 Nikon 获得，仓库不包含原厂固件，只接受指定 C 3.11，拒绝 C 3.12；旧说明页下线后仍引用 Nikon 托管的存档链接并核验哈希。
-- [ReVanced Manager](https://github.com/ReVanced/revanced-manager)：提供本地补丁及下载器机制。不能把其存在理解为任何第三方下载源或接口已获授权。
-
-这些是分发模式的参考，不是法律先例或授权证明。不托管完整官方/修改固件能减少本项目直接再分发的行为，但未解决 Marshall 接口使用和修改固件的全部许可问题。公开发行决定仍需单独处理；本次没有上传固件、发布 GitHub Release 或联系厂商。
+生成结果须匹配固定 r2 哈希。发布脚本检查完整性标签，避免继承 Low 标签影响配对或本地缓存访问。

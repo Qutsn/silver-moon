@@ -14,6 +14,11 @@ public static class SoundControlProbe
  {
   var index=Array.IndexOf(args,"--probe-report");
   if(index<0 || index+1>=args.Length)return 2;
+  // Require an explicit target before discovery; never ship a personal device identifier.
+  var serialIndex=Array.IndexOf(args,"--probe-serial");
+  if(serialIndex<0 || serialIndex+1>=args.Length ||
+     string.IsNullOrWhiteSpace(args[serialIndex+1]) || args[serialIndex+1].StartsWith("--",StringComparison.Ordinal))return 2;
+  var expectedSerial=args[serialIndex+1];
   var rows=new List<object>();bool success=false,restored=false;
   void Log(string stage,object data){rows.Add(new{time=DateTimeOffset.UtcNow,stage,data});}
   await using var connection=new DeviceConnection(()=>new WindowsBleTransport());
@@ -26,7 +31,7 @@ public static class SoundControlProbe
    var matches=candidates.Where(c=>c.Name.Contains("MIDDLETON",StringComparison.OrdinalIgnoreCase)).ToArray();
    if(matches.Length!=1)throw new Exception("No unique test candidate; do not choose automatically.");
    original=await connection.ConnectAsync(matches[0],deadline.Token);
-   if(original.Model!="MIDDLETON" || original.Serial!="0187891")throw new Exception("Not the authorized test speaker.");
+   if(original.Model!="MIDDLETON" || !string.Equals(original.Serial,expectedSerial,StringComparison.Ordinal))throw new Exception("Not the authorized test speaker.");
    if(original.Volume is null || original.Bass is null || original.Treble is null)throw new Exception("Original settings unavailable.");
    if(original.Volume==0 || original.Bass==0 || original.Treble==0)throw new Exception("Zero original needs a dedicated restoration path; no writes performed.");
    Log("before",new{original.Volume,original.Bass,original.Treble,original.Firmware});
