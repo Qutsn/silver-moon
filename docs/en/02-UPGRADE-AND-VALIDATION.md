@@ -68,9 +68,9 @@ For each data request, `start = cursor + skip` and `end = start + count`. Count 
 
 ## Deadlines and completion limits
 
-The current coordinator uses a 75-minute overall limit, a 30-second reconnect/no-progress budget with two-second backoff, 180-second validation and final-disconnect limits, and a 300-second wait for commit completion. Re-reading unchanged PS4 is not forward progress. Relevant state/frontier changes reset recovery accounting; failure preserves the journal rather than reporting success.
+The current coordinator uses a 75-minute overall limit, a 30-second recovery budget after connection loss until progress is established with two-second backoff, 180-second validation and final-disconnect limits, and a 300-second wait for commit completion. Re-reading unchanged PS4 is not forward progress. Relevant state/frontier changes reset recovery accounting; failure preserves the journal rather than reporting success.
 
-Final completion requires `COMPLETE_IND`, observed disconnection, then a fresh identity/version/idle readback. The implementation waits three seconds after the disconnection observation, but no protocol signal proves the startup sound has finished. These checks establish protocol completion, not arbitrary third-party MCU functionality.
+Final completion requires `COMPLETE_IND`, observed disconnection, then a fresh identity/version/idle readback. The implementation waits three seconds after the disconnection observation, but no signal consumed by the current implementation proves that the startup sound has finished. These checks establish protocol completion, not arbitrary third-party MCU functionality.
 
 ## Verification entry points
 

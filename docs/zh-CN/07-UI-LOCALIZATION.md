@@ -8,7 +8,7 @@ UI 当前仅支持中文和英文，采用系统显示语言选择和嵌入式�
 
 - 使用 .NET `CultureInfo.CurrentUICulture`，不根据时区、键盘、固件或设备名称判断。
 - `zh-CN`、`zh-TW`、`zh-HK` 等归入 `zh`；当前共用简体中文资源。
-- `en-*` 归入 `en`；其他语言以及不变区域归入 `en`。
+- `en-*` 归入 `en`；其他语言及固定区域性（InvariantCulture）归入 `en`。
 - 当前语言没有键或值为空：回退 `zh`。两个资源都缺失才显示键名；发布前校验会阻止已引用键缺失。
 - 启动时选定，改变 Windows 显示语言后重新打开程序。不实现运行中语言切换。
 - 资源嵌入程序集；语言目录不从设备或固件加载，也不承载可执行翻译代码。
@@ -42,8 +42,8 @@ C#：`UiText.Get("实际键")`；参数：`UiText.Format("Upgrade.TransferredEvi
 - `Application/ResumableUpgrade.cs` 的阶段消息、Domain 的识别/结构说明以及 Infrastructure 的可见错误均使用 `AppText`。
 - GAIA 命令、枚举状态、SHA-256、固件版本、安装规范标识以及设备原始名称保持原值；系统异常可能使用操作系统自己的语言。
 - 研发预览窗口（MainWindow、NativeWindow、GlassPreviewWindow、ConceptWindow、材质调节等）不属于产品页面翻译范围。
-- `tests/DesktopReadOnly/LocalizationChecks.cs` 验证语言归一、回退、完整资源和嵌入目录实际解析；测试只验证本地逻辑，不证明设备安装成功。
-- 使用 `--preview --ui-culture=en-US --connection-smoke --localization-snapshots` 运行产品页面烟雾检查并记录连接、固件选择、详情、风险、耗时、传输和完成截图。截图写入诊断日志目录；可用 `MIDDLETON_LOG_DIRECTORY` 指定测试目录。`--discovery-smoke` 单独检查设备列表的行数、滚动和边框。
+- `tests/DesktopReadOnly/LocalizationChecks.cs` 验证语言归一、回退、完整资源和嵌入资源目录的实际解析；测试只验证本地逻辑，不证明设备安装成功。
+- 使用 `--preview --ui-culture=en-US --connection-smoke --localization-snapshots` 运行产品页面冒烟测试并记录连接、固件选择、详情、风险、耗时、传输和完成截图。截图写入诊断日志目录；可用 `MIDDLETON_LOG_DIRECTORY` 指定测试目录。`--discovery-smoke` 单独检查设备列表的行数、滚动和边框。
 - 不使用预览截图作为真实设备行为的证明，不执行 BLE 写入或固件安装。
 
 ## 增加语言

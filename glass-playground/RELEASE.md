@@ -1,9 +1,9 @@
 # Desktop portable release
 
 
-The release is a Windows x64, self-contained single EXE (`SilverMoon.exe`). A compressed single-file candidate can be built with `-CompressSingleFile`; this reduces the tested 133.73 MiB package to about 61.95 MiB while increasing first-launch extraction CPU/time. It requires Windows 10 2004 / build 19041 or newer. The receiving computer does not need a .NET installation. .NET extracts the bundled runtime, native libraries, assets and firmware into its per-user cache on first launch; single-file delivery does not mean execution without extraction. Do not launch from a directory carrying a Low integrity label.
+The release is a Windows x64, self-contained single EXE (`SilverMoon.exe`). A compressed single-file candidate can be built with `-CompressSingleFile`; compression reduces the bundle size but can increase first-launch extraction work. Exact size depends on dependencies and whether firmware is bundled. It requires Windows 10 2004 / build 19041 or newer. The receiving computer does not need a .NET installation. .NET extracts the bundled runtime, native libraries, assets and any bundled firmware into its per-user cache on first launch; single-file delivery does not mean execution without extraction. Do not launch from a directory carrying a Low integrity label.
 
-The historical system-dotnet forwarding workaround has been removed. The application and private upgrade worker launch the same EXE. Pairing failures were traced to Low file/process integrity; see [pairing evidence](../docs/03-BLUETOOTH-AND-WINDOWS.md). No privilege elevation or changes to Windows Bluetooth settings are required by the packaging flow.
+The historical system-dotnet forwarding workaround has been removed. The application and private upgrade worker launch the same EXE. Pairing failures were traced to Low file/process integrity; see [pairing evidence](../docs/en/03-BLUETOOTH-AND-WINDOWS.md). No privilege elevation or changes to Windows Bluetooth settings are required by the packaging flow.
 
 ## Build prerequisites
 
@@ -22,7 +22,7 @@ pwsh -NoProfile -File ./glass-playground/verify-portable.ps1 `
   -PublishedDirectory ./glass-playground/publish-portable-new
 ```
 
-The firmware path arguments are optional in the existing research checkout, where historical paths remain defaults. A complete release requires both exact approved materials. The build verifies SHA-256 before bundling:
+The firmware path arguments are optional in the existing research checkout, where historical paths remain defaults. A build with bundled firmware requires both exact hash-matching materials. The public on-demand-download build uses -WithoutBundledFirmware and requires neither material at build time. The build verifies SHA-256 before bundling:
 
 | Material | SHA-256 |
 |---|---|
@@ -40,12 +40,12 @@ pwsh -NoProfile -File ./glass-playground/build.ps1 -OutputDirectory publish-sour
 pwsh -NoProfile -File ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
 ```
 
-This mode prints explicit skips for tests that require genuine package bytes. Skipping material tests must not be described as full material-backed validation. The first two firmware choices now prepare exact supported images on demand from the official server and verified local cache. Portable smoke reports the bundled firmware count; zero bundled images is supported. See [acquisition details](../docs/04-OFFICIAL-FIRMWARE-PREPARATION.md).
+This mode prints explicit skips for tests that require genuine package bytes. Skipping material tests must not be described as full material-backed validation. The first two firmware choices now prepare exact supported images on demand from the official server and verified local cache. Portable smoke reports the bundled firmware count; zero bundled images is supported. See [acquisition details](../docs/en/04-OFFICIAL-FIRMWARE-PREPARATION.md).
 
 ## Local package validation and delivery
 
-`verify-portable.ps1` requires exactly one output EXE, copies it to a new Documents directory, compares SHA-256, and checks mandatory integrity labels on the EXE and extracted files. Its `--portable-smoke` check validates both bundled firmware identities, embedded English/Chinese catalogs, bundled project/dependency notices, and a worker self-launch plus a `close` reply through redirected stdio. It performs zero BLE operations. The validation copy and report remain available for inspection.
+`verify-portable.ps1` requires exactly one output EXE, copies it to a new Documents directory, compares SHA-256, and checks mandatory integrity labels on the EXE and extracted files. Its `--portable-smoke` check validates the identities of any firmware images present in the bundle (zero is supported), embedded English/Chinese catalogs, bundled project/dependency notices, and a worker self-launch plus a `close` reply through redirected stdio. It performs zero BLE operations. The validation copy and report remain available for inspection.
 
-Run UI checks from that externally staged EXE using `--preview --connection --discovery-smoke`, `--preview --connection --connection-smoke` and `--preview --connection --sound-ui-smoke`. These are simulated UI checks, not a real device upgrade or proof of clean-machine compatibility. Final acceptance on another Windows computer without .NET must still cover startup, Chinese/English display, discovery, and a protected uncached read after first pairing. Actual flashing is a separate acceptance step.
+Run UI checks from that externally staged EXE using `--preview --connection --discovery-smoke`, `--preview --connection --connection-smoke` and `--preview --connection --sound-ui-smoke`. These are simulated UI checks, not a real device upgrade or proof of clean-machine compatibility. A clean-machine verification procedure should cover startup, Chinese/English display, discovery, and a protected uncached read after first pairing. Actual flashing is a separate acceptance step.
 
 The fixed working release remains `desktop-release/current/SilverMoon.exe`. Building and verifying a new portable EXE do not replace it. To replace it later, close the app and explicitly run `stage-release.ps1 -PublishedDirectory <new publish directory>`. That existing deployment flow stages outside the checkout, checks labels/hashes, preserves `previous`, and recycles an older previous copy. Do not run it merely to validate a candidate.

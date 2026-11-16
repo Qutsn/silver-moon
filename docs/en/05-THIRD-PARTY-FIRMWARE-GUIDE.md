@@ -1,38 +1,38 @@
-# Third-party installation profile: middleton-mcu-v1
+# Third-party firmware installation profile: middleton-mcu-v1
 
 [简体中文](../zh-CN/05-THIRD-PARTY-FIRMWARE-GUIDE.md) · [Documentation index](README.md)
 
-## Admission contract
+## Contract and implementation
 
-This is an executable, versioned admission rule for fixed-layout MCU modifications, not a general binary flashing interface. Known official/r2 hashes retain their catalog strategies. Unknown files must satisfy this profile before installation confirmation is enabled; otherwise the app reports a rejection reason. The coordinator independently reanalyzes the bytes. Offline tests exercise this behavior, not arbitrary firmware functionality on a physical speaker.
+This versioned profile admits fixed-layout MCU modifications; it is not a general-purpose firmware writer. Exact official/r2 SHA-256 matches retain their catalog strategies. An unknown image is eligible for the staged strategy only if both its container and protected ranges pass validation. The chooser reports rejection reasons, and the coordinator reanalyzes the bytes before transfer. Admission means that the image meets this structural profile, not that its code will boot or work.
 
-The normative implementation is [ThirdPartyFirmware](../../glass-playground/Domain/ThirdPartyFirmware.cs), together with [FirmwareContainer](../../glass-playground/Domain/FirmwareContainer.cs) and [FirmwareCatalog](../../glass-playground/Domain/FirmwareCatalog.cs). “Must” below denotes an implemented requirement unless identified as an author's responsibility.
+The executable definition is [ThirdPartyFirmware](../../glass-playground/Domain/ThirdPartyFirmware.cs), with [FirmwareContainer](../../glass-playground/Domain/FirmwareContainer.cs) and [FirmwareCatalog](../../glass-playground/Domain/FirmwareCatalog.cs). Requirements below refer to enforced checks unless stated as author responsibility.
 
-## Allowed changes and protected bytes
+## Base, permitted ranges and integrity
 
-Use the complete r2 image with SHA-256 `80ed2088247976f10968f5d4aefb3cabf367ff0b0a1f774ac6e62a292c459024` as the base. Only equal-length edits within these embedded files are admitted. All ranges are zero-based container byte offsets with an exclusive end.
+Use the complete r2 image, SHA-256 `80ed2088247976f10968f5d4aefb3cabf367ff0b0a1f774ac6e62a292c459024`, as the base. Only equal-length edits to these embedded images are admitted. Offsets are zero-based bytes in the full container; end offsets are exclusive.
 
-| File | Start | Length | End |
+| Image | Start | Length | End |
 |---|---:|---:|---:|
 | huada.bin | 2445564 | 128980 | 2574544 |
 | mcu.bin | 2574544 | 138872 | 2713416 |
 
-The adjacent ranges form `[2445564,2713416)`. MCU internal checks, bootability and behavior remain the author's responsibility. The desktop validator cannot establish arbitrary machine-code correctness.
+The adjacent ranges form `[2445564,2713416)`. MCU-internal integrity checks, bootability and behavior are the author's responsibility. The desktop validator does not analyze whether arbitrary machine code is correct.
 
-The complete file must be 3266308 bytes. Protected ranges must match the base, enforced by SHA-256 rather than filenames or declarations:
+The complete file must be 3266308 bytes. The protected prefix and suffix must match these hashes, regardless of filename or author declaration:
 
-| Protected range | SHA-256 |
+| Range | SHA-256 |
 |---|---|
 | `[0,2445564)` | `c14433030a3b862dc04e8a6b5079e95a8ca0e7a90445717854cc7f57f7843614` |
 | `[2713416,3266308)` | `c09c70c2cb0c6536428a44b0363f227f56ca83345e8d98bf05a57866e22636d4` |
 
-This preserves headers, QSPI/partition metadata, filesystem directory, non-MCU resources, QCC upgrade code, the r2 display marker and footer. Changing the Bluetooth application, partition sizes or file directory requires a different profile and strategy.
+These checks preserve the header, QSPI/partition metadata, filesystem directory, non-MCU resources, QCC upgrade code, r2 display marker and footer. The profile does not admit changes to the Bluetooth application, partition sizes or filesystem directory. Those changes require a separately reviewed profile and installation strategy.
 
-## Container constraints
+## Container grammar
 
-Records contain an eight-byte ASCII identifier, a four-byte big-endian body length and the body. Truncation and trailing bytes are rejected.
+Each record is an eight-byte ASCII identifier, a four-byte big-endian body length and the body. The parser rejects truncation, unexpected record order/length and trailing bytes.
 
-| Order | Identifier | Body length | Partition |
+| Order | Identifier | Body bytes | Partition |
 |---|---|---:|---:|
 | 1 | APPUHDR5 | 48 | — |
 | 2 | PARTDATA | 20 | 0 |
@@ -44,23 +44,23 @@ Records contain an eight-byte ASCII identifier, a four-byte big-endian body leng
 | 8 | PARTDATA | 552588 | 9 |
 | 9 | APPUPFTR | 256 | — |
 
-The header chip identifier is `QCC512Xx`; the footer starts at 3266040. Import additionally imposes a 16 MiB read limit. Structure alone never admits a file: protected-range checks are also required.
+The header chip identifier is `QCC512Xx`; `APPUPFTR` starts at byte 3266040. Import reads are bounded to 16 MiB. Passing the container grammar alone does not admit an image; the protected-range hashes are also mandatory.
 
 ## Authoring and installation procedure
 
-1. Obtain the specified base from a legitimate source and verify its complete SHA-256.
-2. Modify MCU bytes in place, preserving lengths and every byte outside the permitted ranges. Do not repack the filesystem.
-3. Select the local `.bin`. The app calculates its full SHA-256 and protocol image ID, then reports admission or rejection.
-4. After confirmation, the app rereads the file and checks its hash to detect replacement after selection. The staged strategy requires Middleton, hardware `3.0.2`, and current firmware `17.0.37` or `25.2.52`.
-5. Transfer stops at the fixed partition boundary, verifies staged state against this file's image ID, and changes only the guarded recovery field. After loss, the device requests the resume location.
-6. Trial boot, commit, observed disconnection and fresh version/idle checks must complete before protocol installation success is reported.
+1. Obtain the specified r2 base from a source you are entitled to use and verify the complete SHA-256.
+2. Modify MCU image bytes in place. Preserve all lengths and every byte outside the permitted range; do not repack the filesystem.
+3. Select the resulting local `.bin`. The app calculates its SHA-256 and protocol image ID and reports admission or a specific rejection.
+4. On confirmation, the app rereads and rechecks the file to detect changes after selection. The staged strategy requires model `MIDDLETON`, hardware `3.0.2`, and current firmware `17.0.37` or `25.2.52`.
+5. Transfer stops at the fixed partition boundary. The app checks staged state against this file's image ID and changes only the guarded recovery field. After connection loss, the device requests the resume location.
+6. The app requires trial boot, commit, observed disconnection and fresh version/idle-state readback before reporting protocol installation completion.
 
-No extra manifest is required: protected content fixes the layout and displayed version. Full SHA-256 identifies each package and isolates its journal. The image ID is the last four bytes of the complete file's MD5 digest, as used by the existing protocol; it is not an authenticity check or the fixed r2 image ID reused for every package.
+No extra manifest is required. Protected bytes fix the layout and QCC display version. The complete SHA-256 identifies the package and isolates its local journal. The protocol image ID is the last four bytes of the full image's MD5 digest; it is a protocol field, not an authenticity check. Third-party images do not reuse the catalog's fixed r2 image ID.
 
-## Result interpretation
+## Interpretation and verification limits
 
-Protected QCC code retains display version **25.2.52**, not an author-defined version. That string cannot independently establish internal MCU programming or functional correctness. Full SHA-256 distinguishes packages with the same display version.
+Protected QCC code retains display version `25.2.52`, not an author-defined version. This value cannot independently demonstrate MCU programming or functional correctness. Full SHA-256 distinguishes images that share the display version.
 
-Admission permits an attempt, not guaranteed acceptance or bootability. Transfer 100% is not installation success. Identity mismatches, rejection or commit failure stop the process and retain its journal. The profile does not repair the vendor signature and cannot write arbitrary partitions.
+Admission allows an installation attempt but does not guarantee acceptance, bootability or function. Reaching 100% transfer is not installation completion. Identity mismatch, device rejection or failed commit stops the process and retains the journal. This profile neither creates a vendor signature nor supports arbitrary partition writes.
 
-[ThirdPartyFirmwareChecks](../../tests/DesktopReadOnly/ThirdPartyFirmwareChecks.cs) and [ResumableUpgradeChecks](../../tests/DesktopReadOnly/ResumableUpgradeChecks.cs) cover protected-boundary rejection, MCU-range admission, independent IDs, simulated transfer, lost-ACK recovery and final readback. Material-dependent tests require exact base bytes; simulation does not replace physical-device testing.
+[ThirdPartyFirmwareChecks](../../tests/DesktopReadOnly/ThirdPartyFirmwareChecks.cs) and [ResumableUpgradeChecks](../../tests/DesktopReadOnly/ResumableUpgradeChecks.cs) cover boundary rejection, permitted MCU ranges, independent image IDs, simulated transfer, lost-ACK recovery and readback logic. Material-dependent tests require the exact base image. Simulation does not replace physical-device validation.

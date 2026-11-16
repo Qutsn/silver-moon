@@ -1,11 +1,17 @@
-# 安全问题报告
+# Security reporting / 安全问题报告
 
-当前项目尚处发布准备阶段，不宣称无漏洞或适用于全部 Marshall 设备。
+## English
 
-在 GitHub 仓库启用 Private vulnerability reporting 后，请优先通过 Security 页面私下报告可利用问题。该功能尚未启用时，请先联系仓库维护者确认私下渠道，不要公开凭据、个人诊断数据或可直接影响他人设备的攻击材料。
+Silver Moon is currently a pre-release and supports the documented Middleton configuration. It does not claim universal Marshall compatibility or absence of vulnerabilities.
 
-报告请包含受影响版本、最小复现、输入前提、影响和建议修复方向。请仅在自己拥有或获授权的设备上测试。固件内容造成的功能故障与桌面端的文件校验、协议处理或权限问题应分别说明。
+Use the repository's [private vulnerability reporting form](https://github.com/Qutsn/silver-moon/security/advisories/new) for potentially exploitable issues. Include the affected version, minimal reproduction, prerequisites, impact and suggested remediation. Test only devices you own or are authorized to test. Distinguish firmware functionality problems from desktop file-validation, protocol-handling and permission issues.
 
-公开审阅入口与限制见 docs/06-CODE-REVIEWER-GUIDE.md。依赖已知漏洞查询没有发现问题，不等于完整安全保证。
+Do not publish credentials, personal diagnostic data or unredacted device identifiers in public issues. See the [code review guide](docs/en/06-CODE-REVIEWER-GUIDE.md) for review boundaries. A dependency check with no findings is not a comprehensive security guarantee.
 
+## 中文
 
+Silver Moon 当前为预发布版本，仅支持文档明确的 Middleton 配置，不宣称适用于全部 Marshall 设备或不存在漏洞。
+
+对于可能被利用的安全问题，请使用仓库的[私密漏洞报告入口](https://github.com/Qutsn/silver-moon/security/advisories/new)。报告应包含受影响版本、最小复现、必要前提、影响及建议修复方向。请仅在自己拥有或获授权的设备上测试，并区分固件功能问题与桌面端的文件校验、协议处理、权限问题。
+
+不要在公开 issue 中发布凭据、个人诊断数据或未脱敏的设备标识。审阅边界见[代码审阅指南](docs/zh-CN/06-CODE-REVIEWER-GUIDE.md)。依赖检查未发现问题，不等于全面安全保证。

@@ -4,7 +4,7 @@
 
 ## Purpose and inputs
 
-The public portable build contains no complete firmware image. Selecting official or modified firmware prepares an exact supported image on demand. Builds supplied with firmware materials instead validate those bundled files. File preparation does not itself start an installation or open a BLE link; final installation confirmation is separate.
+The public portable build contains no complete firmware image. Selecting official or modified firmware prepares an exact supported image on demand. Builds supplied with firmware materials instead validate those bundled files. The preparation module does not itself start an installation or open a BLE link; the UI may already have a device connection. Final installation confirmation is separate.
 
 [FirmwarePreparation](../../glass-playground/Application/FirmwarePreparation.cs) accepts only the following base and result:
 

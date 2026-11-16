@@ -2,6 +2,8 @@
 
 [简体中文](../zh-CN/06-CODE-REVIEWER-GUIDE.md) · [Documentation index](README.md)
 
+`glass-playground/` is the production desktop source directory. Its name and the internal `GlassPlayground` namespace originated in the glass-UI prototype; they are still referenced by project files, embedded resources, tests and build scripts. The product and executable are Silver Moon / `SilverMoon.exe`. The directory is not disposable test output.
+
 ## Scope and reading map
 
 This guide addresses reviewers of the desktop implementation. Comments explain constraints and rationale in concise English; both documentation languages preserve the same evidence boundaries. Build scripts support public NuGet and an installed SDK. Firmware materials are separate inputs.
@@ -50,7 +52,7 @@ The source-only mode explicitly skips real-firmware-dependent checks; it is not 
 
 Portable EXE offline UI modes include `--preview --connection --discovery-smoke`, `--connection-smoke`, and `--sound-ui-smoke` (keep `--preview --connection` for each). These do not connect to a real speaker. Packaging validation uses `--portable-smoke <report-path>` and checks bundled resources/licenses and worker launch without BLE operations.
 
-Scripts prefer an installed SDK; a local research toolchain is a development fallback. NuGet.Config uses nuget.org. The export script selects public source explicitly, excluding Git history, firmware and diagnostic logs. Neither unpublished binaries nor personal logs are build dependencies.
+Scripts prefer an installed SDK; a local research toolchain is a development fallback. NuGet.Config uses nuget.org. The export script selects public source explicitly, excluding Git history, firmware and diagnostic logs. The firmware-free build does not require unpublished firmware binaries or personal logs; material-dependent tests require the specified firmware inputs.
 
 ## Publication and review limits
 
