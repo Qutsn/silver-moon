@@ -1,26 +1,6 @@
-# 官方固件按需准备（2026-11-16）
+# 04-OFFICIAL-FIRMWARE-PREPARATION
 
-固件选择页保留原交互和最终刷入确认。包含固件的本地完整包优先使用内置文件并验证精确哈希；不内置固件的便携包首次选择官方版或修改版时自动向 Marshall 获取 17.0.37，缓存原版，再按需在本地生成 r2。准备文件不连接音箱、不开始刷入。
+[English](en/04-OFFICIAL-FIRMWARE-PREPARATION.md) · [简体中文](zh-CN/04-OFFICIAL-FIRMWARE-PREPARATION.md)
 
-## 信任边界
-
-- 生产元数据接口：`https://fota.marshall.software/msdk/firmware`。不提交用户的序列号，使用历史接口所需的占位值。
-- 仅接受 17.0.37、Lennox 的预期文件名、3266308 字节及代码内固定的完整 SHA-256。
-- 下载仅限 HTTPS 官方主机和精确文件路径，拒绝跳转；不记录带签名的下载 URL。
-- 本地补丁验证原版完整哈希、每处修改前字节，以及生成结果完整哈希。不会对未知版本进行模式搜索后自动修改。
-- 缓存：`%LOCALAPPDATA%/MiddletonDesktop/firmware-cache/official-17.0.37.bin`。每次使用重新校验，写入通过临时文件原子替换；完整原版用于回刷。
-- 已有有效缓存可离线使用。没有有效缓存时，官方返回新版或下载失效会拒绝准备，用户仍可导入符合已有规范的文件。
-- 未来官方版本需独立分析、生成明确补丁和哈希、测试后更新项目。当前没有证明可查询任意历史版本的接口；不能保证官方长期保留 17.0.37。
-
-## 验证
-
-`tests/DesktopReadOnly` 默认包含准备模块的假 HTTP 测试：已知输入与 r2 逐字节比较、离线缓存、损坏缓存、未知版本、外域 URL、损坏/超长下载、取消。材料缺失的公开 CI 明确跳过材料测试。
-
-显式联网检查（不执行 BLE 操作）：
-
-```powershell
-# 使用仓库 SDK 环境或本机 .NET 10
- dotnet run --project tests/DesktopReadOnly -- --firmware-download-check C:/your-test-cache
-```
-
-生成结果须匹配固定 r2 哈希。发布脚本检查完整性标签，避免继承 Low 标签影响配对或本地缓存访问。
+This document is maintained in both languages at the links above.
+本文的中英文正文见上方链接。

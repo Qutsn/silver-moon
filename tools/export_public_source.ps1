@@ -16,7 +16,10 @@ foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo 'glass-playground') -F
  if($f.Extension -in @('.cs','.axaml','.csproj','.targets','.Config','.manifest','.ps1')){$files.Add("glass-playground/$($f.Name)")}
 }
 foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo 'tests/DesktopReadOnly') -File){if($f.Extension -in @('.cs','.csproj','.ps1')){$files.Add("tests/DesktopReadOnly/$($f.Name)")}}
-foreach($name in @('05-THIRD-PARTY-FIRMWARE-GUIDE.md','07-UI-LOCALIZATION.md','06-CODE-REVIEWER-GUIDE.md','04-OFFICIAL-FIRMWARE-PREPARATION.md','01-FIRMWARE-PATCHES.md','02-UPGRADE-AND-VALIDATION.md','03-BLUETOOTH-AND-WINDOWS.md')){$files.Add("docs/$name")}
+$documentation=@('README.md','01-FIRMWARE-PATCHES.md','02-UPGRADE-AND-VALIDATION.md','03-BLUETOOTH-AND-WINDOWS.md','04-OFFICIAL-FIRMWARE-PREPARATION.md','05-THIRD-PARTY-FIRMWARE-GUIDE.md','06-CODE-REVIEWER-GUIDE.md','07-UI-LOCALIZATION.md','08-EVIDENCE-AND-VERIFICATION.md')
+foreach($language in @('','en/','zh-CN/')){
+ foreach($name in $documentation){$files.Add("docs/$language$name")}
+}
 $files.Add('glass-playground/RELEASE.md')
 New-Item -ItemType Directory -Path $target | Out-Null
 $manifest=@()
