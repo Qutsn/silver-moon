@@ -20,6 +20,10 @@ You can read the [third-party installation specification](docs/en/05-THIRD-PARTY
 - **Everyday controls**: device information, volume, and EQ over Bluetooth LE.
 - **Portable Windows app**: a single EXE; the UI currently supports only Chinese and English. Import of third-party firmware that meets the supported format is also available.
 
+## Device support
+
+I own only a first-generation Middleton, and hardware testing has been limited to that unit. Silver Moon currently supports only the first-generation Middleton. Middleton II and other models have not been tested and are not supported.
+
 ## How it works
 
 1. **Connect**. Open `SilverMoon.exe`, turn on the speaker, and select its LE device. The app handles pairing and checks device compatibility.
@@ -29,7 +33,7 @@ You can read the [third-party installation specification](docs/en/05-THIRD-PARTY
 
 No manual firmware patching or command-line flashing is needed for the built-in choices. The public EXE does not bundle firmware. When first preparing official or modified firmware, the app needs internet access to download the supported official firmware from the Marshall server and verify its SHA-256; modified firmware is then generated locally. A valid cached copy can be reused offline.
 
-Windows 10 2004 / build 19041 or later, x64. The EXE is unsigned; Windows may display SmartScreen warnings. `SHA256SUMS.txt` lets you verify the EXE download's integrity.
+Windows 10 2004 / build 19041 or later, x64. `SHA256SUMS.txt` lets you verify the EXE download's integrity.
 
 ## Technical Documentation
 
@@ -85,6 +89,10 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 - **日常控制**：通过蓝牙 LE 查看设备信息、调节音量与 EQ。
 - **便携桌面程序**：Windows 单文件 EXE，UI 当前仅支持中文和英文，也可导入符合规范的第三方固件。
 
+## 设备支持范围
+
+本人目前只有一台第一代 Middleton，实机测试仅在这台设备上进行。Silver Moon 当前仅支持第一代 Middleton；Middleton II 及其他型号尚未测试，也不在支持范围内。
+
 ## 使用流程
 
 1. **连接音箱**。打开 `SilverMoon.exe`，开启音箱并选择其 LE 设备，软件处理配对并检查设备兼容性。
@@ -94,7 +102,7 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 
 使用内置选项时，不需要手动修改固件或通过命令行刷入。公开发布的 EXE 不内置固件，因此首次准备官方版或修改版固件时需要联网，从 Marshall 官方服务器下载支持的官方固件并校验 SHA-256；修改版随后在本地生成。已有有效缓存时可离线复用。
 
-支持 Windows 10 2004 / build 19041 及以上的 x64 系统。EXE 未签名，Windows 可能显示 SmartScreen 提示。`SHA256SUMS.txt` 用于检查 EXE 下载是否完整。
+支持 Windows 10 2004 / build 19041 及以上的 x64 系统。`SHA256SUMS.txt` 用于检查 EXE 下载是否完整。
 
 ## 技术文档
 
