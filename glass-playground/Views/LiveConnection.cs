@@ -21,7 +21,7 @@ public sealed partial class ConnectionPreviewWindow
  void InitializeLiveMode()
  {
   liveConnection=new(()=>new WindowsBleTransport(async action=>await Dispatcher.UIThread.InvokeAsync(action)),officialSoundTrial:OfficialSoundTrial);
-  Title=PreviewMode?UiText.Get("LiveConnection.Text.884"):"Silvered Moon";
+  Title=PreviewMode?UiText.Get("LiveConnection.Text.884"):"Silver Moon";
   this.FindControl<FirmwareChooser>("FirmwareChooser")!.PreviewMode=PreviewMode;
   if(PreviewMode)return;
   this.FindControl<Border>("DiscoveryPanel")!.IsVisible=false;

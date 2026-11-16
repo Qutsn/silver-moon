@@ -1,9 +1,5 @@
 # Application icon
 
-`silvered-moon.ico` is the unmodified approved Windows icon from the 2026-11-17
-`design/silvered-moon-icon-release-v2` delivery, verified against its SHA-256 manifest.
-It contains all ten supplied sizes (16–256 px). Do not crop, recolor or add a background.
+`silver-moon.ico` is the original Windows icon, renamed for Silver Moon without changing its artwork.
 
-`ApplicationIcon` embeds it in the Windows EXE. The application-level Window style
-uses the same Avalonia resource for window/taskbar icons. Shortcuts targeting this
-EXE can use its default icon. This project currently ships a portable EXE, not an installer.
+SHA-256: 3F65ABA9408C3E636CCE38F76BCE111D1E8C4FF1E7984A47EFE387628D92AE92

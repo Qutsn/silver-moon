@@ -21,11 +21,11 @@
   },
   {
     "path": "README.md",
-    "sha256": "A773E8EB0C763508E4BD60921A890CE92A536D878DE16B366089895F4C783C48"
+    "sha256": "EA086D234E8928A15F28AC0711933C072AC544D8C3F78184F6A84CFB7DC2B088"
   },
   {
     "path": "README.zh-CN.md",
-    "sha256": "BDDF4FD874ACEBF333EC1803A0CF6B4FBF5AB38E80BE7962377F0082665B7A61"
+    "sha256": "B464CAB35957939CF7D7C835BFC8E3C288B701CA320F35AF6BC6EDC3B2791A9E"
   },
   {
     "path": "SECURITY.md",
@@ -61,7 +61,7 @@
   },
   {
     "path": "glass-playground/App.axaml",
-    "sha256": "D10B46B50FB6786231925B4199C02114F758FC9B55EC242DEE55B4D59DEFE95F"
+    "sha256": "31E6DBCE78D0509DBBFB6200F24F94CA08F49055094A808CAFDC3592853E94C1"
   },
   {
     "path": "glass-playground/Application/DeviceConnection.cs",
@@ -73,7 +73,7 @@
   },
   {
     "path": "glass-playground/Application/FirmwarePreparation.cs",
-    "sha256": "2D50F97F03E7B46701C16893379129E52F93D85A1DFF3C915F2AD396CA253020"
+    "sha256": "7AE5FA493E4A4B4C89510F53FFF54FDDC0410E83DDE96AD5166B1EB4BCB2793E"
   },
   {
     "path": "glass-playground/Application/OfficialUpgradeCoordinator.cs",
@@ -121,7 +121,7 @@
   },
   {
     "path": "glass-playground/Assets/ICON.md",
-    "sha256": "2B5D4DB5AF3A5FA555070564A08085EB75F93FD302A907A732774BEC3DA17AEE"
+    "sha256": "83529E3EE8DF72149CE458AAC31140BD44E8AC4B820B56581B2FE0F2455EEB28"
   },
   {
     "path": "glass-playground/Assets/concept-background.png",
@@ -140,7 +140,7 @@
     "sha256": "6853C2353BB30DEB739EB9BB780998DDE8A5B84E0A29D274A651542996B7921D"
   },
   {
-    "path": "glass-playground/Assets/silvered-moon.ico",
+    "path": "glass-playground/Assets/silver-moon.ico",
     "sha256": "3F65ABA9408C3E636CCE38F76BCE111D1E8C4FF1E7984A47EFE387628D92AE92"
   },
   {
@@ -193,7 +193,7 @@
   },
   {
     "path": "glass-playground/GlassPlayground.csproj",
-    "sha256": "7F1A1238C97BF1FCF95770026B685136D881F5F9229E3A7C15E027E79D5E0642"
+    "sha256": "501A68355F88941E4F85C4DA7F68057BF99A2AAE6CFFC461CED6C223925D0C61"
   },
   {
     "path": "glass-playground/Infrastructure/DeviceLog.cs",
@@ -225,7 +225,7 @@
   },
   {
     "path": "glass-playground/Infrastructure/UpgradeWorker.cs",
-    "sha256": "6F895001B4631DA052F10DFC44C59C0E2CE0F0B428FC7170C227662E44B61031"
+    "sha256": "BD2767E985D1D6DD785B9169CDB2D4BB0A204385702F2430CFD23B383B290C47"
   },
   {
     "path": "glass-playground/Infrastructure/WindowsBleTransport.cs",
@@ -261,7 +261,7 @@
   },
   {
     "path": "glass-playground/RELEASE.md",
-    "sha256": "6325D085C1EAB217AD1486581502936CF37178DCF17111A7C8D888E3243316B5"
+    "sha256": "47CB89C387AA5150B7A16C9F794E1FCAB31C1753BBF744AF00E7587772371AD7"
   },
   {
     "path": "glass-playground/TestPattern.cs",
@@ -329,7 +329,7 @@
   },
   {
     "path": "glass-playground/Views/LiveConnection.cs",
-    "sha256": "EDCF5137FE9B0F7E67FB1E2BD3A85F462DAE991E6ED2BB5D850D51C762EFB747"
+    "sha256": "B14B418E16AA01B3EFC849B926A0D1B85F188EF9FA6FA23A6E6AA304DBA44F8B"
   },
   {
     "path": "glass-playground/Views/LiveSoundObservation.cs",
@@ -349,7 +349,7 @@
   },
   {
     "path": "glass-playground/Views/MaterialTunerWindow.cs",
-    "sha256": "B223411E324E8C625B6BDD0491A8FB9D2FA2FB3AC5EBEC418153849059943FDB"
+    "sha256": "48FE0B42368AFF8D5546C0DDB4FAE0DC38B9E65547A698E3F0FB21931B6CDE86"
   },
   {
     "path": "glass-playground/Views/MetricTransition.cs",
@@ -389,7 +389,7 @@
   },
   {
     "path": "glass-playground/app.manifest",
-    "sha256": "837E92E365E3DA9AC3D19CB653FEE24E25CACF3A441E4FB50F91D0AD605AFBD7"
+    "sha256": "2FC8D273C0A1D5E32EF24A34AA5C276EC0EF0C18D423F6F3996B79E88F07BA07"
   },
   {
     "path": "glass-playground/build.ps1",
@@ -413,11 +413,11 @@
   },
   {
     "path": "glass-playground/stage-release.ps1",
-    "sha256": "F31B9E02766F13F367B2ED10D326C0C77D3166F910148744DA38A92AAA88DCA2"
+    "sha256": "4F6F3F8500FA3ED266397070D9C9205F67C9B5BFF31C373EB62B19B17610740D"
   },
   {
     "path": "glass-playground/verify-portable.ps1",
-    "sha256": "B95F3D154EBA00D16CBF0A169C4D817F4E8A98C459D51B0F4F440FAFE561C56D"
+    "sha256": "447B78DA2F20E3103B65D35BC4FC064E92B1B15C79633C627A269270B49E2535"
   },
   {
     "path": "tests/DesktopReadOnly/DesktopReadOnly.csproj",

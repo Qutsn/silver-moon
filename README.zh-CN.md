@@ -1,22 +1,33 @@
-# 中文
+# Silver Moon
 
-非官方 Marshall Middleton 管理与固件工具。刷入修改版固件，关闭 AUX 休眠与十分钟自动关机。
+非官方 Marshall Middleton 管理与固件工具。通过自动化固件安装流程，关闭 AUX 休眠与十分钟自动关机。
 
-[下载](https://github.com/Qutsn/silvered-moon/releases) · [English](README.md#silvered-moon)
+[下载](https://github.com/Qutsn/silver-moon/releases) · [English](README.md)
 
-## 功能
+## 项目初衷
 
-- 蓝牙 LE 扫描、配对、设备信息与音量/EQ 控制。
-- 官方 17.0.37 下载、SHA-256 校验、本地修改与回刷。
-- 固件安装、断线重连与续传。
-- 导入符合规范的第三方固件。
-- Windows x64 单文件便携程序，中英文界面。
+音箱为什么不能让用户自行设置 AUX 的休眠时间和自动关机时间？Middleton 的官方固件替用户做出了这些选择，却没有留下修改的入口，无论这些设置是否符合个人习惯。Silver Moon 最初就来自这份不满：我们希望把选择权交还给拥有设备的人。
 
-## 使用
+当前补丁实现了关闭 AUX 休眠和十分钟自动关机，尚不支持自定义时间。
 
-从 Releases 下载 `SilveredMoon.exe`。支持 Windows 10 2004 / build 19041 及以上，无需另装 .NET。打开音箱，选择 LE 设备，即可控制声音或选择固件。首次准备固件需要联网，已验证缓存可离线复用。
+## 功能亮点
 
-当前为预发布版本，EXE 未签名，Windows 可能显示 SmartScreen 提示。`SHA256SUMS.txt` 是 EXE 的校验清单，用于验证下载完整性，不是数字签名。
+- **自动准备固件：**下载支持的官方固件、校验 SHA-256，并在本地生成修改版。
+- **引导式安装：**选择音箱与固件、确认安装后，由软件处理传输、断线重连、续传与完成检查。
+- **回刷官方固件：**恢复原有的休眠与自动关机行为。
+- **日常控制：**通过蓝牙 LE 查看设备信息、调节音量与 EQ。
+- **便携桌面程序：**Windows 单文件 EXE，中英文界面，也可导入符合规范的第三方固件。
+
+## 使用流程
+
+1. **连接音箱。**打开 `SilverMoon.exe`，开启音箱并选择其 LE 设备，软件处理配对并检查设备兼容性。
+2. **选择固件。**选择修改版以关闭 AUX 休眠与自动关机，或选择官方版以恢复原有行为。软件自动下载、校验支持的基础固件，并准备所选固件。
+3. **确认安装。**软件开始传输；连接中断时尝试重连，根据音箱报告的状态恢复传输。
+4. **等待完成。**升级与重启后，软件重新连接并检查设备状态，再报告安装完成。
+
+使用内置选项时，不需要手动修改固件或通过命令行刷入。首次准备固件需要联网，已验证的缓存可离线复用。
+
+支持 Windows 10 2004 / build 19041 及以上的 x64 系统。当前为未签名的预发布版本，Windows 可能显示 SmartScreen 提示。`SHA256SUMS.txt` 用于检查 EXE 下载是否完整。
 
 ## 技术文档
 
@@ -26,11 +37,11 @@
 4. [固件下载与准备](docs/04-OFFICIAL-FIRMWARE-PREPARATION.md)
 5. [第三方固件规范](docs/05-THIRD-PARTY-FIRMWARE-GUIDE.md)
 
-支持 Middleton 官方 17.0.37 与项目 r2（显示版本 25.2.52）。补丁关闭已定位的 AUX 休眠调用及十分钟关机请求，不是全部电源保护。第三方文件通过规范检查不代表固件功能正常。
+支持 Middleton 官方 17.0.37 与项目 r2（显示版本 25.2.52）。补丁不会关闭全部电源保护机制。第三方文件通过规范检查不代表固件功能正常。
 
 ## 构建
 
-需要 Windows、PowerShell 7 和 .NET SDK 10，使用上方英文部分的构建命令。此模式跳过依赖固件素材的测试。
+需要 Windows、PowerShell 7 和 .NET SDK 10，使用 [英文 README](README.md#build) 中的构建命令。此模式跳过依赖固件素材的测试。
 
 [构建指南](glass-playground/RELEASE.md) · [代码导读](docs/06-CODE-REVIEWER-GUIDE.md) · [本地化](docs/07-UI-LOCALIZATION.md) · [参与贡献](CONTRIBUTING.md) · [安全问题](SECURITY.md)
 

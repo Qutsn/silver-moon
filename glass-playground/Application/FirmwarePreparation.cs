@@ -24,7 +24,7 @@ public sealed class FirmwarePreparation(string cacheDirectory,HttpClient client)
  public static HttpClient CreateClient()
  {
   var client=new HttpClient(new HttpClientHandler{AllowAutoRedirect=false}){Timeout=TimeSpan.FromMinutes(3)};
-  client.DefaultRequestHeaders.UserAgent.ParseAdd("SilveredMoon/1.0");
+  client.DefaultRequestHeaders.UserAgent.ParseAdd("SilverMoon/1.0");
   return client;
  }
  static bool Matches(byte[] data,string hash)=>Convert.ToHexString(SHA256.HashData(data)).Equals(hash,StringComparison.OrdinalIgnoreCase);
