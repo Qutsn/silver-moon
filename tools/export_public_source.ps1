@@ -5,7 +5,7 @@ $target=[IO.Path]::GetFullPath($Destination)
 if(Test-Path -LiteralPath $target){throw 'Destination must not exist. Export never overwrites or deletes.'}
 # Explicit source inventory: no Git history, research archives, firmware or logs.
 $files=[Collections.Generic.List[string]]::new()
-foreach($name in @('LICENSE','CONTRIBUTING.md','SECURITY.md','.github/workflows/windows.yml','tools/export_public_source.ps1','docs/PUBLIC-README.md')){$files.Add($name)}
+foreach($name in @('LICENSE','CONTRIBUTING.md','SECURITY.md','.github/workflows/windows.yml','tools/export_public_source.ps1','docs/PUBLIC-README.md','docs/PUBLIC-README.zh-CN.md')){$files.Add($name)}
 foreach($dir in @('Application','Domain','Infrastructure','Views','Localization','Assets')){
  foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo "glass-playground/$dir") -File -Recurse){
   if($f.Attributes -band [IO.FileAttributes]::ReparsePoint){throw "Source link requires review: $($f.FullName)"}
@@ -31,9 +31,11 @@ foreach($relative in $files){
  $manifest+=@{path=$relative;sha256=$hash}
 }
 Copy-Item -LiteralPath (Join-Path $repo 'docs/PUBLIC-README.md') -Destination (Join-Path $target 'README.md')
+Copy-Item -LiteralPath (Join-Path $repo 'docs/PUBLIC-README.zh-CN.md') -Destination (Join-Path $target 'README.zh-CN.md')
 [IO.File]::WriteAllText((Join-Path $target '.gitignore'),"**/bin/`n**/obj/`n**/publish*/`n**/*.log`nresearch/`ndesktop-release/`n",[Text.UTF8Encoding]::new($false))
-foreach($relative in @('README.md','.gitignore')){$manifest+=@{path=$relative;sha256=(Get-FileHash -LiteralPath (Join-Path $target $relative) -Algorithm SHA256).Hash}}
+foreach($relative in @('README.md','README.zh-CN.md','.gitignore')){$manifest+=@{path=$relative;sha256=(Get-FileHash -LiteralPath (Join-Path $target $relative) -Algorithm SHA256).Hash}}
 $manifest | ConvertTo-Json -Depth 3 | Set-Content -LiteralPath (Join-Path $target 'source-manifest.json') -Encoding utf8
 Write-Output "Exported $($files.Count) verified source files to $target"
+
 
 
