@@ -5,7 +5,7 @@ $target=[IO.Path]::GetFullPath($Destination)
 if(Test-Path -LiteralPath $target){throw 'Destination must not exist. Export never overwrites or deletes.'}
 # Explicit source inventory: no Git history, research archives, firmware or logs.
 $files=[Collections.Generic.List[string]]::new()
-foreach($name in @('LICENSE','CONTRIBUTING.md','SECURITY.md','.github/workflows/windows.yml','tools/export_public_source.ps1','README.md','README.zh-CN.md')){$files.Add($name)}
+foreach($name in @('LICENSE','CONTRIBUTING.md','SECURITY.md','.github/workflows/windows.yml','tools/export_public_source.ps1','.github/workflows/firmware-monitor.yml','tools/firmware-monitor.cjs','tools/firmware-monitor.test.cjs','README.md','README.zh-CN.md')){$files.Add($name)}
 foreach($dir in @('Application','Domain','Infrastructure','Views','Localization','Assets')){
  foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo "src/SilverMoon/$dir") -File -Recurse){
   if($f.Attributes -band [IO.FileAttributes]::ReparsePoint){throw "Source link requires review: $($f.FullName)"}

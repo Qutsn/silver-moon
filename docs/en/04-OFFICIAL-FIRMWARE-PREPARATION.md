@@ -49,3 +49,13 @@ dotnet run --project tests/DesktopReadOnly -- --firmware-download-check C:/your-
 ```
 
 Use the required .NET SDK. Download/hash checks establish file identity, not device installation. Release staging separately checks Windows integrity labels to avoid carrying a Low label into pairing or cache operations.
+
+## Repository firmware monitoring
+
+The [Middleton firmware monitor](../../.github/workflows/firmware-monitor.yml) queries production Lennox metadata every four UTC calendar days, anchored at 2026-11-17, at approximately 13:23 UTC. GitHub wakes the workflow daily; the script skips the network request on intervening days. This avoids the uneven month-boundary intervals of a day-of-month cron step. Actions scheduling is best effort: runs can be delayed or skipped.
+
+The monitor compares numeric version components with the reviewed baseline (currently 17.0.37). It creates one issue mentioning @Qutsn for each higher version. Open and closed issues both suppress duplicates; deleting the alert issue removes that deduplication record. It does not download firmware, prove that the image is available, or change desktop support. Same-version binary replacements are not detected. Query/format failures fail the workflow rather than reporting a firmware update. Only version, filename and size are published; signed download URLs and real serials are not recorded.
+
+To receive email, enable **Email** for **Participating, @mentions and custom** in [GitHub notification settings](https://github.com/settings/notifications), select a verified notification email, and do not mute this repository. GitHub controls email delivery; creating an issue does not itself prove delivery. Workflow-failure notifications are configured separately under Actions notifications.
+
+Run it immediately from **Actions → Middleton firmware monitor → Run workflow**. Manual runs bypass the date gate, but still deduplicate real updates. The workflow is restricted to Qutsn/silver-moon so forks do not automatically notify the original maintainer. No SMTP credentials are required. GitHub may disable scheduled workflows in public repositories after 60 days without repository activity; re-enable the workflow if this occurs. After adding support for a new firmware, update the monitor baseline together with desktop support. Regression tests enforce baseline alignment and cover malformed metadata, duplicate alerts and month/year boundaries.

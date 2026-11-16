@@ -43,3 +43,13 @@
 生产 HttpClient 禁止重定向；若有 Content-Length 则检查，实际流也独立限制长度，最终检查精确大小与哈希。仅将验证后的原版写入临时文件并替换缓存，再返回原版或从副本生成 r2。准备流程有三分钟关联超时并响应取消；网络元数据不能新增版本或补丁指令。
 
 版本字符串和官方主机名不能代替文件哈希。没有有效缓存且服务器不可用/返回未知版本时拒绝自动准备；当前机制不是任意历史版本选择器。下载成功只证明文件身份，不证明设备已安装。测试入口为 [FirmwarePreparationChecks](../../tests/DesktopReadOnly/FirmwarePreparationChecks.cs)。
+
+## 仓库固件监测
+
+[Middleton firmware monitor](../../.github/workflows/firmware-monitor.yml) 每四个 UTC 日历日查询一次 Lennox 生产接口，以 2026-11-17 为起点，计划时间为 13:23 UTC。GitHub 每日唤醒工作流，脚本在间隔日跳过网络请求，避免按月内日期步进导致跨月间隔不一致。Actions 调度不保证准点，可能延迟或跳过运行。
+
+监测按数字分量比较版本与已审查基准（当前为 17.0.37）。每发现一个更高版本，创建一个 Issue 并 @Qutsn；已打开或已关闭的 Issue 均用于去重，删除提醒 Issue 会删除对应去重记录。监测不下载固件、不证明文件可下载，也不会改变桌面程序的支持范围；无法发现版本号未变的二进制替换。查询或格式错误使工作流失败，不会被当作固件更新。公开内容只含版本、文件名和大小，不记录带授权参数的下载地址或真实设备串号。
+
+要接收邮件，请在 [GitHub 通知设置](https://github.com/settings/notifications) 中为 **Participating, @mentions and custom** 开启 **Email**，选择已验证的通知邮箱，并确保没有屏蔽本仓库。邮件投递由 GitHub 控制，创建 Issue 不等于已验证邮件送达。工作流失败通知由单独的 Actions 通知设置控制。
+
+可从 **Actions → Middleton firmware monitor → Run workflow** 立即检查。手动运行跳过日期判断，仍对真实更新去重。工作流仅在 Qutsn/silver-moon 启用，避免 fork 自动通知原维护者；不需要 SMTP 凭据。公开仓库连续 60 天无仓库活动时，GitHub 可能停用定时工作流，届时须重新启用。将来支持新版固件时，应同时更新监测基准；回归测试检查基准与桌面支持版本一致，并覆盖异常元数据、重复提醒与跨月/跨年间隔。

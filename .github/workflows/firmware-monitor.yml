@@ -1,0 +1,39 @@
+name: Middleton firmware monitor
+on:
+  schedule:
+    - cron: '23 13 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: middleton-firmware-monitor
+  cancel-in-progress: false
+jobs:
+  check:
+    if: github.repository == 'Qutsn/silver-moon'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Monitor regression checks
+        run: node --test tools/firmware-monitor.test.cjs
+      - name: Query official metadata and notify once
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const monitor = require('./tools/firmware-monitor.cjs');
+            if (context.eventName === 'schedule' && !monitor.isDue()) {
+              await core.summary.addRaw('Skipped: official metadata is checked every four UTC days.').write();
+              return;
+            }
+            const result = await monitor.query();
+            const outcome = await monitor.notify(github, context, result);
+            await core.summary.addHeading('Middleton firmware check')
+              .addTable([
+                [{data:'Supported version',header:true}, monitor.baseline],
+                [{data:'Advertised version',header:true}, result.version],
+                [{data:'Outcome',header:true}, outcome]
+              ]).write();

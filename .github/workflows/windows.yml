@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
+      - name: Firmware monitor regression checks
+        run: node --test tools/firmware-monitor.test.cjs
       - name: Localization catalog validation
         shell: pwsh
         run: ./src/SilverMoon/check-localization.ps1
