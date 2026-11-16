@@ -3,7 +3,7 @@
 
 The release is a Windows x64, self-contained single EXE (`SilverMoon.exe`). A compressed single-file candidate can be built with `-CompressSingleFile`; compression reduces the bundle size but can increase first-launch extraction work. Exact size depends on dependencies and whether firmware is bundled. It requires Windows 10 2004 / build 19041 or newer. The receiving computer does not need a .NET installation. .NET extracts the bundled runtime, native libraries, assets and any bundled firmware into its per-user cache on first launch; single-file delivery does not mean execution without extraction. Do not launch from a directory carrying a Low integrity label.
 
-The historical system-dotnet forwarding workaround has been removed. The application and private upgrade worker launch the same EXE. Pairing failures were traced to Low file/process integrity; see [pairing evidence](../docs/en/03-BLUETOOTH-AND-WINDOWS.md). No privilege elevation or changes to Windows Bluetooth settings are required by the packaging flow.
+The historical system-dotnet forwarding workaround has been removed. The application and private upgrade worker launch the same EXE. Pairing failures were traced to Low file/process integrity; see [pairing evidence](../../docs/en/03-BLUETOOTH-AND-WINDOWS.md). No privilege elevation or changes to Windows Bluetooth settings are required by the packaging flow.
 
 ## Build prerequisites
 
@@ -12,14 +12,14 @@ Use Windows x64, PowerShell 7 and the .NET 10 SDK or newer. `NuGet.Config` resto
 Run scripts in a separate PowerShell process because build/test scripts return their result with `exit`. Always publish to a new or empty directory:
 
 ```powershell
-pwsh -NoProfile -File ./glass-playground/build.ps1 -OutputDirectory publish-portable-new -CompressSingleFile `
+pwsh -NoProfile -File ./src/SilverMoon/build.ps1 -OutputDirectory publish-portable-new -CompressSingleFile `
   -OfficialFirmwarePath C:/private-materials/official.bin `
   -R2FirmwarePath C:/private-materials/r2.bin
 pwsh -NoProfile -File ./tests/DesktopReadOnly/test.ps1 `
   -OfficialFirmwarePath C:/private-materials/official.bin `
   -R2FirmwarePath C:/private-materials/r2.bin
-pwsh -NoProfile -File ./glass-playground/verify-portable.ps1 `
-  -PublishedDirectory ./glass-playground/publish-portable-new
+pwsh -NoProfile -File ./src/SilverMoon/verify-portable.ps1 `
+  -PublishedDirectory ./src/SilverMoon/publish-portable-new
 ```
 
 The firmware path arguments are optional in the existing research checkout, where historical paths remain defaults. A build with bundled firmware requires both exact hash-matching materials. The public on-demand-download build uses -WithoutBundledFirmware and requires neither material at build time. The build verifies SHA-256 before bundling:
@@ -36,11 +36,11 @@ Materials are not downloaded automatically or committed by this workflow. Supply
 A clean source checkout can restore and compile using public NuGet without private research files:
 
 ```powershell
-pwsh -NoProfile -File ./glass-playground/build.ps1 -OutputDirectory publish-source-check -WithoutBundledFirmware
+pwsh -NoProfile -File ./src/SilverMoon/build.ps1 -OutputDirectory publish-source-check -WithoutBundledFirmware
 pwsh -NoProfile -File ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
 ```
 
-This mode prints explicit skips for tests that require genuine package bytes. Skipping material tests must not be described as full material-backed validation. The first two firmware choices now prepare exact supported images on demand from the official server and verified local cache. Portable smoke reports the bundled firmware count; zero bundled images is supported. See [acquisition details](../docs/en/04-OFFICIAL-FIRMWARE-PREPARATION.md).
+This mode prints explicit skips for tests that require genuine package bytes. Skipping material tests must not be described as full material-backed validation. The first two firmware choices now prepare exact supported images on demand from the official server and verified local cache. Portable smoke reports the bundled firmware count; zero bundled images is supported. See [acquisition details](../../docs/en/04-OFFICIAL-FIRMWARE-PREPARATION.md).
 
 ## Local package validation and delivery
 

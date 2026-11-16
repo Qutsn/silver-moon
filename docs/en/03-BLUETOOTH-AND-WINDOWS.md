@@ -25,7 +25,7 @@ Short UUIDs above expand using `0000xxxx-0000-1000-8000-00805f9b34fb`. Sound and
 
 ## Implemented BLE GAIA framing
 
-[UpgradeWire](../../glass-playground/Domain/UpgradeWire.cs) implements the following BLE representation. Multi-byte integers in this table are big-endian.
+[UpgradeWire](../../src/SilverMoon/Domain/UpgradeWire.cs) implements the following BLE representation. Multi-byte integers in this table are big-endian.
 
 | Frame | Representation |
 |---|---|
@@ -36,7 +36,7 @@ Short UUIDs above expand using `0000xxxx-0000-1000-8000-00805f9b34fb`. Sound and
 | Data request | Message 3; body = count (4 bytes), skip (4 bytes) |
 | Validation delay | Message 23; body = delay in milliseconds (2 bytes) |
 
-The parser checks vendor, minimum frame size and notification body length. [UpgradeMailbox](../../glass-playground/Application/UpgradeMailbox.cs) allows one outstanding command, matches the ACK command identifier, and separately buffers up to 256 upgrade messages. Overflow or an unexpected ACK breaks the session rather than silently discarding upgrade events. A mailbox belongs to one connection and is not reused after loss or ambiguous timeout.
+The parser checks vendor, minimum frame size and notification body length. [UpgradeMailbox](../../src/SilverMoon/Application/UpgradeMailbox.cs) allows one outstanding command, matches the ACK command identifier, and separately buffers up to 256 upgrade messages. Overflow or an unexpected ACK breaks the session rather than silently discarding upgrade events. A mailbox belongs to one connection and is not reused after loss or ambiguous timeout.
 
 The transfer implementation uses at most 45 firmware bytes per chunk and waits for each command ACK. Prior experiments stalled with larger chunks; this conservative value is not a claimed Bluetooth maximum and cannot be increased solely from ATT MTU arithmetic.
 
@@ -44,11 +44,11 @@ The transfer implementation uses at most 45 firmware bytes per chunk and waits f
 
 Windows BLE/GATT APIs manage discovery, access requests, GattSession, services and characteristics. Bond state, reachability, protection negotiation and notification subscription are different conditions. “Paired” does not imply that every service can currently be accessed.
 
-[PairingNegotiation](../../glass-playground/Application/PairingNegotiation.cs) tries EncryptionAndAuthentication, Encryption, then Default **only** when the preceding result is `ProtectionLevelCouldNotBeMet`. AccessDenied, rejection, timeout and cancellation do not continue that sequence. [ProtectedGatt](../../glass-playground/Application/ProtectedGatt.cs) separately gates protected reads, writes and subscriptions on authentication.
+[PairingNegotiation](../../src/SilverMoon/Application/PairingNegotiation.cs) tries EncryptionAndAuthentication, Encryption, then Default **only** when the preceding result is `ProtectionLevelCouldNotBeMet`. AccessDenied, rejection, timeout and cancellation do not continue that sequence. [ProtectedGatt](../../src/SilverMoon/Application/ProtectedGatt.cs) separately gates protected reads, writes and subscriptions on authentication.
 
 A prior directory-dependent pairing failure was traced to Low file/process integrity on a failing copy versus Medium on a working copy. Ordinary ACL checks or administrator status alone do not establish this distinction. Staging scripts create fresh copies and check integrity labels instead of requiring elevation or changes to Windows Bluetooth settings. This observation does not imply that every AccessDenied result has that cause.
 
-Stale sessions after reboot have failed service discovery while a fresh process could discover characteristics. [UpgradeWorker](../../glass-playground/Infrastructure/UpgradeWorker.cs) owns the upgrade transport in a separate child process, with fresh transport/session resources on reconnect. This is lifetime management, not a security sandbox or a universal Windows Bluetooth repair.
+Stale sessions after reboot have failed service discovery while a fresh process could discover characteristics. [UpgradeWorker](../../src/SilverMoon/Infrastructure/UpgradeWorker.cs) owns the upgrade transport in a separate child process, with fresh transport/session resources on reconnect. This is lifetime management, not a security sandbox or a universal Windows Bluetooth repair.
 
 ## Volume and EQ
 
@@ -64,4 +64,16 @@ A newly connected, non-playing device may report volume 0 even when that is not 
 
 ## Source references
 
-[DeviceConnection](../../glass-playground/Application/DeviceConnection.cs) · [WindowsBleTransport](../../glass-playground/Infrastructure/WindowsBleTransport.cs) · [DeviceProfiles](../../glass-playground/Domain/DeviceProfiles.cs) · [SoundControl](../../glass-playground/Application/SoundControl.cs) · [SoundWriteQueue](../../glass-playground/Application/SoundWriteQueue.cs)
+[DeviceConnection](../../src/SilverMoon/Application/DeviceConnection.cs) · [WindowsBleTransport](../../src/SilverMoon/Infrastructure/WindowsBleTransport.cs) · [DeviceProfiles](../../src/SilverMoon/Domain/DeviceProfiles.cs) · [SoundControl](../../src/SilverMoon/Application/SoundControl.cs) · [SoundWriteQueue](../../src/SilverMoon/Application/SoundWriteQueue.cs)
+
+## Transfer duration and throughput
+
+Full-image transfers in the recorded Windows tests took approximately **45–50 minutes**. Allow at least **one hour** for transfer and installation; interruptions and reconnection can extend this time. This is an observation under the tested conditions, not a completion-time guarantee.
+
+For the 3,266,308-byte image, dividing the image size by 2,700–3,000 seconds gives an effective average of about **1.09–1.21 kB/s** (decimal units). This is a duration-derived average, not an independent radio-link benchmark.
+
+The implementation limits firmware data chunks to 45 bytes and sends them sequentially. Each chunk uses a GATT write with response, then waits for the matching GAIA acknowledgement before continuing. The recorded transfer probe used ATT MTU 100. Protocol headers, two acknowledgement layers, connection scheduling and host/device processing add overhead to each small payload. This stop-and-wait design is a known constraint on application throughput; the recorded evidence does not apportion the delay between those factors.
+
+A short probe with 45-byte chunks continued, whereas a 55-byte probe stalled. The cause of that stall was not established. The 45-byte limit is therefore a conservative implementation choice, not a claimed maximum BLE payload. A larger MTU, unacknowledged writes, pipelining or another transport would require separate protocol and recovery validation; Bluetooth's advertised physical-layer bitrate does not predict this upgrade channel's throughput.
+
+The relevant implementation is [ResumableUpgrade](../../src/SilverMoon/Application/ResumableUpgrade.cs) and [WindowsBleTransport](../../src/SilverMoon/Infrastructure/WindowsBleTransport.cs). Timing and probe observations are project records; the public repository does not include the original device logs. They do not establish equivalent performance on other computers, adapters or speaker models.

@@ -6,7 +6,7 @@
 
 This versioned profile admits fixed-layout MCU modifications; it is not a general-purpose firmware writer. Exact official/r2 SHA-256 matches retain their catalog strategies. An unknown image is eligible for the staged strategy only if both its container and protected ranges pass validation. The chooser reports rejection reasons, and the coordinator reanalyzes the bytes before transfer. Admission means that the image meets this structural profile, not that its code will boot or work.
 
-The executable definition is [ThirdPartyFirmware](../../glass-playground/Domain/ThirdPartyFirmware.cs), with [FirmwareContainer](../../glass-playground/Domain/FirmwareContainer.cs) and [FirmwareCatalog](../../glass-playground/Domain/FirmwareCatalog.cs). Requirements below refer to enforced checks unless stated as author responsibility.
+The executable definition is [ThirdPartyFirmware](../../src/SilverMoon/Domain/ThirdPartyFirmware.cs), with [FirmwareContainer](../../src/SilverMoon/Domain/FirmwareContainer.cs) and [FirmwareCatalog](../../src/SilverMoon/Domain/FirmwareCatalog.cs). Requirements below refer to enforced checks unless stated as author responsibility.
 
 ## Base, permitted ranges and integrity
 

@@ -1,8 +1,8 @@
 <Project>
   <PropertyGroup>
     <BundleFirmware Condition="'$(BundleFirmware)' == ''">true</BundleFirmware>
-    <OfficialFirmwarePath Condition="'$(OfficialFirmwarePath)' == ''">$(MSBuildThisFileDirectory)../research/_fw/Lennox_FW_V17.0.37.bin</OfficialFirmwarePath>
-    <R2FirmwarePath Condition="'$(R2FirmwarePath)' == ''">$(MSBuildThisFileDirectory)../research/custom_fw/aux_no_amp_sleep_display_25.2.52_r2/Middleton_AUX-no-amp-sleep_no-10min-off_display-25.2.52_EXPERIMENTAL.bin</R2FirmwarePath>
+    <OfficialFirmwarePath Condition="'$(OfficialFirmwarePath)' == ''">$(MSBuildThisFileDirectory)../../research/_fw/Lennox_FW_V17.0.37.bin</OfficialFirmwarePath>
+    <R2FirmwarePath Condition="'$(R2FirmwarePath)' == ''">$(MSBuildThisFileDirectory)../../research/custom_fw/aux_no_amp_sleep_display_25.2.52_r2/Middleton_AUX-no-amp-sleep_no-10min-off_display-25.2.52_EXPERIMENTAL.bin</R2FirmwarePath>
   </PropertyGroup>
   <Target Name="ValidateFirmwareInputs" BeforeTargets="PrepareForBuild" Condition="'$(BundleFirmware)' == 'true'">
     <Error Condition="!Exists('$(OfficialFirmwarePath)') or !Exists('$(R2FirmwarePath)')" Text="Supply OfficialFirmwarePath and R2FirmwarePath for a complete portable release. For source-only CI use BundleFirmware=false; that build does not include firmware." />

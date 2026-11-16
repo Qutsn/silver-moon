@@ -4,14 +4,14 @@
 
 本指南面向希望复核实现的贡献者。代码注释使用简短英文，说明约束与原因；技术结论与证据边界在中英文文档中保持一致。构建脚本已支持公共 NuGet 和安装的 SDK；完整固件素材由使用者另行提供。
 
-`glass-playground/` 是正式桌面程序的源码目录。目录名及内部 `GlassPlayground` 命名空间来自早期玻璃 UI 原型，目前仍被工程文件、嵌入资源、测试和构建脚本引用。产品与可执行文件已命名为 Silver Moon / `SilverMoon.exe`；此目录不是可删除的测试产物。
+正式桌面源码位于 `src/SilverMoon/`，产品与可执行文件为 Silver Moon / `SilverMoon.exe`。内部 `GlassPlayground` 命名空间及工程文件名暂时保留，以维持现有代码和嵌入资源标识；它们不代表产品名称。
 
 ## 建议阅读顺序
 
 | 要回答的问题 | 源码（相对仓库根目录） | 验证入口 |
 |---|---|---|
-| 用户改名后如何识别设备？ | `glass-playground/Domain/DeviceProfiles.cs`、`DiscoveryCandidates.cs` | `tests/DesktopReadOnly/Program.cs` |
-| 配对成功是否等于可访问？ | `Application/PairingNegotiation.cs`、`ProtectedGatt.cs`、`Infrastructure/WindowsBleTransport.cs`（均在 glass-playground 下） | Program 中认证、通知订阅门控检查；docs/03-BLUETOOTH-AND-WINDOWS.md |
+| 用户改名后如何识别设备？ | `src/SilverMoon/Domain/DeviceProfiles.cs`、`DiscoveryCandidates.cs` | `tests/DesktopReadOnly/Program.cs` |
+| 配对成功是否等于可访问？ | `Application/PairingNegotiation.cs`、`ProtectedGatt.cs`、`Infrastructure/WindowsBleTransport.cs`（均在 src/SilverMoon 下） | Program 中认证、通知订阅门控检查；docs/03-BLUETOOTH-AND-WINDOWS.md |
 | 文件能否安装？ | `Domain/FirmwareContainer.cs`、`FirmwareCatalog.cs`、`Application/FirmwareImport.cs` | `FirmwareChecks.cs`；docs/05-THIRD-PARTY-FIRMWARE-GUIDE.md |
 | 断线后从哪里续传？ | `Application/ResumableUpgrade.cs` 的 RunAsync/Transfer、`Domain/UpgradeContext.cs` | `ResumableUpgradeChecks.cs`、`UpgradeRecoveryChecks.cs`；docs/02-UPGRADE-AND-VALIDATION.md |
 | ACK、通知、写入响应有什么区别？ | `Domain/UpgradeWire.cs`、`Application/UpgradeMailbox.cs` | `UpgradeChecks.cs`、`UpgradeRecoveryChecks.cs` |
@@ -38,7 +38,7 @@
 
 ## 当前复现方法与缺口
 
-使用 `./tests/DesktopReadOnly/test.ps1` 和 `./glass-playground/build.ps1`，两个脚本会退出当前 PowerShell 进程，应在独立进程运行。界面离线检查使用便携 EXE 的 `--preview --connection --discovery-smoke` / `--connection-smoke` / `--sound-ui-smoke` 参数，不连接真实音箱。
+使用 `./tests/DesktopReadOnly/test.ps1` 和 `./src/SilverMoon/build.ps1`，两个脚本会退出当前 PowerShell 进程，应在独立进程运行。界面离线检查使用便携 EXE 的 `--preview --connection --discovery-smoke` / `--connection-smoke` / `--sound-ui-smoke` 参数，不连接真实音箱。
 
 当前公开构建与交付约束：
 
@@ -57,7 +57,7 @@ DeviceLog 当前只写本地，不自动上传；日志可能包含串号、蓝�
 
 ```powershell
 ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
-./glass-playground/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
+./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
 ```
 
-构建参数和完整素材测试见[构建说明](../../glass-playground/RELEASE.md)。便携包自检使用 `SilverMoon.exe --portable-smoke <report-path>`，只检查资源、许可证和 worker 启动，不执行 BLE。各 UI 检查都须保留 `--preview --connection` 前缀。同编号中英文文档应同时更新，包括哈希、偏移、版本门控与不支持情形；详见[证据与验证](08-EVIDENCE-AND-VERIFICATION.md)。
+构建参数和完整素材测试见[构建说明](../../src/SilverMoon/RELEASE.md)。便携包自检使用 `SilverMoon.exe --portable-smoke <report-path>`，只检查资源、许可证和 worker 启动，不执行 BLE。各 UI 检查都须保留 `--preview --connection` 前缀。同编号中英文文档应同时更新，包括哈希、偏移、版本门控与不支持情形；详见[证据与验证](08-EVIDENCE-AND-VERIFICATION.md)。

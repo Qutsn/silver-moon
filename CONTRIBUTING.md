@@ -4,7 +4,7 @@ Project-owned code is licensed under GPL-3.0-only; see [LICENSE](LICENSE). Firmw
 
 Read the [code review guide](docs/en/06-CODE-REVIEWER-GUIDE.md), [third-party installation profile](docs/en/05-THIRD-PARTY-FIRMWARE-GUIDE.md) and [localization guide](docs/en/07-UI-LOCALIZATION.md).
 
-- Use Windows, PowerShell 7 and .NET SDK 10; see the [build instructions](glass-playground/RELEASE.md).
+- Use Windows, PowerShell 7 and .NET SDK 10; see the [build instructions](src/SilverMoon/RELEASE.md).
 - Without firmware materials, run `./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials`. It explicitly skips material-dependent checks and is not the full test suite.
 - Full material-backed tests require the exact official/r2 hashes. Do not attach firmware or personal diagnostic logs to ordinary pull requests.
 - Protocol changes must preserve failure-stop behavior, identity checks and post-restart readback, with offline regressions. Report physical test conditions/results separately from simulations.
@@ -18,7 +18,7 @@ Read the [code review guide](docs/en/06-CODE-REVIEWER-GUIDE.md), [third-party in
 
 请先阅读[代码审阅指南](docs/zh-CN/06-CODE-REVIEWER-GUIDE.md)和[第三方安装规范](docs/zh-CN/05-THIRD-PARTY-FIRMWARE-GUIDE.md)。界面翻译见[本地化指南](docs/zh-CN/07-UI-LOCALIZATION.md)。
 
-- 使用 Windows、PowerShell 7 和 .NET SDK 10；具体构建参数见[构建说明](glass-playground/RELEASE.md)。
+- 使用 Windows、PowerShell 7 和 .NET SDK 10；具体构建参数见[构建说明](src/SilverMoon/RELEASE.md)。
 - 没有合法取得的固件素材时，可运行 `./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials`；这会明确跳过真实固件相关测试，不能当作全套验证。
 - 完整测试需提供指定哈希的官方/r2 文件；不要把固件或本机诊断日志作为普通 PR 附件。
 - 改动升级协议时必须保留检查失败即停止的行为、身份核对及重启后读回，并提供离线回归。实机测试应单独记录设备前提和结果，不把模拟结果描述为实机成功。

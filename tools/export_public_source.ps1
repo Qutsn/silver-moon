@@ -7,20 +7,20 @@ if(Test-Path -LiteralPath $target){throw 'Destination must not exist. Export nev
 $files=[Collections.Generic.List[string]]::new()
 foreach($name in @('LICENSE','CONTRIBUTING.md','SECURITY.md','.github/workflows/windows.yml','tools/export_public_source.ps1','README.md','README.zh-CN.md')){$files.Add($name)}
 foreach($dir in @('Application','Domain','Infrastructure','Views','Localization','Assets')){
- foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo "glass-playground/$dir") -File -Recurse){
+ foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo "src/SilverMoon/$dir") -File -Recurse){
   if($f.Attributes -band [IO.FileAttributes]::ReparsePoint){throw "Source link requires review: $($f.FullName)"}
   if($f.Extension -in @('.cs','.axaml','.json','.png','.ico','.md')){$files.Add([IO.Path]::GetRelativePath($repo,$f.FullName))}
  }
 }
-foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo 'glass-playground') -File){
- if($f.Extension -in @('.cs','.axaml','.csproj','.targets','.Config','.manifest','.ps1')){$files.Add("glass-playground/$($f.Name)")}
+foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo 'src/SilverMoon') -File){
+ if($f.Extension -in @('.cs','.axaml','.csproj','.targets','.Config','.manifest','.ps1')){$files.Add("src/SilverMoon/$($f.Name)")}
 }
 foreach($f in Get-ChildItem -LiteralPath (Join-Path $repo 'tests/DesktopReadOnly') -File){if($f.Extension -in @('.cs','.csproj','.ps1')){$files.Add("tests/DesktopReadOnly/$($f.Name)")}}
 $documentation=@('README.md','01-FIRMWARE-PATCHES.md','02-UPGRADE-AND-VALIDATION.md','03-BLUETOOTH-AND-WINDOWS.md','04-OFFICIAL-FIRMWARE-PREPARATION.md','05-THIRD-PARTY-FIRMWARE-GUIDE.md','06-CODE-REVIEWER-GUIDE.md','07-UI-LOCALIZATION.md','08-EVIDENCE-AND-VERIFICATION.md')
 foreach($language in @('','en/','zh-CN/')){
  foreach($name in $documentation){$files.Add("docs/$language$name")}
 }
-$files.Add('glass-playground/RELEASE.md')
+$files.Add('src/SilverMoon/RELEASE.md')
 New-Item -ItemType Directory -Path $target | Out-Null
 $manifest=@()
 foreach($relative in $files){

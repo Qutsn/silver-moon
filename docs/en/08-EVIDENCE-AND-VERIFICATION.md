@@ -16,16 +16,16 @@ These documents are engineering reports, not a claim of peer review or a complet
 
 ## Reproducible file-level checks
 
-Record source commit, build options, OS/SDK version, input size and full SHA-256. Known official/r2 identities are defined in [FirmwareCatalog](../../glass-playground/Domain/FirmwareCatalog.cs). Patch offsets and original bytes are enforced in [FirmwarePreparation](../../glass-playground/Application/FirmwarePreparation.cs).
+Record source commit, build options, OS/SDK version, input size and full SHA-256. Known official/r2 identities are defined in [FirmwareCatalog](../../src/SilverMoon/Domain/FirmwareCatalog.cs). Patch offsets and original bytes are enforced in [FirmwarePreparation](../../src/SilverMoon/Application/FirmwarePreparation.cs).
 
 For exact supported inputs, a reviewer can independently check the container length and records, compare changed byte offsets with the patch table, verify the r2 result hash, and confirm protected-prefix/suffix identities for third-party admission. Firmware materials are not redistributed here. Missing material tests must be reported as skipped, not passed.
 
 Run source-only checks and build from repository root:
 
 ```powershell
-./glass-playground/check-localization.ps1
+./src/SilverMoon/check-localization.ps1
 ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
-./glass-playground/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-review
+./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-review
 ```
 
 Use separate PowerShell processes for test/build scripts that exit their process. A portable smoke run (`SilverMoon.exe --portable-smoke <report-path>`) checks packaging, resources and worker startup without BLE. It is not a pairing or installation test.

@@ -57,7 +57,7 @@ QCC 三处指令使蓝牙显示为 25.2.52，这是实验标记，不是 Marshal
 
 QCC 在 OTA 完成事件后发 OTA=0；分析到 MCU 收到后进入状态 0x15，写 UPOO 标记并复位。QCC 的 IMGU/IMGR/IMGE 提供按文件名打开、分块传送和结束的接口。MCU bootloader 本体不在已分析的应用镜像里，其文件选择、校验和同版本处理没有完整恢复，不能由这些代码单独证明每一步烧录。
 
-公开实现可核对 [FirmwarePreparation.cs](../../glass-playground/Application/FirmwarePreparation.cs) 的原版/成品 SHA-256、原字节检查和固定差异表。原始反编译与设备日志未随公开仓库分发；上述指令语义是本项目已有研究结论，不能仅由补丁生成器独立证明。
+公开实现可核对 [FirmwarePreparation.cs](../../src/SilverMoon/Application/FirmwarePreparation.cs) 的原版/成品 SHA-256、原字节检查和固定差异表。原始反编译与设备日志未随公开仓库分发；上述指令语义是本项目已有研究结论，不能仅由补丁生成器独立证明。
 
 ## 输入输出身份与证据类别
 

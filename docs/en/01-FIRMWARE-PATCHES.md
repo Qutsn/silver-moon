@@ -59,7 +59,7 @@ The first four spans implement behavior changes; the last three change the QCC-r
 
 The seven spans cover 24 bytes, but some bytes remain identical; the actual binary difference is **18 bytes**. Only partitions 7 and 9 change. Layout, total length, the original signature footer and the P0 image in partition 5 are preserved. Preserving the footer does not make its original signature valid for the modified contents.
 
-The output SHA-256 is `80ed2088247976f10968f5d4aefb3cabf367ff0b0a1f774ac6e62a292c459024`. [FirmwarePreparation.BuildModified](../../glass-playground/Application/FirmwarePreparation.cs) checks the complete input hash, checks each original byte, applies the fixed edits and checks the complete output hash. Unknown versions are rejected rather than patched by pattern matching.
+The output SHA-256 is `80ed2088247976f10968f5d4aefb3cabf367ff0b0a1f774ac6e62a292c459024`. [FirmwarePreparation.BuildModified](../../src/SilverMoon/Application/FirmwarePreparation.cs) checks the complete input hash, checks each original byte, applies the fixed edits and checks the complete output hash. Unknown versions are rejected rather than patched by pattern matching.
 
 ## Display version and MCU update evidence
 

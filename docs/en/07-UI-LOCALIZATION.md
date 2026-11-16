@@ -17,7 +17,7 @@ Unsupported-language selection and missing-key fallback are different mechanisms
 
 ## Files and APIs
 
-| File under `glass-playground/` | Responsibility |
+| File under `src/SilverMoon/` | Responsibility |
 |---|---|
 | `Domain/UiLanguage.cs` | Parent-culture matching and missing-value fallback |
 | `Domain/AppText.cs` | Framework-independent embedded catalog loading and formatting |
@@ -34,7 +34,7 @@ Numbers in extracted `File.Text.Number` keys are stable identifiers, not current
 
 1. Translate values, not keys, models, versions, hashes, GAIA identifiers or log event names.
 2. Preserve placeholders and format specifiers such as `{0}`, `{1:N0}` and `{0:X8}`; their order may change. Use JSON `\n` for line breaks. Do not construct English word order by concatenating localized fragments.
-3. Run `./glass-playground/check-localization.ps1`; missing/empty keys, changed placeholders and unknown references must fail.
+3. Run `./src/SilverMoon/check-localization.ps1`; missing/empty keys, changed placeholders and unknown references must fail.
 4. Run the offline tests and build described in the [review guide](06-CODE-REVIEWER-GUIDE.md).
 5. Run `SilverMoon.exe --preview --ui-culture=en-US` and compare `zh-CN`, `zh-TW` and `de-DE` for Chinese normalization and English default selection. The override only applies in preview mode and does not change Windows settings or perform firmware installation.
 6. Inspect clipping, wrapping, button width and accessibility names in connection, discovery, details, confirmation, transfer, interruption and completion pages. Compilation alone cannot establish layout quality.
@@ -47,4 +47,4 @@ Protocol constants, enum states, SHA-256, versions, profile IDs and raw device n
 
 To add a language, create a catalog with the same keys, register its neutral culture in `UiLanguage.Supported`, add it to the csproj EmbeddedResource list, **and extend AppText loading/selection**, which currently explicitly loads only zh/en. Registering a code alone is insufficient. Update tests and visual checks. Missing values currently fall back to Chinese; changing that policy requires explicit code and regression changes. Distinct Simplified/Traditional Chinese translations require culture-specific registration/selection, not mixed values in one catalog.
 
-[UiLanguage](../../glass-playground/Domain/UiLanguage.cs) · [AppText](../../glass-playground/Domain/AppText.cs) · [Catalog validation](../../glass-playground/check-localization.ps1)
+[UiLanguage](../../src/SilverMoon/Domain/UiLanguage.cs) · [AppText](../../src/SilverMoon/Domain/AppText.cs) · [Catalog validation](../../src/SilverMoon/check-localization.ps1)

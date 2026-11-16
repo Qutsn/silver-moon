@@ -6,7 +6,7 @@
 
 本版本规范用于准入固定布局下的 MCU 修改包，不是通用固件写入器。完整 SHA-256 与官方/r2 条目精确匹配的文件沿用目录中的安装策略。未知映像只有在容器结构及受保护区域都通过检查后，才可采用 staged 安装策略。固件选择页会给出拒绝原因，协调器在传输前会重新分析文件。通过准入仅表示符合结构规范，不代表其代码可以启动或功能正常。
 
-可执行定义见 [ThirdPartyFirmware](../../glass-playground/Domain/ThirdPartyFirmware.cs)、[FirmwareContainer](../../glass-playground/Domain/FirmwareContainer.cs) 与 [FirmwareCatalog](../../glass-playground/Domain/FirmwareCatalog.cs)。下文“必须”指代码实际实施的检查；明确标为作者责任的内容除外。
+可执行定义见 [ThirdPartyFirmware](../../src/SilverMoon/Domain/ThirdPartyFirmware.cs)、[FirmwareContainer](../../src/SilverMoon/Domain/FirmwareContainer.cs) 与 [FirmwareCatalog](../../src/SilverMoon/Domain/FirmwareCatalog.cs)。下文“必须”指代码实际实施的检查；明确标为作者责任的内容除外。
 
 ## 基准、允许修改区间与完整性
 

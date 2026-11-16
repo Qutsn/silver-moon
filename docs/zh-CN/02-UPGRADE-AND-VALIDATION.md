@@ -33,16 +33,16 @@ BLE 的 ATT 写入成功、GAIA 命令 ACK、升级完成是不同层次。客�
 
 ## 代码入口
 
-- [FirmwareCatalog](../../glass-playground/Domain/FirmwareCatalog.cs)、[第三方规范检查](../../glass-playground/Domain/ThirdPartyFirmware.cs)：文件准入。
-- [ResumableUpgrade](../../glass-playground/Application/ResumableUpgrade.cs)：传输、恢复与提交状态机。
-- [UpgradeContext](../../glass-playground/Domain/UpgradeContext.cs)：PS4 解析及字段修改约束。
-- [UpgradeWire](../../glass-playground/Domain/UpgradeWire.cs)、[UpgradeMailbox](../../glass-playground/Application/UpgradeMailbox.cs)：帧校验、ACK 与异步通知。
-- [UpgradeJournalStore](../../glass-playground/Infrastructure/UpgradeJournalStore.cs)：本地记录及设备锁。
+- [FirmwareCatalog](../../src/SilverMoon/Domain/FirmwareCatalog.cs)、[第三方规范检查](../../src/SilverMoon/Domain/ThirdPartyFirmware.cs)：文件准入。
+- [ResumableUpgrade](../../src/SilverMoon/Application/ResumableUpgrade.cs)：传输、恢复与提交状态机。
+- [UpgradeContext](../../src/SilverMoon/Domain/UpgradeContext.cs)：PS4 解析及字段修改约束。
+- [UpgradeWire](../../src/SilverMoon/Domain/UpgradeWire.cs)、[UpgradeMailbox](../../src/SilverMoon/Application/UpgradeMailbox.cs)：帧校验、ACK 与异步通知。
+- [UpgradeJournalStore](../../src/SilverMoon/Infrastructure/UpgradeJournalStore.cs)：本地记录及设备锁。
 - [恢复回归测试](../../tests/DesktopReadOnly/ResumableUpgradeChecks.cs)：模拟断线与设备指定续传偏移；不能代替实机验证。
 
 ## PS4 的编码与字段修改约束
 
-[UpgradeContext](../../glass-playground/Domain/UpgradeContext.cs) 只接受 38 字节，即 19 个大端 16 位字。以下是该 Middleton 路径的项目语义，不是通用 CSR 格式。
+[UpgradeContext](../../src/SilverMoon/Domain/UpgradeContext.cs) 只接受 38 字节，即 19 个大端 16 位字。以下是该 Middleton 路径的项目语义，不是通用 CSR 格式。
 
 | 字段 | 当前解释 |
 |---|---|

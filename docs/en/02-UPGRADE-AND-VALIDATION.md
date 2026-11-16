@@ -27,7 +27,7 @@ Official rollback uses the normal full-image strategy. Its footer is sent; the s
 
 ## PS4 representation and mutation
 
-[UpgradeContext](../../glass-playground/Domain/UpgradeContext.cs) requires exactly 38 bytes, interpreted as 19 big-endian 16-bit words. These are project-specific semantics, not a general CSR schema.
+[UpgradeContext](../../src/SilverMoon/Domain/UpgradeContext.cs) requires exactly 38 bytes, interpreted as 19 big-endian 16-bit words. These are project-specific semantics, not a general CSR schema.
 
 | Field | Current interpretation |
 |---|---|
@@ -41,7 +41,7 @@ Preparing validation additionally requires resume 0 and words 0–3 equal to `0x
 
 ## Coordinator state progression
 
-The source of truth is [ResumableUpgrade](../../glass-playground/Application/ResumableUpgrade.cs).
+The source of truth is [ResumableUpgrade](../../src/SilverMoon/Application/ResumableUpgrade.cs).
 
 | Resume / local evidence | Action and required evidence |
 |---|---|
@@ -64,7 +64,7 @@ For each data request, `start = cursor + skip` and `end = start + count`. Count 
 
 `ConfirmedFrontier` is a high-water mark, not an offset blindly used on reconnect. A flash write can survive a lost ACK, and the device can request a different position than the host last acknowledged. Cumulative acknowledged bytes may include retransmissions and do not measure unique coverage. A matching SHA-256 identifies the host's file; it is not a byte-for-byte readback of device flash.
 
-[UpgradeJournalStore](../../glass-playground/Infrastructure/UpgradeJournalStore.cs) isolates records by device and file hash, verifies loaded identities, bounds journal size and obtains an exclusive device lock within the local user's journal directory. The journal is local supporting evidence, not a trusted device checkpoint or a lock across multiple computers.
+[UpgradeJournalStore](../../src/SilverMoon/Infrastructure/UpgradeJournalStore.cs) isolates records by device and file hash, verifies loaded identities, bounds journal size and obtains an exclusive device lock within the local user's journal directory. The journal is local supporting evidence, not a trusted device checkpoint or a lock across multiple computers.
 
 ## Deadlines and completion limits
 
@@ -74,6 +74,6 @@ Final completion requires `COMPLETE_IND`, observed disconnection, then a fresh i
 
 ## Verification entry points
 
-- [UpgradeWire](../../glass-playground/Domain/UpgradeWire.cs) and [UpgradeMailbox](../../glass-playground/Application/UpgradeMailbox.cs): frame length, ACK and notification separation.
+- [UpgradeWire](../../src/SilverMoon/Domain/UpgradeWire.cs) and [UpgradeMailbox](../../src/SilverMoon/Application/UpgradeMailbox.cs): frame length, ACK and notification separation.
 - [ResumableUpgradeChecks](../../tests/DesktopReadOnly/ResumableUpgradeChecks.cs) and [UpgradeRecoveryChecks](../../tests/DesktopReadOnly/UpgradeRecoveryChecks.cs): simulated disconnects, requested offsets and recovery invariants.
 - [Evidence and verification](08-EVIDENCE-AND-VERIFICATION.md): reproducibility requirements and limits of simulated tests.

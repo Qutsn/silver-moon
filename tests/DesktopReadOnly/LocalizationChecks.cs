@@ -13,8 +13,8 @@ static class LocalizationChecks
   if(UiLanguage.Resolve("a",new Dictionary<string,string>{{"a",""}},source)!="中文")throw new Exception("Empty translation did not fall back");
   if(UiLanguage.Resolve("missing",source,source)!="missing")throw new Exception("Unknown key fallback");
   var root=Environment.GetEnvironmentVariable("MIDDLETON_TEST_REPOSITORY")!;
-  var zh=JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(Path.Combine(root,"glass-playground/Localization/zh.json")))!;
-  var en=JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(Path.Combine(root,"glass-playground/Localization/en.json")))!;
+  var zh=JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(Path.Combine(root,"src/SilverMoon/Localization/zh.json")))!;
+  var en=JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(Path.Combine(root,"src/SilverMoon/Localization/en.json")))!;
   if(!zh.Keys.Order().SequenceEqual(en.Keys.Order()) || zh.Values.Any(string.IsNullOrWhiteSpace) || en.Values.Any(string.IsNullOrWhiteSpace))throw new Exception("Catalog shape mismatch");
   var original=CultureInfo.CurrentUICulture;
   try

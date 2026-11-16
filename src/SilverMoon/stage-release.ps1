@@ -1,11 +1,11 @@
 param(
     [string]$PublishedDirectory=(Join-Path $PSScriptRoot 'publish'),
-    [string]$Destination=(Join-Path $PSScriptRoot '../desktop-release/current')
+    [string]$Destination=(Join-Path $PSScriptRoot '../../desktop-release/current')
 )
 $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'release-integrity.ps1')
 $source=(Resolve-Path -LiteralPath $PublishedDirectory).Path
-$repo=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
+$repo=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../..')).Path
 $releaseRoot=Join-Path $repo 'desktop-release'
 $target=[IO.Path]::GetFullPath($Destination)
 if($target -ne (Join-Path $releaseRoot 'current')){throw 'Use the fixed desktop-release/current destination.'}

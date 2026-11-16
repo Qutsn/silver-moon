@@ -38,7 +38,7 @@
 | 官方 SHA-256 | db74c3468bd08d61f3a4e4e4e9e6eea9b19d95d6e852b9fd5e9cbac3e91c9472 |
 | 修改版 SHA-256 | 80ed2088247976f10968f5d4aefb3cabf367ff0b0a1f774ac6e62a292c459024 |
 
-[FirmwarePreparation](../../glass-playground/Application/FirmwarePreparation.cs) 先受限读取缓存并核对完整哈希；无有效缓存时请求元数据，其中 serial_number 固定为占位值 x，不上传真实串号。元数据最多 65536 字节。下载 URL 要求 HTTPS、fota.marshall.software、默认端口、无 userinfo/fragment、路径恰为 /devices/Lennox/prod/Lennox_FW_V17.0.37.bin。允许服务端下载授权 query，但不记录该 URL。
+[FirmwarePreparation](../../src/SilverMoon/Application/FirmwarePreparation.cs) 先受限读取缓存并核对完整哈希；无有效缓存时请求元数据，其中 serial_number 固定为占位值 x，不上传真实串号。元数据最多 65536 字节。下载 URL 要求 HTTPS、fota.marshall.software、默认端口、无 userinfo/fragment、路径恰为 /devices/Lennox/prod/Lennox_FW_V17.0.37.bin。允许服务端下载授权 query，但不记录该 URL。
 
 生产 HttpClient 禁止重定向；若有 Content-Length 则检查，实际流也独立限制长度，最终检查精确大小与哈希。仅将验证后的原版写入临时文件并替换缓存，再返回原版或从副本生成 r2。准备流程有三分钟关联超时并响应取消；网络元数据不能新增版本或补丁指令。
 

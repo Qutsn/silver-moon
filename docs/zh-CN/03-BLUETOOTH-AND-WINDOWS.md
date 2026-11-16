@@ -29,11 +29,11 @@ GAIA 帧包含大端编码的 vendor、command 字段和消息相关的 payload�
 
 软件使用 Windows BLE/GATT API，维护 GattSession、服务及特征生命周期。发现设备、请求访问、身份核对、保护级别协商、受保护读取与通知订阅是不同步骤；“已配对”不代表每个服务当前可达。
 
-[PairingNegotiation](../../glass-playground/Application/PairingNegotiation.cs) 只在 ProtectionLevelCouldNotBeMet 时尝试较低保护要求；AccessDenied、取消或超时不会被解释成需要无限降级。读取和写入还要经过 [ProtectedGatt](../../glass-playground/Application/ProtectedGatt.cs) 的认证门控。
+[PairingNegotiation](../../src/SilverMoon/Application/PairingNegotiation.cs) 只在 ProtectionLevelCouldNotBeMet 时尝试较低保护要求；AccessDenied、取消或超时不会被解释成需要无限降级。读取和写入还要经过 [ProtectedGatt](../../src/SilverMoon/Application/ProtectedGatt.cs) 的认证门控。
 
 项目曾遇到“同一程序换目录后首次配对成功”。后来发现失败副本继承 Low 完整性标签，运行进程为 Low；成功副本为 Medium。仅检查普通 ACL 或是否管理员不足以区分。发布脚本通过新建副本和完整性标签检查避免带入此问题，不要求用户提权或修改系统蓝牙配置。这个证据不意味着所有 AccessDenied 都由此引起。
 
-音箱升级重启后，旧会话曾反复缺失特征，新进程却能重新发现。因此桌面升级使用 [UpgradeWorker](../../glass-playground/Infrastructure/UpgradeWorker.cs) 管理独立子进程，每次重连释放旧资源并建立新会话。这是生命周期处理，不是权限隔离，也不是所有 Windows 蓝牙问题的通用修复。
+音箱升级重启后，旧会话曾反复缺失特征，新进程却能重新发现。因此桌面升级使用 [UpgradeWorker](../../src/SilverMoon/Infrastructure/UpgradeWorker.cs) 管理独立子进程，每次重连释放旧资源并建立新会话。这是生命周期处理，不是权限隔离，也不是所有 Windows 蓝牙问题的通用修复。
 
 ## 声音控制与读回
 
@@ -49,11 +49,11 @@ GAIA 帧包含大端编码的 vendor、command 字段和消息相关的 payload�
 
 ## 代码入口
 
-[DeviceConnection](../../glass-playground/Application/DeviceConnection.cs) · [WindowsBleTransport](../../glass-playground/Infrastructure/WindowsBleTransport.cs) · [DeviceProfiles](../../glass-playground/Domain/DeviceProfiles.cs) · [SoundControl](../../glass-playground/Application/SoundControl.cs) · [SoundWriteQueue](../../glass-playground/Application/SoundWriteQueue.cs)
+[DeviceConnection](../../src/SilverMoon/Application/DeviceConnection.cs) · [WindowsBleTransport](../../src/SilverMoon/Infrastructure/WindowsBleTransport.cs) · [DeviceProfiles](../../src/SilverMoon/Domain/DeviceProfiles.cs) · [SoundControl](../../src/SilverMoon/Application/SoundControl.cs) · [SoundWriteQueue](../../src/SilverMoon/Application/SoundWriteQueue.cs)
 
 ## BLE GAIA 帧与消息关联
 
-[UpgradeWire](../../glass-playground/Domain/UpgradeWire.cs) 实现以下表示，多字节整数为大端：
+[UpgradeWire](../../src/SilverMoon/Domain/UpgradeWire.cs) 实现以下表示，多字节整数为大端：
 
 | 帧 | 编码 |
 |---|---|
@@ -67,3 +67,15 @@ GAIA 帧包含大端编码的 vendor、command 字段和消息相关的 payload�
 解析器校验 vendor、最小帧长和通知 body 长度。UpgradeMailbox 只允许一个待完成命令，要求 ACK 命令号匹配；异步升级消息另存于容量 256 的队列。意外 ACK 或队列溢出会将该会话标记为不可继续使用，不会丢掉事件后继续安装。每个 mailbox 仅归属一个连接；断线或超时导致关联不明时不能复用。
 
 当前支持判断的具体条件是型号 MIDDLETON 加必需的 GAIA 写入/响应特征。制造商字符串只用于区分其他未支持的 Marshall/Zound 设备。配对保护协商按 EncryptionAndAuthentication、Encryption、Default 顺序尝试，只有前一次为 ProtectionLevelCouldNotBeMet 才继续。
+
+## 传输耗时与吞吐量
+
+已有 Windows 测试记录中，全量固件传输约需 **45–50 分钟**。建议为传输及安装至少预留 **一小时**；中断和重连可能进一步延长耗时。这是特定测试条件下的观察结果，不是完成时间保证。
+
+以 3,266,308 字节映像除以 2,700–3,000 秒，折算的平均有效速率约为 **1.09–1.21 kB/s**（十进制单位）。这只是按耗时计算的平均值，不是独立测得的无线链路基准。
+
+当前实现将固件数据分块限制为 45 字节，并串行发送。每块使用带响应的 GATT 写入，随后等待匹配的 GAIA 确认，再发送下一块。已记录的传输探测使用 ATT MTU 100。协议头、两层确认、连接调度及主机和设备处理均会增加每个小块的开销。此停等设计是已知的应用层吞吐约束，但现有记录不能量化各因素分别占用的时间。
+
+短程探测中，45 字节分块可以继续传输，55 字节分块出现停滞；停滞根因尚未确定。因此，45 字节是保守的实现选择，不能视为 BLE 的最大载荷。增加 MTU、无响应写入、流水线或其他传输方式，都需要单独验证协议兼容性和恢复行为；蓝牙标称物理层速率不能直接代表此升级通道的吞吐量。
+
+相关实现见 [ResumableUpgrade](../../src/SilverMoon/Application/ResumableUpgrade.cs) 和 [WindowsBleTransport](../../src/SilverMoon/Infrastructure/WindowsBleTransport.cs)。耗时与分块探测属于项目测试记录，公开仓库未包含原始设备日志；这些结果不能推广为其他电脑、蓝牙适配器或音箱型号的性能保证。

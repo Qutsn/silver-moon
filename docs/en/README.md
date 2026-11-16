@@ -7,8 +7,8 @@ These documents describe the supported Middleton images, implemented constraints
 | No. | Document | Scope |
 |---|---|---|
 | 01 | [Power policy and patches](01-FIRMWARE-PATCHES.md) | MCU address spaces, AUX/shutdown logic, complete r2 edits |
-| 02 | [Upgrade validation and recovery](02-UPGRADE-AND-VALIDATION.md) | Signature-verification boundary, PS4, state machine, resume and completion |
-| 03 | [Bluetooth and Windows](03-BLUETOOTH-AND-WINDOWS.md) | GATT map, GAIA framing, pairing, sessions and sound controls |
+| 02 | [Installation validation and recovery](02-UPGRADE-AND-VALIDATION.md) | RSA-PSS footer path, staged recovery state, PS4, resume and completion |
+| 03 | [Bluetooth and Windows](03-BLUETOOTH-AND-WINDOWS.md) | GATT/GAIA protocol, pairing, sound controls and measured transfer performance |
 | 04 | [Firmware preparation](04-OFFICIAL-FIRMWARE-PREPARATION.md) | Exact-version download, network guards, cache and deterministic patching |
 | 05 | [Third-party profile](05-THIRD-PARTY-FIRMWARE-GUIDE.md) | middleton-mcu-v1 byte constraints and installation contract |
 | 06 | [Architecture and review](06-CODE-REVIEWER-GUIDE.md) | Source/test map and invariants |

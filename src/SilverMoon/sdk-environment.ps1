@@ -1,6 +1,6 @@
 param([switch]$UseBundledSdk)
 $ErrorActionPreference='Stop'
-$repositoryRoot=Split-Path $PSScriptRoot -Parent
+$repositoryRoot=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $bundledTools=Join-Path $repositoryRoot 'research/desktop-stack-spike/toolchains'
 $installed=Get-Command dotnet -ErrorAction SilentlyContinue
 $script:DotnetExecutable=$null

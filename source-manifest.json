@@ -5,7 +5,7 @@
   },
   {
     "path": ".github/workflows/windows.yml",
-    "sha256": "EFE492FA07C04A70FBD86960CC3FCC1DC76938AC0B216B2024D9F7E6B7CD7993"
+    "sha256": "3BAA3336C74105BE48E0F9193442710F53FEDFF04D1EB9702C7EC7F7E9768047"
   },
   {
     "path": ".gitignore",
@@ -13,7 +13,7 @@
   },
   {
     "path": "CONTRIBUTING.md",
-    "sha256": "A48868A09CA66429C67ACCB86A884C46C005D8FB321235DF6009B8679F138399"
+    "sha256": "417C0DED6358F719054446D98B55F065BAEEDABC46AEB09E9334A9479169AA87"
   },
   {
     "path": "LICENSE",
@@ -21,11 +21,11 @@
   },
   {
     "path": "README.md",
-    "sha256": "4E5794F1840C33BAECB1A2AFE2CE5085CD0E3BCA432413D08BB623860A300198"
+    "sha256": "79E3B365BD6B57985A0D2285322491D9F99AE73EC658DBF9B7F77A907FA63C87"
   },
   {
     "path": "README.zh-CN.md",
-    "sha256": "1C777D460748870B65C97A3C6E2D3CA771D11E6BBC67C7B721DB5B305E1B7E19"
+    "sha256": "85C9B4283CAAC1CF3E468DA0FDAF2EE4E3F8B4B89A4B767354E64ED166FC9730"
   },
   {
     "path": "SECURITY.md",
@@ -69,439 +69,439 @@
   },
   {
     "path": "docs/en/01-FIRMWARE-PATCHES.md",
-    "sha256": "6058A745581A5C7AA8EE095E8483B56C3DD2B98F8DA993E42EB563C2146C9DEB"
+    "sha256": "32EA7355EB9A17836968A2931657A9D708A6FBB43C02939B25A49582F90805C6"
   },
   {
     "path": "docs/en/02-UPGRADE-AND-VALIDATION.md",
-    "sha256": "2E531E09B29709923A5B5C0308DB47212148C5DDDD2235085F814D033BF92DC8"
+    "sha256": "8BAAF6D0D663DEB1EA8D24D9E0468B7B92A4DD88757E774BF4A899EACE6BF528"
   },
   {
     "path": "docs/en/03-BLUETOOTH-AND-WINDOWS.md",
-    "sha256": "B7FA1626E7D1D6AB10A14D705C5B53095D83B01744D4908671FCBE9C0BD92FDC"
+    "sha256": "EAA947AAF66F55DE465E2814C133E0B8BF7BD9F7655583FEF04F0F5206B16F63"
   },
   {
     "path": "docs/en/04-OFFICIAL-FIRMWARE-PREPARATION.md",
-    "sha256": "992196BC25A09DCFD4A37161A3F687AFB1FE68C5A298C59356B1A1587D009477"
+    "sha256": "3608E1FA7D47D0B60A87A4E6212DDBA2C8D582E332638369AF259B6DB71C3E31"
   },
   {
     "path": "docs/en/05-THIRD-PARTY-FIRMWARE-GUIDE.md",
-    "sha256": "213A3E5CA6AD3720DF8F66997E015F8ACD65F762185B9D2BC2193E7824CE1B57"
+    "sha256": "AA41BC50341FBD448044F76C2E752D2B0704A85C91B8A6A0A1197D4912E77306"
   },
   {
     "path": "docs/en/06-CODE-REVIEWER-GUIDE.md",
-    "sha256": "2C7DAFDF7906BE26B720B9693A9E7B0C66CF8CEACC25EC428C6F26CCDA5499A9"
+    "sha256": "A0FCDBC0F351B098E04300969033A4BB06B36939D72883EE5E9D9EBCCBF1D70A"
   },
   {
     "path": "docs/en/07-UI-LOCALIZATION.md",
-    "sha256": "3196C3F33EC35950C7C31799BA97A8023D77B0771A2CD0D7EEFA001CCD875EFC"
+    "sha256": "5906D38D8A7CFC7945A1CC6FD89F4CB1145B6777CD97E3EA3662E9083CAC1A54"
   },
   {
     "path": "docs/en/08-EVIDENCE-AND-VERIFICATION.md",
-    "sha256": "4DC0C7888E0E5C578F4BCA819E8431871072100249CAA12BD864BA24A95190F7"
+    "sha256": "BB29D0A50E6A2BACF3054123D046C032D7BBFB26BC3FC1A8223CD7C3BD1F7677"
   },
   {
     "path": "docs/en/README.md",
-    "sha256": "22E2EF8993702A1E2EBCE9864584FF9BCE19D409C6C89EA063BE045EC9898486"
+    "sha256": "255B6D78724B302C30F52D53B21533A54B5CB51386A13EF5C3AE64E36FCE4B88"
   },
   {
     "path": "docs/zh-CN/01-FIRMWARE-PATCHES.md",
-    "sha256": "FF492D83CED55601B3B58B0554788CF31AA1601E6C30EEC257B1DCEBAAB670EC"
+    "sha256": "A8CB261F10F1F3DD1212F48D7AF88A207F004DDBA10E69856F50A811D7B3E178"
   },
   {
     "path": "docs/zh-CN/02-UPGRADE-AND-VALIDATION.md",
-    "sha256": "BB920E9ED673404EB837D10C13D0C5A888B14B1379445004E6D2DFDA20409690"
+    "sha256": "A688E312581899493B46A1FD12C8DDA3B0CE1E34FABEC376FA117AD37E854747"
   },
   {
     "path": "docs/zh-CN/03-BLUETOOTH-AND-WINDOWS.md",
-    "sha256": "A72D5BE773EB8E56DD15F68BE112799EC9435A2F632EB6DB33B2B63643555FB6"
+    "sha256": "38A03D2A9D57C451D439C89AB5598C7007D5362856516642198D958E13AAA306"
   },
   {
     "path": "docs/zh-CN/04-OFFICIAL-FIRMWARE-PREPARATION.md",
-    "sha256": "312ABA20D196F627B450B58C943A2CEC0CC13463C08FE58BB641CE27FF72C068"
+    "sha256": "50ED285360C8FCB1FFFD452142BA55D8217CE3C103036F9DB8CC7823B0A23B35"
   },
   {
     "path": "docs/zh-CN/05-THIRD-PARTY-FIRMWARE-GUIDE.md",
-    "sha256": "8C4A4DD39A5CB67E256EA7A8985E1F11316C1C3EC63EEAAB9C0AAD6980E5B836"
+    "sha256": "86FF5EB824E7B2B0E310169CD23F878A7F37710266255A34F4CC601C18037A8B"
   },
   {
     "path": "docs/zh-CN/06-CODE-REVIEWER-GUIDE.md",
-    "sha256": "EAC32CECBBB06476E38410141B2327AAE5E8178D66FA74F44912B2D256C328BB"
+    "sha256": "2D31473B5C1B0E47D0FF8403B6EE524A4768BF70B178815F96F67DEA87241829"
   },
   {
     "path": "docs/zh-CN/07-UI-LOCALIZATION.md",
-    "sha256": "420144491E10590CF7E754332747CA9EC71099C8D147708027951F538F477489"
+    "sha256": "0AB0938D6BDBB38395A9C822F3B08CD1DEF3FB3991A5482735E7E19F1D9CFB1A"
   },
   {
     "path": "docs/zh-CN/08-EVIDENCE-AND-VERIFICATION.md",
-    "sha256": "23AA16DED33FCD78A59E395D36D726355257D8582ECDB1189C9112F6E87D8999"
+    "sha256": "7860DB170FC134930E839BC5BB4E7F00ADA7A959BB8A330433EB0B0CC6626D8E"
   },
   {
     "path": "docs/zh-CN/README.md",
-    "sha256": "F91395B8EA085DCDEA1FAE888811B041AC796FBAC269908DC533D650FDB5F160"
+    "sha256": "597DCA6BF9507ACE159DADDD2E796EB2EBD36D42C4A76CAF3A7548C6AF0B0148"
   },
   {
-    "path": "glass-playground/App.axaml",
+    "path": "src/SilverMoon/App.axaml",
     "sha256": "31E6DBCE78D0509DBBFB6200F24F94CA08F49055094A808CAFDC3592853E94C1"
   },
   {
-    "path": "glass-playground/Application/DeviceConnection.cs",
+    "path": "src/SilverMoon/Application/DeviceConnection.cs",
     "sha256": "5CD97DCF4758D9BCEDC3736C4C118F5AF1F4F65760977D6BA95355A796E68150"
   },
   {
-    "path": "glass-playground/Application/FirmwareImport.cs",
+    "path": "src/SilverMoon/Application/FirmwareImport.cs",
     "sha256": "52F000917A5DCCBA10E51771D97F42590C810A9EC1A6EEC7994BD5C15DBEF8A9"
   },
   {
-    "path": "glass-playground/Application/FirmwarePreparation.cs",
+    "path": "src/SilverMoon/Application/FirmwarePreparation.cs",
     "sha256": "7AE5FA493E4A4B4C89510F53FFF54FDDC0410E83DDE96AD5166B1EB4BCB2793E"
   },
   {
-    "path": "glass-playground/Application/OfficialUpgradeCoordinator.cs",
+    "path": "src/SilverMoon/Application/OfficialUpgradeCoordinator.cs",
     "sha256": "9F52769EC92DDF2A370713D65292C93C644FC413287D5312796461A0836F7BFD"
   },
   {
-    "path": "glass-playground/Application/PairingNegotiation.cs",
+    "path": "src/SilverMoon/Application/PairingNegotiation.cs",
     "sha256": "ADA44E4341DEE3344A7B1B3871F01B4982FFA963710609DF76D41DE5E7AC99C3"
   },
   {
-    "path": "glass-playground/Application/ProtectedGatt.cs",
+    "path": "src/SilverMoon/Application/ProtectedGatt.cs",
     "sha256": "0DDF8601C9F228604CE61FBC27715A9F150258496D33738566350CFE8C87571E"
   },
   {
-    "path": "glass-playground/Application/ResumableUpgrade.cs",
+    "path": "src/SilverMoon/Application/ResumableUpgrade.cs",
     "sha256": "00ABF4EC06651CD135BC218B801977999BF02BB77E3F04C4A1E7BDB2574E7968"
   },
   {
-    "path": "glass-playground/Application/SoundControl.cs",
+    "path": "src/SilverMoon/Application/SoundControl.cs",
     "sha256": "4E2D751EA7D0090A57F7F5F2E216A598F339CC562BB08EF788B1995221C82D15"
   },
   {
-    "path": "glass-playground/Application/SoundStepperState.cs",
+    "path": "src/SilverMoon/Application/SoundStepperState.cs",
     "sha256": "9EC8F0353F4DCAEA168FF56C1FB3268794996486E253B0AE44A2EB9D7758CB9E"
   },
   {
-    "path": "glass-playground/Application/SoundWriteQueue.cs",
+    "path": "src/SilverMoon/Application/SoundWriteQueue.cs",
     "sha256": "69DB736A9AF0F053634D64226D92E89616CDB46338413498814F2D32DDA70C6B"
   },
   {
-    "path": "glass-playground/Application/TransferRate.cs",
+    "path": "src/SilverMoon/Application/TransferRate.cs",
     "sha256": "11C77855C57DFD9941F3AE6B1F6AE58B1B40D5A7E309BA19B7EC6699052FB86C"
   },
   {
-    "path": "glass-playground/Application/UpgradeDataTransfer.cs",
+    "path": "src/SilverMoon/Application/UpgradeDataTransfer.cs",
     "sha256": "F524AF8626F98A85E8C8B60033AD637DB6661ECBE30AFB9E37E9613B8F2B847C"
   },
   {
-    "path": "glass-playground/Application/UpgradeLink.cs",
+    "path": "src/SilverMoon/Application/UpgradeLink.cs",
     "sha256": "817F8ED7A8E84E685E17050A8D027D242C18449116AA5F80EC062F521C479A13"
   },
   {
-    "path": "glass-playground/Application/UpgradeMailbox.cs",
+    "path": "src/SilverMoon/Application/UpgradeMailbox.cs",
     "sha256": "558F77425271F3C36F0EC76E201E372AE13B2429D2FF1CD1AA6CC62B5A38F2A7"
   },
   {
-    "path": "glass-playground/Assets/ICON.md",
+    "path": "src/SilverMoon/Assets/ICON.md",
     "sha256": "83529E3EE8DF72149CE458AAC31140BD44E8AC4B820B56581B2FE0F2455EEB28"
   },
   {
-    "path": "glass-playground/Assets/concept-background.png",
+    "path": "src/SilverMoon/Assets/concept-background.png",
     "sha256": "D40DC31883974CDC616D591588C7DA02F7D344C13F418B937D93A7F4FD0C95AE"
   },
   {
-    "path": "glass-playground/Assets/fine-dither.png",
+    "path": "src/SilverMoon/Assets/fine-dither.png",
     "sha256": "035A3C5E8FB5B6612F2C4EB3F66D09FBFF8AAF35943F68BC2BCCB832279F5BA9"
   },
   {
-    "path": "glass-playground/Assets/glass-material.png",
+    "path": "src/SilverMoon/Assets/glass-material.png",
     "sha256": "0246DE4FCC06AD2D27DACCA8318F336A43D40AEFACDD8C735F75ECD9DBBBAA7D"
   },
   {
-    "path": "glass-playground/Assets/glass-surface.png",
+    "path": "src/SilverMoon/Assets/glass-surface.png",
     "sha256": "6853C2353BB30DEB739EB9BB780998DDE8A5B84E0A29D274A651542996B7921D"
   },
   {
-    "path": "glass-playground/Assets/silver-moon.ico",
+    "path": "src/SilverMoon/Assets/silver-moon.ico",
     "sha256": "3F65ABA9408C3E636CCE38F76BCE111D1E8C4FF1E7984A47EFE387628D92AE92"
   },
   {
-    "path": "glass-playground/Directory.Build.targets",
-    "sha256": "C5C844D825B771766BC52F304DB6BB381AD98DF7AF87C3BB31A2276B39637D83"
+    "path": "src/SilverMoon/Directory.Build.targets",
+    "sha256": "43C432AE729C57718338962DD008DDF3E8A935DB204245DF133F9BBAD19AE4D9"
   },
   {
-    "path": "glass-playground/Domain/AppText.cs",
+    "path": "src/SilverMoon/Domain/AppText.cs",
     "sha256": "8AE0345E99D97430DF9A145EED0FF552C06C3DD446DC4B5EF21CC96547A933AD"
   },
   {
-    "path": "glass-playground/Domain/DeviceModels.cs",
+    "path": "src/SilverMoon/Domain/DeviceModels.cs",
     "sha256": "1B21060BEFD2B2D5FB31529685E09D8CC2B83FF685F3BB16157224B667A33A50"
   },
   {
-    "path": "glass-playground/Domain/DeviceProfiles.cs",
+    "path": "src/SilverMoon/Domain/DeviceProfiles.cs",
     "sha256": "3D4456103CA2A1C52A8C611ABBEB553F293E3318B41B90AC9EA1F9682C4FF33C"
   },
   {
-    "path": "glass-playground/Domain/DiscoveryCandidates.cs",
+    "path": "src/SilverMoon/Domain/DiscoveryCandidates.cs",
     "sha256": "4151D6FAEBE62DC10A56612F1EECE025F0C678092618FA0F9C208220C34BF18C"
   },
   {
-    "path": "glass-playground/Domain/FirmwareCatalog.cs",
+    "path": "src/SilverMoon/Domain/FirmwareCatalog.cs",
     "sha256": "F5E573976D5C7A10348083242FEADCA1EEC43C781FA5807372116B703B49289B"
   },
   {
-    "path": "glass-playground/Domain/FirmwareContainer.cs",
+    "path": "src/SilverMoon/Domain/FirmwareContainer.cs",
     "sha256": "004E101D46D919DD79DA574FB457184B4D715EC39140FC12FC0E13385F1D8CFB"
   },
   {
-    "path": "glass-playground/Domain/SoundCommands.cs",
+    "path": "src/SilverMoon/Domain/SoundCommands.cs",
     "sha256": "CCE1501FA7DDCE32E4BA09AF553713988B450911EC2E6B93A73E0BC7EE5CB77F"
   },
   {
-    "path": "glass-playground/Domain/ThirdPartyFirmware.cs",
+    "path": "src/SilverMoon/Domain/ThirdPartyFirmware.cs",
     "sha256": "3ADC1831A9DA99ABF76C458EE88BE194C57325EE71A648393970F0FE9DD2739D"
   },
   {
-    "path": "glass-playground/Domain/UiLanguage.cs",
+    "path": "src/SilverMoon/Domain/UiLanguage.cs",
     "sha256": "FF5DEFC66A8842311AA50957B51E28C9FC385C46B7082453F9C827B9EF5CBBEF"
   },
   {
-    "path": "glass-playground/Domain/UpgradeContext.cs",
+    "path": "src/SilverMoon/Domain/UpgradeContext.cs",
     "sha256": "5399A38FBD7AD4B34F70BADA16CCEB87CD9B2188B684CE7773913E288C58AD24"
   },
   {
-    "path": "glass-playground/Domain/UpgradeWire.cs",
+    "path": "src/SilverMoon/Domain/UpgradeWire.cs",
     "sha256": "5830B1681DFC91F44B8828FE93070F7CDD94CB2D612CF4D2750CDD014B00567A"
   },
   {
-    "path": "glass-playground/GlassPlayground.csproj",
-    "sha256": "501A68355F88941E4F85C4DA7F68057BF99A2AAE6CFFC461CED6C223925D0C61"
+    "path": "src/SilverMoon/GlassPlayground.csproj",
+    "sha256": "BD7F4CFF3EA07F096C9167222E2A77A4CD0543A85DE5706B5A402A9A10A04471"
   },
   {
-    "path": "glass-playground/Infrastructure/DeviceLog.cs",
+    "path": "src/SilverMoon/Infrastructure/DeviceLog.cs",
     "sha256": "2B4EEC27C27B84E31959C4F383B427194BC1BB5D44968A8E3A8FD29F60A4C4E5"
   },
   {
-    "path": "glass-playground/Infrastructure/PortableValidation.cs",
+    "path": "src/SilverMoon/Infrastructure/PortableValidation.cs",
     "sha256": "B015B8C6193FDD439EE6062FD4A59210B61EDFF65759C31231384D7FE8970FD6"
   },
   {
-    "path": "glass-playground/Infrastructure/ReadOnlyProbe.cs",
+    "path": "src/SilverMoon/Infrastructure/ReadOnlyProbe.cs",
     "sha256": "B3FDAD103457B3CE3378921125B672EE4B9E2DE5376D015F3877CB12345DDD40"
   },
   {
-    "path": "glass-playground/Infrastructure/SoundControlProbe.cs",
+    "path": "src/SilverMoon/Infrastructure/SoundControlProbe.cs",
     "sha256": "6DEE9E3BAB426D27C49EF9770062EA35D6066A6BF6FD4EF226D2F2503364F407"
   },
   {
-    "path": "glass-playground/Infrastructure/UpgradeJournalStore.cs",
+    "path": "src/SilverMoon/Infrastructure/UpgradeJournalStore.cs",
     "sha256": "69884EB968404BF1C7B5E5683394596E468855C7DEB3DAAC17BAF3A04926F32A"
   },
   {
-    "path": "glass-playground/Infrastructure/UpgradeReadOnlyProbe.cs",
+    "path": "src/SilverMoon/Infrastructure/UpgradeReadOnlyProbe.cs",
     "sha256": "513E696795BCBB11FD87DD426BC3D8A01B1A2F68C19B03DBD25950126A1DB3A3"
   },
   {
-    "path": "glass-playground/Infrastructure/UpgradeResumeProbe.cs",
+    "path": "src/SilverMoon/Infrastructure/UpgradeResumeProbe.cs",
     "sha256": "7F5FAA99742CB8DF2CA15E635E35571866DBFB02CF8A698F1321187349065D51"
   },
   {
-    "path": "glass-playground/Infrastructure/UpgradeWorker.cs",
+    "path": "src/SilverMoon/Infrastructure/UpgradeWorker.cs",
     "sha256": "BD2767E985D1D6DD785B9169CDB2D4BB0A204385702F2430CFD23B383B290C47"
   },
   {
-    "path": "glass-playground/Infrastructure/WindowsBleTransport.cs",
+    "path": "src/SilverMoon/Infrastructure/WindowsBleTransport.cs",
     "sha256": "DD9F25A6D66FB53C456D4504F775FD71739473C36EB91348FC4A1478E132196F"
   },
   {
-    "path": "glass-playground/Infrastructure/WindowsUpgradeLink.cs",
+    "path": "src/SilverMoon/Infrastructure/WindowsUpgradeLink.cs",
     "sha256": "AA08184DF8FA877CF79D8C380D339088853FB630A2F180911CA199145CB74205"
   },
   {
-    "path": "glass-playground/Localization/en.json",
+    "path": "src/SilverMoon/Localization/en.json",
     "sha256": "C881648B9EF8509D557237D46A4726D554DB3C158FCDFF0D08FEA33B1D4F04F9"
   },
   {
-    "path": "glass-playground/Localization/source-map.json",
+    "path": "src/SilverMoon/Localization/source-map.json",
     "sha256": "271AA1C572742E65C52883D77BA5574A3FDFC439416B99EBE7D2FFD4628D8F85"
   },
   {
-    "path": "glass-playground/Localization/zh.json",
+    "path": "src/SilverMoon/Localization/zh.json",
     "sha256": "41F5EBBF112B16B22E5B1E5AD51B36BB562D511A879351C0B037B3E59C5D7464"
   },
   {
-    "path": "glass-playground/NativeDiagnostics.cs",
+    "path": "src/SilverMoon/NativeDiagnostics.cs",
     "sha256": "78D1283F88F0302409DBA38F855C3E1028DE32D67EB77E3C6B1FA65C0DBEC816"
   },
   {
-    "path": "glass-playground/NuGet.Config",
+    "path": "src/SilverMoon/NuGet.Config",
     "sha256": "410513ECCD05220A58DEBF3F726DCD101529F2C344BEC15CCD492A430E482232"
   },
   {
-    "path": "glass-playground/Program.cs",
+    "path": "src/SilverMoon/Program.cs",
     "sha256": "AD3F15F0EA6369E602AC983EF6C1180B13194E725A7F39E1BE23351CF564AE37"
   },
   {
-    "path": "glass-playground/RELEASE.md",
-    "sha256": "D4F916348CD77BF764EB87809D61B363D416FF6F59B084723AF98BD84E86D7A7"
+    "path": "src/SilverMoon/RELEASE.md",
+    "sha256": "3F067F22F03E908076D5F6DF7ADB2FD0EB41A69C6A149401BAD422D952349D28"
   },
   {
-    "path": "glass-playground/TestPattern.cs",
+    "path": "src/SilverMoon/TestPattern.cs",
     "sha256": "598D1C5BBB0C5AB913AEA4357C9E2BBB3ADA24C7331C91B8E3D41CE95CCA92E5"
   },
   {
-    "path": "glass-playground/UiText.cs",
+    "path": "src/SilverMoon/UiText.cs",
     "sha256": "92CA213EA86814BAC9DE754A3014E6EF59103BFAA5726BFF9108601864554194"
   },
   {
-    "path": "glass-playground/Views/ConceptWindow.cs",
+    "path": "src/SilverMoon/Views/ConceptWindow.cs",
     "sha256": "EB4A61ED89E978FBF4E13F234CD8A8BD072946C6F67F6B8AE51BED03048634AA"
   },
   {
-    "path": "glass-playground/Views/ConnectionMotion.cs",
+    "path": "src/SilverMoon/Views/ConnectionMotion.cs",
     "sha256": "4331726338996B9793C2FBFF841AA7BFF47B03409E9AF602FE68D872B6B30815"
   },
   {
-    "path": "glass-playground/Views/ConnectionPreviewWindow.axaml",
+    "path": "src/SilverMoon/Views/ConnectionPreviewWindow.axaml",
     "sha256": "2A6F130B6F443FC591A57552C52E8B4433EEF1B6E66580AFF113488630064109"
   },
   {
-    "path": "glass-playground/Views/ConnectionPreviewWindow.axaml.cs",
+    "path": "src/SilverMoon/Views/ConnectionPreviewWindow.axaml.cs",
     "sha256": "5287BB2587E0AC0DEF5E896D8C55FC741B91009ABF6965AE3EA3740A7D6713AE"
   },
   {
-    "path": "glass-playground/Views/DeviceDetailsSound.cs",
+    "path": "src/SilverMoon/Views/DeviceDetailsSound.cs",
     "sha256": "471CDECB6AFAA869A32AAC94BEC1CDEECEDE3ABCDA534BA45208F869AC0C05E1"
   },
   {
-    "path": "glass-playground/Views/DeviceDetailsSoundSmoke.cs",
+    "path": "src/SilverMoon/Views/DeviceDetailsSoundSmoke.cs",
     "sha256": "1C07768D140EDAD518BBF4E9D420876F71E01E10A576F928CD7EE380E5D4C5EF"
   },
   {
-    "path": "glass-playground/Views/DeviceDetailsView.cs",
+    "path": "src/SilverMoon/Views/DeviceDetailsView.cs",
     "sha256": "BDD6AC04FCB5538B782342A11E0D3D6FADD9FCDAA1D72B594E8AFA00862EEB76"
   },
   {
-    "path": "glass-playground/Views/DeviceDiscovery.cs",
+    "path": "src/SilverMoon/Views/DeviceDiscovery.cs",
     "sha256": "F1B378E97FD5A72002EE929397C7053F4D27094BAFC7D204CD43345FA225605D"
   },
   {
-    "path": "glass-playground/Views/DiscoveryScrolling.cs",
+    "path": "src/SilverMoon/Views/DiscoveryScrolling.cs",
     "sha256": "34F9FFBFF4B008765A530979FCA411AFA4E96924CEA8D94EE1C3375C4C28C578"
   },
   {
-    "path": "glass-playground/Views/FirmwareChooser.cs",
+    "path": "src/SilverMoon/Views/FirmwareChooser.cs",
     "sha256": "AA7DDD3B1AAD233CF051DE56999C3C5D2F4C6F4F84DEE3D39D5547191F4DD40B"
   },
   {
-    "path": "glass-playground/Views/FirmwareRiskWindow.axaml",
+    "path": "src/SilverMoon/Views/FirmwareRiskWindow.axaml",
     "sha256": "3E7C40CBFF9F2B6590C94A85B27597ECF893573F9D8539FCFD665B28D4F8E3A5"
   },
   {
-    "path": "glass-playground/Views/FirmwareRiskWindow.axaml.cs",
+    "path": "src/SilverMoon/Views/FirmwareRiskWindow.axaml.cs",
     "sha256": "7EFDAE622EFEC35AFD08F392E7F0DF7F5D8D67FB23D751132F6F50A99913E9F8"
   },
   {
-    "path": "glass-playground/Views/GlassPreviewWindow.axaml",
+    "path": "src/SilverMoon/Views/GlassPreviewWindow.axaml",
     "sha256": "53F34DE6ECE4D4BCBC545F7FABC411855130FA5AE1D1EF49E5012BE0C64A2127"
   },
   {
-    "path": "glass-playground/Views/GlassPreviewWindow.axaml.cs",
+    "path": "src/SilverMoon/Views/GlassPreviewWindow.axaml.cs",
     "sha256": "BF91BCE842DA88A5BC55357CC97011D108B90F2314253063D4567D72B05C2796"
   },
   {
-    "path": "glass-playground/Views/LiveConnection.cs",
+    "path": "src/SilverMoon/Views/LiveConnection.cs",
     "sha256": "B14B418E16AA01B3EFC849B926A0D1B85F188EF9FA6FA23A6E6AA304DBA44F8B"
   },
   {
-    "path": "glass-playground/Views/LiveSoundObservation.cs",
+    "path": "src/SilverMoon/Views/LiveSoundObservation.cs",
     "sha256": "57CAB1049BA0B63DDED64B30B137BAA2A50F24D1A4F09E00516CDBFDA6B1A444"
   },
   {
-    "path": "glass-playground/Views/LiveUpgrade.cs",
+    "path": "src/SilverMoon/Views/LiveUpgrade.cs",
     "sha256": "1CE496AEECE55D02481FCB56D5A7D2BD48DEA0B06707DF52388053CB8FA982BB"
   },
   {
-    "path": "glass-playground/Views/MainWindow.axaml",
+    "path": "src/SilverMoon/Views/MainWindow.axaml",
     "sha256": "15B72C7B5B2253874216862AC3EB5D0C649A5C522B26D2DDCCA33488882C111A"
   },
   {
-    "path": "glass-playground/Views/MainWindow.axaml.cs",
+    "path": "src/SilverMoon/Views/MainWindow.axaml.cs",
     "sha256": "0C331D051CED992C41893AE392D068395AE6E87A2CE6A1DD6BC6B3E2FBB5BBB0"
   },
   {
-    "path": "glass-playground/Views/MaterialTunerWindow.cs",
+    "path": "src/SilverMoon/Views/MaterialTunerWindow.cs",
     "sha256": "48FE0B42368AFF8D5546C0DDB4FAE0DC38B9E65547A698E3F0FB21931B6CDE86"
   },
   {
-    "path": "glass-playground/Views/MetricTransition.cs",
+    "path": "src/SilverMoon/Views/MetricTransition.cs",
     "sha256": "13ADB3132DA18F1172C34F99DB5476B13A23B07D8CB7C280F69E37345FB1CAF3"
   },
   {
-    "path": "glass-playground/Views/NativeWindow.axaml",
+    "path": "src/SilverMoon/Views/NativeWindow.axaml",
     "sha256": "BDD55A9285ACF9F2C8AB9056AB1F8A95CF5326CE28F1ECADB69161C02BF25595"
   },
   {
-    "path": "glass-playground/Views/NativeWindow.axaml.cs",
+    "path": "src/SilverMoon/Views/NativeWindow.axaml.cs",
     "sha256": "745B83F08111287FB8A987C5E07AAE190797C863F275193249B02FAFFB4A5BAB"
   },
   {
-    "path": "glass-playground/Views/PixelDither.cs",
+    "path": "src/SilverMoon/Views/PixelDither.cs",
     "sha256": "52667EC796032D7FAD460B391595F05072BC6F8C0CA027C7296B10144FD4EC04"
   },
   {
-    "path": "glass-playground/Views/ReturnConnectionMotion.cs",
+    "path": "src/SilverMoon/Views/ReturnConnectionMotion.cs",
     "sha256": "341E2B7ABC19F64F0599F0D60DB5F1454AD2D81D45F3DE176DDBADF6703DFA90"
   },
   {
-    "path": "glass-playground/Views/TextMotion.cs",
+    "path": "src/SilverMoon/Views/TextMotion.cs",
     "sha256": "AB5CBF9683BCF783FA853142300D0BB16F7BE4757FA0DCA3A58B27099CF1876E"
   },
   {
-    "path": "glass-playground/Views/TransferInterruption.cs",
+    "path": "src/SilverMoon/Views/TransferInterruption.cs",
     "sha256": "3AC37342EA79B93EF120F6E0FE24D9DF83015F440416A4CA0A27CFB6036CE610"
   },
   {
-    "path": "glass-playground/Views/TransferPreview.cs",
+    "path": "src/SilverMoon/Views/TransferPreview.cs",
     "sha256": "D15FEA1D8955313EF40DE21617AF4C33AC6A4BC90E32E51E54D76BA2595A2E62"
   },
   {
-    "path": "glass-playground/WindowsBackdropProbe.cs",
+    "path": "src/SilverMoon/WindowsBackdropProbe.cs",
     "sha256": "893929BD843812B928EE5C073E960292B0FF583ED105634685818D30F4A051FD"
   },
   {
-    "path": "glass-playground/app.manifest",
+    "path": "src/SilverMoon/app.manifest",
     "sha256": "2FC8D273C0A1D5E32EF24A34AA5C276EC0EF0C18D423F6F3996B79E88F07BA07"
   },
   {
-    "path": "glass-playground/build.ps1",
+    "path": "src/SilverMoon/build.ps1",
     "sha256": "2C7C8179A6836C789AC08132AB3C4CE1A9A4963EE55AEA09F9108E7F443EDD63"
   },
   {
-    "path": "glass-playground/check-localization.ps1",
+    "path": "src/SilverMoon/check-localization.ps1",
     "sha256": "EF139EAE761940CD2866A2D966B10D615455DB0334535DCA107CFD74DBA415E4"
   },
   {
-    "path": "glass-playground/collect-notices.ps1",
-    "sha256": "9C35EB359F67F7EE5B8C363355DD5EE9E254D3332C07F6E642E630430803580D"
+    "path": "src/SilverMoon/collect-notices.ps1",
+    "sha256": "B81EFC470E4A69867F9F86C2EFDBC7F0AD546B394C1BB36E7857EE0E07EEFF59"
   },
   {
-    "path": "glass-playground/release-integrity.ps1",
+    "path": "src/SilverMoon/release-integrity.ps1",
     "sha256": "EE72068CE1E2199CFFD5AFE4DFFA12070C29B8FC544B32E47A900A3A61B67293"
   },
   {
-    "path": "glass-playground/sdk-environment.ps1",
-    "sha256": "B744BA8FA2E74BE0573F68B9B6D5E2DDD14B1F2612CAFB44850D6F16E05FE01C"
+    "path": "src/SilverMoon/sdk-environment.ps1",
+    "sha256": "A85B8F296C07E0A079B14BB844772E1E7FE1F792B19225B524CFE802680B3584"
   },
   {
-    "path": "glass-playground/stage-release.ps1",
-    "sha256": "4F6F3F8500FA3ED266397070D9C9205F67C9B5BFF31C373EB62B19B17610740D"
+    "path": "src/SilverMoon/stage-release.ps1",
+    "sha256": "B9108D56E6738C503DE9C9B0AC05AD2B19EB86B8AB5AAB9007011CCEFA9D81AA"
   },
   {
-    "path": "glass-playground/verify-portable.ps1",
+    "path": "src/SilverMoon/verify-portable.ps1",
     "sha256": "447B78DA2F20E3103B65D35BC4FC064E92B1B15C79633C627A269270B49E2535"
   },
   {
     "path": "tests/DesktopReadOnly/DesktopReadOnly.csproj",
-    "sha256": "5717EEA62CF6C370D773F0DF6B18039369B2D3941AF89E90F56CEAE9B5063672"
+    "sha256": "0EA1435EF7BECBE178215ED97B8621F66255FE698B377B17F4CAA7C4B274EF46"
   },
   {
     "path": "tests/DesktopReadOnly/FirmwareChecks.cs",
@@ -517,7 +517,7 @@
   },
   {
     "path": "tests/DesktopReadOnly/LocalizationChecks.cs",
-    "sha256": "972B79605CB37E2C61668B61BCC2C6C0F3CFAB5F5C4674A5A9D8F50C936BA2E9"
+    "sha256": "F1B0B7F56ACE2B1B5D095AB9E055E6F13DC76C585E3048E2C31C9121BADF87BB"
   },
   {
     "path": "tests/DesktopReadOnly/OfficialUpgradeChecks.cs",
@@ -557,10 +557,10 @@
   },
   {
     "path": "tests/DesktopReadOnly/test.ps1",
-    "sha256": "9944DDDAB26441920C277865407E5FA951613FDD5D4CDA384AD3237C038C8C9B"
+    "sha256": "42A3606E543A0C0E8046245AF3C0DD0E54BDE92257356FBA1551662530039363"
   },
   {
     "path": "tools/export_public_source.ps1",
-    "sha256": "1FFB891B1F9EE44ECBD44ECE444CE44BE31FE2B500C723AE89CF5695E7B6261C"
+    "sha256": "43F2DFA1B824AE3A2DBA4A8656C0D4C554A3EC5A9326584C8F1ED8BFE9BD0C67"
   }
 ]

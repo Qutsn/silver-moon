@@ -36,13 +36,15 @@ Windows 10 2004 / build 19041 or later, x64. This is an unsigned pre-release; Wi
 Technical documents are available in [English](docs/en/README.md) and [Chinese](docs/zh-CN/README.md).
 
 1. [Sleep logic and firmware patches](docs/en/01-FIRMWARE-PATCHES.md)
-2. [Upgrade validation and resume](docs/en/02-UPGRADE-AND-VALIDATION.md)
-3. [Bluetooth and Windows](docs/en/03-BLUETOOTH-AND-WINDOWS.md)
+2. [Installation validation and staged RSA-PSS path](docs/en/02-UPGRADE-AND-VALIDATION.md)
+3. [Bluetooth protocol and transfer performance](docs/en/03-BLUETOOTH-AND-WINDOWS.md)
 4. [Firmware download and preparation](docs/en/04-OFFICIAL-FIRMWARE-PREPARATION.md)
 5. [Third-party firmware format](docs/en/05-THIRD-PARTY-FIRMWARE-GUIDE.md)
 6. [Evidence and reproducible verification](docs/en/08-EVIDENCE-AND-VERIFICATION.md)
 
 Supports Middleton official 17.0.37 and project r2 (display version 25.2.52). The patch does not disable all power protections. Third-party format validation does not guarantee working firmware.
+
+For modified firmware, the app uses a guarded staged-recovery path that avoids the normal full-image RSA-PSS footer-verification step. It does not remove the device's subsequent partition validation, trial boot or commit checks. Full-image transfers have measured about 45–50 minutes on the tested Windows setup; allow at least one hour. The conservative 45-byte chunks and sequential GATT/GAIA acknowledgements add round-trip overhead. See the [installation analysis](docs/en/02-UPGRADE-AND-VALIDATION.md) and [BLE performance notes](docs/en/03-BLUETOOTH-AND-WINDOWS.md).
 
 ## Build
 
@@ -50,10 +52,10 @@ Windows, PowerShell 7, and .NET SDK 10:
 
 ```powershell
 ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
-./glass-playground/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
+./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-local
 ```
 
-Tests requiring firmware materials are skipped in this mode. [Build guide](glass-playground/RELEASE.md) · [Code guide](docs/en/06-CODE-REVIEWER-GUIDE.md) · [Localization](docs/en/07-UI-LOCALIZATION.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+Tests requiring firmware materials are skipped in this mode. [Build guide](src/SilverMoon/RELEASE.md) · [Code guide](docs/en/06-CODE-REVIEWER-GUIDE.md) · [Localization](docs/en/07-UI-LOCALIZATION.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
 ## License
 
@@ -99,19 +101,21 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 提供[中文](docs/zh-CN/README.md)和[英文](docs/en/README.md)两套文档。
 
 1. [休眠逻辑与固件修改](docs/zh-CN/01-FIRMWARE-PATCHES.md)
-2. [升级校验与断点续传](docs/zh-CN/02-UPGRADE-AND-VALIDATION.md)
-3. [蓝牙通道与 Windows 实现](docs/zh-CN/03-BLUETOOTH-AND-WINDOWS.md)
+2. [安装校验与分阶段验签路径](docs/zh-CN/02-UPGRADE-AND-VALIDATION.md)
+3. [蓝牙协议与传输性能](docs/zh-CN/03-BLUETOOTH-AND-WINDOWS.md)
 4. [固件下载与准备](docs/zh-CN/04-OFFICIAL-FIRMWARE-PREPARATION.md)
 5. [第三方固件规范](docs/zh-CN/05-THIRD-PARTY-FIRMWARE-GUIDE.md)
 6. [证据分级与可复现验证](docs/zh-CN/08-EVIDENCE-AND-VERIFICATION.md)
 
 支持 Middleton 官方 17.0.37 与项目 r2（显示版本 25.2.52）。补丁不会关闭全部电源保护机制。第三方文件通过规范检查不代表固件功能正常。
 
+修改版固件采用受约束的分区暂存/恢复路径，避开正常全包 RSA-PSS footer 验签步骤；设备后续的分区验证、试启动和提交检查仍会执行。Windows 实测全量传输约 45–50 分钟，建议至少预留一小时。当前保守的 45 字节分块及逐块等待 GATT/GAIA 确认会产生往返开销。详见[安装校验分析](docs/zh-CN/02-UPGRADE-AND-VALIDATION.md)和[蓝牙传输性能说明](docs/zh-CN/03-BLUETOOTH-AND-WINDOWS.md)。
+
 ## 构建
 
 需要 Windows、PowerShell 7 和 .NET SDK 10，使用上方英文部分的构建命令。此模式跳过依赖固件素材的测试。
 
-[构建指南](glass-playground/RELEASE.md) · [代码导读](docs/zh-CN/06-CODE-REVIEWER-GUIDE.md) · [本地化](docs/zh-CN/07-UI-LOCALIZATION.md) · [参与贡献](CONTRIBUTING.md) · [安全问题](SECURITY.md)
+[构建指南](src/SilverMoon/RELEASE.md) · [代码导读](docs/zh-CN/06-CODE-REVIEWER-GUIDE.md) · [本地化](docs/zh-CN/07-UI-LOCALIZATION.md) · [参与贡献](CONTRIBUTING.md) · [安全问题](SECURITY.md)
 
 ## 许可证 License
 

@@ -16,16 +16,16 @@
 
 ## 文件层面的复现
 
-记录源码提交、构建参数、OS/SDK 版本、输入长度及完整 SHA-256。官方/r2 身份见 [FirmwareCatalog](../../glass-playground/Domain/FirmwareCatalog.cs)；补丁偏移和原字节前置条件见 [FirmwarePreparation](../../glass-playground/Application/FirmwarePreparation.cs)。
+记录源码提交、构建参数、OS/SDK 版本、输入长度及完整 SHA-256。官方/r2 身份见 [FirmwareCatalog](../../src/SilverMoon/Domain/FirmwareCatalog.cs)；补丁偏移和原字节前置条件见 [FirmwarePreparation](../../src/SilverMoon/Application/FirmwarePreparation.cs)。
 
 持有精确支持的输入文件时，可独立检查容器长度与记录、逐字节比对补丁跨度、核对 r2 成品哈希，以及验证第三方准入的受保护前后缀哈希。仓库不包含固件素材；缺少素材的测试必须标记为跳过，不能记为通过。
 
 从仓库根目录运行源码模式检查与构建：
 
 ```powershell
-./glass-playground/check-localization.ps1
+./src/SilverMoon/check-localization.ps1
 ./tests/DesktopReadOnly/test.ps1 -WithoutFirmwareMaterials
-./glass-playground/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-review
+./src/SilverMoon/build.ps1 -WithoutBundledFirmware -CompressSingleFile -OutputDirectory publish-review
 ```
 
 测试/构建脚本可能退出调用进程，应分别启动 PowerShell。`SilverMoon.exe --portable-smoke <report-path>` 检查便携包、资源和子进程启动，不执行 BLE 操作，不能当作配对或安装测试。

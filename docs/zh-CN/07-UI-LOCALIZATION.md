@@ -15,13 +15,13 @@ UI 当前仅支持中文和英文，采用系统显示语言选择和嵌入式�
 
 ## 文件与 API
 
-- `glass-playground/Domain/UiLanguage.cs`：语言父链匹配与回退，独立于 UI 框架。
-- `glass-playground/Domain/AppText.cs`：不依赖 Avalonia 的共用资源加载与带参数文字；应用服务和基础设施可直接使用。
-- `glass-playground/UiText.cs`：XAML 扩展、预览语言覆盖与 UI 入口。
-- `glass-playground/Localization/zh.json`：中文原文。
-- `glass-playground/Localization/en.json`：完整英文资源，保持键不变。
-- `glass-playground/Localization/source-map.json`：最初提取的键与来源文件索引；后续语义键请使用代码搜索定位，索引不是完整性的权威依据。
-- `glass-playground/check-localization.ps1`：检查重复键、键集合、空值、参数及实际 UI 引用。
+- `src/SilverMoon/Domain/UiLanguage.cs`：语言父链匹配与回退，独立于 UI 框架。
+- `src/SilverMoon/Domain/AppText.cs`：不依赖 Avalonia 的共用资源加载与带参数文字；应用服务和基础设施可直接使用。
+- `src/SilverMoon/UiText.cs`：XAML 扩展、预览语言覆盖与 UI 入口。
+- `src/SilverMoon/Localization/zh.json`：中文原文。
+- `src/SilverMoon/Localization/en.json`：完整英文资源，保持键不变。
+- `src/SilverMoon/Localization/source-map.json`：最初提取的键与来源文件索引；后续语义键请使用代码搜索定位，索引不是完整性的权威依据。
+- `src/SilverMoon/check-localization.ps1`：检查重复键、键集合、空值、参数及实际 UI 引用。
 
 XAML：`Text="{local:Tr ConnectionPreviewWindow.Text.10123}"`（示意键；实际键以资源为准），命名空间 `xmlns:local="using:GlassPlayground"`。
 C#：`UiText.Get("实际键")`；参数：`UiText.Format("Upgrade.TransferredEvidence", acknowledgedBytes, skippedBytes)`。
@@ -32,8 +32,8 @@ C#：`UiText.Get("实际键")`；参数：`UiText.Format("Upgrade.TransferredEvi
 
 1. 对照 `zh.json`，只填 `en.json` 的值；不要翻译键名、设备型号、固件版本、哈希、GAIA 标识和日志事件名。
 2. 保留 `{0}`、`{1:N0}`、`{0:X8}` 等参数与格式，允许调整参数出现顺序。不要在代码中拼接英文语序。JSON 换行写成 `\n`。
-3. 运行 `./glass-playground/check-localization.ps1`。空值、缺键、参数变化和未知资源引用均会失败。
-4. 运行 `./tests/DesktopReadOnly/test.ps1` 和 `./glass-playground/build.ps1`。
+3. 运行 `./src/SilverMoon/check-localization.ps1`。空值、缺键、参数变化和未知资源引用均会失败。
+4. 运行 `./tests/DesktopReadOnly/test.ps1` 和 `./src/SilverMoon/build.ps1`。
 5. 用 `SilverMoon.exe --preview --ui-culture=en-US` 预览英语选择；`zh-CN`、`zh-TW`、`de-DE` 分别验证中文归一与英语回退。该覆盖参数仅在 `--preview` 下有效，不改变 Windows 设置。演示模式不会执行实机刷入。
 6. 检查较长英文在连接页、设备列表、详情页、风险确认、传输/中断/完成页的裁切、换行、按钮宽度和辅助功能名称；不能仅靠编译验证英语布局。
 

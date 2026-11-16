@@ -26,4 +26,4 @@ foreach($entry in $assets.libraries.GetEnumerator() | Sort-Object Key){
     $inventory+=@{package=$entry.Key;directory=$packageDirectory}
 }
 $inventory | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $Destination 'packages.json') -Encoding utf8
-Copy-Item -LiteralPath (Join-Path $PSScriptRoot '../LICENSE') -Destination (Join-Path $Destination 'PROJECT-LICENSE.txt') -Force
+Copy-Item -LiteralPath (Join-Path $PSScriptRoot '../../LICENSE') -Destination (Join-Path $Destination 'PROJECT-LICENSE.txt') -Force
