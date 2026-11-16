@@ -497,7 +497,7 @@
   },
   {
     "path": "src/SilverMoon/verify-portable.ps1",
-    "sha256": "447B78DA2F20E3103B65D35BC4FC064E92B1B15C79633C627A269270B49E2535"
+    "sha256": "F3A26FD095D6BA5ED08F0467ADFE517D9F2C6BEF0C37DABFAFE7EF1E53E41C17"
   },
   {
     "path": "tests/DesktopReadOnly/DesktopReadOnly.csproj",

@@ -8,7 +8,7 @@ $source=(Resolve-Path -LiteralPath $PublishedDirectory).Path
 $files=@(Get-ChildItem -LiteralPath $source -Force)
 if($files.Count -ne 1 -or $files[0].Name -ne 'SilverMoon.exe' -or $files[0].PSIsContainer){throw 'Expected a publish folder containing exactly SilverMoon.exe.'}
 $target=[IO.Path]::GetFullPath($Destination)
-$repo=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..')).TrimEnd('\')
+$repo=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..')).TrimEnd('\')
 if($target.Equals($repo,[StringComparison]::OrdinalIgnoreCase) -or $target.StartsWith($repo+'\',[StringComparison]::OrdinalIgnoreCase)){throw 'Use a new validation directory outside the repository to avoid inherited Low labels.'}
 if(Test-Path -LiteralPath $target){throw 'Validation destination already exists; choose a new directory.'}
 New-Item -ItemType Directory -Path $target | Out-Null
