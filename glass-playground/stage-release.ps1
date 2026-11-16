@@ -9,10 +9,10 @@ $repo=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $releaseRoot=Join-Path $repo 'desktop-release'
 $target=[IO.Path]::GetFullPath($Destination)
 if($target -ne (Join-Path $releaseRoot 'current')){throw 'Use the fixed desktop-release/current destination.'}
-if(!(Test-Path -LiteralPath (Join-Path $source 'GlassPlayground.exe'))){throw 'PublishedDirectory does not contain GlassPlayground.exe.'}
+if(!(Test-Path -LiteralPath (Join-Path $source 'SilveredMoon.exe'))){throw 'PublishedDirectory does not contain SilveredMoon.exe.'}
 if(Get-Process | Where-Object {$_.Path -and $_.Path.StartsWith($target+'\',[StringComparison]::OrdinalIgnoreCase)}){throw 'Close the running release before updating.'}
 # A system-hosted application has an external executable but loads this release DLL.
-if(Get-CimInstance Win32_Process -Filter "Name='dotnet.exe'" | Where-Object {$_.CommandLine -and $_.CommandLine.IndexOf((Join-Path $target 'GlassPlayground.dll'),[StringComparison]::OrdinalIgnoreCase) -ge 0}){throw 'Close the running hosted release before updating.'}
+if(Get-CimInstance Win32_Process -Filter "Name='dotnet.exe'" | Where-Object {$_.CommandLine -and $_.CommandLine.IndexOf((Join-Path $target 'SilveredMoon.dll'),[StringComparison]::OrdinalIgnoreCase) -ge 0}){throw 'Close the running hosted release before updating.'}
 # Create fresh files outside the Low-labelled development checkout. Same-volume
 # moves retain labels; copying security descriptors would reintroduce the failure.
 $staging=Join-Path ([Environment]::GetFolderPath('MyDocuments')) 'Middleton-release-staging'
@@ -49,4 +49,5 @@ catch {
     if(!(Test-Path -LiteralPath $target) -and (Test-Path -LiteralPath $previous)){Move-Item -LiteralPath $previous -Destination $target}
     throw
 }
-Write-Output "Verified $($files.Count) files. Launch: $(Join-Path $target 'GlassPlayground.exe')"
+Write-Output "Verified $($files.Count) files. Launch: $(Join-Path $target 'SilveredMoon.exe')"
+

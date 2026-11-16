@@ -28,7 +28,7 @@ public sealed class MaterialTunerWindow : Window
         var surface=new AcrylicSurface { CornerRadius=new CornerRadius(16), BlurRadius=0, RefractionAmount=0,
             HighlightEnabled=false, ShadowEnabled=false, TintColor=Colors.Transparent, Vibrancy=1, IsHitTestVisible=false, IsVisible=false };
         var layers=new Grid { Height=58 };card.Child=null;layers.Children.Add(surface);
-        var grain=new Image { Source=new Avalonia.Media.Imaging.Bitmap(Avalonia.Platform.AssetLoader.Open(new Uri("avares://GlassPlayground/Assets/fine-dither.png"))), Stretch=Stretch.Fill, Opacity=.35, IsHitTestVisible=false };
+        var grain=new Image { Source=new Avalonia.Media.Imaging.Bitmap(Avalonia.Platform.AssetLoader.Open(new Uri("avares://SilveredMoon/Assets/fine-dither.png"))), Stretch=Stretch.Fill, Opacity=.35, IsHitTestVisible=false };
         layers.Children.Add(grain);layers.Children.Add(original);card.Child=layers;
         var sliders=new Dictionary<string,Slider>();var defaults=new Dictionary<string,double>();
         void Add(string key,string name,double min,double max,double value,Action<double> apply)
@@ -63,3 +63,4 @@ public sealed class MaterialTunerWindow : Window
         }
     }
 }
+

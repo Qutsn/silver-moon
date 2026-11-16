@@ -70,7 +70,7 @@ public sealed class WindowsUpgradeProcessLink : IUpgradeLink
   await DisposeAsync();
   string executable=Environment.ProcessPath??throw new InvalidOperationException("Missing executable path.");
   var start=new ProcessStartInfo(executable){UseShellExecute=false,CreateNoWindow=true,RedirectStandardInput=true,RedirectStandardOutput=true,RedirectStandardError=true,WorkingDirectory=AppContext.BaseDirectory};
-  if(string.Equals(Path.GetFileNameWithoutExtension(executable),"dotnet",StringComparison.OrdinalIgnoreCase))start.ArgumentList.Add(Path.Combine(AppContext.BaseDirectory,"GlassPlayground.dll"));
+  if(string.Equals(Path.GetFileNameWithoutExtension(executable),"dotnet",StringComparison.OrdinalIgnoreCase))start.ArgumentList.Add(Path.Combine(AppContext.BaseDirectory,"SilveredMoon.dll"));
   start.ArgumentList.Add("--upgrade-worker");
   worker=Process.Start(start)??throw new UpgradeLinkLostException(AppText.Get("Device.Message.42"));
   stderr=worker.StandardError.ReadToEndAsync();
@@ -133,3 +133,4 @@ public sealed class WindowsUpgradeProcessLink : IUpgradeLink
   finally{worker=null;stderr=null;child.Dispose();}
  }
 }
+

@@ -45,11 +45,11 @@
   },
   {
     "path": "glass-playground/App.axaml",
-    "sha256": "F42E1A1088A54282600AF0A278F182F4D00886490F66C8042D7491A944FB3AE3"
+    "sha256": "D10B46B50FB6786231925B4199C02114F758FC9B55EC242DEE55B4D59DEFE95F"
   },
   {
     "path": "glass-playground/app.manifest",
-    "sha256": "77949A6272D1754E61A50F21FA5C549A428459A5AEF6E16F41E79742DD4AB979"
+    "sha256": "837E92E365E3DA9AC3D19CB653FEE24E25CACF3A441E4FB50F91D0AD605AFBD7"
   },
   {
     "path": "glass-playground/build.ps1",
@@ -69,7 +69,7 @@
   },
   {
     "path": "glass-playground/GlassPlayground.csproj",
-    "sha256": "58E97644A07AF6C1030F593C2CC296AF00990DD5F5924500085B288ADAE7FA7D"
+    "sha256": "7F1A1238C97BF1FCF95770026B685136D881F5F9229E3A7C15E027E79D5E0642"
   },
   {
     "path": "glass-playground/NativeDiagnostics.cs",
@@ -89,7 +89,7 @@
   },
   {
     "path": "glass-playground/RELEASE.md",
-    "sha256": "5A33A5E24CD787BE0AB5B833296E0254EC3D9DCF0033C777623944E36D359AC0"
+    "sha256": "7B98640FE242C9A71B3F1C2669E6B20B8EEA80A1D4E24726C08C13B01F119ED5"
   },
   {
     "path": "glass-playground/sdk-environment.ps1",
@@ -97,7 +97,7 @@
   },
   {
     "path": "glass-playground/stage-release.ps1",
-    "sha256": "AE0FBBF6021D4E8496A89C8FF1DDEACD9099C147AAED5F04EC068BD958B60F83"
+    "sha256": "F31B9E02766F13F367B2ED10D326C0C77D3166F910148744DA38A92AAA88DCA2"
   },
   {
     "path": "glass-playground/TestPattern.cs",
@@ -109,7 +109,7 @@
   },
   {
     "path": "glass-playground/verify-portable.ps1",
-    "sha256": "2F8EBAFCABA77D4C679E155A68F32679124B1B40A2E4527379AF95F94C0BB478"
+    "sha256": "B95F3D154EBA00D16CBF0A169C4D817F4E8A98C459D51B0F4F440FAFE561C56D"
   },
   {
     "path": "glass-playground/WindowsBackdropProbe.cs",
@@ -269,7 +269,7 @@
   },
   {
     "path": "glass-playground/Infrastructure/UpgradeWorker.cs",
-    "sha256": "2F5FA391F68997E6891E76EECD7385304EDBAE31079B131AA0798152A17B4DF0"
+    "sha256": "6F895001B4631DA052F10DFC44C59C0E2CE0F0B428FC7170C227662E44B61031"
   },
   {
     "path": "glass-playground/Infrastructure/WindowsBleTransport.cs",
@@ -349,7 +349,7 @@
   },
   {
     "path": "glass-playground/Views/LiveConnection.cs",
-    "sha256": "C3A78F0F4761820CA9E79D425D908D7B731A9AE7A678DF9036637AC6C1074785"
+    "sha256": "EDCF5137FE9B0F7E67FB1E2BD3A85F462DAE991E6ED2BB5D850D51C762EFB747"
   },
   {
     "path": "glass-playground/Views/LiveSoundObservation.cs",
@@ -369,7 +369,7 @@
   },
   {
     "path": "glass-playground/Views/MaterialTunerWindow.cs",
-    "sha256": "1C2EEC942AF3F7FA5E19F254F9FE2F65B98E8DF9E21D766C6A04FBCAFCAAAF10"
+    "sha256": "B223411E324E8C625B6BDD0491A8FB9D2FA2FB3AC5EBEC418153849059943FDB"
   },
   {
     "path": "glass-playground/Views/MetricTransition.cs",
