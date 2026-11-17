@@ -9,13 +9,13 @@
 连接音箱、选择固件，由软件自动完成传输与安装；随后可查看设备信息、调节音量与 EQ。
 
 <p>
-  <a href="docs/images/zh-CN/start.webp"><img src="docs/images/zh-CN/start.webp" alt="启动页" title="启动页" width="49%"></a>
-  <a href="docs/images/zh-CN/firmware.webp"><img src="docs/images/zh-CN/firmware.webp" alt="选择固件" title="选择固件" width="49%"></a>
+  <a href="docs/images/zh-CN/start.webp"><img src="docs/images/zh-CN/start-preview.webp" alt="启动页" title="启动页" width="50%"></a><a href="docs/images/zh-CN/firmware.webp"><img src="docs/images/zh-CN/firmware-preview.webp" alt="选择固件" title="选择固件" width="50%"></a>
+  <br><img src="docs/images/zh-CN/captions-1.svg" alt="启动页 / 选择固件" width="100%">
 </p>
 
 <p>
-  <a href="docs/images/zh-CN/transfer.webp"><img src="docs/images/zh-CN/transfer.webp" alt="传输固件" title="传输固件" width="49%"></a>
-  <a href="docs/images/zh-CN/details.webp"><img src="docs/images/zh-CN/details.webp" alt="音箱详情" title="音箱详情" width="49%"></a>
+  <a href="docs/images/zh-CN/transfer.webp"><img src="docs/images/zh-CN/transfer-preview.webp" alt="传输固件" title="传输固件" width="50%"></a><a href="docs/images/zh-CN/details.webp"><img src="docs/images/zh-CN/details-preview.webp" alt="音箱详情" title="音箱详情" width="50%"></a>
+  <br><img src="docs/images/zh-CN/captions-2.svg" alt="传输固件 / 音箱详情" width="100%">
 </p>
 
 ## 项目初衷
