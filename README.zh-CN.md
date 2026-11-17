@@ -1,4 +1,4 @@
-# Silver Moon
+# <img src="docs/images/silver-moon-icon.png" width="42" height="42" align="absmiddle" alt=""> Silver Moon
 
 为 Middleton 刷入修改版固件，以去除官方固件中恼人的 AUX 频繁休眠和自动关机功能。
 

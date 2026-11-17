@@ -1,4 +1,4 @@
-# Silver Moon
+# <img src="docs/images/silver-moon-icon.png" width="42" height="42" align="absmiddle" alt=""> Silver Moon
 
 Flash modified Middleton firmware to disable AUX sleep and auto-off.
 
