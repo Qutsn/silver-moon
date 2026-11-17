@@ -1,6 +1,6 @@
 # <img src="docs/images/silver-moon-icon.png" width="42" height="42" align="top" alt=""> Silver Moon
 
-Flash modified Middleton firmware to disable AUX sleep and auto-off.
+Disable AUX sleep and automatic power-off on Marshall Middleton with modified firmware.
 
 [Download](https://github.com/RougeNuage/silver-moon/releases) · [中文](#中文)
 
@@ -37,6 +37,14 @@ You can read the [third-party installation specification](docs/en/05-THIRD-PARTY
 ## Device support
 
 I own only a first-generation Middleton, and hardware testing has been limited to that unit. Silver Moon currently supports only the first-generation Middleton. Middleton II and other models have not been tested and are not supported.
+
+## FAQ
+
+**Can I disable AUX sleep and automatic power-off on Marshall Middleton?**
+
+Yes. On the first-generation Middleton, Silver Moon installs modified firmware that disables AUX sleep and the ten-minute idle shutdown. This addresses unwanted sleep or auto-off when using Middleton as a PC speaker over AUX, without a background keep-awake audio track.
+
+These behaviors are also described as auto standby or automatic power-off. The patch does not fix every cause of audio cutting out or unexpected shutdown. See [sleep behavior and firmware patches](docs/en/01-FIRMWARE-PATCHES.md).
 
 ## How it works
 
@@ -85,7 +93,7 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 
 # 中文
 
-为 Middleton 刷入修改版固件，以去除官方固件中恼人的 AUX 频繁休眠和自动关机功能。
+为 Marshall Middleton 刷入修改版固件，去除 AUX 频繁休眠和自动关机功能。
 
 [下载](https://github.com/RougeNuage/silver-moon/releases) · [English](#silver-moon)
 
@@ -122,6 +130,14 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 ## 设备支持范围
 
 本人目前只有一台第一代 Middleton，实机测试仅在这台设备上进行。Silver Moon 当前仅支持第一代 Middleton；Middleton II 及其他型号尚未测试，也不在支持范围内。
+
+## 常见问题
+
+**能否关闭 Marshall Middleton 的 AUX 休眠和自动关机？**
+
+可以。Silver Moon 为第一代 Middleton 安装修改版固件，禁用 AUX 休眠与十分钟闲置自动关机，解决通过 AUX 当电脑音箱使用时不希望它休眠或自动关机的问题，无需后台持续播放音频来保持唤醒。
+
+这类行为也常被称为自动待机或闲置关机。补丁并不解决所有原因造成的声音中断或异常关机，详见[休眠逻辑与固件修改](docs/zh-CN/01-FIRMWARE-PATCHES.md)。
 
 ## 使用流程
 

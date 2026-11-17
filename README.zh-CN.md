@@ -1,6 +1,6 @@
 # <img src="docs/images/silver-moon-icon.png" width="42" height="42" align="top" alt=""> Silver Moon
 
-为 Middleton 刷入修改版固件，以去除官方固件中恼人的 AUX 频繁休眠和自动关机功能。
+为 Marshall Middleton 刷入修改版固件，去除 AUX 频繁休眠和自动关机功能。
 
 [下载](https://github.com/RougeNuage/silver-moon/releases) · [English](README.md)
 
@@ -37,6 +37,14 @@
 ## 设备支持范围
 
 本人目前只有一台第一代 Middleton，实机测试仅在这台设备上进行。Silver Moon 当前仅支持第一代 Middleton；Middleton II 及其他型号尚未测试，也不在支持范围内。
+
+## 常见问题
+
+**能否关闭 Marshall Middleton 的 AUX 休眠和自动关机？**
+
+可以。Silver Moon 为第一代 Middleton 安装修改版固件，禁用 AUX 休眠与十分钟闲置自动关机，解决通过 AUX 当电脑音箱使用时不希望它休眠或自动关机的问题，无需后台持续播放音频来保持唤醒。
+
+这类行为也常被称为自动待机或闲置关机。补丁并不解决所有原因造成的声音中断或异常关机，详见[休眠逻辑与固件修改](docs/zh-CN/01-FIRMWARE-PATCHES.md)。
 
 ## 使用流程
 
