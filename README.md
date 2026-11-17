@@ -8,16 +8,15 @@ Flash modified Middleton firmware to disable AUX sleep and auto-off.
 
 Connect your speaker, choose firmware, and let the app handle transfer and installation. Then view device information and adjust volume and EQ.
 
-<table width="700">
-  <tr>
-    <td width="50%" align="center"><a href="docs/images/en/start.webp"><img src="docs/images/en/start.webp" alt="Start" width="320"></a><br>Start</td>
-    <td width="50%" align="center"><a href="docs/images/en/firmware.webp"><img src="docs/images/en/firmware.webp" alt="Choose firmware" width="320"></a><br>Choose firmware</td>
-  </tr>
-  <tr>
-    <td width="50%" align="center"><a href="docs/images/en/transfer.webp"><img src="docs/images/en/transfer.webp" alt="Firmware transfer" width="320"></a><br>Firmware transfer</td>
-    <td width="50%" align="center"><a href="docs/images/en/details.webp"><img src="docs/images/en/details.webp" alt="Speaker details" width="320"></a><br>Speaker details</td>
-  </tr>
-</table>
+<p>
+  <a href="docs/images/en/start.webp"><img src="docs/images/en/start.webp" alt="Start" title="Start" width="49%"></a>
+  <a href="docs/images/en/firmware.webp"><img src="docs/images/en/firmware.webp" alt="Choose firmware" title="Choose firmware" width="49%"></a>
+</p>
+
+<p>
+  <a href="docs/images/en/transfer.webp"><img src="docs/images/en/transfer.webp" alt="Firmware transfer" title="Firmware transfer" width="49%"></a>
+  <a href="docs/images/en/details.webp"><img src="docs/images/en/details.webp" alt="Speaker details" title="Speaker details" width="49%"></a>
+</p>
 
 ## Why Silver Moon
 
@@ -94,16 +93,15 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 
 连接音箱、选择固件，由软件自动完成传输与安装；随后可查看设备信息、调节音量与 EQ。
 
-<table width="700">
-  <tr>
-    <td width="50%" align="center"><a href="docs/images/zh-CN/start.webp"><img src="docs/images/zh-CN/start.webp" alt="启动页" width="320"></a><br>启动页</td>
-    <td width="50%" align="center"><a href="docs/images/zh-CN/firmware.webp"><img src="docs/images/zh-CN/firmware.webp" alt="选择固件" width="320"></a><br>选择固件</td>
-  </tr>
-  <tr>
-    <td width="50%" align="center"><a href="docs/images/zh-CN/transfer.webp"><img src="docs/images/zh-CN/transfer.webp" alt="传输固件" width="320"></a><br>传输固件</td>
-    <td width="50%" align="center"><a href="docs/images/zh-CN/details.webp"><img src="docs/images/zh-CN/details.webp" alt="音箱详情" width="320"></a><br>音箱详情</td>
-  </tr>
-</table>
+<p>
+  <a href="docs/images/zh-CN/start.webp"><img src="docs/images/zh-CN/start.webp" alt="启动页" title="启动页" width="49%"></a>
+  <a href="docs/images/zh-CN/firmware.webp"><img src="docs/images/zh-CN/firmware.webp" alt="选择固件" title="选择固件" width="49%"></a>
+</p>
+
+<p>
+  <a href="docs/images/zh-CN/transfer.webp"><img src="docs/images/zh-CN/transfer.webp" alt="传输固件" title="传输固件" width="49%"></a>
+  <a href="docs/images/zh-CN/details.webp"><img src="docs/images/zh-CN/details.webp" alt="音箱详情" title="音箱详情" width="49%"></a>
+</p>
 
 ## 项目初衷
 
