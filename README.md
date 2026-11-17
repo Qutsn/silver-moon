@@ -9,12 +9,12 @@ Flash modified Middleton firmware to disable AUX sleep and auto-off.
 Connect your speaker, choose firmware, and let the app handle transfer and installation. Then view device information and adjust volume and EQ.
 
 <p>
-  <a href="docs/images/en/start.webp"><img src="docs/images/en/start-preview.webp" alt="Start" title="Start" width="50%"></a><a href="docs/images/en/firmware.webp"><img src="docs/images/en/firmware-preview.webp" alt="Choose firmware" title="Choose firmware" width="50%"></a>
+  <a href="docs/images/en/start.webp"><img src="docs/images/en/start-preview.webp" alt="Start" title="Start" width="49%"></a><img src="docs/images/gallery-gap.svg" alt="" width="2%"><a href="docs/images/en/firmware.webp"><img src="docs/images/en/firmware-preview.webp" alt="Choose firmware" title="Choose firmware" width="49%"></a>
   <br><img src="docs/images/en/captions-1.svg" alt="Start / Choose firmware" width="100%">
 </p>
 
 <p>
-  <a href="docs/images/en/transfer.webp"><img src="docs/images/en/transfer-preview.webp" alt="Firmware transfer" title="Firmware transfer" width="50%"></a><a href="docs/images/en/details.webp"><img src="docs/images/en/details-preview.webp" alt="Speaker details" title="Speaker details" width="50%"></a>
+  <a href="docs/images/en/transfer.webp"><img src="docs/images/en/transfer-preview.webp" alt="Firmware transfer" title="Firmware transfer" width="49%"></a><img src="docs/images/gallery-gap.svg" alt="" width="2%"><a href="docs/images/en/details.webp"><img src="docs/images/en/details-preview.webp" alt="Speaker details" title="Speaker details" width="49%"></a>
   <br><img src="docs/images/en/captions-2.svg" alt="Firmware transfer / Speaker details" width="100%">
 </p>
 
@@ -94,12 +94,12 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 连接音箱、选择固件，由软件自动完成传输与安装；随后可查看设备信息、调节音量与 EQ。
 
 <p>
-  <a href="docs/images/zh-CN/start.webp"><img src="docs/images/zh-CN/start-preview.webp" alt="启动页" title="启动页" width="50%"></a><a href="docs/images/zh-CN/firmware.webp"><img src="docs/images/zh-CN/firmware-preview.webp" alt="选择固件" title="选择固件" width="50%"></a>
+  <a href="docs/images/zh-CN/start.webp"><img src="docs/images/zh-CN/start-preview.webp" alt="启动页" title="启动页" width="49%"></a><img src="docs/images/gallery-gap.svg" alt="" width="2%"><a href="docs/images/zh-CN/firmware.webp"><img src="docs/images/zh-CN/firmware-preview.webp" alt="选择固件" title="选择固件" width="49%"></a>
   <br><img src="docs/images/zh-CN/captions-1.svg" alt="启动页 / 选择固件" width="100%">
 </p>
 
 <p>
-  <a href="docs/images/zh-CN/transfer.webp"><img src="docs/images/zh-CN/transfer-preview.webp" alt="传输固件" title="传输固件" width="50%"></a><a href="docs/images/zh-CN/details.webp"><img src="docs/images/zh-CN/details-preview.webp" alt="音箱详情" title="音箱详情" width="50%"></a>
+  <a href="docs/images/zh-CN/transfer.webp"><img src="docs/images/zh-CN/transfer-preview.webp" alt="传输固件" title="传输固件" width="49%"></a><img src="docs/images/gallery-gap.svg" alt="" width="2%"><a href="docs/images/zh-CN/details.webp"><img src="docs/images/zh-CN/details-preview.webp" alt="音箱详情" title="音箱详情" width="49%"></a>
   <br><img src="docs/images/zh-CN/captions-2.svg" alt="传输固件 / 音箱详情" width="100%">
 </p>
 

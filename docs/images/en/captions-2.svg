@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="30" viewBox="0 0 1000 30" role="img" aria-label="Firmware transfer / Speaker details">
   <g fill="#808080" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" text-anchor="middle">
-    <text x="250" y="21">Firmware transfer</text>
-    <text x="750" y="21">Speaker details</text>
+    <text x="245" y="21">Firmware transfer</text>
+    <text x="755" y="21">Speaker details</text>
   </g>
 </svg>
