@@ -41,7 +41,7 @@ public sealed partial class DeviceDetailsView
   string message=liveSnapshot is not {Connected:true}
    ?liveSnapshot is null?AppText.Get("DeviceDetailsView.Text.2626"):AppText.Get("DeviceDetailsView.Text.2643")
    :soundError ?? (volume.LiveState.Target.HasValue || bass.LiveState.Target.HasValue || treble.LiveState.Target.HasValue
-    ?(officialSoundTrial?UiText.Get("Sound.Sending"):AppText.Get("Device.Message.16"))
+    ?""
     :liveSnapshot.Volume is null || liveSnapshot.Bass is null || liveSnapshot.Treble is null?AppText.Get("DeviceDetailsView.Text.2576"):officialSoundTrial?"":AppText.Get("DeviceDetailsView.Text.2593"));
   TextMotion.Set(connectionState,message);
   Avalonia.Controls.ToolTip.SetTip(connectionState,message);

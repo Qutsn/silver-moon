@@ -16,11 +16,11 @@ test('invalid or unrelated metadata is rejected',()=>{
 test('creates one sanitized notification; closed issues also deduplicate',async()=>{
  const created=[];
  const github={rest:{issues:{listForRepo(){},async create(p){created.push(p);return {data:{number:7}};}}},async paginate(){return [];}};
- const context={repo:{owner:'Qutsn',repo:'silver-moon'}};
+ const context={repo:{owner:'RougeNuage',repo:'silver-moon'}};
  assert.equal(await notify(github,context,inspect(metadata('17.0.37'))),'unchanged');
  assert.equal(created.length,0);
  assert.equal(await notify(github,context,inspect(metadata('18.0.0'))),'created');
- assert.match(created[0].body,/@Qutsn/);
+ assert.match(created[0].body,/@RougeNuage/);
  assert.doesNotMatch(created[0].body,/secret|example.invalid/);
  github.paginate=async(method,args)=>{assert.equal(args.state,'all');return [{body:created[0].body,state:'closed'}];};
  assert.equal(await notify(github,context,inspect(metadata('18.0.0'))),'already-notified');

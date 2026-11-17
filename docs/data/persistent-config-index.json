@@ -1,0 +1,4963 @@
+{
+  "scope": "Middleton LENNOX schema inventory; not a physical PS address map or permission to write",
+  "source_xml_sha256": "23addd2a31b274545382f04fce6fab1a5d122abda38388303a4bbbf5c205cde7",
+  "declared_block_count": 64,
+  "located_field_count": 523,
+  "blocks": {
+    "33": "A2DP Config",
+    "41": "A2DP Session Data",
+    "46": "Generic Audio Prompt Read-only Data",
+    "53": "Generic Audio Prompt Writable Data",
+    "59": "Event to Audio Prompt Mapping Table",
+    "102": "Sink audio read only config data",
+    "133": "Sink audio writeable config data",
+    "159": "AVRCP Enable and Audio Switching Mask Bitfields",
+    "164": "Button Sequence Configuration",
+    "196": "Button Config Block 2",
+    "208": "Translation Table",
+    "228": "User Event Set C",
+    "298": "User Event Set B",
+    "368": "User Event Set A",
+    "438": "Configure DSP Capability IDs",
+    "458": "Device and Software Version Module",
+    "470": "DSP Capability Bundle Files",
+    "812": "DSP Capabilities",
+    "817": "sink hfp data",
+    "835": "SinkInquiry",
+    "852": "States",
+    "936": "Events",
+    "965": "Filters",
+    "981": "LED Config Readable Block",
+    "988": "LED Session Config Block",
+    "993": "SinkMultiChannel",
+    "1013": "PIO Writeable",
+    "1018": "PIO",
+    "1049": "PIO Function Configuration",
+    "1053": "SinkPrivateData",
+    "1080": "SinkPrivateData_Writeable",
+    "1085": "Event Tones",
+    "1181": "ConfigToneData",
+    "1186": "Sink Tones Readonly",
+    "1191": "Sink UART Readonly",
+    "1198": "sink volume writeable data",
+    "1232": "Sink Volume Readonly",
+    "1237": "BA",
+    "1244": "BA volume readonly",
+    "1280": "BR_writeable_keys",
+    "1296": "RE_writeable_keys",
+    "1312": "Master BD Address of Receiver",
+    "1320": "Receiver BSSR",
+    "1325": "Receiver Volume",
+    "1330": "BLE",
+    "1336": "GAIA_readonly",
+    "1342": "GAIA_pio_translation",
+    "1349": "Sink Wired Volume",
+    "1359": "Sink Wired Readonly Config Data",
+    "1372": "Sink Wired SPDIF Config Data",
+    "1377": "Sink Wired I2S Config Data",
+    "1454": "USB RO",
+    "1461": "USB RW",
+    "1467": "USB Power RO",
+    "1493": "Sink Secure Connection",
+    "1499": "sink_dormant_mode",
+    "1504": "Sink Upgrade Readonly",
+    "1509": "Settings",
+    "1514": "Use Case Table",
+    "1590": "TTP Latency Config",
+    "1603": "Fast Pair Support",
+    "1608": "Fast Pair Model Info",
+    "1615": "Readonly Private Key",
+    "1635": "Readonly Seed"
+  },
+  "fields": [
+    {
+      "group": "",
+      "name": "Event",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Prompt Index",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=3, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "State Mask [hex]",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=2, Bit=2, Size=14",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Don't Play when SCO/Wired Routed",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=2, Bit=1, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Clear Queue and Play Immediately",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Logical Input ID(s) Assigned",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "VREG",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=2, Bit=1, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "CHG",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "State Mask",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=2, Bit=2, Size=14",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "User Event",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=3, Bit=6, Size=10",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Button Timing",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=3, Bit=2, Size=4",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Logical Input ID",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Physical Input Signal",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "User Event",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Logical Input at Stage 0",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Logical Input at Stage 1",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=3, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Logical Input at Stage 2",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=4, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Logical Input at Stage 3",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=5, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Logical Input at Stage 4",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=6, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Logical Input at Stage 5",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=7, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "DSP Capability",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Capability_ID_[Hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Processor",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=26, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Event",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Filter Type",
+      "type": "enum_disabler",
+      "location": "BlockId=Relative, Word=3, Bit=4, Size=3",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Colour",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=3, Bit=1, Size=3",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Filter to Cancel",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=3, Bit=11, Size=5",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "LED to Use",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=2, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Follow LED Delay [ms]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=3, Bit=7, Size=4",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Speed Action",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=3, Bit=0, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Speed Factor",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Override LED Disable",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=4, Bit=15, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Extended State",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "On Time [ms]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=2, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Off Time [ms]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Repeat Delay [ms]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=3, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Timeout Count",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=3, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Dim Time [ms]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=4, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Number of Flashes",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=5, Bit=4, Size=4",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "LED A Mapping",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=4, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "LED B Mapping",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=5, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "LED Override Disable",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=5, Bit=0, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Colour",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=5, Bit=1, Size=3",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Event",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "On Time [ms]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=2, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Off Time [ms]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Repeat Delay [ms]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=3, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Timeout Count",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=3, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Dim Time [ms]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=4, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Number of Flashes",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=5, Bit=4, Size=4",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "LED A Mapping",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=4, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "LED B Mapping",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=5, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "LED Override Disable",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=5, Bit=0, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Colour",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=5, Bit=1, Size=3",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Audio Channel",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=2, Bit=13, Size=3",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Endpoint Hardware Type",
+      "type": "enum_disabler",
+      "location": "BlockId=Relative, Word=2, Bit=10, Size=3",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Endpoint Hardware Instance",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=2, Bit=8, Size=2",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Endpoint Channel",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=2, Bit=7, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Volume Trim [dB/60]",
+      "type": "int",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "PIO",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Function",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Event",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Tones",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=2, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Main Group Gain [dB]",
+      "type": "int",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "AUX Group Gain [dB]",
+      "type": "int",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Audio Output Group",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=7, Bit=0, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Number Of Volume Steps",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=7, Bit=1, Size=15",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Minimum Gain [dB]",
+      "type": "int",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Knee Value 1: Volume Step Index",
+      "type": "int",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Knee Value 1: Gain [dB]",
+      "type": "int",
+      "location": "BlockId=Relative, Word=3, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Knee Value 2: Volume Step Index",
+      "type": "int",
+      "location": "BlockId=Relative, Word=4, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Knee Value 2: Gain [dB]",
+      "type": "int",
+      "location": "BlockId=Relative, Word=5, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Maximum Gain [dB]",
+      "type": "int",
+      "location": "BlockId=Relative, Word=6, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Play Tone",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Speaker Gain",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "BA gain [dB/60]",
+      "type": "int",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Physical PIO",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "I2C Command Data Word",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "USB Charger Configuration",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=4, Size=4",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Charger Enable",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=1, Bit=1, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Boost Enable",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=2, Size=2",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Voltage Select",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Power Off",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=2, Bit=15, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Disable LEDs",
+      "type": "bool",
+      "location": "BlockId=Relative, Word=2, Bit=14, Size=1",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Current [mA]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=1, Bit=8, Size=8",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Input Use Case",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Voice Use Case",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Prompt Use Case",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=3, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Feature Use Case",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=4, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Mixer Use Case",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=5, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Output Use Case",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=6, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "AEC Use Case",
+      "type": "bitfield",
+      "location": "BlockId=Relative, Word=7, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "Clock Rate",
+      "type": "enum",
+      "location": "BlockId=Relative, Word=8, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 1 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=1, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 2 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=2, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 3 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=3, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 4 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=4, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 5 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=5, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 6 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=6, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 7 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=7, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 8 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=8, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 9 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=9, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 10 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=10, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 11 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=11, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 12 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=12, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 13 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=13, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 14 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=14, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 15 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=15, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "",
+      "name": "word 16 [hex]",
+      "type": "uint",
+      "location": "BlockId=Relative, Word=16, Bit=0, Size=16",
+      "block_name": "",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Fast Pair Support / Fast Pair Model Info",
+      "name": "Advertisement TX Power",
+      "type": "int",
+      "location": "BlockId=1608, Word=3, Bit=0, Size=16",
+      "block_name": "Fast Pair Model Info",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Fast Pair Support",
+      "name": "Enable Fast Pair Service",
+      "type": "bool",
+      "location": "BlockId=1603, Word=1, Bit=15, Size=1",
+      "block_name": "Fast Pair Support",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "ConfigToneData",
+      "name": "Configtone value",
+      "type": "uint",
+      "location": "BlockId=1181, Word=1, Bit=0, Size=16",
+      "block_name": "ConfigToneData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "PIO Writeable",
+      "name": "User PIO State",
+      "type": "bool",
+      "location": "BlockId=1013, Word=1, Bit=15, Size=1",
+      "block_name": "PIO Writeable",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "DSP Capabilities / Second Core Capabilities",
+      "name": "aptX Decoder Processing",
+      "type": "bool",
+      "location": "BlockId=812, Word=1, Bit=15, Size=1",
+      "block_name": "DSP Capabilities",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "DSP Capabilities / Second Core Capabilities",
+      "name": "Celt Encoder Processing",
+      "type": "bool",
+      "location": "BlockId=812, Word=1, Bit=14, Size=1",
+      "block_name": "DSP Capabilities",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "DSP Capabilities / Second Core Capabilities",
+      "name": "aptX Adaptive Decoder Processing On P1",
+      "type": "bool",
+      "location": "BlockId=812, Word=1, Bit=13, Size=1",
+      "block_name": "DSP Capabilities",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Generic Audio Prompt Writable Data",
+      "name": "Audio Prompts Language",
+      "type": "uint",
+      "location": "BlockId=53, Word=2, Bit=12, Size=4",
+      "block_name": "Generic Audio Prompt Writable Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "Audio Enhancements Disable",
+      "type": "bool",
+      "location": "BlockId=41, Word=1, Bit=12, Size=1",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "Subwoofer Bypass",
+      "type": "bool",
+      "location": "BlockId=41, Word=1, Bit=11, Size=1",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "Speaker EQ Bypass",
+      "type": "bool",
+      "location": "BlockId=41, Word=1, Bit=10, Size=1",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "EQ Flat Enable",
+      "type": "bool",
+      "location": "BlockId=41, Word=1, Bit=9, Size=1",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "User EQ Bypass",
+      "type": "bool",
+      "location": "BlockId=41, Word=1, Bit=8, Size=1",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "Bass Enhance Bypass",
+      "type": "bool",
+      "location": "BlockId=41, Word=1, Bit=7, Size=1",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "Spatial Enhance Bypass",
+      "type": "bool",
+      "location": "BlockId=41, Word=1, Bit=6, Size=1",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "Compander Bypass",
+      "type": "bool",
+      "location": "BlockId=41, Word=1, Bit=5, Size=1",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "Dither Bypass",
+      "type": "bool",
+      "location": "BlockId=41, Word=1, Bit=4, Size=1",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "A2DP Session Data",
+      "name": "Selected EQ Bank",
+      "type": "uint",
+      "location": "BlockId=41, Word=1, Bit=13, Size=3",
+      "block_name": "A2DP Session Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Broadcast Audio",
+      "name": "Continuous Sync Train",
+      "type": "bool",
+      "location": "BlockId=1237, Word=3, Bit=0, Size=1",
+      "block_name": "BA",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Voice / HFP Volume Control",
+      "name": "Default HFP Volume",
+      "type": "enum",
+      "location": "BlockId=817, Word=14, Bit=12, Size=4",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Voice",
+      "name": "One Mic Back Channel DSP Kap File Selection",
+      "type": "bool",
+      "location": "BlockId=102, Word=3, Bit=4, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Voice",
+      "name": "Two Mic Back Channel DSP Kap File Selection",
+      "type": "bool",
+      "location": "BlockId=102, Word=3, Bit=3, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Voice",
+      "name": "Microphone A",
+      "type": "enum",
+      "location": "BlockId=102, Word=24, Bit=4, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Voice",
+      "name": "Microphone B",
+      "type": "enum",
+      "location": "BlockId=102, Word=24, Bit=0, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Voice",
+      "name": "HFP Plug-in",
+      "type": "enum",
+      "location": "BlockId=817, Word=1, Bit=12, Size=4",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Voice",
+      "name": "Enable Standalone rate adjustment",
+      "type": "bool",
+      "location": "BlockId=817, Word=14, Bit=11, Size=1",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Analogue Line In",
+      "name": "Analogue In Preamplifier",
+      "type": "bool",
+      "location": "BlockId=102, Word=18, Bit=8, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Analogue Line In",
+      "name": "Gain for Analogue In",
+      "type": "uint",
+      "location": "BlockId=102, Word=18, Bit=11, Size=5",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Analogue Line In",
+      "name": "Audio Instance for Analogue In",
+      "type": "enum",
+      "location": "BlockId=102, Word=18, Bit=9, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Analogue Line In",
+      "name": "Analogue Input Resolution Instance",
+      "type": "enum",
+      "location": "BlockId=102, Word=18, Bit=7, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Analogue Line In",
+      "name": "Analogue Volume (Main)",
+      "type": "int",
+      "location": "BlockId=1349, Word=1, Bit=0, Size=16",
+      "block_name": "Sink Wired Volume",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Analogue Line In",
+      "name": "Analogue Volume (Aux)",
+      "type": "int",
+      "location": "BlockId=1349, Word=2, Bit=0, Size=16",
+      "block_name": "Sink Wired Volume",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 1 / Microphone 1 Drive PIO",
+      "name": "Drive PIO for Voice Mic 1",
+      "type": "enum",
+      "location": "BlockId=102, Word=6, Bit=9, Size=7",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 1",
+      "name": "Bias Drive Voice Mic 1",
+      "type": "enum",
+      "location": "BlockId=102, Word=6, Bit=2, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 1",
+      "name": "Gain for Voice Mic 1",
+      "type": "uint",
+      "location": "BlockId=102, Word=6, Bit=4, Size=5",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 1",
+      "name": "Audio Instance for Voice Mic 1",
+      "type": "enum",
+      "location": "BlockId=102, Word=6, Bit=0, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 1",
+      "name": "Voice Mic 1 Digital",
+      "type": "bool",
+      "location": "BlockId=102, Word=7, Bit=15, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 1",
+      "name": "Audio channel for Voice Mic 1",
+      "type": "enum",
+      "location": "BlockId=102, Word=7, Bit=14, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 2 / Microphone 2 Drive PIO",
+      "name": "Drive PIO for Voice Mic 2",
+      "type": "enum",
+      "location": "BlockId=102, Word=8, Bit=9, Size=7",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 2",
+      "name": "Bias Drive Voice Mic 2",
+      "type": "enum",
+      "location": "BlockId=102, Word=8, Bit=2, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 2",
+      "name": "Gain for Voice Mic 2",
+      "type": "uint",
+      "location": "BlockId=102, Word=8, Bit=4, Size=5",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 2",
+      "name": "Audio Instance for Voice Mic 2",
+      "type": "enum",
+      "location": "BlockId=102, Word=8, Bit=0, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 2",
+      "name": "Voice Mic 2 Digital",
+      "type": "bool",
+      "location": "BlockId=102, Word=9, Bit=15, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 2",
+      "name": "Audio channel for Voice Mic 2",
+      "type": "enum",
+      "location": "BlockId=102, Word=9, Bit=14, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 3 / Microphone 3 Drive PIO",
+      "name": "Drive PIO for Voice Mic 3",
+      "type": "enum",
+      "location": "BlockId=102, Word=10, Bit=9, Size=7",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 3",
+      "name": "Bias Drive Voice Mic 3",
+      "type": "enum",
+      "location": "BlockId=102, Word=10, Bit=2, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 3",
+      "name": "Gain for Voice Mic 3",
+      "type": "uint",
+      "location": "BlockId=102, Word=10, Bit=4, Size=5",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 3",
+      "name": "Audio Instance for Voice Mic 3",
+      "type": "enum",
+      "location": "BlockId=102, Word=10, Bit=0, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 3",
+      "name": "Voice Mic 3 Digital",
+      "type": "bool",
+      "location": "BlockId=102, Word=11, Bit=15, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 3",
+      "name": "Audio channel for Voice Mic 3",
+      "type": "enum",
+      "location": "BlockId=102, Word=11, Bit=14, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 4 / Microphone 4 Drive PIO",
+      "name": "Drive PIO for Voice Mic 4",
+      "type": "enum",
+      "location": "BlockId=102, Word=12, Bit=9, Size=7",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 4",
+      "name": "Bias Drive Voice Mic 4",
+      "type": "enum",
+      "location": "BlockId=102, Word=12, Bit=2, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 4",
+      "name": "Gain for Voice Mic 4",
+      "type": "uint",
+      "location": "BlockId=102, Word=12, Bit=4, Size=5",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 4",
+      "name": "Audio Instance for Voice Mic 4",
+      "type": "enum",
+      "location": "BlockId=102, Word=12, Bit=0, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 4",
+      "name": "Voice Mic 4 Digital",
+      "type": "bool",
+      "location": "BlockId=102, Word=13, Bit=15, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 4",
+      "name": "Audio channel for Voice Mic 4",
+      "type": "enum",
+      "location": "BlockId=102, Word=13, Bit=14, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 5 / Microphone 5 Drive PIO",
+      "name": "Drive PIO for Voice Mic 5",
+      "type": "enum",
+      "location": "BlockId=102, Word=14, Bit=9, Size=7",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 5",
+      "name": "Bias Drive Voice Mic 5",
+      "type": "enum",
+      "location": "BlockId=102, Word=14, Bit=2, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 5",
+      "name": "Gain for Voice Mic 5",
+      "type": "uint",
+      "location": "BlockId=102, Word=14, Bit=4, Size=5",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 5",
+      "name": "Audio Instance for Voice Mic 5",
+      "type": "enum",
+      "location": "BlockId=102, Word=14, Bit=0, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 5",
+      "name": "Voice Mic 5 Digital",
+      "type": "bool",
+      "location": "BlockId=102, Word=15, Bit=15, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 5",
+      "name": "Audio channel for Voice Mic 5",
+      "type": "enum",
+      "location": "BlockId=102, Word=15, Bit=14, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 6 / Microphone 6 Drive PIO",
+      "name": "Drive PIO for Voice Mic 6",
+      "type": "enum",
+      "location": "BlockId=102, Word=16, Bit=9, Size=7",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 6",
+      "name": "Bias Drive Voice Mic 6",
+      "type": "enum",
+      "location": "BlockId=102, Word=16, Bit=2, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 6",
+      "name": "Gain for Voice Mic 6",
+      "type": "uint",
+      "location": "BlockId=102, Word=16, Bit=4, Size=5",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 6",
+      "name": "Audio Instance for Voice Mic 6",
+      "type": "enum",
+      "location": "BlockId=102, Word=16, Bit=0, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 6",
+      "name": "Voice Mic 6 Digital",
+      "type": "bool",
+      "location": "BlockId=102, Word=17, Bit=15, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone / Microphone 6",
+      "name": "Audio channel for Voice Mic 6",
+      "type": "enum",
+      "location": "BlockId=102, Word=17, Bit=14, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone",
+      "name": "Microphone Bias 0 voltage",
+      "type": "enum",
+      "location": "BlockId=102, Word=4, Bit=0, Size=16",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Microphone",
+      "name": "Microphone Bias 1 voltage",
+      "type": "enum",
+      "location": "BlockId=102, Word=5, Bit=0, Size=16",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / SPDIF In",
+      "name": "Supported SPDIF Input Codecs",
+      "type": "bitfield",
+      "location": "BlockId=102, Word=3, Bit=12, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / SPDIF In",
+      "name": "S/PDIF Volume (Main)",
+      "type": "int",
+      "location": "BlockId=1349, Word=3, Bit=0, Size=16",
+      "block_name": "Sink Wired Volume",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / SPDIF In",
+      "name": "S/PDIF Volume (Aux)",
+      "type": "int",
+      "location": "BlockId=1349, Word=4, Bit=0, Size=16",
+      "block_name": "Sink Wired Volume",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / SPDIF In",
+      "name": "SPDIF Input Resolution",
+      "type": "enum",
+      "location": "BlockId=1372, Word=1, Bit=7, Size=1",
+      "block_name": "Sink Wired SPDIF Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / SPDIF In",
+      "name": "Target Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1372, Word=1, Bit=8, Size=8",
+      "block_name": "Sink Wired SPDIF Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / I2S In",
+      "name": "Audio Input Resolution",
+      "type": "enum",
+      "location": "BlockId=1377, Word=13, Bit=7, Size=1",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / I2S In",
+      "name": "I2S Volume (Main)",
+      "type": "int",
+      "location": "BlockId=1349, Word=5, Bit=0, Size=16",
+      "block_name": "Sink Wired Volume",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / I2S In",
+      "name": "I2S Volume (Aux)",
+      "type": "int",
+      "location": "BlockId=1349, Word=6, Bit=0, Size=16",
+      "block_name": "Sink Wired Volume",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / A2DP In",
+      "name": "Default A2DP Volume",
+      "type": "uint",
+      "location": "BlockId=33, Word=3, Bit=0, Size=16",
+      "block_name": "A2DP Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / USB In",
+      "name": "USB Audio Always Routed",
+      "type": "bool",
+      "location": "BlockId=1454, Word=2, Bit=0, Size=1",
+      "block_name": "USB RO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / USB In",
+      "name": "USB Audio Paused When Source Switched",
+      "type": "bool",
+      "location": "BlockId=1454, Word=3, Bit=15, Size=1",
+      "block_name": "USB RO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / USB In",
+      "name": "USB Plug-in Type",
+      "type": "enum",
+      "location": "BlockId=1454, Word=2, Bit=1, Size=3",
+      "block_name": "USB RO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / USB In",
+      "name": "USB Voice Plug-in Index",
+      "type": "enum",
+      "location": "BlockId=1454, Word=2, Bit=12, Size=4",
+      "block_name": "USB RO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / USB In",
+      "name": "Attach Timeout [s]",
+      "type": "uint",
+      "location": "BlockId=1454, Word=2, Bit=8, Size=4",
+      "block_name": "USB RO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / USB In",
+      "name": "Deconfigure Timeout [s]",
+      "type": "uint",
+      "location": "BlockId=1454, Word=2, Bit=4, Size=4",
+      "block_name": "USB RO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / USB In",
+      "name": "Class",
+      "type": "bitfield",
+      "location": "BlockId=1454, Word=1, Bit=0, Size=16",
+      "block_name": "USB RO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / USB In",
+      "name": "USB Volume (Main)",
+      "type": "uint",
+      "location": "BlockId=1461, Word=1, Bit=0, Size=16",
+      "block_name": "USB RW",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / USB In",
+      "name": "USB Volume (Aux)",
+      "type": "uint",
+      "location": "BlockId=1461, Word=2, Bit=0, Size=16",
+      "block_name": "USB RW",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Audio Input Selection",
+      "type": "enum",
+      "location": "BlockId=102, Word=3, Bit=6, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Audio source switching delay after disconnection",
+      "type": "uint",
+      "location": "BlockId=102, Word=21, Bit=0, Size=16",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Delay for audio active pio going to the active state for TWS [ms]",
+      "type": "uint",
+      "location": "BlockId=102, Word=22, Bit=0, Size=16",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Enable audio source by assigning it to Priority 1.",
+      "type": "enum",
+      "location": "BlockId=102, Word=25, Bit=12, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Enable audio source by assigning it to Priority 2.",
+      "type": "enum",
+      "location": "BlockId=102, Word=25, Bit=8, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Enable audio source by assigning it to Priority 3.",
+      "type": "enum",
+      "location": "BlockId=102, Word=25, Bit=4, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Enable audio source by assigning it to Priority 4.",
+      "type": "enum",
+      "location": "BlockId=102, Word=25, Bit=0, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Enable audio source by assigning it to Priority 5.",
+      "type": "enum",
+      "location": "BlockId=102, Word=26, Bit=12, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Enable audio source by assigning it to Priority 6.",
+      "type": "enum",
+      "location": "BlockId=102, Word=26, Bit=8, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Enable audio source by assigning it to Priority 7.",
+      "type": "enum",
+      "location": "BlockId=102, Word=26, Bit=4, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Enable audio source by assigning it to Priority 8.",
+      "type": "enum",
+      "location": "BlockId=102, Word=26, Bit=0, Size=4",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input / Source Selection",
+      "name": "Default Source at Power On:",
+      "type": "enum",
+      "location": "BlockId=102, Word=27, Bit=13, Size=3",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input",
+      "name": "Audio Input Routing",
+      "type": "enum",
+      "location": "BlockId=102, Word=3, Bit=7, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input",
+      "name": "Play from physical connections in limbo state",
+      "type": "bool",
+      "location": "BlockId=1359, Word=9, Bit=10, Size=1",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input",
+      "name": "Audio Instance for I2S input",
+      "type": "enum",
+      "location": "BlockId=1359, Word=9, Bit=14, Size=2",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Input",
+      "name": "Audio Instance for SPDIF input",
+      "type": "enum",
+      "location": "BlockId=1359, Word=9, Bit=12, Size=2",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Output",
+      "name": "Force Re-sampling of Tones",
+      "type": "bool",
+      "location": "BlockId=102, Word=3, Bit=5, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Output",
+      "name": "Aux Volume Scaling Method",
+      "type": "enum",
+      "location": "BlockId=993, Word=16, Bit=14, Size=2",
+      "block_name": "SinkMultiChannel",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Output",
+      "name": "Primary/Secondary/Subwoofer Volume Scaling Method",
+      "type": "enum",
+      "location": "BlockId=993, Word=16, Bit=12, Size=2",
+      "block_name": "SinkMultiChannel",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Output",
+      "name": "Fixed Hardware Gain",
+      "type": "int",
+      "location": "BlockId=993, Word=15, Bit=0, Size=16",
+      "block_name": "SinkMultiChannel",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Output",
+      "name": "Audio Output Resolution",
+      "type": "enum",
+      "location": "BlockId=993, Word=16, Bit=11, Size=1",
+      "block_name": "SinkMultiChannel",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Output",
+      "name": "Audio Output Gain",
+      "type": "uint",
+      "location": "BlockId=1232, Word=1, Bit=8, Size=8",
+      "block_name": "Sink Volume Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Output",
+      "name": "Adjust Volume whilst Muted",
+      "type": "bool",
+      "location": "BlockId=1232, Word=1, Bit=6, Size=1",
+      "block_name": "Sink Volume Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Output",
+      "name": "Volume Change Causes Unmute",
+      "type": "bool",
+      "location": "BlockId=1232, Word=1, Bit=5, Size=1",
+      "block_name": "Sink Volume Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S / I2C Control for External I2S Amplifier / Initialisation",
+      "name": "Number I2C Init Commands",
+      "type": "uint",
+      "location": "BlockId=1377, Word=10, Bit=8, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S / I2C Control for External I2S Amplifier / Volume",
+      "name": "Number I2C Volume Commands",
+      "type": "uint",
+      "location": "BlockId=1377, Word=10, Bit=0, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S / I2C Control for External I2S Amplifier / Volume",
+      "name": "Volume Commands Offset",
+      "type": "uint",
+      "location": "BlockId=1377, Word=11, Bit=8, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S / I2C Control for External I2S Amplifier / Volume",
+      "name": "Volume Number of Bits",
+      "type": "uint",
+      "location": "BlockId=1377, Word=1, Bit=0, Size=16",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S / I2C Control for External I2S Amplifier / Volume",
+      "name": "Volume Range Max",
+      "type": "uint",
+      "location": "BlockId=1377, Word=2, Bit=0, Size=16",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S / I2C Control for External I2S Amplifier / Volume",
+      "name": "Volume Range Min",
+      "type": "uint",
+      "location": "BlockId=1377, Word=3, Bit=0, Size=16",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S / I2C Control for External I2S Amplifier / Shutdown",
+      "name": "Number I2C Shutdown Commands",
+      "type": "uint",
+      "location": "BlockId=1377, Word=11, Bit=0, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S / I2C Control for External I2S Amplifier / Shutdown",
+      "name": "Shutdown Commands Offset",
+      "type": "uint",
+      "location": "BlockId=1377, Word=12, Bit=8, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S / I2C Control for External I2S Amplifier",
+      "name": "External I2s device Enable PIO",
+      "type": "enum",
+      "location": "BlockId=1377, Word=12, Bit=0, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S",
+      "name": "Plug-in Type",
+      "type": "enum",
+      "location": "BlockId=1377, Word=8, Bit=8, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S",
+      "name": "Master or Slave Operation",
+      "type": "enum",
+      "location": "BlockId=1377, Word=8, Bit=0, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S",
+      "name": "Left or Right Justified I2S",
+      "type": "enum",
+      "location": "BlockId=1377, Word=13, Bit=12, Size=4",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S",
+      "name": "Justified Data Delay by 1 bit",
+      "type": "enum",
+      "location": "BlockId=1377, Word=13, Bit=8, Size=4",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S",
+      "name": "Bits per Sample",
+      "type": "enum",
+      "location": "BlockId=1377, Word=9, Bit=8, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S",
+      "name": "Audio Output Re-sample Rate [Hz]",
+      "type": "uint",
+      "location": "BlockId=1377, Word=4, Bit=0, Size=16",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S",
+      "name": "Voice Re-sample Rate [Hz]",
+      "type": "uint",
+      "location": "BlockId=1377, Word=5, Bit=0, Size=16",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S",
+      "name": "Bit Clock Scaling Factor",
+      "type": "uint",
+      "location": "BlockId=1377, Word=6, Bit=0, Size=16",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / I2S",
+      "name": "Master Clock Scaling Factor",
+      "type": "uint",
+      "location": "BlockId=1377, Word=7, Bit=0, Size=16",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Features",
+      "name": "Enable Mixing of Voice and Audio",
+      "type": "bool",
+      "location": "BlockId=102, Word=3, Bit=2, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Features",
+      "name": "Wired audio Input sampling rate",
+      "type": "enum",
+      "location": "BlockId=1359, Word=5, Bit=8, Size=8",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Features",
+      "name": "Wired audio maximum input sampling rate for spdif",
+      "type": "enum",
+      "location": "BlockId=1359, Word=5, Bit=0, Size=8",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Features",
+      "name": "Output sampling rate when routing wired audio sources",
+      "type": "enum",
+      "location": "BlockId=1359, Word=6, Bit=8, Size=8",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Latency / A2DP Time To Play Latency",
+      "name": "A2DP Target Time To Play Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1590, Word=1, Bit=0, Size=16",
+      "block_name": "TTP Latency Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Latency / A2DP Time To Play Latency",
+      "name": "A2DP Minimum Time To Play Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1590, Word=2, Bit=0, Size=16",
+      "block_name": "TTP Latency Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Latency / A2DP Time To Play Latency",
+      "name": "A2DP Maximum Time To Play Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1590, Word=3, Bit=0, Size=16",
+      "block_name": "TTP Latency Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Latency / TWS Time To Play Latency",
+      "name": "TWS Target Time To Play Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1590, Word=4, Bit=0, Size=16",
+      "block_name": "TTP Latency Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Latency / TWS Time To Play Latency",
+      "name": "TWS Minimum Time To Play Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1590, Word=5, Bit=0, Size=16",
+      "block_name": "TTP Latency Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Latency / TWS Time To Play Latency",
+      "name": "TWS Maximum Time To Play Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1590, Word=6, Bit=0, Size=16",
+      "block_name": "TTP Latency Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Latency / Wired Time To Play Latency",
+      "name": "Wired Target Time To Play Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1590, Word=7, Bit=0, Size=16",
+      "block_name": "TTP Latency Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Latency / Wired Time To Play Latency",
+      "name": "Wired Minimum Time To Play Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1590, Word=8, Bit=0, Size=16",
+      "block_name": "TTP Latency Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Latency / Wired Time To Play Latency",
+      "name": "Wired Maximum Time To Play Latency [ms]",
+      "type": "uint",
+      "location": "BlockId=1590, Word=9, Bit=0, Size=16",
+      "block_name": "TTP Latency Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio / Clock",
+      "name": "Default Rate",
+      "type": "enum",
+      "location": "BlockId=1509, Word=1, Bit=0, Size=16",
+      "block_name": "Settings",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio",
+      "name": "Voice Quality",
+      "type": "enum",
+      "location": "BlockId=102, Word=1, Bit=0, Size=16",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio",
+      "name": "Music Quality",
+      "type": "enum",
+      "location": "BlockId=102, Word=2, Bit=0, Size=16",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio",
+      "name": "Use Low Power Audio Codecs",
+      "type": "bool",
+      "location": "BlockId=102, Word=27, Bit=6, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio",
+      "name": "Audio Rendering Mode",
+      "type": "enum",
+      "location": "BlockId=102, Word=27, Bit=4, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio",
+      "name": "Use SRAM",
+      "type": "bool",
+      "location": "BlockId=102, Word=27, Bit=3, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Audio",
+      "name": "Compander Band Selection",
+      "type": "enum",
+      "location": "BlockId=102, Word=27, Bit=7, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Link Control",
+      "name": "Encryption Refresh Timeout [mins]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=7, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Link Control",
+      "name": "Disable Role Switching",
+      "type": "bool",
+      "location": "BlockId=1053, Word=23, Bit=11, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Link Control",
+      "name": "Go Connectable during Link Loss",
+      "type": "bool",
+      "location": "BlockId=1053, Word=23, Bit=10, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / at Power On",
+      "name": "Automatically Reconnect at Power On",
+      "type": "bool",
+      "location": "BlockId=1053, Word=22, Bit=2, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / at Power On",
+      "name": "After Power On Connect To",
+      "type": "enum",
+      "location": "BlockId=1053, Word=22, Bit=12, Size=2",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "Paring Timeout [s]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=3, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "Pairing Mode Timeout if PDL is Empty [s]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=5, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "Pairing Mode Reminder Interval [s]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=6, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "Power Off after PDL is Reset",
+      "type": "bool",
+      "location": "BlockId=1053, Word=22, Bit=7, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "Action on Pairing Timeout",
+      "type": "enum",
+      "location": "BlockId=1053, Word=22, Bit=14, Size=2",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "Enter Pairing Mode on Failure to Connect to AG",
+      "type": "bool",
+      "location": "BlockId=1053, Word=22, Bit=1, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "BT2.1 Man in the Middle",
+      "type": "bool",
+      "location": "BlockId=1053, Word=23, Bit=15, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "Secure Pairing Mode Enable",
+      "type": "bool",
+      "location": "BlockId=1053, Word=23, Bit=14, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "RSSI Pairing if PDL Less Than",
+      "type": "uint",
+      "location": "BlockId=1053, Word=22, Bit=10, Size=2",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "PDL Size",
+      "type": "uint",
+      "location": "BlockId=1053, Word=20, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "LE Authenticated Payload Timeout",
+      "type": "uint",
+      "location": "BlockId=1330, Word=1, Bit=0, Size=16",
+      "block_name": "BLE",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "Secure Connection",
+      "type": "enum",
+      "location": "BlockId=1493, Word=2, Bit=14, Size=2",
+      "block_name": "Sink Secure Connection",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Pairing",
+      "name": "BR/EDR Authenticated Payload Timeout",
+      "type": "uint",
+      "location": "BlockId=1493, Word=1, Bit=0, Size=16",
+      "block_name": "Sink Secure Connection",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Connection",
+      "name": "Go Connectable on Button Press",
+      "type": "bool",
+      "location": "BlockId=196, Word=8, Bit=15, Size=1",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Discovery",
+      "name": "Remain Discoverable at All Times",
+      "type": "bool",
+      "location": "BlockId=1053, Word=22, Bit=6, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Discovery",
+      "name": "Enter Discoverable Mode when Connectable",
+      "type": "bool",
+      "location": "BlockId=1053, Word=22, Bit=3, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Discovery",
+      "name": "Discoverable if PDL Less Than",
+      "type": "uint",
+      "location": "BlockId=1053, Word=21, Bit=4, Size=4",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Discovery",
+      "name": "Do Not Go Discoverable during Link Loss",
+      "type": "bool",
+      "location": "BlockId=1053, Word=22, Bit=0, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Reconnection",
+      "name": "Reconnect on Panic",
+      "type": "bool",
+      "location": "BlockId=1053, Word=21, Bit=0, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Reconnection",
+      "name": "Reconnection Action after Panic",
+      "type": "enum",
+      "location": "BlockId=1053, Word=22, Bit=8, Size=2",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Reconnection",
+      "name": "Reconnect Last Number of Attempts to Try",
+      "type": "uint",
+      "location": "BlockId=1053, Word=21, Bit=1, Size=3",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / Reconnection",
+      "name": "Max Number of Reconnection Attempt",
+      "type": "uint",
+      "location": "BlockId=1053, Word=19, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Inquiry Timeout Period [s]",
+      "type": "uint",
+      "location": "BlockId=835, Word=13, Bit=0, Size=16",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Inquiry Tx Power",
+      "type": "int",
+      "location": "BlockId=835, Word=1, Bit=0, Size=16",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "RSSI Threshold",
+      "type": "int",
+      "location": "BlockId=835, Word=2, Bit=0, Size=16",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "RSSI Difference Threshold",
+      "type": "int",
+      "location": "BlockId=835, Word=3, Bit=0, Size=16",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Connection Threshold",
+      "type": "int",
+      "location": "BlockId=835, Word=6, Bit=0, Size=16",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Maximum Responses",
+      "type": "uint",
+      "location": "BlockId=835, Word=7, Bit=8, Size=8",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Inquiry Timeout [1.28*s]",
+      "type": "uint",
+      "location": "BlockId=835, Word=7, Bit=0, Size=8",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Resume Timeout [s]",
+      "type": "uint",
+      "location": "BlockId=835, Word=8, Bit=8, Size=8",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Number of Results to Store",
+      "type": "uint",
+      "location": "BlockId=835, Word=8, Bit=4, Size=4",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Connect if in PDL",
+      "type": "bool",
+      "location": "BlockId=835, Word=8, Bit=3, Size=1",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Dont  Pair if in PDL",
+      "type": "bool",
+      "location": "BlockId=835, Word=8, Bit=2, Size=1",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Try All Discovered",
+      "type": "bool",
+      "location": "BlockId=835, Word=8, Bit=1, Size=1",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management / RSSI Parameters",
+      "name": "Start RSSI Pairing on PDL Reset",
+      "type": "bool",
+      "location": "BlockId=835, Word=8, Bit=0, Size=1",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / Connection Management",
+      "name": "Enable Multipoint in VM App",
+      "type": "bool",
+      "location": "BlockId=1080, Word=1, Bit=15, Size=1",
+      "block_name": "SinkPrivateData_Writeable",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / AVRCP",
+      "name": "AVRCP Device Type",
+      "type": "enum",
+      "location": "BlockId=159, Word=1, Bit=14, Size=2",
+      "block_name": "AVRCP Enable and Audio Switching Mask Bitfields",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / AVRCP",
+      "name": "Enabled track changed event",
+      "type": "bool",
+      "location": "BlockId=159, Word=1, Bit=13, Size=1",
+      "block_name": "AVRCP Enable and Audio Switching Mask Bitfields",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / AVRCP",
+      "name": "Enabled position changed event",
+      "type": "bool",
+      "location": "BlockId=159, Word=1, Bit=12, Size=1",
+      "block_name": "AVRCP Enable and Audio Switching Mask Bitfields",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / AVRCP",
+      "name": "Browsing support",
+      "type": "bool",
+      "location": "BlockId=159, Word=1, Bit=11, Size=1",
+      "block_name": "AVRCP Enable and Audio Switching Mask Bitfields",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / AVRCP",
+      "name": "Enable AVRCP Player APP Settings",
+      "type": "bool",
+      "location": "BlockId=159, Word=1, Bit=10, Size=1",
+      "block_name": "AVRCP Enable and Audio Switching Mask Bitfields",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / AVRCP",
+      "name": "AVRCP Audio Switching",
+      "type": "bool",
+      "location": "BlockId=159, Word=1, Bit=9, Size=1",
+      "block_name": "AVRCP Enable and Audio Switching Mask Bitfields",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / A2DP",
+      "name": "A2DP Delay Connection Updates [ms]",
+      "type": "uint",
+      "location": "BlockId=33, Word=1, Bit=0, Size=16",
+      "block_name": "A2DP Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / A2DP",
+      "name": "A2DP Link Loss Reconnection Period [s]",
+      "type": "uint",
+      "location": "BlockId=33, Word=2, Bit=0, Size=16",
+      "block_name": "A2DP Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / A2DP",
+      "name": "Enable A2DP Streaming",
+      "type": "bool",
+      "location": "BlockId=33, Word=4, Bit=8, Size=1",
+      "block_name": "A2DP Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / A2DP",
+      "name": "A2DP Optional Codecs Enabled",
+      "type": "bitfield",
+      "location": "BlockId=33, Word=4, Bit=11, Size=5",
+      "block_name": "A2DP Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / A2DP",
+      "name": "aptX Adaptive A2DP capability",
+      "type": "enum",
+      "location": "BlockId=33, Word=4, Bit=7, Size=1",
+      "block_name": "A2DP Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / A2DP",
+      "name": "Use Medium SBC Bitpool Size",
+      "type": "bool",
+      "location": "BlockId=33, Word=4, Bit=6, Size=1",
+      "block_name": "A2DP Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / A2DP",
+      "name": "A2DP Open Media on Connect",
+      "type": "bool",
+      "location": "BlockId=33, Word=4, Bit=5, Size=1",
+      "block_name": "A2DP Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / A2DP",
+      "name": "A2DP Class",
+      "type": "enum",
+      "location": "BlockId=33, Word=4, Bit=9, Size=2",
+      "block_name": "A2DP Config",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / A2DP",
+      "name": "Assume AG Suspends on Call",
+      "type": "bool",
+      "location": "BlockId=102, Word=27, Bit=5, Size=1",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Call Control",
+      "name": "Separate Last Number Redial buttons",
+      "type": "bool",
+      "location": "BlockId=196, Word=8, Bit=14, Size=1",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Call Control",
+      "name": "Separate Voice Dial buttons",
+      "type": "bool",
+      "location": "BlockId=196, Word=8, Bit=13, Size=1",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Call Control",
+      "name": "LNR Cancels VoiceDial if Active",
+      "type": "bool",
+      "location": "BlockId=817, Word=1, Bit=9, Size=1",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Call Control",
+      "name": "Mute Reminder Interval [s]",
+      "type": "uint",
+      "location": "BlockId=817, Word=2, Bit=0, Size=16",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Supported Features",
+      "name": "Supported HFP Features",
+      "type": "bitfield",
+      "location": "BlockId=817, Word=12, Bit=7, Size=9",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Supported Features",
+      "name": "HF Indicators",
+      "type": "bitfield",
+      "location": "BlockId=817, Word=10, Bit=0, Size=16",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Audio Parameters",
+      "name": "Bandwidth_low",
+      "type": "uint",
+      "location": "BlockId=817, Word=3, Bit=0, Size=16",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Audio Parameters",
+      "name": "Bandwidth_high",
+      "type": "uint",
+      "location": "BlockId=817, Word=4, Bit=0, Size=16",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Audio Parameters",
+      "name": "Maximum Latency",
+      "type": "uint",
+      "location": "BlockId=817, Word=5, Bit=0, Size=16",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Audio Parameters",
+      "name": "Voice Settings",
+      "type": "uint",
+      "location": "BlockId=817, Word=6, Bit=0, Size=16",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Audio Parameters",
+      "name": "Retransmission Effort",
+      "type": "enum",
+      "location": "BlockId=817, Word=7, Bit=0, Size=16",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP / Audio Parameters",
+      "name": "Sync Packet Types",
+      "type": "bitfield",
+      "location": "BlockId=817, Word=8, Bit=6, Size=10",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Auto Answer on Connect",
+      "type": "bool",
+      "location": "BlockId=817, Word=1, Bit=11, Size=1",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Enable Mic Mute Synchronisation",
+      "type": "bool",
+      "location": "BlockId=817, Word=1, Bit=10, Size=1",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Force Second SCO to use EV3 S1 Settings",
+      "type": "bool",
+      "location": "BlockId=817, Word=1, Bit=8, Size=1",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Enable Audio Parameters",
+      "type": "bool",
+      "location": "BlockId=817, Word=8, Bit=5, Size=1",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Supported Profile",
+      "type": "bitfield",
+      "location": "BlockId=817, Word=12, Bit=4, Size=3",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Supported HFP Codecs",
+      "type": "bitfield",
+      "location": "BlockId=817, Word=9, Bit=0, Size=16",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Disable NREC",
+      "type": "bool",
+      "location": "BlockId=817, Word=12, Bit=1, Size=1",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Enable Extended Errors",
+      "type": "bool",
+      "location": "BlockId=817, Word=12, Bit=0, Size=1",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "HFP Links",
+      "type": "uint",
+      "location": "BlockId=817, Word=12, Bit=2, Size=2",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Service Indicator",
+      "type": "enum",
+      "location": "BlockId=817, Word=11, Bit=14, Size=2",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Signal Strength Indicator",
+      "type": "enum",
+      "location": "BlockId=817, Word=11, Bit=12, Size=2",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Roaming Status",
+      "type": "enum",
+      "location": "BlockId=817, Word=11, Bit=10, Size=2",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Battery Charge",
+      "type": "enum",
+      "location": "BlockId=817, Word=11, Bit=8, Size=2",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles / HFP",
+      "name": "Mute Speaker as well as Microphone",
+      "type": "bool",
+      "location": "BlockId=1232, Word=1, Bit=7, Size=1",
+      "block_name": "Sink Volume Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles",
+      "name": "Link Loss Time [mins]",
+      "type": "uint",
+      "location": "BlockId=817, Word=13, Bit=8, Size=8",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BR/EDR Profiles",
+      "name": "Link Loss Interval [s]",
+      "type": "uint",
+      "location": "BlockId=817, Word=13, Bit=0, Size=8",
+      "block_name": "sink hfp data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BLE Profiles",
+      "name": "BLE Advertising Filters",
+      "type": "bitfield",
+      "location": "BlockId=1330, Word=2, Bit=9, Size=7",
+      "block_name": "BLE",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BLE Profiles",
+      "name": "BLE Max Peripheral Connection",
+      "type": "uint",
+      "location": "BlockId=1330, Word=2, Bit=7, Size=2",
+      "block_name": "BLE",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Bluetooth / BLE Profiles",
+      "name": "BLE Max Central Connection",
+      "type": "uint",
+      "location": "BlockId=1330, Word=2, Bit=5, Size=2",
+      "block_name": "BLE",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Device and Software Version",
+      "name": "Vendor ID Source",
+      "type": "enum",
+      "location": "BlockId=458, Word=1, Bit=0, Size=16",
+      "block_name": "Device and Software Version Module",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Device and Software Version",
+      "name": "Vendor ID [hex]",
+      "type": "uint",
+      "location": "BlockId=458, Word=2, Bit=0, Size=16",
+      "block_name": "Device and Software Version Module",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Device and Software Version",
+      "name": "Product ID [hex]",
+      "type": "uint",
+      "location": "BlockId=458, Word=3, Bit=0, Size=16",
+      "block_name": "Device and Software Version Module",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Device and Software Version",
+      "name": "BCD Version [hex]",
+      "type": "uint",
+      "location": "BlockId=458, Word=4, Bit=0, Size=16",
+      "block_name": "Device and Software Version Module",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Input PIOs",
+      "name": "SPDIF Detect PIO",
+      "type": "enum",
+      "location": "BlockId=1359, Word=6, Bit=0, Size=8",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Input PIOs",
+      "name": "Audio Input PIO",
+      "type": "enum",
+      "location": "BlockId=1359, Word=7, Bit=8, Size=8",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Input PIOs",
+      "name": "SPDIF Input PIO",
+      "type": "enum",
+      "location": "BlockId=1359, Word=7, Bit=0, Size=8",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Input PIOs",
+      "name": "I2S Detect PIO",
+      "type": "enum",
+      "location": "BlockId=1359, Word=8, Bit=8, Size=8",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Output PIOs",
+      "name": "Audio Active",
+      "type": "enum",
+      "location": "BlockId=102, Word=23, Bit=8, Size=8",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Output PIOs",
+      "name": "Power On",
+      "type": "enum",
+      "location": "BlockId=102, Word=23, Bit=0, Size=8",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Output PIOs",
+      "name": "Power On Audio Mute",
+      "type": "enum",
+      "location": "BlockId=102, Word=24, Bit=8, Size=8",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Output PIOs",
+      "name": "LED Enable PIO",
+      "type": "enum",
+      "location": "BlockId=981, Word=3, Bit=8, Size=8",
+      "block_name": "LED Config Readable Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Output PIOs",
+      "name": "User Event PIO",
+      "type": "enum",
+      "location": "BlockId=1018, Word=27, Bit=8, Size=8",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / Output PIOs",
+      "name": "SPDIF Output",
+      "type": "enum",
+      "location": "BlockId=1359, Word=8, Bit=0, Size=8",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Invert Mask Bitfields",
+      "name": "Invert PIO 0-15",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=1, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Invert Mask Bitfields",
+      "name": "Invert PIO 16-31",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=2, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Invert Mask Bitfields above PIO31",
+      "name": "Invert PIO 32-47",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=3, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Invert Mask Bitfields above PIO31",
+      "name": "Invert PIO 48-63",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=4, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Invert Mask Bitfields above PIO31",
+      "name": "Invert PIO 64-79",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=5, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Invert Mask Bitfields above PIO31",
+      "name": "Invert PIO 80-95",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=6, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Mapping Assignments",
+      "name": "Mapping PIO 0-15",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=7, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Mapping Assignments",
+      "name": "Mapping PIO 16-31",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=8, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Mapping Assignments above PIO31",
+      "name": "Mapping PIO 32-47",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=9, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Mapping Assignments above PIO31",
+      "name": "Mapping PIO 48-63",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=10, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Mapping Assignments above PIO31",
+      "name": "Mapping PIO 64-79",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=11, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Mapping Assignments above PIO31",
+      "name": "Mapping PIO 80-95",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=12, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 0 / Buttons / Configuration",
+      "name": "Group 0 Num Checks",
+      "type": "uint",
+      "location": "BlockId=1018, Word=25, Bit=8, Size=8",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 0 / Buttons / Configuration",
+      "name": "Group 0 Time Between Checks",
+      "type": "uint",
+      "location": "BlockId=1018, Word=25, Bit=0, Size=8",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 0 / Buttons / Assignments",
+      "name": "Group 0 debounce PIO0-15",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=13, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 0 / Buttons / Assignments",
+      "name": "Group 0 debounce PIO16-31",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=14, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 0 / Buttons / Assignments above PIO31",
+      "name": "Group 0 debounce PIO32-47",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=15, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 0 / Buttons / Assignments above PIO31",
+      "name": "Group 0 debounce PIO48-63",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=16, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 0 / Buttons / Assignments above PIO31",
+      "name": "Group 0 debounce PIO64-79",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=17, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 0 / Buttons / Assignments above PIO31",
+      "name": "Group 0 debounce PIO80-95",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=18, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 0 / Buttons",
+      "name": "Use Button Mappings",
+      "type": "bool",
+      "location": "BlockId=1018, Word=27, Bit=7, Size=1",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 1 / Configuration ",
+      "name": "Group 1 Num Checks",
+      "type": "uint",
+      "location": "BlockId=1018, Word=26, Bit=8, Size=8",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 1 / Configuration ",
+      "name": "Group 1 Time Between Checks",
+      "type": "uint",
+      "location": "BlockId=1018, Word=26, Bit=0, Size=8",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 1 / Assignments ",
+      "name": "Group 1 debounce PIO0-15",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=19, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 1 / Assignments ",
+      "name": "Group 1 debounce PIO16-31",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=20, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 1 / Assignments above PIO31 ",
+      "name": "Group 1 debounce PIO32-47",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=21, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 1 / Assignments above PIO31 ",
+      "name": "Group 1 debounce PIO48-63",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=22, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 1 / Assignments above PIO31 ",
+      "name": "Group 1 debounce PIO64-79",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=23, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Input/Output / PIO Event (Debounce) Groups / Group 1 / Assignments above PIO31 ",
+      "name": "Group 1 debounce PIO80-95",
+      "type": "bitfield",
+      "location": "BlockId=1018, Word=24, Bit=0, Size=16",
+      "block_name": "PIO",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Low Power Modes / Dormant Mode",
+      "name": "XIO wake up source",
+      "type": "bitfield",
+      "location": "BlockId=1499, Word=1, Bit=3, Size=13",
+      "block_name": "sink_dormant_mode",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Low Power Modes / Dormant Mode",
+      "name": "NFC wake up source",
+      "type": "bitfield",
+      "location": "BlockId=1499, Word=1, Bit=0, Size=3",
+      "block_name": "sink_dormant_mode",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Peer Device Support / True Wireless Stereo / Audio Routing",
+      "name": "Routing for TWS Master",
+      "type": "enum",
+      "location": "BlockId=102, Word=27, Bit=11, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Peer Device Support / True Wireless Stereo / Audio Routing",
+      "name": "Routing for TWS Slave",
+      "type": "enum",
+      "location": "BlockId=102, Word=27, Bit=9, Size=2",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Mute duration on Power Up [ms]",
+      "type": "uint",
+      "location": "BlockId=102, Word=19, Bit=0, Size=16",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Mute duration on Power down [ms]",
+      "type": "uint",
+      "location": "BlockId=102, Word=20, Bit=0, Size=16",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Automatic Switch Off Time [s]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=1, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Disable Power Off After Power On Time [s]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=2, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Connectable Timeout [s]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=4, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Second AG Connection Delay Time [ms]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=8, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Power Amp PIO Delay on Power Down [s]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=10, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Limbo Timeout [s]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=11, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "BA Association Time out [s]",
+      "type": "uint",
+      "location": "BlockId=1237, Word=3, Bit=8, Size=8",
+      "block_name": "BA",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "enter broadcaster audio switch time [ms]",
+      "type": "uint",
+      "location": "BlockId=1237, Word=1, Bit=0, Size=16",
+      "block_name": "BA",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "exit broadcaster audio switch time [ms]",
+      "type": "uint",
+      "location": "BlockId=1237, Word=2, Bit=0, Size=16",
+      "block_name": "BA",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "GAIA User Defined EQ Settings Persistent Store Timeout [s]",
+      "type": "uint",
+      "location": "BlockId=1336, Word=1, Bit=0, Size=16",
+      "block_name": "GAIA_readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Wired Audio Connected PowerOff Timeout [s]",
+      "type": "uint",
+      "location": "BlockId=1359, Word=1, Bit=0, Size=16",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / Timers",
+      "name": "Analogue Audio Disconnection debounce [ms]",
+      "type": "uint",
+      "location": "BlockId=1359, Word=2, Bit=0, Size=16",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / PS Store",
+      "name": "PS Defrag Timer [s]",
+      "type": "uint",
+      "location": "BlockId=1053, Word=9, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / PS Store",
+      "name": "PS Defrag Trigger - Key Size",
+      "type": "uint",
+      "location": "BlockId=1053, Word=12, Bit=8, Size=8",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System / PS Store",
+      "name": "PS Defrag Trigger - Minimum Available Keys",
+      "type": "uint",
+      "location": "BlockId=1053, Word=12, Bit=0, Size=8",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System",
+      "name": "Power Off only if Vreg Enable Low",
+      "type": "bool",
+      "location": "BlockId=1053, Word=22, Bit=5, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System",
+      "name": "Allow Automatic Power Off When Charging",
+      "type": "bool",
+      "location": "BlockId=1053, Word=22, Bit=4, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System",
+      "name": "Reset Chip after Power Off is Complete",
+      "type": "bool",
+      "location": "BlockId=1053, Word=23, Bit=13, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System",
+      "name": "Auto Power On after Initialisation Enable",
+      "type": "bool",
+      "location": "BlockId=1053, Word=23, Bit=12, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System",
+      "name": "Disable Complete Power Off",
+      "type": "bool",
+      "location": "BlockId=1053, Word=23, Bit=9, Size=1",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "System",
+      "name": "Power Off after Wired Audio Connected",
+      "type": "bool",
+      "location": "BlockId=1359, Word=9, Bit=11, Size=1",
+      "block_name": "Sink Wired Readonly Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Tones",
+      "name": "PlayTonesAtFixedVolume",
+      "type": "bool",
+      "location": "BlockId=1186, Word=1, Bit=10, Size=1",
+      "block_name": "Sink Tones Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Tones",
+      "name": "PlayLocalVolumeTone",
+      "type": "bool",
+      "location": "BlockId=1186, Word=1, Bit=9, Size=1",
+      "block_name": "Sink Tones Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Tones",
+      "name": "QueueVolumeTones",
+      "type": "bool",
+      "location": "BlockId=1186, Word=1, Bit=8, Size=1",
+      "block_name": "Sink Tones Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Tones",
+      "name": "QueueEventTones",
+      "type": "bool",
+      "location": "BlockId=1186, Word=1, Bit=7, Size=1",
+      "block_name": "Sink Tones Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Tones",
+      "name": "MuteToneFixedVolume",
+      "type": "bool",
+      "location": "BlockId=1186, Word=1, Bit=6, Size=1",
+      "block_name": "Sink Tones Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Tones",
+      "name": "FixedToneVolumeLevel",
+      "type": "uint",
+      "location": "BlockId=1186, Word=1, Bit=11, Size=5",
+      "block_name": "Sink Tones Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Audio Prompts / Generate",
+      "name": "Number of Audio Prompt Sets",
+      "type": "uint",
+      "location": "BlockId=46, Word=2, Bit=0, Size=16",
+      "block_name": "Generic Audio Prompt Read-only Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Audio Prompts / Generate",
+      "name": "Audio Prompts Count",
+      "type": "uint",
+      "location": "BlockId=53, Word=1, Bit=0, Size=16",
+      "block_name": "Generic Audio Prompt Writable Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Audio Prompts",
+      "name": "Disable Audio Prompt Terminate",
+      "type": "bool",
+      "location": "BlockId=46, Word=3, Bit=15, Size=1",
+      "block_name": "Generic Audio Prompt Read-only Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Audio Prompts",
+      "name": "Read out Incoming Caller Phone Number using Audio Prompts",
+      "type": "bool",
+      "location": "BlockId=46, Word=3, Bit=14, Size=1",
+      "block_name": "Generic Audio Prompt Read-only Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Audio Prompts",
+      "name": "Read out PIN Code using Audio Prompts",
+      "type": "bool",
+      "location": "BlockId=46, Word=3, Bit=13, Size=1",
+      "block_name": "Generic Audio Prompt Read-only Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Audio Prompts",
+      "name": "Time Before Confirming Audio Prompt Set [s]",
+      "type": "uint",
+      "location": "BlockId=46, Word=1, Bit=0, Size=16",
+      "block_name": "Generic Audio Prompt Read-only Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Buttons / PIO Debounce Configuration",
+      "name": "PIO: Num of Debounce Checks",
+      "type": "uint",
+      "location": "BlockId=196, Word=7, Bit=8, Size=8",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Buttons / PIO Debounce Configuration",
+      "name": "PIO: Time Between Debounce Checks [ms]",
+      "type": "uint",
+      "location": "BlockId=196, Word=7, Bit=0, Size=8",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Buttons",
+      "name": "Double Press [ms]",
+      "type": "uint",
+      "location": "BlockId=196, Word=1, Bit=0, Size=16",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Buttons",
+      "name": "Long Press [ms]",
+      "type": "uint",
+      "location": "BlockId=196, Word=2, Bit=0, Size=16",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Buttons",
+      "name": "Very Long Press [ms]",
+      "type": "uint",
+      "location": "BlockId=196, Word=3, Bit=0, Size=16",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Buttons",
+      "name": "Repeat Rate [ms]",
+      "type": "uint",
+      "location": "BlockId=196, Word=4, Bit=0, Size=16",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Buttons",
+      "name": "Very Very Long Press [ms]",
+      "type": "uint",
+      "location": "BlockId=196, Word=5, Bit=0, Size=16",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Buttons",
+      "name": "Charger: Num of Debounce Checks",
+      "type": "uint",
+      "location": "BlockId=196, Word=6, Bit=8, Size=8",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / Buttons",
+      "name": "Charger: Time Between Debounce Checks [ms]",
+      "type": "uint",
+      "location": "BlockId=196, Word=6, Bit=0, Size=8",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / LED / Tri Colour LED Settings",
+      "name": "Tri Colour Led A",
+      "type": "enum",
+      "location": "BlockId=981, Word=1, Bit=8, Size=8",
+      "block_name": "LED Config Readable Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / LED / Tri Colour LED Settings",
+      "name": "Tri Colour Led B",
+      "type": "enum",
+      "location": "BlockId=981, Word=1, Bit=0, Size=8",
+      "block_name": "LED Config Readable Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / LED / Tri Colour LED Settings",
+      "name": "Tri Colour Led C",
+      "type": "enum",
+      "location": "BlockId=981, Word=2, Bit=8, Size=8",
+      "block_name": "LED Config Readable Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / LED",
+      "name": "Override Filter LED is Permanently On",
+      "type": "bool",
+      "location": "BlockId=981, Word=3, Bit=5, Size=1",
+      "block_name": "LED Config Readable Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / LED",
+      "name": "Queue LED Event Indications",
+      "type": "bool",
+      "location": "BlockId=981, Word=3, Bit=4, Size=1",
+      "block_name": "LED Config Readable Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / LED",
+      "name": "LED Disable State Reset after Boot",
+      "type": "bool",
+      "location": "BlockId=981, Word=3, Bit=3, Size=1",
+      "block_name": "LED Config Readable Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / LED",
+      "name": "Charging Complete Override LED Enable",
+      "type": "bool",
+      "location": "BlockId=981, Word=3, Bit=2, Size=1",
+      "block_name": "LED Config Readable Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces / LED",
+      "name": "LED Duty Cycle Time Multiplier",
+      "type": "enum",
+      "location": "BlockId=981, Word=3, Bit=6, Size=2",
+      "block_name": "LED Config Readable Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "User Interfaces",
+      "name": "Ignore Button Event if Enabling LEDs",
+      "type": "bool",
+      "location": "BlockId=196, Word=8, Bit=12, Size=1",
+      "block_name": "Button Config Block 2",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "GAIA",
+      "name": "Enable GAIA Session",
+      "type": "bool",
+      "location": "BlockId=1336, Word=2, Bit=11, Size=1",
+      "block_name": "GAIA_readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "GAIA",
+      "name": "GAIA DFU Partition",
+      "type": "uint",
+      "location": "BlockId=1336, Word=2, Bit=12, Size=4",
+      "block_name": "GAIA_readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "GAIA",
+      "name": "Maintain Connection After Power Off",
+      "type": "bool",
+      "location": "BlockId=1336, Word=2, Bit=10, Size=1",
+      "block_name": "GAIA_readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "UART",
+      "name": "UART Baud rate",
+      "type": "enum",
+      "location": "BlockId=1191, Word=1, Bit=0, Size=16",
+      "block_name": "Sink UART Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "UART",
+      "name": "UART stop bits",
+      "type": "enum",
+      "location": "BlockId=1191, Word=3, Bit=14, Size=2",
+      "block_name": "Sink UART Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "UART",
+      "name": "UART parity",
+      "type": "enum",
+      "location": "BlockId=1191, Word=3, Bit=12, Size=2",
+      "block_name": "Sink UART Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "UART",
+      "name": "UART TX PIN",
+      "type": "enum",
+      "location": "BlockId=1191, Word=2, Bit=8, Size=8",
+      "block_name": "Sink UART Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "UART",
+      "name": "UART RX PIN",
+      "type": "enum",
+      "location": "BlockId=1191, Word=2, Bit=0, Size=8",
+      "block_name": "Sink UART Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Upgrade",
+      "name": "Enable Application Config Reset",
+      "type": "bool",
+      "location": "BlockId=1504, Word=1, Bit=15, Size=1",
+      "block_name": "Sink Upgrade Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Upgrade",
+      "name": "Protect Audio During Upgrade",
+      "type": "bool",
+      "location": "BlockId=1504, Word=1, Bit=14, Size=1",
+      "block_name": "Sink Upgrade Readonly",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Receiver Volume",
+      "name": "Receiver Default Local Volume",
+      "type": "int",
+      "location": "BlockId=1325, Word=1, Bit=0, Size=16",
+      "block_name": "Receiver Volume",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Receiver BSSR",
+      "name": "BSSR Data 1",
+      "type": "uint",
+      "location": "BlockId=1320, Word=1, Bit=0, Size=16",
+      "block_name": "Receiver BSSR",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / LED Session Config Block",
+      "name": "LED Enabled",
+      "type": "bool",
+      "location": "BlockId=988, Word=1, Bit=15, Size=1",
+      "block_name": "LED Session Config Block",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Requested audio source",
+      "type": "enum",
+      "location": "BlockId=133, Word=1, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Pre gain",
+      "type": "uint",
+      "location": "BlockId=133, Word=2, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 1 Filter Type",
+      "type": "uint",
+      "location": "BlockId=133, Word=3, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 1 Frequency",
+      "type": "uint",
+      "location": "BlockId=133, Word=4, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 1 gain",
+      "type": "uint",
+      "location": "BlockId=133, Word=5, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 1 Q value",
+      "type": "uint",
+      "location": "BlockId=133, Word=6, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 2 Filter Type",
+      "type": "uint",
+      "location": "BlockId=133, Word=7, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 2 Frequency",
+      "type": "uint",
+      "location": "BlockId=133, Word=8, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 2 gain",
+      "type": "uint",
+      "location": "BlockId=133, Word=9, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 2 Q value",
+      "type": "uint",
+      "location": "BlockId=133, Word=10, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 3 Filter Type",
+      "type": "uint",
+      "location": "BlockId=133, Word=11, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 3 Frequency",
+      "type": "uint",
+      "location": "BlockId=133, Word=12, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 3 gain",
+      "type": "uint",
+      "location": "BlockId=133, Word=13, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 3 Q value",
+      "type": "uint",
+      "location": "BlockId=133, Word=14, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 4 Filter Type",
+      "type": "uint",
+      "location": "BlockId=133, Word=15, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 4 Frequency",
+      "type": "uint",
+      "location": "BlockId=133, Word=16, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 4 gain",
+      "type": "uint",
+      "location": "BlockId=133, Word=17, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 4 Q value",
+      "type": "uint",
+      "location": "BlockId=133, Word=18, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 5 Filter Type",
+      "type": "uint",
+      "location": "BlockId=133, Word=19, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 5 Frequency",
+      "type": "uint",
+      "location": "BlockId=133, Word=20, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 5 gain",
+      "type": "uint",
+      "location": "BlockId=133, Word=21, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Sink audio writeable config data",
+      "name": "Band 5 Q value",
+      "type": "uint",
+      "location": "BlockId=133, Word=22, Bit=0, Size=16",
+      "block_name": "Sink audio writeable config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Session Data",
+      "name": "Free partitions",
+      "type": "uint",
+      "location": "BlockId=1053, Word=21, Bit=8, Size=8",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Session Data",
+      "name": "I2C Raw Command Data Configuration Length",
+      "type": "uint",
+      "location": "BlockId=1377, Word=9, Bit=0, Size=8",
+      "block_name": "Sink Wired I2S Config Data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Simple Speech Recognition Key / SLC",
+      "name": "Max Remote Latency slc",
+      "type": "uint",
+      "location": "BlockId=1053, Word=16, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Simple Speech Recognition Key / SLC",
+      "name": "Min Remote Timeout slc",
+      "type": "uint",
+      "location": "BlockId=1053, Word=17, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Simple Speech Recognition Key / SLC",
+      "name": "Min Local Timeout slc",
+      "type": "uint",
+      "location": "BlockId=1053, Word=18, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Simple Speech Recognition Key / SCO",
+      "name": "Max Remote Latency sco",
+      "type": "uint",
+      "location": "BlockId=1053, Word=13, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Simple Speech Recognition Key / SCO",
+      "name": "Min Remote Timeout sco",
+      "type": "uint",
+      "location": "BlockId=1053, Word=14, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node / Simple Speech Recognition Key / SCO",
+      "name": "Min Local Timeout sco",
+      "type": "uint",
+      "location": "BlockId=1053, Word=15, Bit=0, Size=16",
+      "block_name": "SinkPrivateData",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "DUT Input",
+      "type": "enum",
+      "location": "BlockId=102, Word=3, Bit=9, Size=3",
+      "block_name": "Sink audio read only config data",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "Broadcaster LT Addr",
+      "type": "uint",
+      "location": "BlockId=1237, Word=3, Bit=1, Size=7",
+      "block_name": "BA",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR FIV Key Word 1",
+      "type": "uint",
+      "location": "BlockId=1280, Word=1, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR FIV Key Word 2",
+      "type": "uint",
+      "location": "BlockId=1280, Word=2, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR FIV Key Word 3",
+      "type": "uint",
+      "location": "BlockId=1280, Word=3, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR SEC Key Word 1",
+      "type": "uint",
+      "location": "BlockId=1280, Word=4, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR SEC Key Word 2",
+      "type": "uint",
+      "location": "BlockId=1280, Word=5, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR SEC Key Word 3",
+      "type": "uint",
+      "location": "BlockId=1280, Word=6, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR SEC Key Word 4",
+      "type": "uint",
+      "location": "BlockId=1280, Word=7, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR SEC Key Word 5",
+      "type": "uint",
+      "location": "BlockId=1280, Word=8, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR SEC Key Word 6",
+      "type": "uint",
+      "location": "BlockId=1280, Word=9, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR SEC Key Word 7",
+      "type": "uint",
+      "location": "BlockId=1280, Word=10, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR SEC Key Word 8",
+      "type": "uint",
+      "location": "BlockId=1280, Word=11, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "BR SEC Key Word 9",
+      "type": "uint",
+      "location": "BlockId=1280, Word=12, Bit=0, Size=16",
+      "block_name": "BR_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE FIV Key Word 1",
+      "type": "uint",
+      "location": "BlockId=1296, Word=1, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE FIV Key Word 2",
+      "type": "uint",
+      "location": "BlockId=1296, Word=2, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE FIV Key Word 3",
+      "type": "uint",
+      "location": "BlockId=1296, Word=3, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE SEC Key Word 1",
+      "type": "uint",
+      "location": "BlockId=1296, Word=4, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE SEC Key Word 2",
+      "type": "uint",
+      "location": "BlockId=1296, Word=5, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE SEC Key Word 3",
+      "type": "uint",
+      "location": "BlockId=1296, Word=6, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE SEC Key Word 4",
+      "type": "uint",
+      "location": "BlockId=1296, Word=7, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE SEC Key Word 5",
+      "type": "uint",
+      "location": "BlockId=1296, Word=8, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE SEC Key Word 6",
+      "type": "uint",
+      "location": "BlockId=1296, Word=9, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE SEC Key Word 7",
+      "type": "uint",
+      "location": "BlockId=1296, Word=10, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE SEC Key Word 8",
+      "type": "uint",
+      "location": "BlockId=1296, Word=11, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "RE SEC Key Word 9",
+      "type": "uint",
+      "location": "BlockId=1296, Word=12, Bit=0, Size=16",
+      "block_name": "RE_writeable_keys",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "Page Scan Interval",
+      "type": "uint",
+      "location": "BlockId=835, Word=9, Bit=0, Size=16",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "Page Scan Window",
+      "type": "uint",
+      "location": "BlockId=835, Word=10, Bit=0, Size=16",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "Inquiry Scan Interval",
+      "type": "uint",
+      "location": "BlockId=835, Word=11, Bit=0, Size=16",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "Inquiry Scan Window",
+      "type": "uint",
+      "location": "BlockId=835, Word=12, Bit=0, Size=16",
+      "block_name": "SinkInquiry",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "Master BD Address LAP MSB",
+      "type": "uint",
+      "location": "BlockId=1312, Word=1, Bit=0, Size=16",
+      "block_name": "Master BD Address of Receiver",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "Master BD Address LAP LSB",
+      "type": "uint",
+      "location": "BlockId=1312, Word=2, Bit=0, Size=16",
+      "block_name": "Master BD Address of Receiver",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "Master BD Address UAP",
+      "type": "uint",
+      "location": "BlockId=1312, Word=4, Bit=8, Size=8",
+      "block_name": "Master BD Address of Receiver",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    },
+    {
+      "group": "Advanced Settings that were an Expert Node",
+      "name": "Master BD Address NAP",
+      "type": "uint",
+      "location": "BlockId=1312, Word=3, Bit=0, Size=16",
+      "block_name": "Master BD Address of Receiver",
+      "physical_ps_key": null,
+      "device_write_verified": false
+    }
+  ],
+  "timer_reference": [
+    {
+      "id": 0,
+      "reference_name": "gaia_timer_auto_switch_off_time_s",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 1,
+      "reference_name": "gaia_timer_limbo_timeout_s",
+      "observed_value": 3,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 2,
+      "reference_name": "gaia_timer_network_service_indicator_repeat_time_s",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 3,
+      "reference_name": "gaia_timer_disable_power_off_after_power_on_time_s",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 4,
+      "reference_name": "gaia_timer_pairmode_timeout_s",
+      "observed_value": 180,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 5,
+      "reference_name": "gaia_timer_mute_remind_time_s",
+      "observed_value": 10,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 6,
+      "reference_name": "gaia_timer_connectable_timeout_s",
+      "observed_value": 60,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 7,
+      "reference_name": "gaia_timer_pair_mode_timeout_if_pdl_s",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 8,
+      "reference_name": "gaia_timer_reconnection_attempts",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 9,
+      "reference_name": "gaia_timer_encryption_refresh_timeout_m",
+      "observed_value": 15,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 10,
+      "reference_name": "gaia_timer_inquiry_timeout_s",
+      "observed_value": 120,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 11,
+      "reference_name": "gaia_timer_second_ag_connect_delay_time_s",
+      "observed_value": 100,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 12,
+      "reference_name": "gaia_timer_missed_call_indicate_time_s",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 13,
+      "reference_name": "gaia_timer_missed_call_indicate_attempts",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 14,
+      "reference_name": "gaia_timer_a2dp_link_loss_reconnection_time_s",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 15,
+      "reference_name": "gaia_timer_speech_rec_repeat_time_ms",
+      "observed_value": null,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 16,
+      "reference_name": "gaia_timer_store_current_sink_volume_and_source_timeout_s",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 17,
+      "reference_name": "gaia_timer_wired_audio_connected_power_off_timeout_s",
+      "observed_value": 16,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 18,
+      "reference_name": "gaia_timer_defrag_check_timer_s",
+      "observed_value": 0,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 19,
+      "reference_name": "gaia_timer_audio_amp_power_down_timeout_in_limbo_s",
+      "observed_value": 3,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 20,
+      "reference_name": "gaia_timer_immediate_alert_timer_s",
+      "observed_value": null,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 21,
+      "reference_name": "gaia_timer_immediate_alert_stop_timeout_s",
+      "observed_value": null,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 22,
+      "reference_name": "gaia_timer_link_loss_timer_s",
+      "observed_value": null,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 23,
+      "reference_name": "gaia_timer_link_loss_alert_stop_timeout_s",
+      "observed_value": null,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 24,
+      "reference_name": "gaia_timer_audio_amp_unmute_time_ms",
+      "observed_value": 10,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 25,
+      "reference_name": "gaia_timer_audio_amp_mute_time_ms",
+      "observed_value": 10,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 26,
+      "reference_name": "gaia_timer_party_mode_music_timeout_s",
+      "observed_value": null,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 27,
+      "reference_name": "gaia_timer_party_mode_stream_resume_timeout_s",
+      "observed_value": null,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 28,
+      "reference_name": "gaia_timer_bredr_authenticated_payload_timeout_s",
+      "observed_value": 1000,
+      "mapping_status": "ADK reference, target consumer not traced"
+    },
+    {
+      "id": 29,
+      "reference_name": "gaia_timer_le_authenticated_payload_timeout_s",
+      "observed_value": 3000,
+      "mapping_status": "ADK reference, target consumer not traced"
+    }
+  ]
+}

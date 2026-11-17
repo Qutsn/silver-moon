@@ -148,6 +148,19 @@ public sealed partial class ConnectionPreviewWindow
  bool openingDeviceDetails;
  async Task ShowDeviceDetails(Control? source=null,bool fromSelection=false)
  {
+  if(!PreviewMode && (upgradeBusy || controlReconnectBusy))return;
+  if(!PreviewMode && liveConnection.Current is not {Connected:true})
+  {
+   var button=this.FindControl<Button>("SelectionDetailsButton")!;
+   var caption=button.Content;button.IsEnabled=false;button.Content=UiText.Get("Upgrade.ControlConnecting");
+   try{upgradeTask=RestorePostInstallControlAsync();await upgradeTask;}
+   finally{button.Content=caption;button.IsEnabled=true;}
+   if(liveConnection.Current is not {Connected:true})
+   {
+    this.FindControl<FirmwareChooser>("FirmwareChooser")!.SetStatus(controlReconnectError??UiText.Get("Upgrade.ControlDisconnected"));
+    return;
+   }
+  }
   if(PageTransitionBusy || motionClosed)return;openingDeviceDetails=true;
   transferTimer.Stop();
   var device=this.FindControl<Viewbox>("DevicePage")!;

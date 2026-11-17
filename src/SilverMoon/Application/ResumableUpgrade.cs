@@ -20,6 +20,7 @@ public sealed class UpgradeJournal
  public bool PartitionBoundary {get;set;}
  public string? OriginalPs4 {get;set;}
  public bool ResetComplete {get;set;}
+ public bool ResetAcknowledged {get;set;}
  public bool Validated {get;set;}
  public bool CompleteInd {get;set;}
  public bool FinalRestartObserved {get;set;}
@@ -41,6 +42,9 @@ public sealed class ResumableUpgrade
  readonly Action<UpgradeJournal> save;
  readonly Action<UpgradeProgress> update;
  readonly Func<CancellationToken,Task> pace;
+ readonly Func<UpgradeJournal,UpgradeIdentity,bool>? archiveSuperseded;
+ readonly TimeSpan finalReadbackBudget;
+ readonly Func<CancellationToken,Task> finalReadbackDelay;
  readonly byte[] bytes;
  readonly FirmwareDescriptor firmware;
  readonly bool r2;
@@ -56,10 +60,14 @@ public sealed class ResumableUpgrade
   recoveryAttempt?.CancelAfter(Timeout.InfiniteTimeSpan);
  }
  public ResumableUpgrade(byte[] image,IUpgradeLink link,UpgradeJournal journal,Action<UpgradeJournal> save,
-  Action<UpgradeProgress> update,Func<CancellationToken,Task>? pace=null)
+  Action<UpgradeProgress> update,Func<CancellationToken,Task>? pace=null,Func<UpgradeJournal,UpgradeIdentity,bool>? archiveSuperseded=null,
+  TimeSpan? finalReadbackBudget=null,Func<CancellationToken,Task>? finalReadbackDelay=null)
  {
   bytes=(byte[])image.Clone();firmware=FirmwareCatalog.Analyze(bytes).Installable??throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.1"));
   this.link=link;this.journal=journal;this.save=save;this.update=update;this.pace=pace??(ct=>Task.Delay(2,ct));
+  this.archiveSuperseded=archiveSuperseded;
+  this.finalReadbackBudget=finalReadbackBudget??TimeSpan.FromSeconds(90);
+  this.finalReadbackDelay=finalReadbackDelay??(ct=>Task.Delay(5000,ct));
   if(journal.Sha256!=firmware.Sha256 || string.IsNullOrWhiteSpace(journal.Serial))throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.2"));
   r2=firmware.Strategy==FirmwareStrategy.MiddletonR2Staged;limit=r2?ThirdPartyFirmware.TransferEnd:bytes.Length;
   if(journal.ConfirmedFrontier<0 || journal.ConfirmedFrontier>limit || journal.AcknowledgedBytes<0)
@@ -70,6 +78,8 @@ public sealed class ResumableUpgrade
  {
   using var overall=CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);overall.CancelAfter(TimeSpan.FromMinutes(75));
   recoveryOutage.Reset();recoveryCheckpoint=null;
+  var finalIdentityWait=new Stopwatch();
+  bool initialContext=true;
   try
   {
    while(true)
@@ -89,30 +99,36 @@ public sealed class ResumableUpgrade
      var identity=await link.ReconnectAsync(ct);
      if(identity.Serial!=journal.Serial || identity.Model!="MIDDLETON")throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.4"));
      if(r2 && (identity.Hardware!="3.0.2" || (identity.Firmware!="17.0.37" && identity.Firmware!="25.2.52")))
-      throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.5"));
+     {
+      // Immediately after the final reboot this device has reported 2.0.0,
+      // then 3.0.2 on independent reads. Never broaden admission: only retry
+      // readback after COMPLETE_IND and an observed restart, without writes.
+      if(journal.CompleteInd && journal.FinalRestartObserved && identity.Hardware=="2.0.0" && identity.Firmware==firmware.DisplayVersion)
+      {
+       if(!finalIdentityWait.IsRunning)finalIdentityWait.Start();
+       var remaining=finalReadbackBudget-finalIdentityWait.Elapsed;
+       if(remaining<=TimeSpan.Zero)throw new UpgradeProtocolException(AppText.Get("Upgrade.IdentityPending"));
+       Report(InstallationState.ReadingBack,AppText.Get("Upgrade.IdentityWaiting"));
+       using var wait=CancellationTokenSource.CreateLinkedTokenSource(ct);wait.CancelAfter(remaining);
+       try{await finalReadbackDelay(wait.Token);}
+       catch(OperationCanceledException) when(!ct.IsCancellationRequested){throw new UpgradeProtocolException(AppText.Get("Upgrade.IdentityPending"));}
+       continue;
+      }
+      throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.5")+$" (hardware={identity.Hardware}, firmware={identity.Firmware})");
+     }
      var state=await Context(ct);
+     bool firstContext=initialContext;initialContext=false;
+     if(firstContext && state.IsIdle && journal.CompleteInd && journal.FinalRestartObserved
+        && identity.Firmware!=firmware.DisplayVersion && archiveSuperseded?.Invoke(journal,identity)==true)
+      ResetAfterAbort(); // No device abort: a later completed rollback superseded this local record.
      // Reading the same PS4 again proves reachability, not forward progress.
      // Keep one recovery deadline across repeated handshake/commit failures.
      string checkpoint=$"{state.Resume}:{journal.ConfirmedFrontier}:{journal.PartitionBoundary}:{journal.ResetComplete}:{journal.CompleteInd}:{journal.FinalRestartObserved}";
      if(recoveryCheckpoint!=checkpoint){recoveryCheckpoint=checkpoint;RecoveryProgress();}
-     if(journal.CompleteInd)
-     {
-      if(!journal.FinalRestartObserved)
-      {
-       Report(InstallationState.Rebooting,AppText.Get("Upgrade.AwaitObservedRestart"));
-       await WaitFinalRestart(ct);continue;
-      }
-      Report(InstallationState.ReadingBack,AppText.Get("Upgrade.Message.7"));
-      if(!state.IsIdle || identity.Firmware!=firmware.DisplayVersion)throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.8"));
-      journal.Finished=true;save(journal);Report(InstallationState.Complete,AppText.Get("Upgrade.Message.9"));return;
-     }
-     if(state.IsIdle)
-     {
-      if(journal.ReplacementAbortPending)ResetAfterAbort();
-      if(journal.ConfirmedFrontier>0 || journal.PartitionBoundary || journal.Validated)
-       throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.10"));
-     }
-     else if(journal.ReplacementAbortPending || !journal.Started || state.ImageId!=firmware.UpgradeId)
+     // Reconcile the device's active image before consulting historical completion.
+     // A lost abort reply may already have left the device idle on retry.
+     if(state.IsIdle && journal.ReplacementAbortPending)ResetAfterAbort();
+     if(!state.IsIdle && (journal.ReplacementAbortPending || !journal.Started || state.ImageId!=firmware.UpgradeId))
      {
       // A confirmed install authorizes replacing an orphaned DATA-stage upload.
       // Never abort validation/trial/commit: those can already modify active state.
@@ -132,13 +148,46 @@ public sealed class ResumableUpgrade
       // Reopen an isolated transport so ABORT-era events cannot satisfy new commands.
       continue;
      }
+     if(journal.CompleteInd)
+     {
+      if(!journal.FinalRestartObserved)
+      {
+       Report(InstallationState.Rebooting,AppText.Get("Upgrade.AwaitObservedRestart"));
+       await WaitFinalRestart(ct);continue;
+      }
+      Report(InstallationState.ReadingBack,AppText.Get("Upgrade.Message.7"));
+      if(!state.IsIdle || identity.Firmware!=firmware.DisplayVersion)throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.8"));
+      journal.Finished=true;save(journal);Report(InstallationState.Complete,AppText.Get("Upgrade.Message.9"));return;
+     }
+     if(state.IsIdle)
+     {
+      if(journal.ReplacementAbortPending)ResetAfterAbort();
+      // A user-started install can encounter an obsolete DATA-only journal
+      // after another image was installed. Trust fresh device idle, not the
+      // old byte count. Never silently restart after loss within this run,
+      // or discard evidence that validation/commit may already have begun.
+      if(firstContext && journal.Started && journal.ConfirmedFrontier>0
+         && !journal.PartitionBoundary && !journal.Validated && !journal.ResetAcknowledged
+         && !journal.ResetComplete && !journal.FinalRestartObserved && journal.OriginalPs4 is null)
+       ResetAfterAbort(); // Local journal reset only; sends no device command.
+      if(journal.ConfirmedFrontier>0 || journal.PartitionBoundary || journal.Validated)
+       throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.10"));
+     }
      if(state.Resume>4)throw new UpgradeProtocolException(AppText.Format("Upgrade.ResumeUnsupported",state.Resume));
      if(r2 && state.Resume>0 && (!journal.PartitionBoundary || !state.StagedPartitionsClosed(firmware.UpgradeId)))
       throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.12"));
      if(r2 && state.Resume==1 && !journal.ResetComplete)
      {
       CheckPrepared(state);Report(InstallationState.Rebooting,AppText.Get("Upgrade.Message.13"));
-      RequireAck(await link.CommandAsync(0x0202,Array.Empty<byte>(),ct));await Task.Delay(5000,ct);
+      // A successful reset ACK is distinct from post-reset reconnection. Persist
+      // it before waiting: a temporary GATT denial must not reboot the device again.
+      // An unacknowledged command is not promoted to successful reset evidence.
+      if(!journal.ResetAcknowledged)
+      {
+       RequireAck(await link.CommandAsync(0x0202,Array.Empty<byte>(),ct));
+       journal.ResetAcknowledged=true;save(journal);
+      }
+      await Task.Delay(5000,ct);
       var resetIdentity=await link.ReconnectAsync(ct);
       if(resetIdentity.Serial!=journal.Serial)throw new UpgradeProtocolException(AppText.Get("Upgrade.Message.14"));
       CheckPrepared(await Context(ct));journal.ResetComplete=true;save(journal);continue;
@@ -216,6 +265,7 @@ public sealed class ResumableUpgrade
   journal.OperationId=Guid.NewGuid().ToString("N");
   journal.ConfirmedFrontier=journal.AcknowledgedBytes=0;
   journal.Started=journal.PartitionBoundary=journal.ResetComplete=journal.Validated=false;
+  journal.ResetAcknowledged=false;
   journal.CompleteInd=journal.FinalRestartObserved=journal.Finished=false;
   journal.OriginalPs4=null;journal.ReplacementAbortPending=false;
   cursor=skipped=0;save(journal);

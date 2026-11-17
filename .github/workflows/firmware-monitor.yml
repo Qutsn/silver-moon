@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   check:
-    if: github.repository == 'Qutsn/silver-moon'
+    if: github.repository == 'RougeNuage/silver-moon'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

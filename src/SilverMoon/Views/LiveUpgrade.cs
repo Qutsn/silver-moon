@@ -11,6 +11,8 @@ namespace GlassPlayground;
 public sealed partial class ConnectionPreviewWindow
 {
  bool upgradeBusy;
+ bool controlReconnectBusy;
+ string? controlReconnectError;
  Task? upgradeTask;
  byte[]? upgradeImage;
  DeviceSnapshot? upgradeDevice;
@@ -41,7 +43,7 @@ public sealed partial class ConnectionPreviewWindow
  string displayedSpeed="—",displayedRemaining="—";
  public async Task BeginLiveUpgradeAsync(byte[] image,FirmwareRiskWindow dialog)
  {
-  if(PreviewMode || upgradeBusy)return;
+  if(PreviewMode || upgradeBusy || controlReconnectBusy)return;
   var snapshot=liveConnection.Current??upgradeDevice;
   if(snapshot is null || selectedCandidate is null || string.IsNullOrWhiteSpace(snapshot.Serial))throw new InvalidOperationException(UiText.Get("LiveUpgrade.Text.1688"));
   var descriptor=FirmwareCatalog.Analyze(image).Installable??throw new InvalidOperationException(UiText.Get("LiveUpgrade.Text.1797"));
@@ -53,9 +55,10 @@ public sealed partial class ConnectionPreviewWindow
  }
  void StartLiveUpgrade()
  {
-  if(upgradeBusy || upgradeImage is null || upgradeDevice is null || selectedCandidate is null)return;
+  if(upgradeBusy || controlReconnectBusy || upgradeImage is null || upgradeDevice is null || selectedCandidate is null)return;
+  controlReconnectError=null;
   upgradeBusy=true;renderedPhase=null;transferRate.Reset();nextMetricRefresh=0;displayedSpeed=displayedRemaining="—";liveWaiting=false;ResetInterruption();if(!upgradeElapsed.IsRunning)upgradeElapsed.Start();
-  
+
   this.FindControl<FirmwareChooser>("FirmwareChooser")!.LiveReady=false;
   this.FindControl<Button>("RetryTransferButton")!.IsVisible=false;
   this.FindControl<Button>("TransferBack")!.IsEnabled=false;
@@ -77,15 +80,21 @@ public sealed partial class ConnectionPreviewWindow
    {
     var descriptor=FirmwareCatalog.Analyze(image).Installable!;
     using var store=new UpgradeJournalStore(device.Serial!,descriptor.Sha256);
-    var journal=store.Load(device.Serial!,descriptor.Sha256);store.Save(journal);
+    var journal=store.Load(device.Serial!,descriptor.Sha256);
     upgradeProgress=new(InstallationState.ResultUnknown,UiText.Get("LiveUpgrade.Text.3589"),journal.ConfirmedFrontier,image.Length,journal.AcknowledgedBytes,0);
     DeviceLog.Write("upgrade-start",new{journal.OperationId,journal.Serial,journal.Sha256,journal.ConfirmedFrontier});
     await using var link=new WindowsUpgradeProcessLink(candidate,device.Serial!);
+    long startingAcknowledged=journal.AcknowledgedBytes;string startingOperation=journal.OperationId;bool firstDataLogged=false;
     var coordinator=new ResumableUpgrade(image,link,journal,store.Save,progress=>
     {
+     if(startingOperation!=journal.OperationId){startingOperation=journal.OperationId;startingAcknowledged=0;firstDataLogged=false;}
+     if(!firstDataLogged && progress.AcknowledgedBytes>startingAcknowledged)
+     {
+      firstDataLogged=true;DeviceLog.Write("upgrade-first-data-ack",new{journal.OperationId,progress.AcknowledgedBytes});
+     }
      var previous=Interlocked.Exchange(ref upgradeProgress,progress);
      if(previous?.State!=progress.State)DeviceLog.Write("upgrade-stage",new{journal.OperationId,progress});
-    });
+    },archiveSuperseded:store.ArchiveSuperseded);
     await coordinator.RunAsync(lifetime.Token);
     DeviceLog.Write("upgrade-complete",journal);
    });
@@ -106,20 +115,59 @@ public sealed partial class ConnectionPreviewWindow
     this.FindControl<Button>("TransferBack")!.IsEnabled=true;
     this.FindControl<Button>("RetryTransferButton")!.IsVisible=!success;
     this.FindControl<Button>("RetryTransferButton")!.IsEnabled=true;
-    this.FindControl<FirmwareChooser>("FirmwareChooser")!.LiveReady=true;
+    this.FindControl<FirmwareChooser>("FirmwareChooser")!.LiveReady=!success;
    }
   }
-  if(success && !motionClosed)
+  if(success && !motionClosed)await RestorePostInstallControlAsync();
+ }
+ async Task RestorePostInstallControlAsync()
+ {
+  if(controlReconnectBusy || motionClosed || upgradeDevice is null || selectedCandidate is null)return;
+  controlReconnectBusy=true;controlReconnectError=null;RenderLiveUpgrade();
+  try
   {
-   try
+   await liveConnection.DisposeAsync();
+   liveConnection=new(()=>new WindowsBleTransport(async action=>await Dispatcher.UIThread.InvokeAsync(action)),officialSoundTrial:OfficialSoundTrial);
+   liveConnection.Updated+=_=>QueueSnapshotRefresh();
+   var snapshot=await PostInstallConnection.RestoreAsync(upgradeDevice,async cancellationToken=>
    {
-    liveConnection=new(()=>new WindowsBleTransport(async action=>await Dispatcher.UIThread.InvokeAsync(action)),officialSoundTrial:OfficialSoundTrial);
-    liveConnection.Updated+=_=>QueueSnapshotRefresh();
-    using var timeout=CancellationTokenSource.CreateLinkedTokenSource(lifetime.Token);timeout.CancelAfter(TimeSpan.FromSeconds(45));
-    var snapshot=await Task.Run(()=>liveConnection.ConnectAsync(selectedCandidate!,timeout.Token));
-    this.FindControl<DeviceDetailsView>("DeviceDetails")!.SetSnapshot(snapshot);
+    using var timeout=CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);timeout.CancelAfter(TimeSpan.FromSeconds(25));
+    var result=await Task.Run(async()=>
+    {
+     var current=liveConnection.Current;
+     var snapshot=current is {Connected:true}?current:await liveConnection.ConnectAsync(selectedCandidate,timeout.Token);
+     // Keep the established session while control data settles. A disconnect
+     // falls back to the outer bounded reconnect policy; no setting is written.
+     for(int read=0;read<6 && !PostInstallConnection.Ready(snapshot,upgradeDevice);read++)
+     {
+      if(snapshot.Serial!=upgradeDevice.Serial || snapshot.Model!=upgradeDevice.Model)break;
+      await Task.Delay(2000,timeout.Token);
+      // A notification may have completed readiness during the delay. Avoid
+      // three redundant GATT reads and return the actual current snapshot.
+      if(PostInstallConnection.Ready(liveConnection.Current,upgradeDevice)){snapshot=liveConnection.Current!;break;}
+      snapshot=await liveConnection.RefreshControlsAsync(timeout.Token,onlyMissing:true);
+      DeviceLog.Write("post-install-control-refresh",new{snapshot.Connected,snapshot.Volume,snapshot.Bass,snapshot.Treble,snapshot.Capabilities});
+     }
+     return snapshot;
+    });
+    DeviceLog.Write("post-install-control-read",new{result.Connected,result.Model,result.Firmware,result.Hardware,result.Volume,result.Bass,result.Treble});
+    return result;
+   },token=>Task.Delay(TimeSpan.FromSeconds(3),token),lifetime.Token);
+   if(!motionClosed)this.FindControl<DeviceDetailsView>("DeviceDetails")!.SetSnapshot(snapshot);
+  }
+  catch(Exception e)
+  {
+   DeviceLog.Write("post-install-control-failed",new{error=e.ToString()});
+   controlReconnectError=UiText.Get("Upgrade.ControlNotReady");
+  }
+  finally
+  {
+   controlReconnectBusy=false;
+   if(!motionClosed)
+   {
+    this.FindControl<FirmwareChooser>("FirmwareChooser")!.LiveReady=PostInstallConnection.Ready(liveConnection.Current,upgradeDevice);
+    RenderLiveUpgrade();
    }
-   catch(Exception e){this.FindControl<FirmwareChooser>("FirmwareChooser")!.SetStatus(UiText.Format("Upgrade.DetailsReconnectFailed",e.Message));}
   }
  }
  void RenderLiveUpgrade()
@@ -133,7 +181,7 @@ public sealed partial class ConnectionPreviewWindow
   if(p.State!=InstallationState.ResultUnknown && renderedPhase!=p.State){renderedPhase=p.State;renderedPhaseStart=motion;}
   double phaseAge=motion-renderedPhaseStart;
   double visual=shown switch{InstallationState.Transferring=>Math.Min(29.99,30*fraction),InstallationState.Validating=>33,InstallationState.Rebooting=>36,InstallationState.Committing=>39,InstallationState.Complete=>42.5,_=>41};
-  if(p.State==InstallationState.ResultUnknown)
+  if(p.State==InstallationState.ResultUnknown && shown==InstallationState.Transferring)
   {
    if(!liveWaiting){liveWaiting=true;liveWaitClock.Restart();frozenTransferSeconds=visual;interrupted=true;recovering=retrying=false;rotationOrigin=0;}
    // Reuse the approved interruption surface rather than combining phase panels
@@ -194,10 +242,39 @@ public sealed partial class ConnectionPreviewWindow
    this.FindControl<StackPanel>("PhaseEvidence")!.Opacity=1;
   }
   this.FindControl<Button>("TransferBack")!.IsEnabled=!upgradeBusy;
+  if(p.State==InstallationState.ResultUnknown && !upgradeBusy)
+  {
+   var retry=this.FindControl<Button>("RetryTransferButton")!;
+   retry.IsVisible=true;retry.Opacity=1;retry.IsHitTestVisible=true;
+  }
+  if(p.State==InstallationState.Complete && !PreviewMode)
+  {
+   bool ready=!controlReconnectBusy && upgradeDevice is not null && PostInstallConnection.Ready(liveConnection.Current,upgradeDevice);
+   var details=this.FindControl<Button>("SpeakerDetailsButton")!;
+   details.IsEnabled=ready;details.IsHitTestVisible=ready;
+   this.FindControl<Button>("TransferBack")!.IsEnabled=!controlReconnectBusy;
+   var retry=this.FindControl<Button>("RetryTransferButton")!;
+   retry.IsVisible=!ready && !controlReconnectBusy;
+   retry.IsEnabled=retry.IsHitTestVisible=retry.IsVisible;retry.Opacity=1;
+   if(!ready)
+   {
+    details.IsVisible=false;
+    TextMotion.Set(this.FindControl<TextBlock>("PhaseExplanation")!,controlReconnectBusy?UiText.Get("Upgrade.ControlConnecting"):controlReconnectError??UiText.Get("Upgrade.ControlDisconnected"));
+   }
+  }
  }
  async Task CheckLiveUpgradePresentationAsync()
  {
   ShowOnlyPage("TransferPage");
+  var evidenceLine=this.FindControl<Border>("PhaseEvidenceLine")!;
+  var retryAction=this.FindControl<Button>("RetryTransferButton")!;
+  retryAction.IsVisible=false;await Task.Delay(350);
+  retryAction.IsVisible=true;await Task.Delay(100);
+  if(evidenceLine.Width<=758 || evidenceLine.Width>=980)throw new InvalidOperationException("Retry divider must animate between widths.");
+  await Task.Delay(260);
+  if(Math.Abs(evidenceLine.Width-758)>.1)throw new InvalidOperationException("Retry divider overlaps button.");
+  retryAction.IsVisible=false;await Task.Delay(350);
+  if(Math.Abs(evidenceLine.Width-980)>.1)throw new InvalidOperationException("Retry divider did not restore.");
   upgradeBusy=true;upgradeElapsed.Restart();
   upgradeProgress=new(InstallationState.Transferring,UiText.Get("LiveUpgrade.Text.10545"),100,1000,100,0);RenderLiveUpgrade();
   await Task.Delay(1100);
@@ -244,6 +321,7 @@ public sealed partial class ConnectionPreviewWindow
   }
   void AssertFinalStage()
   {
+   if(interrupted)throw new InvalidOperationException("Final-stage recovery must retain its phase surface, not enter transfer interruption.");
    foreach(string name in new[]{"TransferPercent","TransferPercentSign","TransferTrack","TransferFill"})
    {
     var control=this.FindControl<Control>(name)!;

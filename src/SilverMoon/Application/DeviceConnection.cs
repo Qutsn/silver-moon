@@ -114,12 +114,37 @@ public sealed partial class DeviceConnection : IAsyncDisposable
   {
    if(epoch!=generation || current is not {Connected:true})return;
    var previous=current;
-   if(id==DeviceIds.Battery)current=current with {Battery=DeviceValues.Battery(bytes)};
-   else if(id==DeviceIds.Volume)current=current with {Volume=DeviceValues.Volume(bytes)};
-   else if(id==DeviceIds.Eq){var eq=DeviceValues.Eq(bytes);current=current with {Bass=eq?.Bass,Treble=eq?.Treble};}
+   if(id==DeviceIds.Battery){var value=DeviceValues.Battery(bytes);current=current with {Battery=value,Capabilities=current.Capabilities with{Battery=value.HasValue}};}
+   else if(id==DeviceIds.Volume){var value=DeviceValues.Volume(bytes);current=current with {Volume=value,Capabilities=current.Capabilities with{Volume=value.HasValue}};}
+   else if(id==DeviceIds.Eq){var eq=DeviceValues.Eq(bytes);current=current with {Bass=eq?.Bass,Treble=eq?.Treble,Capabilities=current.Capabilities with{Eq=eq.HasValue}};}
    else return;
    if(current!=previous)Updated?.Invoke(current);
   }
+ }
+ // Refresh on the existing session. Do not cycle the GATT connection merely
+ // because firmware is still initializing its control characteristics.
+ public async Task<DeviceSnapshot> RefreshControlsAsync(CancellationToken ct,bool onlyMissing=false)
+ {
+  await serial.WaitAsync(ct);
+  try
+  {
+   ObjectDisposedException.ThrowIf(disposed,this);
+   var active=transport??throw new DeviceConnectionException(AppText.Get("Device.Message.21"));
+   long epoch;lock(sync)epoch=generation;
+   foreach(var id in new[]{DeviceIds.Battery,DeviceIds.Volume,DeviceIds.Eq})
+   {
+    if(!active.Has(id))continue;
+    var latest=Current;
+    if(latest is not {Connected:true})throw new DeviceConnectionException(AppText.Get("Device.Message.21"));
+    if(onlyMissing && (id==DeviceIds.Battery && latest.Battery.HasValue
+       || id==DeviceIds.Volume && latest.Volume.HasValue
+       || id==DeviceIds.Eq && latest.Bass.HasValue && latest.Treble.HasValue))continue;
+    var bytes=await active.ReadAsync(id,ct);
+    if(bytes is not null)ApplyNotification(epoch,id,bytes);
+   }
+   return Current is {Connected:true} snapshot?snapshot:throw new DeviceConnectionException(AppText.Get("Device.Message.21"));
+  }
+  finally{serial.Release();}
  }
  async ValueTask ReleaseAsync()
  {

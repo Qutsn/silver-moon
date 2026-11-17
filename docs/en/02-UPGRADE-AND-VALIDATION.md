@@ -77,3 +77,11 @@ Final completion requires `COMPLETE_IND`, observed disconnection, then a fresh i
 - [UpgradeWire](../../src/SilverMoon/Domain/UpgradeWire.cs) and [UpgradeMailbox](../../src/SilverMoon/Application/UpgradeMailbox.cs): frame length, ACK and notification separation.
 - [ResumableUpgradeChecks](../../tests/DesktopReadOnly/ResumableUpgradeChecks.cs) and [UpgradeRecoveryChecks](../../tests/DesktopReadOnly/UpgradeRecoveryChecks.cs): simulated disconnects, requested offsets and recovery invariants.
 - [Evidence and verification](08-EVIDENCE-AND-VERIFICATION.md): reproducibility requirements and limits of simulated tests.
+
+## Recovery precedence and control handoff
+
+A freshly read active image is reconciled before a historical CompleteInd record. A different image in DATA/resume 0 can use the verified ABORT path; a saved completion for a previous image must not short-circuit replacement. Abort failure, nonidle readback and later phases remain blocking. Reset acknowledgement is persisted separately from reconnection so a lost connection does not repeat an acknowledged reset. A stale DATA-only journal may be reset on the initial idle context; late-stage records require separate evidence. A completed official rollback plus current official identity and idle context can supersede a previous modified-image readback record; the original is archived before local reset.
+
+After modified-image commit and observed restart, hardware text 2.0.0 has temporarily preceded 3.0.2 while firmware already reports 25.2.52. This narrowly defined final-readback case is reread for up to 90 seconds, paced at five seconds; initial compatibility checks remain strict. Persistent mismatch stops and retains evidence. The origin of the transient value remains unresolved.
+
+Installation completion and daily-control readiness are separate. Control restoration checks matching model/serial and valid volume/EQ. It refreshes missing values on the existing session, allowing valid notifications to restore capability flags. The current policy allows three attempts, each with a 25-second cancellation deadline, up to six two-second refresh waits, and three-second spacing between attempts. Actual Windows cancellation latency may vary. Failure offers control reconnection without repeating firmware transfer.

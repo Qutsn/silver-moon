@@ -17,7 +17,9 @@ sealed class MetricTransition
  readonly List<(TextBlock Old,TextBlock New)> changing=new();
  public void Render(TextBlock text,string value,double now)
  {
-  if(target!=value)
+  // Preview/interruption rendering can replace Text and clear the inline tree.
+  // Rebuild even when the requested value is unchanged after that replacement.
+  if(target!=value || text.Text is not null || text.Inlines!.Count==0)
   {
    string? previous=target;target=value;started=now;changing.Clear();
    text.Text=null;text.Inlines!.Clear();text.Opacity=1;

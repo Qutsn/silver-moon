@@ -1,4 +1,36 @@
 using Middleton.Desktop;
+if(args.Contains("--replacement-completion-check")){await ResumableUpgradeChecks.CheckReplacementWithOldCompletion();return;}
+{
+ var transport=new FakeTransport{UnknownEq=true};
+ await using var control=new DeviceConnection(()=>transport);
+ var initialControl=await control.ConnectAsync(new("test","MIDDLETON","test"),default);
+ Check(!initialControl.Capabilities.Eq && initialControl.Bass is null,"Initial invalid EQ must not become ready");
+ transport.UnknownEq=false;
+ var refreshed=await control.RefreshControlsAsync(default);
+ Check(refreshed.SessionId==initialControl.SessionId && refreshed.Capabilities.Eq && refreshed.Bass==0 && !transport.Disposed && transport.Writes.Count==0,"Refresh must recover EQ without reconnect or writes");
+ transport.Changed?.Invoke(DeviceIds.Eq,new byte[8]);
+ Check(!control.Current!.Capabilities.Eq && control.Current.Bass is null,"Invalid EQ notification must revoke readiness");
+ transport.Changed?.Invoke(DeviceIds.Eq,new byte[]{2,255,255,255,8,0,0,0});
+ Check(control.Current!.Capabilities.Eq && control.Current.Bass==2,"Valid notification must restore readiness");
+ transport.Changed?.Invoke(DeviceIds.Battery,new byte[]{80});
+ int readsBefore=transport.ReadCount;
+ await control.RefreshControlsAsync(default,onlyMissing:true);
+ Check(transport.ReadCount==readsBefore,"Ready controls must not incur redundant reads");
+ transport.Changed?.Invoke(DeviceIds.Eq,new byte[8]);
+ await control.RefreshControlsAsync(default,onlyMissing:true);
+ Check(transport.ReadCount==readsBefore+1 && control.Current!.Capabilities.Eq,"Only missing EQ should be refreshed");
+ transport.Disconnected?.Invoke();
+ try{await control.RefreshControlsAsync(default);throw new Exception("Disconnected refresh accepted");}catch(DeviceConnectionException){}
+ Console.WriteLine("PASS: same-session read-only refresh, EQ capability recovery and disconnect rejection");
+}
+if(args.Contains("--control-refresh-check"))return;
+if(args.Contains("--journal-check")){JournalStoreChecks.Run();return;}
+await PostInstallConnectionChecks.Run();
+if(args.Contains("--post-install-check"))return;
+if(args.Contains("--stale-transfer-check")){await ResumableUpgradeChecks.CheckStaleTransfer();return;}
+if(args.Contains("--final-identity-check")){await ResumableUpgradeChecks.CheckFinalIdentity();return;}
+
+if(args.Contains("--reset-reconnect-check")){await ResumableUpgradeChecks.CheckResetReconnect();return;}
 
 if(args.Contains("--firmware-preparation-check")){await FirmwarePreparationChecks.Run();return;}
 if(args.Contains("--firmware-download-check"))
@@ -67,6 +99,7 @@ await FirmwareChecks.Run();
 await ThirdPartyFirmwareChecks.Run();
 await OfficialUpgradeChecks.Run();
 await UpgradeRecoveryChecks.Run();
+if(!TestFirmware.SkipMaterialChecks)await ResumableUpgradeChecks.CheckReplacementWithOldCompletion();
 await ResumableUpgradeChecks.Run();
 await SoundQueueChecks.Run();
 var transports = new List<FakeTransport>();

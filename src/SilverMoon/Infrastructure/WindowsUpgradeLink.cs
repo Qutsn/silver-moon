@@ -29,6 +29,13 @@ public sealed class WindowsUpgradeLink : IUpgradeLink
    async Task<string> Read(Guid id)=>DeviceValues.Text(await active.ReadAsync(id,token))??throw new UpgradeLinkLostException(AppText.Get("Device.Message.23"));
    var identity=new UpgradeIdentity(await Read(DeviceIds.Model),await Read(DeviceIds.Serial),await Read(DeviceIds.Firmware),await Read(DeviceIds.Hardware));
    if(identity.Model!="MIDDLETON" || identity.Serial!=serial)throw new UpgradeProtocolException(AppText.Get("Device.Message.24"));
+   if(!active.Has(DeviceIds.GaiaWrite) || !active.Has(DeviceIds.GaiaResponse) || !active.Has(DeviceIds.GaiaData))
+   {
+    // Discovery can return the identity service while GAIA enumeration was denied.
+    // Do not misreport this as a failed CCCD subscription that was never attempted.
+    DeviceLog.Write("upgrade-channel-unavailable",new{write=active.Has(DeviceIds.GaiaWrite),response=active.Has(DeviceIds.GaiaResponse),data=active.Has(DeviceIds.GaiaData)});
+    throw new UpgradeLinkLostException(AppText.Format("Bluetooth.Discovery","GAIA characteristics unavailable"));
+   }
    if(!await active.SubscribeAsync(DeviceIds.GaiaResponse,token) || !await active.SubscribeAsync(DeviceIds.GaiaData,token))throw new UpgradeLinkLostException(AppText.Get("Device.Message.25"));
    route=active.PairedRoute;
    DeviceLog.Write("upgrade-link-open",identity);return identity;

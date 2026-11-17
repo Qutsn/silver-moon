@@ -31,7 +31,7 @@ GAIA 帧包含大端编码的 vendor、command 字段和消息相关的 payload�
 
 [PairingNegotiation](../../src/SilverMoon/Application/PairingNegotiation.cs) 只在 ProtectionLevelCouldNotBeMet 时尝试较低保护要求；AccessDenied、取消或超时不会被解释成需要无限降级。读取和写入还要经过 [ProtectedGatt](../../src/SilverMoon/Application/ProtectedGatt.cs) 的认证门控。
 
-项目曾遇到“同一程序换目录后首次配对成功”。后来发现失败副本继承 Low 完整性标签，运行进程为 Low；成功副本为 Medium。仅检查普通 ACL 或是否管理员不足以区分。发布脚本通过新建副本和完整性标签检查避免带入此问题，不要求用户提权或修改系统蓝牙配置。这个证据不意味着所有 AccessDenied 都由此引起。
+项目曾遇到“同一程序换目录后首次配对成功”。后来发现失败副本继承 Low 完整性标签，运行进程为 Low；成功副本为 Medium。Low 完整性还阻止了正常的本地日志/解包访问；此项已观察到的启动失败应与每一次配对拒绝的具体原因区分。仅检查普通 ACL 或是否管理员不足以区分。发布脚本通过新建副本和完整性标签检查避免带入此问题，不要求用户提权或修改系统蓝牙配置。这个证据不意味着所有 AccessDenied 都由此引起。
 
 音箱升级重启后，旧会话曾反复缺失特征，新进程却能重新发现。因此桌面升级使用 [UpgradeWorker](../../src/SilverMoon/Infrastructure/UpgradeWorker.cs) 管理独立子进程，每次重连释放旧资源并建立新会话。这是生命周期处理，不是权限隔离，也不是所有 Windows 蓝牙问题的通用修复。
 
@@ -79,3 +79,7 @@ GAIA 帧包含大端编码的 vendor、command 字段和消息相关的 payload�
 短程探测中，45 字节分块可以继续传输，55 字节分块出现停滞；停滞根因尚未确定。因此，45 字节是保守的实现选择，不能视为 BLE 的最大载荷。增加 MTU、无响应写入、流水线或其他传输方式，都需要单独验证协议兼容性和恢复行为；蓝牙标称物理层速率不能直接代表此升级通道的吞吐量。
 
 相关实现见 [ResumableUpgrade](../../src/SilverMoon/Application/ResumableUpgrade.cs) 和 [WindowsBleTransport](../../src/SilverMoon/Infrastructure/WindowsBleTransport.cs)。耗时与分块探测属于项目测试记录，公开仓库未包含原始设备日志；这些结果不能推广为其他电脑、蓝牙适配器或音箱型号的性能保证。
+
+## 持久化设置与探测结果
+
+[持久化配置与副作用](09-PERSISTENT-CONFIGURATION.md)区分 PS、配置块和 timer 编号，记录 PS9D 音频故障及证据边界，并提供脱敏可检索索引。

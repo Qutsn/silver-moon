@@ -1,4 +1,7 @@
 {
+  "Upgrade.ControlNotReady": "固件已安装，音箱控制尚未就绪。请重试控制连接，无需重新传输固件。",
+  "Upgrade.IdentityWaiting": "提交已完成，等待音箱重启后的设备信息恢复稳定…",
+  "Upgrade.IdentityPending": "提交已完成，但重启后的设备信息仍未稳定。请稍后重试确认，无需重新传输固件。",
   "ConnectionMotion.Text.3292": "开始连接",
   "ConnectionMotion.Text.5098": "刷入此固件",
   "ConnectionMotion.Text.6765": "重试连接   →",
@@ -161,7 +164,9 @@
   "TransferPreview.Text.8661": "固件传输中 · 自定义固件",
   "TransferPreview.Text.8677": "固件传输中",
   "Connection.Failed": "蓝牙连接失败（0x{0:X8}），请重试。",
-  "Upgrade.DetailsReconnectFailed": "安装结果已确认，详情重连失败：{0}",
+  "Upgrade.DetailsReconnectFailed": "固件已安装。控制连接恢复失败，请重试连接，无需重新刷入。{0}",
+  "Upgrade.ControlConnecting": "固件已安装，正在恢复音箱控制连接…",
+  "Upgrade.ControlDisconnected": "固件已安装，控制连接已断开。请重试连接，无需重新刷入。",
   "Upgrade.TransferredEvidence": "已确认传输 {0:N0} 字节；本次按设备请求跳过 {1:N0} 字节。",
   "Sound.PendingValue": "正在设置为 {0}",
   "Firmware.KnownFile": "Middleton · {0}\n完整文件校验一致",

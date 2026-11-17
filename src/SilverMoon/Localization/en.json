@@ -1,4 +1,7 @@
 {
+  "Upgrade.ControlNotReady": "Firmware installed. Speaker controls are not ready yet. Retry the control connection; no firmware transfer is needed.",
+  "Upgrade.IdentityWaiting": "Commit complete. Waiting for device information to settle after restart…",
+  "Upgrade.IdentityPending": "Commit complete, but device information has not settled after restart. Retry confirmation later; firmware does not need to be transferred again.",
   "ConnectionMotion.Text.3292": "Connect",
   "ConnectionMotion.Text.5098": "Install firmware",
   "ConnectionMotion.Text.6765": "Retry connection   →",
@@ -161,7 +164,9 @@
   "TransferPreview.Text.8661": "Transferring firmware · custom firmware",
   "TransferPreview.Text.8677": "Transferring firmware",
   "Connection.Failed": "Bluetooth connection failed (0x{0:X8}). Try again.",
-  "Upgrade.DetailsReconnectFailed": "Installation result confirmed, but reconnection for details failed: {0}",
+  "Upgrade.DetailsReconnectFailed": "Firmware installed. Control reconnection failed; retry reconnecting without reinstalling. {0}",
+  "Upgrade.ControlConnecting": "Firmware installed. Reconnecting speaker controls…",
+  "Upgrade.ControlDisconnected": "Firmware installed. Controls are disconnected. Retry to reconnect without reinstalling.",
   "Upgrade.TransferredEvidence": "{0:N0} bytes confirmed transferred; {1:N0} bytes skipped at the device's request during this session.",
   "Sound.PendingValue": "Setting to {0}",
   "Firmware.KnownFile": "Middleton · {0}\nFull-file checksum matches",

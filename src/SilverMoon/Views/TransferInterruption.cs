@@ -27,7 +27,7 @@ public sealed partial class ConnectionPreviewWindow
  }
  async Task ReturnFromTransfer()
  {
-  if(PageTransitionBusy || upgradeBusy)return;
+  if(PageTransitionBusy || upgradeBusy || controlReconnectBusy)return;
   StopUpgradeFrames();
   await ReturnInterruptedTransfer(false,true);
  }

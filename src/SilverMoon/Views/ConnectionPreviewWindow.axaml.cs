@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using Middleton.Desktop;
 namespace GlassPlayground;
 public sealed partial class ConnectionPreviewWindow : Window
 {
@@ -44,6 +45,11 @@ public sealed partial class ConnectionPreviewWindow : Window
  public ConnectionPreviewWindow()
  {
   AvaloniaXamlLoader.Load(this);
+  // Keep a 32-unit gap before the retry button; animate only the divider,
+  // leaving evidence text and button geometry unchanged.
+  this.FindControl<Button>("RetryTransferButton")!.PropertyChanged+=(_,e)=>{
+   if(e.Property==IsVisibleProperty)this.FindControl<Border>("PhaseEvidenceLine")!.Width=(bool)e.NewValue!?758:980;
+  };
   InitializeLiveMode();
   Opened+=async(_,_)=>{UpdateWindowOutline();if(PreviewMode && Array.Exists(Environment.GetCommandLineArgs(),a=>a=="--selection"))ShowSelection(true);if(PreviewMode && Array.Exists(Environment.GetCommandLineArgs(),a=>a=="--device")){this.FindControl<Viewbox>("ConnectionPage")!.IsVisible=false;await ShowDeviceDetails();}};
   this.FindControl<Button>("ConnectButton")!.Click+=async(_,_)=>await ConnectionActionAsync();
@@ -53,7 +59,7 @@ public sealed partial class ConnectionPreviewWindow : Window
    await CloseLiveAsync();releasingForClose=true;Close();
   };
   this.FindControl<Button>("TransferBack")!.Click+=async(_,_)=>{if(!upgradeBusy)await ReturnFromTransfer();};
-  this.FindControl<Button>("RetryTransferButton")!.Click+=(_,_)=>{if(PreviewMode)RetryInterruptedTransfer();else StartLiveUpgrade();};
+  this.FindControl<Button>("RetryTransferButton")!.Click+=(_,_)=>{if(PreviewMode)RetryInterruptedTransfer();else if(upgradeProgress?.State==InstallationState.Complete)upgradeTask=RestorePostInstallControlAsync();else StartLiveUpgrade();};
   this.FindControl<Button>("SpeakerDetailsButton")!.Click+=async(_,_)=>{if(interrupted)await ReturnInterruptedTransfer();else await ShowDeviceDetails(this.FindControl<Button>("SpeakerDetailsButton")!);};
   this.FindControl<Button>("SelectionDetailsButton")!.Click+=async(_,_)=>await ShowDeviceDetails(this.FindControl<FirmwareChooser>("FirmwareChooser")!.ActionTarget,true);
   KeyDown+=(_,e)=>{
@@ -138,6 +144,9 @@ public sealed partial class ConnectionPreviewWindow : Window
   if(next.Opacity!=1 || old.Opacity!=0)throw new InvalidOperationException("Metric transition did not settle.");
   metric.Render(metricText,"—",2);metric.Render(metricText,"1.00 KB/s",3);metric.Render(metricText,"1.00 KB/s",4);
   if(metricText.Inlines.Count!=9)throw new InvalidOperationException("Metric length change lost characters.");
+  metricText.Text="—";metric.Render(metricText,"1.00 KB/s",5);
+  if(metricText.Inlines.Count!=9 || metricText.Inlines[0] is not Avalonia.Controls.Documents.InlineUIContainer)
+   throw new InvalidOperationException("Overwritten metric did not rebuild its glyphs.");
   var stableMetric=new MetricTransition();var stableText=new TextBlock{FontSize=32};
   double? fixedWidth=null,fixedHeight=null;
   foreach(string digits in new[]{"11","88","81","11"})

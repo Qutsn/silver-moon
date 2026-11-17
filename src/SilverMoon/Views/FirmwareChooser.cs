@@ -73,6 +73,8 @@ public sealed class FirmwareChooser : Canvas
   void Closed(object? sender,EventArgs args)=>cancellation.Cancel();
   owner.Closed+=Closed;
   int chosen=selected;
+  DeviceLog.Write("firmware-selection-start",new{selection=chosen});
+  bool preparing=true;
   try
   {
    string firmware=selected==0?UiText.Get("FirmwareChooser.Text.3612"):selected==1?UiText.Get("FirmwareChooser.Text.3645"):fileName??UiText.Get("FirmwareChooser.Text.3672");
@@ -84,7 +86,7 @@ public sealed class FirmwareChooser : Canvas
     {
      using var client=FirmwarePreparation.CreateClient();
      image=await Task.Run(()=>new FirmwarePreparation(FirmwarePreparation.DefaultCache,client).PrepareAsync(chosen==0,
-      text=>Dispatcher.UIThread.Post(()=>{if(!cancellation.IsCancellationRequested)SetStatus(text);}),cancellation.Token));
+      text=>Dispatcher.UIThread.Post(()=>{if(preparing && !cancellation.IsCancellationRequested)SetStatus(text);}),cancellation.Token));
     }
     else image=await Task.Run(async()=>
     {
@@ -98,6 +100,7 @@ public sealed class FirmwareChooser : Canvas
     firmware=$"{descriptor.DisplayName} · {descriptor.DisplayVersion}";
    }
    cancellation.Token.ThrowIfCancellationRequested();
+   preparing=false;SetStatus("");DeviceLog.Write("firmware-preparation-ready",new{selection=chosen});
    var host=owner.FindControl<Grid>("ModalHost")!;
    var page=owner.FindControl<Viewbox>("SelectionPage")!;
    var chrome=owner.FindControl<Grid>("TopDragArea")!;
@@ -110,6 +113,7 @@ public sealed class FirmwareChooser : Canvas
    try{if(check){if(accept)await dialog.CheckConfirm();else await dialog.CheckCancel();}confirmed=await dialog.Result;
     if(confirmed && owner is ConnectionPreviewWindow preview)
     {
+     DeviceLog.Write("firmware-confirmed",new{selection=chosen});
      if(PreviewMode)await preview.ShowTransfer(firmware,dialog,selected==1?1:selected==2?2:0);
      else await preview.BeginLiveUpgradeAsync(image!,dialog);
     }
@@ -120,7 +124,7 @@ public sealed class FirmwareChooser : Canvas
   catch(OperationCanceledException){if(!cancellation.IsCancellationRequested)SetStatus(UiText.Get("Firmware.PreparationFailed"));}
   catch(InvalidDataException e){SetStatus(e.Message);}
   catch(Exception){SetStatus(UiText.Get("Firmware.PreparationFailed"));}
-  finally{owner.Closed-=Closed;preparation=null;confirming=false;selectionPage.IsEnabled=true;}
+  finally{preparing=false;owner.Closed-=Closed;preparation=null;confirming=false;selectionPage.IsEnabled=true;}
  }
  TextBlock Text(string value,double size){var t=new TextBlock{Text=value,FontSize=size,Foreground=Brush.Parse("#F4F3EC"),IsHitTestVisible=false};Children.Add(t);return t;}
  static void Put(Control c,double x,double y){SetLeft(c,x);SetTop(c,y);}

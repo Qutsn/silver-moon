@@ -64,6 +64,7 @@ public sealed class WindowsUpgradeProcessLink : IUpgradeLink
  readonly string serial;
  Process? worker;
  Task? stderr;
+ bool firstRequestLogged,firstWriteLogged;
  public WindowsUpgradeProcessLink(DeviceCandidate route,string serial){this.route=route;this.serial=serial;}
  public async Task<UpgradeIdentity> ReconnectAsync(CancellationToken ct)
  {
@@ -79,12 +80,16 @@ public sealed class WindowsUpgradeProcessLink : IUpgradeLink
  }
  public async Task<GaiaAcknowledgement> CommandAsync(ushort command,ReadOnlyMemory<byte> payload,CancellationToken ct)
  {
+  bool firstData=command==0x0642 && payload.Length>0 && payload.Span[0]==4 && !firstWriteLogged;
+  if(firstData){firstWriteLogged=true;DeviceLog.Write("upgrade-first-data-send",new{length=payload.Length});}
   var result=await Request(new("command",Command:command,Payload:Convert.ToBase64String(payload.Span),TimeoutSeconds:5),ct);
+  if(firstData)DeviceLog.Write("upgrade-first-data-reply",new{status=result.GetProperty("Status").GetByte()});
   return new(result.GetProperty("Command").GetUInt16(),result.GetProperty("Status").GetByte(),Convert.FromBase64String(result.GetProperty("Data").GetString()!));
  }
  public async Task<UpgradeMessage> ReceiveAsync(TimeSpan timeout,CancellationToken ct)
  {
   var result=await Request(new("receive",TimeoutSeconds:timeout.TotalSeconds),ct);
+  if(!firstRequestLogged && result.GetProperty("Code").GetByte()==3){firstRequestLogged=true;DeviceLog.Write("upgrade-first-data-request",new{body=result.GetProperty("Body").GetString()});}
   return new(result.GetProperty("Code").GetByte(),Convert.FromBase64String(result.GetProperty("Body").GetString()!));
  }
  public async Task WaitForDeviceDisconnectAsync(CancellationToken ct)=>await Request(new("wait-disconnect",TimeoutSeconds:180),ct);
@@ -130,7 +135,7 @@ public sealed class WindowsUpgradeProcessLink : IUpgradeLink
    }
    if(stderr is not null)await stderr;
   }
-  finally{worker=null;stderr=null;child.Dispose();}
+  finally{DeviceLog.Write("upgrade-worker-released",new{exited=child.HasExited});worker=null;stderr=null;child.Dispose();}
  }
 }
 

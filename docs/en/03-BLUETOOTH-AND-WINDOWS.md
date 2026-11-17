@@ -46,7 +46,7 @@ Windows BLE/GATT APIs manage discovery, access requests, GattSession, services a
 
 [PairingNegotiation](../../src/SilverMoon/Application/PairingNegotiation.cs) tries EncryptionAndAuthentication, Encryption, then Default **only** when the preceding result is `ProtectionLevelCouldNotBeMet`. AccessDenied, rejection, timeout and cancellation do not continue that sequence. [ProtectedGatt](../../src/SilverMoon/Application/ProtectedGatt.cs) separately gates protected reads, writes and subscriptions on authentication.
 
-A prior directory-dependent pairing failure was traced to Low file/process integrity on a failing copy versus Medium on a working copy. Ordinary ACL checks or administrator status alone do not establish this distinction. Staging scripts create fresh copies and check integrity labels instead of requiring elevation or changes to Windows Bluetooth settings. This observation does not imply that every AccessDenied result has that cause.
+Directory-dependent startup and pairing investigations found Low file/process integrity on a failing copy versus Medium on a working copy. Low integrity also prevented normal local journal/extraction access; that observed startup failure must be distinguished from the cause of an individual pairing rejection. Ordinary ACL checks or administrator status alone do not establish this distinction. Staging scripts create fresh copies and check integrity labels instead of requiring elevation or changes to Windows Bluetooth settings. This observation does not imply that every AccessDenied result has that cause.
 
 Stale sessions after reboot have failed service discovery while a fresh process could discover characteristics. [UpgradeWorker](../../src/SilverMoon/Infrastructure/UpgradeWorker.cs) owns the upgrade transport in a separate child process, with fresh transport/session resources on reconnect. This is lifetime management, not a security sandbox or a universal Windows Bluetooth repair.
 
@@ -77,3 +77,7 @@ The implementation limits firmware data chunks to 45 bytes and sends them sequen
 A short probe with 45-byte chunks continued, whereas a 55-byte probe stalled. The cause of that stall was not established. The 45-byte limit is therefore a conservative implementation choice, not a claimed maximum BLE payload. A larger MTU, unacknowledged writes, pipelining or another transport would require separate protocol and recovery validation; Bluetooth's advertised physical-layer bitrate does not predict this upgrade channel's throughput.
 
 The relevant implementation is [ResumableUpgrade](../../src/SilverMoon/Application/ResumableUpgrade.cs) and [WindowsBleTransport](../../src/SilverMoon/Infrastructure/WindowsBleTransport.cs). Timing and probe observations are project records; the public repository does not include the original device logs. They do not establish equivalent performance on other computers, adapters or speaker models.
+
+## Persistent settings and probe results
+
+[Persistent configuration and side effects](09-PERSISTENT-CONFIGURATION.md) distinguishes PS keys from schema and timer IDs, documents the PS9D audio incident, and provides a sanitized searchable index.

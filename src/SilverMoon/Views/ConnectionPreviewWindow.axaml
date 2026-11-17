@@ -141,7 +141,9 @@
      <TextBlock x:Name="PhaseExplanation" FontSize="20" LineHeight="32" TextWrapping="Wrap" Foreground="#CCCEC8"/>
     </StackPanel>
     <StackPanel x:Name="PhaseEvidence" Canvas.Left="110" Canvas.Top="585" Width="980" Spacing="12" IsVisible="False">
-     <Border Height="1" Background="#70858C82"/>
+     <Border x:Name="PhaseEvidenceLine" Width="980" HorizontalAlignment="Left" Height="1" Background="#70858C82">
+      <Border.Transitions><Transitions><DoubleTransition Property="Width" Duration="0:0:0.3" Easing="CubicEaseOut"/></Transitions></Border.Transitions>
+     </Border>
      <TextBlock x:Name="PhaseNext" FontSize="18" Foreground="#CCCEC8"/>
     </StackPanel>
     <TextBlock x:Name="TransferStatus" Canvas.Left="110" Canvas.Top="542" Text="{local:Tr ConnectionPreviewWindow.Text.13057}" FontSize="20" Foreground="#F4F3EC"/>

@@ -2,7 +2,7 @@
 
 为 Middleton 刷入修改版固件，以去除官方固件中恼人的 AUX 频繁休眠和自动关机功能。
 
-[下载](https://github.com/Qutsn/silver-moon/releases) · [English](README.md)
+[下载](https://github.com/RougeNuage/silver-moon/releases) · [English](README.md)
 
 ## 项目初衷
 
@@ -44,7 +44,8 @@
 3. [蓝牙协议与传输性能](docs/zh-CN/03-BLUETOOTH-AND-WINDOWS.md)
 4. [固件下载与准备](docs/zh-CN/04-OFFICIAL-FIRMWARE-PREPARATION.md)
 5. [第三方固件规范](docs/zh-CN/05-THIRD-PARTY-FIRMWARE-GUIDE.md)
-6. [证据分级与可复现验证](docs/zh-CN/08-EVIDENCE-AND-VERIFICATION.md)
+6. [持久化设置与研究结论](docs/zh-CN/09-PERSISTENT-CONFIGURATION.md)
+7. [证据与复现验证](docs/zh-CN/08-EVIDENCE-AND-VERIFICATION.md)
 
 支持 Middleton 官方 17.0.37 与项目 r2（显示版本 25.2.52）。补丁不会关闭全部电源保护机制。第三方文件通过规范检查不代表固件功能正常。
 

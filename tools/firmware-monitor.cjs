@@ -42,7 +42,7 @@ async function notify(github,context,result){
  if(issues.some(i=>!i.pull_request&&i.body?.includes(marker)))return 'already-notified';
  await github.rest.issues.create({...context.repo,
   title:'Middleton firmware update detected: '+result.version,
-  body:marker+'\n\n@Qutsn\n\nThe official Lennox production metadata now advertises **'+result.version+'**, newer than the supported **'+baseline+'**.\n\n- File: `'+result.name+'`\n- Advertised size: '+result.size+' bytes\n\nReview the new firmware before changing the supported hashes or patch offsets. This monitor checks metadata only; it has not downloaded, validated or installed the image.\n\n---\n\n官方 Lennox 生产接口报告了高于当前支持版本的新固件。请独立分析新版本后再更新补丁与哈希。监测仅查询元数据，未下载、验证或安装该固件。'
+  body:marker+'\n\n@RougeNuage\n\nThe official Lennox production metadata now advertises **'+result.version+'**, newer than the supported **'+baseline+'**.\n\n- File: `'+result.name+'`\n- Advertised size: '+result.size+' bytes\n\nReview the new firmware before changing the supported hashes or patch offsets. This monitor checks metadata only; it has not downloaded, validated or installed the image.\n\n---\n\n官方 Lennox 生产接口报告了高于当前支持版本的新固件。请独立分析新版本后再更新补丁与哈希。监测仅查询元数据，未下载、验证或安装该固件。'
  });
  return 'created';
 }

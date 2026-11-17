@@ -49,6 +49,7 @@ public sealed partial class ConnectionPreviewWindow
    if(Environment.GetEnvironmentVariable("MIDDLETON_TRACE_SOUND")=="1")DeviceLog.Write("sound-ui-snapshot",new{latest?.SessionId,latest?.Connected,latest?.Volume,latest?.Bass,latest?.Treble});
    if(latest is {Connected:false})
    {
+    if(upgradeProgress?.State==InstallationState.Complete)RenderLiveUpgrade();
     this.FindControl<FirmwareChooser>("FirmwareChooser")!.LiveReady=false;
     SetConnectionMessage(UiText.Get("LiveConnection.Text.2504"));
     this.FindControl<FirmwareChooser>("FirmwareChooser")!.SetStatus(UiText.Get("LiveConnection.Text.2504"));

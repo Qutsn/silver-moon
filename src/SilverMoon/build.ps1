@@ -26,5 +26,15 @@ $arguments+='--no-restore'
 $arguments+="-p:PortableNoticesPath=$notices"
 & $DotnetExecutable @arguments *>> "$PSScriptRoot/build.log"
 $result=$LASTEXITCODE
+if($result -eq 0){
+    $publishedExe=Join-Path $output 'SilverMoon.exe'
+    if(Test-Path -LiteralPath $publishedExe){
+        # Research checkouts can carry a low-integrity label into generated
+        # files. The desktop app needs the user's normal integrity level to
+        # write its local recovery journal; this does not grant elevation.
+        & icacls.exe $publishedExe /setintegritylevel M *> "$PSScriptRoot/integrity.log"
+        if($LASTEXITCODE -ne 0){Write-Error 'Could not set the published executable integrity level.';$result=1}
+    }
+}
 Get-Content "$PSScriptRoot/build.log" -Tail 30
 exit $result

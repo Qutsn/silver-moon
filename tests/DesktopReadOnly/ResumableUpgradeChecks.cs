@@ -3,6 +3,77 @@ using System.Buffers.Binary;
 
 static class ResumableUpgradeChecks
 {
+ public static async Task CheckReplacementWithOldCompletion()
+ {
+  var bytes=File.ReadAllBytes(TestFirmware.R2);var descriptor=FirmwareCatalog.Analyze(bytes).Installable!;
+  foreach(int mode in new[]{0,1,2,3})
+  {
+   var link=new FakeLink(descriptor,false){AbortMode=mode};link.Orphan((byte)(mode==3?2:0));
+   var journal=new UpgradeJournal{Serial="test",Sha256=descriptor.Sha256,Started=true,CompleteInd=true,FinalRestartObserved=true,Validated=true,PartitionBoundary=true};
+   var oldId=journal.OperationId;
+   try{await new ResumableUpgrade(bytes,link,journal,_=>{},_=>{},_=>Task.CompletedTask).RunAsync(default);if(mode!=0)throw new Exception("Unsafe replacement accepted");}
+   catch(UpgradeProtocolException){if(mode==0)throw;}
+   if(mode==0 && (link.Aborts!=1 || !journal.Finished || journal.OperationId==oldId))throw new Exception("Old completion prevented replacement");
+   if(mode!=0 && (link.DataWrites!=0 || journal.OperationId!=oldId || (mode==3 && link.Aborts!=0)))throw new Exception("Failed abort lost evidence or sent data");
+  }
+  Console.WriteLine("PASS: old completion cannot bypass replacement; abort failure and late stages stay protected");
+ }
+ public static async Task CheckStaleTransfer()
+ {
+  var r2bytes=File.ReadAllBytes(TestFirmware.R2);var r2descriptor=FirmwareCatalog.Analyze(r2bytes).Installable!;
+  foreach(bool proof in new[]{false,true})
+  {
+   var r2link=new FakeLink(r2descriptor,false,"17.0.37");
+   var old=new UpgradeJournal{Serial="test",Sha256=r2descriptor.Sha256,CompleteInd=true,FinalRestartObserved=true,Validated=true,Started=true};
+   string operation=old.OperationId;int archives=0;
+   try{await new ResumableUpgrade(r2bytes,r2link,old,_=>{},_=>{},_=>Task.CompletedTask,(_,_)=>{archives++;return proof;}).RunAsync(default);if(!proof)throw new Exception("Unproven journal supersession accepted");}
+   catch(UpgradeProtocolException){if(proof)throw;}
+   if(archives!=1 || (proof && (!old.Finished || old.OperationId==operation)) || (!proof && (r2link.DataWrites!=0 || old.OperationId!=operation)))throw new Exception("Supersession policy failed");
+  }
+  var bytes=File.ReadAllBytes(TestFirmware.Official);var descriptor=FirmwareCatalog.Analyze(bytes).Installable!;
+  var link=new FakeLink(descriptor,false,"25.2.52");
+  var journal=new UpgradeJournal{Serial="test",Sha256=descriptor.Sha256,Started=true,ConfirmedFrontier=23216,AcknowledgedBytes=23216};
+  var previous=journal.OperationId;
+  await new ResumableUpgrade(bytes,link,journal,_=>{},_=>{},_=>Task.CompletedTask).RunAsync(default);
+  if(!journal.Finished || journal.OperationId==previous || journal.AcknowledgedBytes!=bytes.Length || link.Aborts!=0 || link.ResetCommands!=0)
+   throw new Exception("Stale transfer journal did not start a new full installation without abort/reset");
+  foreach(bool validated in new[]{false,true})
+  {
+   var guarded=new FakeLink(descriptor,false);
+   var late=new UpgradeJournal{Serial="test",Sha256=descriptor.Sha256,Started=true,ConfirmedFrontier=23216,PartitionBoundary=!validated,Validated=validated};
+   try{await new ResumableUpgrade(bytes,guarded,late,_=>{},_=>{}).RunAsync(default);throw new Exception("Late-stage journal discarded");}catch(UpgradeProtocolException){}
+   if(guarded.DataWrites!=0 || guarded.Aborts!=0 || guarded.ResetCommands!=0)throw new Exception("Late-stage mismatch touched firmware");
+  }
+  Console.WriteLine("PASS: stale transfer on initial idle starts anew; late-stage journal stays protected");
+ }
+ public static async Task CheckFinalIdentity()
+ {
+  var bytes=File.ReadAllBytes(TestFirmware.R2);var descriptor=FirmwareCatalog.Analyze(bytes).Installable!;
+  foreach(int badReads in new[]{1,6,999})
+  {
+   var link=new FakeLink(descriptor,false,descriptor.DisplayVersion){BadHardwareReads=badReads};
+   var journal=new UpgradeJournal{Serial="test",Sha256=descriptor.Sha256,CompleteInd=true,FinalRestartObserved=true};
+   try{await new ResumableUpgrade(bytes,link,journal,_=>{},_=>{},_=>Task.CompletedTask,finalReadbackBudget:TimeSpan.FromMilliseconds(500),finalReadbackDelay:ct=>Task.Delay(10,ct)).RunAsync(default);if(badReads==999)throw new Exception("Persistent hardware mismatch accepted");}
+   catch(UpgradeProtocolException){if(badReads!=999)throw;}
+   if(journal.Finished!=(badReads!=999) || link.Connections>60 || link.ResetCommands!=0 || link.Aborts!=0 || link.DataWrites!=0 || link.PsWrites!=0)
+    throw new Exception("Final identity recovery mutated device or exceeded retry limit");
+  }
+  var initial=new FakeLink(descriptor,false){BadHardwareReads=1};
+  try{await new ResumableUpgrade(bytes,initial,new(){Serial="test",Sha256=descriptor.Sha256},_=>{},_=>{}).RunAsync(default);throw new Exception("Initial unsupported hardware admitted");}catch(UpgradeProtocolException){}
+  if(initial.Connections!=1 || initial.DataWrites!=0)throw new Exception("Initial compatibility gate changed");
+  Console.WriteLine("PASS: final identity transient recovery, persistent rejection, initial gate and no device writes");
+ }
+ public static async Task CheckResetReconnect()
+ {
+  var bytes=File.ReadAllBytes(TestFirmware.R2);
+  var descriptor=FirmwareCatalog.Analyze(bytes).Installable!;
+  var link=new FakeLink(descriptor,false){FailAfterReset=true};
+  var journal=new UpgradeJournal{Serial="test",Sha256=descriptor.Sha256};
+  await new ResumableUpgrade(bytes,link,journal,_=>{},_=>{},_=>Task.CompletedTask).RunAsync(default);
+  if(!journal.Finished || link.ResetCommands!=1 || !link.ResetReconnectFailed)
+   throw new Exception($"Reset recovery must reconnect without resetting again: resets={link.ResetCommands}");
+  Console.WriteLine("PASS: acknowledged reset survives reconnect failure without a second reset");
+ }
  public static Task CheckStalledCommit()=>Task.WhenAll(CheckStalledCommit(false),CheckStalledCommit(true));
  static async Task CheckStalledCommit(bool stalledNotification)
  {
@@ -25,6 +96,9 @@ static class ResumableUpgradeChecks
  public static async Task Run()
  {
   if(TestFirmware.SkipMaterialChecks){Console.WriteLine("SKIP: real package resume checks");return;}
+  await CheckStaleTransfer();
+  await CheckFinalIdentity();
+  await CheckResetReconnect();
   var files=new[]{TestFirmware.Official,TestFirmware.R2};
   var images=files.Select(File.ReadAllBytes).ToList();
   // A package with its own image ID must execute the complete staged path and
@@ -89,6 +163,8 @@ static class ResumableUpgradeChecks
   public bool RejectRestartWait;
   public bool StallCommit;
   public bool StallCommitNotification;
+  public bool FailAfterReset,ResetReconnectFailed;
+  public int ResetCommands, BadHardwareReads;
   int commitAttempts;
   public void TrialBoot(){SetIdentity();ps[27]=3;ps[29]=10;}
   public async Task WaitForDeviceDisconnectAsync(CancellationToken ct){if(RejectRestartWait)throw new TimeoutException("No device reboot");await Task.Delay(20,ct);WaitedForRestart=true;}
@@ -105,13 +181,14 @@ static class ResumableUpgradeChecks
   }
   void SetIdentity(){var id=Convert.FromHexString(firmware.UpgradeId);ps[22]=id[2];ps[23]=id[3];ps[24]=id[0];ps[25]=id[1];ps[15]=5;ps[17]=2;}
   void Message(byte code,byte[]? data=null)=>messages.Enqueue(new(code,data??Array.Empty<byte>()));
-  public Task<UpgradeIdentity> ReconnectAsync(CancellationToken ct){Connections++;messages.Clear();return Task.FromResult(new UpgradeIdentity("MIDDLETON","test",version,"3.0.2"));}
+  public Task<UpgradeIdentity> ReconnectAsync(CancellationToken ct){Connections++;messages.Clear();if(FailAfterReset && ResetCommands>0 && !ResetReconnectFailed){ResetReconnectFailed=true;throw new UpgradeLinkLostException("Injected GAIA discovery AccessDenied after reset ACK");}return Task.FromResult(new UpgradeIdentity("MIDDLETON","test",version,Connections<=BadHardwareReads?"2.0.0":"3.0.2"));}
   public Task<GaiaAcknowledgement> CommandAsync(ushort command,ReadOnlyMemory<byte> payload,CancellationToken ct)
   {
    ct.ThrowIfCancellationRequested();byte[] response=Array.Empty<byte>();
    if(command==0x0640){byte status=sessionOpen?(byte)6:(byte)0;sessionOpen=true;return Task.FromResult(new GaiaAcknowledgement(command,status,response));}
    if(command==0x0641){sessionOpen=false;return Task.FromResult(new GaiaAcknowledgement(command,0,response));}
    if(command==0x0710){response=new byte[40];response[1]=4;ps.CopyTo(response,2);}
+   else if(command==0x0202){ResetCommands++;}
    else if(command==0x0712){PsWrites++;if(payload.Length!=78)throw new Exception("Unpadded PS4 write");ps=payload.Slice(2,38).ToArray();}
    else if(command==0x0642)
    {

@@ -22,6 +22,7 @@ public sealed partial class FirmwareRiskWindow : UserControl
  {
   this.source=source;this.sourceVisibility=sourceVisibility;
   AvaloniaXamlLoader.Load(this);
+  InitializeSmoothScroll();
   if(this.FindControl<Border>("DialogCard")!.Opacity!=0 || this.FindControl<Border>("Shade")!.Opacity!=0)
    throw new InvalidOperationException("Dialog must start hidden before attachment");
   this.FindControl<TextBlock>("FirmwareName")!.Text=firmware;
@@ -34,6 +35,31 @@ public sealed partial class FirmwareRiskWindow : UserControl
   KeyDown+=async(_,e)=>{if(e.Key==Key.Escape){e.Handled=true;await Finish(false);}};
   AttachedToVisualTree+=async(_,_)=>{await Avalonia.Threading.Dispatcher.UIThread.InvokeAsync(()=>{},Avalonia.Threading.DispatcherPriority.Loaded);await Motion(true);opening=false;if(!closing)this.FindControl<Button>("CancelButton")!.Focus();};
   DetachedFromVisualTree+=(_,_)=>{detached=true;sourceVisibility?.Invoke(true);result.TrySetResult(false);};
+ }
+ void InitializeSmoothScroll()
+ {
+  var viewer=this.FindControl<ScrollViewer>("DetailsScroll")!;
+  int generation=0;bool animating=false;double destination=0;
+  viewer.AddHandler(InputElement.PointerWheelChangedEvent,(_,e)=>
+  {
+   double maximum=Math.Max(0,viewer.Extent.Height-viewer.Viewport.Height);
+   if(maximum<=0 || Math.Abs(e.Delta.Y)<.001)return;
+   double start=viewer.Offset.Y;
+   destination=Math.Clamp((animating?destination:start)-e.Delta.Y*76,0,maximum);
+   double target=destination;int current=++generation;animating=true;e.Handled=true;
+   var top=TopLevel.GetTopLevel(this);if(top is null){animating=false;return;}
+   var watch=Stopwatch.StartNew();
+   void Frame(TimeSpan _)
+   {
+    if(detached || current!=generation)return;
+    double t=Math.Clamp(watch.Elapsed.TotalMilliseconds/260,0,1);
+    double eased=1-Math.Pow(1-t,3);
+    viewer.Offset=new Vector(0,Math.Clamp(start+(target-start)*eased,0,Math.Max(0,viewer.Extent.Height-viewer.Viewport.Height)));
+    if(t<1)top.RequestAnimationFrame(Frame);else animating=false;
+   }
+   top.RequestAnimationFrame(Frame);
+  },Avalonia.Interactivity.RoutingStrategies.Tunnel);
+  viewer.AddHandler(InputElement.PointerPressedEvent,(_,_)=>{generation++;animating=false;},Avalonia.Interactivity.RoutingStrategies.Tunnel);
  }
  async Task ToggleDetails(string buttonName,string frameName)
  {

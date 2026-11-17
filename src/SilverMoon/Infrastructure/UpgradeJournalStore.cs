@@ -44,5 +44,29 @@ public sealed class UpgradeJournalStore : IDisposable
   {JsonSerializer.Serialize(file,journal);file.Flush(true);}
   File.Move(temporary,path,true);
  }
+ // Called only after a fresh, identity-checked idle read. A later completed
+ // official rollback can supersede an old r2 final-readback record. Version
+ // mismatch alone is never enough to discard recovery evidence.
+ public bool ArchiveSuperseded(UpgradeJournal journal,UpgradeIdentity identity)
+ {
+  const string officialSha="db74c3468bd08d61f3a4e4e4e9e6eea9b19d95d6e852b9fd5e9cbac3e91c9472";
+  if(identity.Model!="MIDDLETON" || identity.Serial!=journal.Serial || identity.Firmware!="17.0.37"
+     || journal.Sha256==officialSha || !journal.CompleteInd || !journal.FinalRestartObserved || !File.Exists(path))return false;
+  string key=Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(journal.Serial+":"+officialSha)));
+  string other=Path.Combine(Path.GetDirectoryName(path)!,key+".json");
+  // File timestamps are not chronology: earlier UI versions rewrote the old
+  // journal on every retry. Require current official identity plus its complete
+  // installation evidence instead, while the caller requires fresh idle state.
+  if(!File.Exists(other))return false;
+  using var file=new FileStream(other,FileMode.Open,FileAccess.Read,FileShare.Read);
+  if(file.Length is <=0 or >MaximumJournalBytes)return false;
+  UpgradeJournal? completed;
+  try{completed=JsonSerializer.Deserialize<UpgradeJournal>(file);}catch(JsonException){return false;}
+  if(completed is not {Finished:true,CompleteInd:true,FinalRestartObserved:true}
+     || completed.Serial!=journal.Serial || completed.Sha256!=officialSha)return false;
+  // Preserve the exact old evidence before the coordinator starts a new operation.
+  File.Copy(path,path+".superseded-"+Guid.NewGuid().ToString("N"),false);
+  return true;
+ }
  public void Dispose()=>ownership.Dispose();
 }
