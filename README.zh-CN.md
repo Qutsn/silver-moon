@@ -45,7 +45,8 @@
 4. [固件下载与准备](docs/zh-CN/04-OFFICIAL-FIRMWARE-PREPARATION.md)
 5. [第三方固件规范](docs/zh-CN/05-THIRD-PARTY-FIRMWARE-GUIDE.md)
 6. [持久化设置与研究结论](docs/zh-CN/09-PERSISTENT-CONFIGURATION.md)
-7. [证据与复现验证](docs/zh-CN/08-EVIDENCE-AND-VERIFICATION.md)
+7. [研究结论与已排除的方法](docs/zh-CN/10-RESEARCH-FINDINGS.md)
+8. [证据与复现验证](docs/zh-CN/08-EVIDENCE-AND-VERIFICATION.md)
 
 支持 Middleton 官方 17.0.37 与项目 r2（显示版本 25.2.52）。补丁不会关闭全部电源保护机制。第三方文件通过规范检查不代表固件功能正常。
 

@@ -52,7 +52,7 @@ The source-only mode explicitly skips real-firmware-dependent checks; it is not 
 
 Portable EXE offline UI modes include `--preview --connection --discovery-smoke`, `--connection-smoke`, and `--sound-ui-smoke` (keep `--preview --connection` for each). These do not connect to a real speaker. Packaging validation uses `--portable-smoke <report-path>` and checks bundled resources/licenses and worker launch without BLE operations.
 
-Scripts prefer an installed SDK; a local research toolchain is a development fallback. NuGet.Config uses nuget.org. The export script selects public source explicitly, excluding Git history, firmware and diagnostic logs. The firmware-free build does not require unpublished firmware binaries or personal logs; material-dependent tests require the specified firmware inputs.
+Scripts prefer an installed SDK; a local research toolchain is a development fallback. NuGet.Config uses nuget.org. The firmware-free build does not require unpublished firmware binaries or personal logs; material-dependent tests require the specified firmware inputs.
 
 ## Publication and review limits
 

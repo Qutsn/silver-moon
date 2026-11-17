@@ -3,11 +3,11 @@
 
 The release is a Windows x64, self-contained single EXE (`SilverMoon.exe`). A compressed single-file candidate can be built with `-CompressSingleFile`; compression reduces the bundle size but can increase first-launch extraction work. Exact size depends on dependencies and whether firmware is bundled. It requires Windows 10 2004 / build 19041 or newer. The receiving computer does not need a .NET installation. .NET extracts the bundled runtime, native libraries, assets and any bundled firmware into its per-user cache on first launch; single-file delivery does not mean execution without extraction. Do not launch from a directory carrying a Low integrity label.
 
-The historical system-dotnet forwarding workaround has been removed. The application and private upgrade worker launch the same EXE. Pairing failures were traced to Low file/process integrity; see [pairing evidence](../../docs/en/03-BLUETOOTH-AND-WINDOWS.md). No privilege elevation or changes to Windows Bluetooth settings are required by the packaging flow.
+The application and upgrade worker launch the same EXE. Packaging checks Windows integrity labels because Low integrity can prevent access to the per-user extraction cache and recovery journal; see [Windows process and pairing behavior](../../docs/en/03-BLUETOOTH-AND-WINDOWS.md). The packaging flow does not require elevation or changes to Windows Bluetooth settings.
 
 ## Build prerequisites
 
-Use Windows x64, PowerShell 7 and the .NET 10 SDK or newer. `NuGet.Config` restores from public nuget.org. The script selects an installed SDK; if none exists, it falls back to the repository's ignored local toolchain. `-UseBundledSdk` selects the local fallback explicitly. The application targets .NET 10 LTS; .NET 8 reached end of support on 2026-11-10 and is no longer the release target.
+Use Windows x64, PowerShell 7 and the .NET 10 SDK or newer. `NuGet.Config` restores from public nuget.org. The script selects an installed SDK; if none exists, it falls back to the repository's ignored local toolchain. `-UseBundledSdk` selects the local fallback explicitly. The application targets .NET 10 LTS.
 
 Run scripts in a separate PowerShell process because build/test scripts return their result with `exit`. Always publish to a new or empty directory:
 
@@ -22,7 +22,7 @@ pwsh -NoProfile -File ./src/SilverMoon/verify-portable.ps1 `
   -PublishedDirectory ./src/SilverMoon/publish-portable-new
 ```
 
-The firmware path arguments are optional in the existing research checkout, where historical paths remain defaults. A build with bundled firmware requires both exact hash-matching materials. The public on-demand-download build uses -WithoutBundledFirmware and requires neither material at build time. The build verifies SHA-256 before bundling:
+For a build with bundled firmware, provide both exact hash-matching materials through the explicit path arguments. The public on-demand-download build uses -WithoutBundledFirmware and requires neither material at build time. The build verifies SHA-256 before bundling:
 
 | Material | SHA-256 |
 |---|---|
@@ -48,4 +48,4 @@ This mode prints explicit skips for tests that require genuine package bytes. Sk
 
 Run UI checks from that externally staged EXE using `--preview --connection --discovery-smoke`, `--preview --connection --connection-smoke` and `--preview --connection --sound-ui-smoke`. These are simulated UI checks, not a real device upgrade or proof of clean-machine compatibility. A clean-machine verification procedure should cover startup, Chinese/English display, discovery, and a protected uncached read after first pairing. Actual flashing is a separate acceptance step.
 
-The fixed working release remains `desktop-release/current/SilverMoon.exe`. Building and verifying a new portable EXE do not replace it. To replace it later, close the app and explicitly run `stage-release.ps1 -PublishedDirectory <new publish directory>`. That existing deployment flow stages outside the checkout, checks labels/hashes, preserves `previous`, and recycles an older previous copy. Do not run it merely to validate a candidate.
+For optional local deployment, close the app and run `stage-release.ps1 -PublishedDirectory <publish directory>`. The script stages outside the checkout, checks integrity labels and hashes, preserves the previous version, and recycles an older backup. Building or validating a package does not run this deployment step.

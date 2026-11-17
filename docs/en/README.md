@@ -15,7 +15,6 @@ These documents describe the supported Middleton images, implemented constraints
 | 07 | [UI localization](07-UI-LOCALIZATION.md) | Culture selection, catalogs, translation and extension |
 | 08 | [Evidence and verification](08-EVIDENCE-AND-VERIFICATION.md) | Reproduction, physical-test records and interpretation limits |
 | 09 | [Persistent configuration and side effects](09-PERSISTENT-CONFIGURATION.md) | PS keys, timer references, schema index and unsuccessful probes |
+| 10 | [Research findings and rejected approaches](10-RESEARCH-FINDINGS.md) | Corrected assumptions, official App analysis and sleep-configuration extension points |
 
 Every numbered document links to its counterpart. Source/test links use repository-relative paths so they follow the revision being read. Review a specific commit for a stable reference. Protocol installation success and functional firmware correctness are different claims.
-
-[10 · Research findings and rejected approaches](10-RESEARCH-FINDINGS.md): corrected assumptions, official App analysis and unimplemented sleep-configuration extension points.
