@@ -4,6 +4,21 @@
 
 [下载](https://github.com/RougeNuage/silver-moon/releases) · [English](README.md)
 
+## 界面预览
+
+<table>
+  <tr>
+    <td width="50%" align="center"><a href="docs/images/zh-CN/start.webp"><img src="docs/images/zh-CN/start.webp" alt="启动页" width="100%"></a><br>启动页</td>
+    <td width="50%" align="center"><a href="docs/images/zh-CN/firmware.webp"><img src="docs/images/zh-CN/firmware.webp" alt="选择固件" width="100%"></a><br>选择固件</td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><a href="docs/images/zh-CN/transfer.webp"><img src="docs/images/zh-CN/transfer.webp" alt="传输固件 · 22%" width="100%"></a><br>传输固件 · 22%</td>
+    <td width="50%" align="center"><a href="docs/images/zh-CN/details.webp"><img src="docs/images/zh-CN/details.webp" alt="音箱详情" width="100%"></a><br>音箱详情</td>
+  </tr>
+</table>
+
+界面预览使用示例数据；点击图片可查看大图。
+
 ## 项目初衷
 
 项目最初来自一个很具体的不满：音箱为什么不能按照用户自己的喜好去设置 AUX 的休眠时间，去设置音箱的自动关机时间？所有这些都是厂商帮你设置好的，且不允许你去修改，不管你喜不喜欢这些设置，用户没有选择。我做的是把这些选择交还给拥有设备的人。

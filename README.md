@@ -4,6 +4,21 @@ Flash modified Middleton firmware to disable AUX sleep and auto-off.
 
 [Download](https://github.com/RougeNuage/silver-moon/releases) · [中文](#中文)
 
+## Interface
+
+<table>
+  <tr>
+    <td width="50%" align="center"><a href="docs/images/en/start.webp"><img src="docs/images/en/start.webp" alt="Start" width="100%"></a><br>Start</td>
+    <td width="50%" align="center"><a href="docs/images/en/firmware.webp"><img src="docs/images/en/firmware.webp" alt="Choose firmware" width="100%"></a><br>Choose firmware</td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><a href="docs/images/en/transfer.webp"><img src="docs/images/en/transfer.webp" alt="Firmware transfer · 22%" width="100%"></a><br>Firmware transfer · 22%</td>
+    <td width="50%" align="center"><a href="docs/images/en/details.webp"><img src="docs/images/en/details.webp" alt="Speaker details" width="100%"></a><br>Speaker details</td>
+  </tr>
+</table>
+
+Interface previews use sample data. Click an image to enlarge.
+
 ## Why Silver Moon
 
 This project began with a very specific frustration: why can't users set the AUX sleep timer and the speaker's automatic shutdown timer to suit their own preferences? The manufacturer has already made these decisions and does not let users change them. Whether or not those settings suit you, you have no choice. My goal is to put those choices back in the hands of the people who own the device.
@@ -74,6 +89,21 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 为 Middleton 刷入修改版固件，以去除官方固件中恼人的 AUX 频繁休眠和自动关机功能。
 
 [下载](https://github.com/RougeNuage/silver-moon/releases) · [English](#silver-moon)
+
+## 界面预览
+
+<table>
+  <tr>
+    <td width="50%" align="center"><a href="docs/images/zh-CN/start.webp"><img src="docs/images/zh-CN/start.webp" alt="启动页" width="100%"></a><br>启动页</td>
+    <td width="50%" align="center"><a href="docs/images/zh-CN/firmware.webp"><img src="docs/images/zh-CN/firmware.webp" alt="选择固件" width="100%"></a><br>选择固件</td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><a href="docs/images/zh-CN/transfer.webp"><img src="docs/images/zh-CN/transfer.webp" alt="传输固件 · 22%" width="100%"></a><br>传输固件 · 22%</td>
+    <td width="50%" align="center"><a href="docs/images/zh-CN/details.webp"><img src="docs/images/zh-CN/details.webp" alt="音箱详情" width="100%"></a><br>音箱详情</td>
+  </tr>
+</table>
+
+界面预览使用示例数据；点击图片可查看大图。
 
 ## 项目初衷
 
