@@ -46,6 +46,18 @@ Yes. On the first-generation Middleton, Silver Moon installs modified firmware t
 
 These behaviors are also described as auto standby or automatic power-off. The patch does not fix every cause of audio cutting out or unexpected shutdown. See [sleep behavior and firmware patches](docs/en/01-FIRMWARE-PATCHES.md).
 
+**Can I customize the sleep or automatic power-off timers?**
+
+Not yet. The current patch only disables AUX sleep and ten-minute auto-off; it does not let you set custom durations.
+
+**Can I add more features or customize more settings?**
+
+That requires research and firmware changes for each feature. The app can install modifications that meet the [third-party firmware specification](docs/en/05-THIRD-PARTY-FIRMWARE-GUIDE.md), but the permitted changes are limited. It does not guarantee that a new feature is feasible or will work.
+
+**Is Middleton the only supported speaker? Will other Marshall models be supported?**
+
+Only the first-generation Middleton is currently supported. The architecture provides extension points for additional models, but I do not own other models for adaptation and hardware testing. Developers with those devices are welcome to [contribute support](CONTRIBUTING.md); no specific models or dates are promised.
+
 ## How it works
 
 1. **Connect**. Open `SilverMoon.exe`, turn on the speaker, and select its LE device. The app handles pairing and checks device compatibility.
@@ -138,6 +150,18 @@ Project-owned code is licensed under [GPL-3.0-only](LICENSE). Distributed deriva
 可以。Silver Moon 为第一代 Middleton 安装修改版固件，禁用 AUX 休眠与十分钟闲置自动关机，解决通过 AUX 当电脑音箱使用时不希望它休眠或自动关机的问题，无需后台持续播放音频来保持唤醒。
 
 这类行为也常被称为自动待机或闲置关机。补丁并不解决所有原因造成的声音中断或异常关机，详见[休眠逻辑与固件修改](docs/zh-CN/01-FIRMWARE-PATCHES.md)。
+
+**支持自定义休眠或自动关机时间吗？**
+
+暂不支持。当前补丁仅关闭 AUX 休眠与十分钟自动关机，不能设置具体时长。
+
+**能为音箱添加更多功能或自定义更多设置吗？**
+
+这需要针对具体功能研究和修改固件。软件可安装符合[第三方固件规范](docs/zh-CN/05-THIRD-PARTY-FIRMWARE-GUIDE.md)的修改包，但允许修改的范围有限，也不保证新增功能可行或正常工作。
+
+**只支持 Middleton 吗？未来会支持其他 Marshall 音箱吗？**
+
+目前仅支持第一代 Middleton。软件结构预留了型号扩展入口，但我没有其他型号可用于适配和实机验证。欢迎拥有相关设备的开发者[参与适配](CONTRIBUTING.md)，暂不承诺具体型号或时间。
 
 ## 使用流程
 
